@@ -1,0 +1,37 @@
+automate_mining_planet = {
+	category = "planet_automation_designation_construction"
+
+	emergency = yes
+	available = {
+		has_mining_designation = yes
+        any_owned_pop_group = {
+			OR = {
+				is_pop_category = civilian
+				is_pop_category = maintenance_drone
+			}
+        }
+	}
+
+	prio_districts = {
+		district_mining
+		district_hab_mining
+	}
+
+	prio_zones = {
+		zone_minerals
+	}
+
+	buildings = {
+		1 = {
+			building = building_crystal_mines
+		}
+
+		2 = {
+			building = building_mineral_purification_plant
+		}
+
+		3 = {
+			building = building_mining_districts_1
+		}
+	}
+}

@@ -1,0 +1,49 @@
+automate_foundry_planet = {
+	category = "planet_automation_designation_construction"
+
+	emergency = yes
+	available = {
+		has_foundry_designation = yes
+        any_owned_pop_group = {
+			OR = {
+				is_pop_category = civilian
+				is_pop_category = maintenance_drone
+			}
+        }
+	}
+
+	prio_districts = {
+		district_city
+		district_hive
+		district_nexus
+		district_arcology_housing
+		district_rw_city
+		district_hab_housing
+	}
+	
+	prio_zones = {
+		zone_foundry
+	}
+
+	buildings = {
+		1 = {
+			building = building_ministry_production
+		}
+
+		2 = {
+			building = building_production_center
+		}
+				
+		3 = {
+			building = building_foundry_efficiency_1
+		}
+				
+		4 = {
+			building = building_foundry_upkeep_1
+		}
+		
+		5 = {
+			building = building_foundry_1
+		}
+	}
+}

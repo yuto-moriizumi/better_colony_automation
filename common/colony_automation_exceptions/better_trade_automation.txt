@@ -1,0 +1,41 @@
+automate_trade_planet = {
+	category = "planet_automation_designation_construction"
+
+	emergency = yes
+	available = {
+		has_trade_designation = yes
+        any_owned_pop_group = {
+			OR = {
+				is_pop_category = civilian
+				is_pop_category = maintenance_drone
+			}
+        }
+	}
+
+	prio_districts = {
+		district_city
+		district_hive
+		district_nexus
+		district_arcology_housing
+		district_rw_city
+		district_hab_housing
+	}
+	
+	prio_zones = {
+		zone_trade
+	}
+
+	buildings = {
+		1 = {
+			building = building_galactic_stock_exchange
+		}
+		
+		2 = {
+			building = building_commercial_megaplex
+		}
+
+		3 = {
+			building = building_commercial_zone
+		}
+	}
+}

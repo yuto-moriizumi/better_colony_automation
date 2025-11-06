@@ -1,0 +1,33 @@
+automate_farming_habitat_planet = {
+	category = "planet_automation_designation_construction"
+
+	emergency = yes
+	available = {
+		has_farming_designation = yes
+		uses_district_set = habitat
+        any_owned_pop_group = {
+			OR = {
+				is_pop_category = civilian
+				is_pop_category = maintenance_drone
+			}
+        }
+	}
+
+	prio_districts = {
+		district_hab_housing
+	}
+
+	prio_zones = {
+		zone_urban
+	}
+
+	buildings = {
+		1 = {
+			building = building_food_processing_facility
+        }
+
+		2 = {
+			building = building_hydroponics_farm
+		}
+	}
+}
