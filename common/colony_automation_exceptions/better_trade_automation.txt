@@ -26,13 +26,6 @@ automate_trade_planet = {
 	}
 
 	buildings = {
-		1 = {
-			building = building_galactic_stock_exchange
-		}
-		
-		2 = {
-			building = building_commercial_megaplex
-		}
 
 		3 = {
 			building = building_commercial_zone

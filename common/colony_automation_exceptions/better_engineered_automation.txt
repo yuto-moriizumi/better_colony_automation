@@ -7,6 +7,10 @@ automate_engineered_autobuild = {
             has_ascension_perk = ap_engineered_evolution
 		}
 	}
+	
+    prio_zones = {
+        zone_trade_arcology
+	}
 
 	buildings = {
         # 基因组研究所
@@ -23,3 +27,4 @@ automate_engineered_autobuild = {
         }
 	}
 }
+
