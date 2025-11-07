@@ -26,23 +26,33 @@ automate_foundry_planet = {
 	}
 
 	buildings = {
+        # 生产部
 		1 = {
 			building = building_ministry_production
 		}
 
+        # 资源处理中心（完全不知道的建筑）
 		2 = {
 			building = building_production_center
 		}
 				
+        # 冶金研究实验室
 		3 = {
 			building = building_foundry_efficiency_1
 		}
 				
-		4 = {
-			building = building_foundry_upkeep_1
-		}
+        # 合金回收厂
+		# 4 = {
+		# 	building = building_foundry_upkeep_1
+		# }
 		
+        # 超级铸造厂
 		5 = {
+			building = building_micro_forge
+		}
+
+        # 合金铸造厂
+		6 = {
 			building = building_foundry_1
 		}
 	}

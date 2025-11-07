@@ -1,0 +1,23 @@
+better_automate_factory_planet_1 = {
+	category = "planet_automation_designation_construction"
+
+	emergency = yes
+	available = {
+		has_factory_designation = yes
+        any_owned_pop_group = {
+			OR = {
+				is_pop_category = civilian
+				is_pop_category = maintenance_drone
+			}
+        }
+	}
+
+	prio_zones = {
+		zone_factory
+        zone_factory_arcology
+        zone_factory_ring_world
+        zone_factory_nexus
+        zone_factory_hive
+	}
+
+}

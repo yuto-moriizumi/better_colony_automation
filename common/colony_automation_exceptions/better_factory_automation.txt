@@ -1,4 +1,5 @@
-automate_factory_planet = {
+# 消费品自动化
+better_automate_factory_planet = {
 	category = "planet_automation_designation_construction"
 
 	emergency = yes
@@ -38,11 +39,16 @@ automate_factory_planet = {
 			building = building_factory_efficiency_1
 		}
 				
-		4 = {
-			building = building_factory_upkeep_1
-		}
+		# 4 = {
+		# 	building = building_factory_upkeep_1
+		# }
 
-		5 = {
+        # 富足商埠
+        5 = {
+            building = building_affluence_emporium
+        }
+
+		6 = {
 			building = building_factory_1 
 		}
 	}

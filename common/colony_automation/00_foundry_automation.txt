@@ -1,0 +1,23 @@
+better_automate_foundry_planet_1 = {
+	category = "planet_automation_designation_construction"
+
+	emergency = yes
+	available = {
+		has_foundry_designation = yes
+        any_owned_pop_group = {
+			OR = {
+				is_pop_category = civilian
+				is_pop_category = maintenance_drone
+			}
+        }
+	}
+
+	prio_zones = {
+		zone_foundry
+        zone_foundry_arcology
+        zone_foundry_ring_world
+        zone_foundry_nexus
+        zone_foundry_hive
+	}
+
+}

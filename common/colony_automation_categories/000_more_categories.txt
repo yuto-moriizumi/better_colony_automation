@@ -10,7 +10,4 @@ planet_automation_engineered = {
 
 # 一直显示，高级殖民地自动造下面三个
 planet_automation_better_colony = {
-	available = {
-		exists = owner
-	}
 }

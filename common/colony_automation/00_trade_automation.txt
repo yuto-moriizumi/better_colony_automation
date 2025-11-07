@@ -1,0 +1,16 @@
+better_automate_trade_planet_1 = {
+	category = "planet_automation_designation_construction"
+
+	emergency = yes
+	available = {
+		has_factory_designation = yes
+	}
+
+	prio_zones = {
+        zone_trade_arcology
+        zone_trade_ring_world
+        zone_trade_nexus
+        zone_trade_hive
+	}
+
+}

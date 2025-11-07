@@ -1,0 +1,16 @@
+# automate_bt_colony_trade = {
+# 	category = "planet_automation_better_colony"
+# 	
+#     emergency = yes
+# 
+# 	available = {
+#     }
+# 
+#     prio_zones = {
+#         zone_trade_arcology
+#         zone_trade_ring_world
+#         zone_trade_nexus
+#         zone_trade_hive
+#     }
+# }
+# 
