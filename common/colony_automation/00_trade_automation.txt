@@ -8,10 +8,6 @@ better_automate_trade_planet_1 = {
 
 	prio_zones = {
 		zone_trade
-        zone_trade_arcology
-        zone_trade_ring_world
-        zone_trade_nexus
-        zone_trade_hive
 	}
 
 }

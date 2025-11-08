@@ -1,27 +1,58 @@
-# automate_bt_colony_trade = {
-# 	category = "planet_automation_better_colony"
-# 	
-#     emergency = yes
-# 
-# 	available = {
-#     }
-# 
-#     prio_zones = {
-#         zone_trade_arcology
-#         zone_trade_ring_world
-#         zone_trade_nexus
-#         zone_trade_hive
-#     }
-# }
+automate_bt_colony_trade = {
+	category = "planet_automation_designation_construction"
+	
+    emergency = yes
+
+	available = {
+        OR = {
+            has_trade_designation = yes
+            has_bt_trade_designation = yes
+        }
+    }
+
+    prio_zones = {
+        zone_trade_arcology
+        zone_trade_ring_world
+        zone_trade_nexus
+        zone_trade_hive
+    }
+}
 
 automate_silo = {
- 	category = "planet_automation_better_colony"
+ 	category = "planet_automation_silo"
 
  	available = {
     }
     prio_zones = {
-		zone_energy
 		zone_minerals
 		zone_food
+    }
+}
+
+automate_silo_1 = {
+ 	category = "planet_automation_silo"
+
+ 	available = {
+        NOR = {
+            has_designation = col_habitat_farming
+            has_designation = col_habitat_gestalt_farming
+        }
+    }
+    prio_zones = {
+		zone_energy
+    }
+}
+
+automate_silo_2 = {
+ 	category = "planet_automation_silo"
+
+ 	available = {
+        OR = {
+            has_designation = col_habitat_farming
+            has_designation = col_habitat_gestalt_farming
+        }
+    }
+    prio_zones = {
+        zone_habitat_hydroponics
     }
 }

@@ -1,283 +1,283 @@
-# @stickiness = 10
-# @stickiness_low = 5
-# @zone_urban = 100
-# @zone_rural = 10
-# @rural_max_size = 13
-# @rural_over_max_size = -20
-# 
-# 
-# # 铸造理想城-贸易
-# col_ecu_foundry_trade = {
-# 	icon = GFX_colony_type_foundry
-# 
-# 	potential = {
-# 		uses_district_set = city_world
-# 		is_capital = no
-# 	}
-# 
-# 	planet_modifier = {
-# 		planet_building_foundry_1_build_speed_mult = 0.25
-# 		planet_district_arcology_arms_industry_build_speed_mult = 0.25
-# 		planet_metallurgists_upkeep_mult = -0.2
-# 	}
-# 
-# 	triggered_planet_modifier = {
-# 		potential = {
-# 			exists = owner_or_space_owner
-# 			owner_or_space_owner = {
-# 				is_galactic_community_member = yes
-# 			}
-# 			OR = {
-# 				is_active_resolution = "resolution_industry_environmental_ordinance_waivers"
-# 				is_active_resolution = "resolution_industry_project_cornucopia"
-# 			}
-# 		}
-# 		modifier = {
-# 			planet_metallurgists_produces_mult = 0.05
-# 		}
-# 	}
-# 
-# 	weight_modifier = {
-# 		modifier = {
-# 			add = @stickiness
-# 			has_designation = col_ecu_foundry
-# 		}
-# 		complex_trigger_modifier = {
-# 			trigger = num_districts
-# 			parameters = {
-# 				type = district_arcology_arms_industry
-# 			}
-# 			mode = add
-# 			mult = 8
-# 		}
-# 		complex_trigger_modifier = {
-# 			trigger = num_districts
-# 			parameters = {
-# 				type = district_arcology_civilian_industry
-# 			}
-# 			mode = add
-# 			mult = -3
-# 		}
-# 		modifier = {
-# 			num_zones = {
-# 				type = zone_foundry
-# 				value > 0
-# 			}
-# 			num_zones = {
-# 				type = zone_factory
-# 				value = 0
-# 			}
-# 			add = @zone_urban
-# 		}
-# 	}
-# }
-# 
-# 
-# # 消费品理想城
-# col_ecu_factory_trade = {
-# 	icon = GFX_colony_type_factory
-# 
-# 	potential = {
-# 		uses_district_set = city_world
-# 		exists = owner_or_space_owner
-# 		owner_or_space_owner = { country_uses_consumer_goods = yes }
-# 		is_capital = no
-# 	}
-# 
-# 	planet_modifier = {
-# 		planet_building_factory_1_build_speed_mult = 0.25
-# 		planet_district_arcology_civilian_industry_build_speed_mult = 0.25
-# 		planet_artisans_upkeep_mult = -0.2
-# 	}
-# 
-# 	triggered_planet_modifier = {
-# 		potential = {
-# 			exists = owner_or_space_owner
-# 			owner_or_space_owner = {
-# 				is_galactic_community_member = yes
-# 			}
-# 			OR = {
-# 				is_active_resolution = "resolution_industry_environmental_ordinance_waivers"
-# 				is_active_resolution = "resolution_industry_project_cornucopia"
-# 			}
-# 		}
-# 		modifier = {
-# 			planet_artisans_produces_mult = 0.05
-# 		}
-# 	}
-# 
-# 	weight_modifier = {
-# 		modifier = {
-# 			add = @stickiness
-# 			has_designation = col_ecu_factory
-# 		}
-# 		complex_trigger_modifier = {
-# 			trigger = num_districts
-# 			parameters = {
-# 				type = district_arcology_civilian_industry
-# 			}
-# 			mode = add
-# 			mult = 8
-# 		}
-# 		complex_trigger_modifier = {
-# 			trigger = num_districts
-# 			parameters = {
-# 				type = district_arcology_arms_industry
-# 			}
-# 			mode = add
-# 			mult = -3
-# 		}
-# 		modifier = {
-# 			num_zones = {
-# 				type = zone_foundry
-# 				value = 0
-# 			}
-# 			num_zones = {
-# 				type = zone_factory
-# 				value > 0
-# 			}
-# 			add = @zone_urban
-# 		}
-# 	}
-# }
-# 
-# # 铸造星球
-# col_foundry = {
-# 	icon = GFX_colony_type_foundry
-# 
-# 	potential = {
-# 		exists = owner_or_space_owner
-# 		NOR = {
-# 			uses_district_set = city_world
-# 			uses_district_set = habitat
-# 			uses_district_set = machine_world
-# 			uses_district_set = hive_world
-# 			uses_district_set = cosmogenesis_world
-# 		}
-# 		owner_or_space_owner = { is_wilderness_empire = no }
-# 		is_special_colony_type = no
-# 		is_capital = no
-# 		NOT = { is_planet_class = pc_nanotech }
-# 	}
-# 
-# 	planet_modifier = {
-# 		planet_metallurgists_upkeep_mult = -0.20
-# 	}
-# 
-# 	triggered_planet_modifier = {
-# 		potential = { uses_district_set = ring_world }
-# 		logistic_growth_mult = 0.1
-# 		planet_pop_assembly_mult = 0.1
-# 		bonus_pop_growth_mult = 0.1
-# 	}
-# 	triggered_planet_modifier = {
-# 		potential = {
-# 			exists = owner_or_space_owner
-# 			owner_or_space_owner = {
-# 				is_galactic_community_member = yes
-# 			}
-# 			OR = {
-# 				is_active_resolution = "resolution_industry_environmental_ordinance_waivers"
-# 				is_active_resolution = "resolution_industry_project_cornucopia"
-# 			}
-# 		}
-# 		modifier = {
-# 			planet_metallurgists_produces_mult = 0.05
-# 		}
-# 	}
-# 	triggered_planet_modifier = {
-# 		potential = {
-# 			exists = owner_or_space_owner
-# 			owner_or_space_owner = { has_tradition = tr_adaptability_finish }
-# 		}
-# 		modifier = {
-# 			planet_metallurgists_produces_mult = 0.05
-# 		}
-# 	}
-# 
-# 	weight_modifier = {
-# 		modifier = {
-# 			add = @stickiness
-# 			has_designation = col_foundry
-# 		}
-# 		modifier = {
-# 			has_any_foundry_zone = yes
-# 			has_any_factory_zone = no
-# 			add = @zone_urban
-# 		}
-# 		inline_script = {
-# 			script = colony_types/shared_weights_urban
-# 		}
-# 	}
-# }
-# 
-# # Factory Planet
-# # 工厂星球
-# col_factory = {
-# 	icon = GFX_colony_type_factory
-# 
-# 	potential = {
-# 		exists = owner_or_space_owner
-# 		owner_or_space_owner = { country_uses_consumer_goods = yes }
-# 		NOR = {
-# 			uses_district_set = city_world
-# 			uses_district_set = habitat
-# 			uses_district_set = machine_world
-# 			uses_district_set = hive_world
-# 			uses_district_set = cosmogenesis_world
-# 		}
-# 		is_special_colony_type = no
-# 		is_capital = no
-# 		NOT = { is_planet_class = pc_nanotech }
-# 	}
-# 
-# 	planet_modifier = {
-# 		planet_artisans_upkeep_mult = -0.20
-# 	}
-# 
-# 	triggered_planet_modifier = {
-# 		potential = { uses_district_set = ring_world }
-# 		logistic_growth_mult = 0.1
-# 		planet_pop_assembly_mult = 0.1
-# 		bonus_pop_growth_mult = 0.1
-# 	}
-# 	triggered_planet_modifier = {
-# 		potential = {
-# 			exists = owner_or_space_owner
-# 			owner_or_space_owner = {
-# 				is_galactic_community_member = yes
-# 			}
-# 			OR = {
-# 				is_active_resolution = "resolution_industry_environmental_ordinance_waivers"
-# 				is_active_resolution = "resolution_industry_project_cornucopia"
-# 			}
-# 		}
-# 		modifier = {
-# 			planet_artisans_produces_mult = 0.05
-# 		}
-# 	}
-# 	triggered_planet_modifier = {
-# 		potential = {
-# 			exists = owner_or_space_owner
-# 			owner_or_space_owner = { has_tradition = tr_adaptability_finish }
-# 		}
-# 		modifier = {
-# 			planet_artisans_produces_mult = 0.05
-# 		}
-# 	}
-# 
-# 	weight_modifier = {
-# 		modifier = {
-# 			add = @stickiness
-# 			has_designation = col_factory
-# 		}
-# 		modifier = {
-# 			has_any_foundry_zone = no
-# 			has_any_factory_zone = yes
-# 			add = @zone_urban
-# 		}
-# 		inline_script = {
-# 			script = colony_types/shared_weights_urban
-# 		}
-# 	}
-# }
+@stickiness = 10
+@stickiness_low = 5
+@zone_urban = 100
+@zone_rural = 10
+@rural_max_size = 13
+@rural_over_max_size = -20
+
+
+# 铸造理想城-贸易
+col_ecu_foundry_trade = {
+	icon = GFX_colony_type_foundry
+
+	potential = {
+		uses_district_set = city_world
+		is_capital = no
+	}
+
+	planet_modifier = {
+		planet_building_foundry_1_build_speed_mult = 0.25
+		planet_district_arcology_arms_industry_build_speed_mult = 0.25
+		planet_metallurgists_upkeep_mult = -0.2
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner_or_space_owner
+			owner_or_space_owner = {
+				is_galactic_community_member = yes
+			}
+			OR = {
+				is_active_resolution = "resolution_industry_environmental_ordinance_waivers"
+				is_active_resolution = "resolution_industry_project_cornucopia"
+			}
+		}
+		modifier = {
+			planet_metallurgists_produces_mult = 0.05
+		}
+	}
+
+	weight_modifier = {
+		modifier = {
+			add = @stickiness
+			has_designation = col_ecu_foundry
+		}
+		complex_trigger_modifier = {
+			trigger = num_districts
+			parameters = {
+				type = district_arcology_arms_industry
+			}
+			mode = add
+			mult = 8
+		}
+		complex_trigger_modifier = {
+			trigger = num_districts
+			parameters = {
+				type = district_arcology_civilian_industry
+			}
+			mode = add
+			mult = -3
+		}
+		modifier = {
+			num_zones = {
+				type = zone_foundry
+				value > 0
+			}
+			num_zones = {
+				type = zone_factory
+				value = 0
+			}
+			add = @zone_urban
+		}
+	}
+}
+
+
+# 消费品理想城
+col_ecu_factory_trade = {
+	icon = GFX_colony_type_factory
+
+	potential = {
+		uses_district_set = city_world
+		exists = owner_or_space_owner
+		owner_or_space_owner = { country_uses_consumer_goods = yes }
+		is_capital = no
+	}
+
+	planet_modifier = {
+		planet_building_factory_1_build_speed_mult = 0.25
+		planet_district_arcology_civilian_industry_build_speed_mult = 0.25
+		planet_artisans_upkeep_mult = -0.2
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner_or_space_owner
+			owner_or_space_owner = {
+				is_galactic_community_member = yes
+			}
+			OR = {
+				is_active_resolution = "resolution_industry_environmental_ordinance_waivers"
+				is_active_resolution = "resolution_industry_project_cornucopia"
+			}
+		}
+		modifier = {
+			planet_artisans_produces_mult = 0.05
+		}
+	}
+
+	weight_modifier = {
+		modifier = {
+			add = @stickiness
+			has_designation = col_ecu_factory
+		}
+		complex_trigger_modifier = {
+			trigger = num_districts
+			parameters = {
+				type = district_arcology_civilian_industry
+			}
+			mode = add
+			mult = 8
+		}
+		complex_trigger_modifier = {
+			trigger = num_districts
+			parameters = {
+				type = district_arcology_arms_industry
+			}
+			mode = add
+			mult = -3
+		}
+		modifier = {
+			num_zones = {
+				type = zone_foundry
+				value = 0
+			}
+			num_zones = {
+				type = zone_factory
+				value > 0
+			}
+			add = @zone_urban
+		}
+	}
+}
+
+# 铸造星球-贸易
+col_foundry_trade = {
+	icon = GFX_colony_type_foundry
+
+	potential = {
+		exists = owner_or_space_owner
+		NOR = {
+			uses_district_set = city_world
+			uses_district_set = habitat
+			uses_district_set = machine_world
+			uses_district_set = hive_world
+			uses_district_set = cosmogenesis_world
+		}
+		owner_or_space_owner = { is_wilderness_empire = no }
+		is_special_colony_type = no
+		is_capital = no
+		NOT = { is_planet_class = pc_nanotech }
+	}
+
+	planet_modifier = {
+		planet_metallurgists_upkeep_mult = -0.20
+	}
+
+	triggered_planet_modifier = {
+		potential = { uses_district_set = ring_world }
+		logistic_growth_mult = 0.1
+		planet_pop_assembly_mult = 0.1
+		bonus_pop_growth_mult = 0.1
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner_or_space_owner
+			owner_or_space_owner = {
+				is_galactic_community_member = yes
+			}
+			OR = {
+				is_active_resolution = "resolution_industry_environmental_ordinance_waivers"
+				is_active_resolution = "resolution_industry_project_cornucopia"
+			}
+		}
+		modifier = {
+			planet_metallurgists_produces_mult = 0.05
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner_or_space_owner
+			owner_or_space_owner = { has_tradition = tr_adaptability_finish }
+		}
+		modifier = {
+			planet_metallurgists_produces_mult = 0.05
+		}
+	}
+
+	weight_modifier = {
+		modifier = {
+			add = @stickiness
+			has_designation = col_foundry
+		}
+		modifier = {
+			has_any_foundry_zone = yes
+			has_any_factory_zone = no
+			add = @zone_urban
+		}
+		inline_script = {
+			script = colony_types/shared_weights_urban
+		}
+	}
+}
+
+# Factory Planet
+# 工厂星球-贸易
+col_factory_trade = {
+	icon = GFX_colony_type_factory
+
+	potential = {
+		exists = owner_or_space_owner
+		owner_or_space_owner = { country_uses_consumer_goods = yes }
+		NOR = {
+			uses_district_set = city_world
+			uses_district_set = habitat
+			uses_district_set = machine_world
+			uses_district_set = hive_world
+			uses_district_set = cosmogenesis_world
+		}
+		is_special_colony_type = no
+		is_capital = no
+		NOT = { is_planet_class = pc_nanotech }
+	}
+
+	planet_modifier = {
+		planet_artisans_upkeep_mult = -0.20
+	}
+
+	triggered_planet_modifier = {
+		potential = { uses_district_set = ring_world }
+		logistic_growth_mult = 0.1
+		planet_pop_assembly_mult = 0.1
+		bonus_pop_growth_mult = 0.1
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner_or_space_owner
+			owner_or_space_owner = {
+				is_galactic_community_member = yes
+			}
+			OR = {
+				is_active_resolution = "resolution_industry_environmental_ordinance_waivers"
+				is_active_resolution = "resolution_industry_project_cornucopia"
+			}
+		}
+		modifier = {
+			planet_artisans_produces_mult = 0.05
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner_or_space_owner
+			owner_or_space_owner = { has_tradition = tr_adaptability_finish }
+		}
+		modifier = {
+			planet_artisans_produces_mult = 0.05
+		}
+	}
+
+	weight_modifier = {
+		modifier = {
+			add = @stickiness
+			has_designation = col_factory
+		}
+		modifier = {
+			has_any_foundry_zone = no
+			has_any_factory_zone = yes
+			add = @zone_urban
+		}
+		inline_script = {
+			script = colony_types/shared_weights_urban
+		}
+	}
+}

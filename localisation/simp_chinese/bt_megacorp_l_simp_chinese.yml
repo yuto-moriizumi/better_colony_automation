@@ -1,0 +1,15 @@
+﻿l_simp_chinese:
+ col_ecu_foundry_trade: "铸造贸易"
+ col_ecu_factory_trade: "工厂贸易"
+ col_foundry_trade: "铸造贸易"
+ col_factory_trade: "工厂贸易"
+
+ col_ecu_foundry_trade_desc: "带贸易的铸造"
+ col_ecu_factory_trade_desc: "带贸易的工厂"
+ col_foundry_trade_desc: "可能会带贸易的铸造"
+ col_factory_trade_desc: "可能会带贸易的工厂"
+
+ col_ecu_foundry_trade_tt: "下面三个特化成贸易特化，便于修焕活"
+ col_ecu_factory_trade_tt: "下面三个特化成贸易特化，便于修焕活"
+ col_foundry_trade_tt: "下面三个(如果有)特化成贸易特化，便于修焕活"
+ col_factory_trade_tt: "下面三个(如果有)特化成贸易特化，便于修焕活"

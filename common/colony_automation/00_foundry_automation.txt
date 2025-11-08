@@ -4,6 +4,7 @@ better_automate_foundry_planet_1 = {
 	emergency = yes
 	available = {
 		has_foundry_designation = yes
+		has_bt_trade_designation = no
         any_owned_pop_group = {
 			OR = {
 				is_pop_category = civilian
@@ -19,5 +20,25 @@ better_automate_foundry_planet_1 = {
         zone_foundry_nexus
         zone_foundry_hive
 	}
+}
 
+
+better_automate_foundry_planet_2 = {
+	category = "planet_automation_designation_construction"
+
+	emergency = yes
+	available = {
+		has_foundry_designation = yes
+		has_bt_trade_designation = yes 
+        any_owned_pop_group = {
+			OR = {
+				is_pop_category = civilian
+				is_pop_category = maintenance_drone
+			}
+        }
+	}
+
+	prio_zones = {
+		zone_foundry
+	}
 }

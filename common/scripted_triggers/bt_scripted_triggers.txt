@@ -1,0 +1,39 @@
+# 添加的下面修贸易区划的
+has_bt_trade_designation = {
+    OR = {
+		has_designation = col_ecu_foundry_trade
+		has_designation = col_ecu_factory_trade
+		has_designation = col_foundry_trade
+		has_designation = col_factory_trade
+
+    }
+}
+
+# 工厂类型
+has_factory_designation = {
+	OR = {
+		has_designation = col_capital_factory
+		has_designation = col_factory
+		has_designation = col_mac_factory
+		has_designation = col_ecu_factory
+		has_designation = col_habitat_factory
+
+        has_designation = col_ecu_factory_trade
+        has_designation = col_factory_trade
+	}
+}
+
+# 铸造类型
+has_foundry_designation = {
+	OR = {
+		has_designation = col_capital_foundry
+		has_designation = col_foundry
+		has_designation = col_ecu_foundry
+		has_designation = col_habitat_foundry
+		has_designation = col_mac_foundry
+		has_designation = col_hiv_foundry
+
+		has_designation = col_ecu_foundry_trade
+		has_designation = col_foundry_trade
+	}
+}
