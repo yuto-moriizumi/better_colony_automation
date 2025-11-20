@@ -97,16 +97,16 @@ automate_engineered_autobuild = {
 	}
 }
 
-automate_silo_farming_autobuild = {
-	category = "planet_automation_silo"
-	
-    emergency = yes
-	available = {
-	}
-
-    prio_districts = {
-		district_farming
-	}
-
-}
+# automate_silo_farming_autobuild = {
+# 	category = "planet_automation_silo"
+# 	
+#     emergency = yes
+# 	available = {
+# 	}
+# 
+#     prio_districts = {
+# 		district_farming
+# 	}
+# 
+# }
 
