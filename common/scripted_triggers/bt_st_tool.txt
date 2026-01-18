@@ -18,3 +18,10 @@ has_minerals_to_build = {
 		resource_stockpile_compare = {resource = minerals value >= reserve_minerals_amount}
 	}
 }
+
+is_col_reasearch_planet = {
+	has_physics_designation = yes
+	has_policy_designation = yes
+	has_engineering_designation = yes
+	has_research_designation = yes
+}

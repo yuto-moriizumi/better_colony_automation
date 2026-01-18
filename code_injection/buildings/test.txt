@@ -1,0 +1,11 @@
+
+building_research_lab_1.destroy_trigger = append{
+	NOR = {
+		has_physics_designation = yes
+		has_policy_designation = yes
+		has_engineering_designation = yes
+		has_research_designation = yes
+	}
+}
+
+
