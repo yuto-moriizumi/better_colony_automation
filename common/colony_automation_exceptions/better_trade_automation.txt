@@ -5,6 +5,8 @@ automate_trade_planet = {
 	available = {
 		has_trade_designation = yes
         requires_more_job = yes
+        has_minerals_to_build = yes
+
 	}
 
 	prio_districts = {

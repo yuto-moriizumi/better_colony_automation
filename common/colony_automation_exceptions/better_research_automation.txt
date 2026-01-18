@@ -8,6 +8,8 @@ automate_research_planet_physics = {
 	available = {
 		has_physics_designation = yes
         requires_more_job = yes
+        has_minerals_to_build = yes
+
 	}
 
 	prio_districts = {
@@ -73,6 +75,8 @@ automate_research_planet_policy = {
 	available = {
 		has_policy_designation = yes
         requires_more_job = yes
+        has_minerals_to_build = yes
+
 	}
 
 	prio_districts = {
@@ -133,6 +137,8 @@ automate_research_planet_engineering = {
 	available = {
 		has_engineering_designation = yes
         requires_more_job = yes
+        has_minerals_to_build = yes
+
 	}
 
 	prio_districts = {
@@ -188,6 +194,8 @@ automate_research_planet = {
 	available = {
 		has_research_designation = yes
         requires_more_job = yes
+        has_minerals_to_build = yes
+
 	}
 
 	prio_districts = {

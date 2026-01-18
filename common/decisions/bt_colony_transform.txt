@@ -1,0 +1,75 @@
+decision_colony_transform = {
+	sound = event_administrative_work
+	icon = decision_burning_settlement
+
+	resources = {
+		category = decisions
+	}
+
+	potential = {
+		exists = owner
+		owner = { is_ai = no }
+	}
+
+	effect = {
+
+        remove_all_buildings = yes
+		add_building = building_capital
+	}
+	ai_weight = {
+		weight = 0
+	}
+	
+}
+
+# decision_colony_test = {
+# 	sound = event_administrative_work
+# 	icon = decision_politics
+
+# 	resources = {
+# 		category = decisions
+# 	}
+
+# 	potential = {
+# 		exists = owner
+# 		owner = { is_ai = no }
+# 	}
+
+# 	effect = {
+
+# 		every_owned_building = {
+# 			limit = {
+# 				always = yes
+# 			}
+# 			remove_building = this
+# 		}
+
+# 		every_building = {
+# 			limit = {
+# 				always = yes
+# 			}
+# 			remove_building = this
+# 		}
+
+# 		every_colony_building = {
+# 			limit = {
+# 				always = yes
+# 			}
+# 			remove_building = this
+# 		}
+
+# 		every_planet_building = {
+# 			limit = {
+# 				always = yes
+# 			}
+# 			remove_building = this
+# 		}
+# 	}
+# 	ai_weight = {
+# 		weight = 0
+# 	}
+	
+# }
+
+
+

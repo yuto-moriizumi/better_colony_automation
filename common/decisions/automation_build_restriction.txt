@@ -1,13 +1,13 @@
 decision_enable_pre_construction = {
-	owned_planets_only = yes
 	sound = event_administrative_work
-	icon = decision_politics
+	icon = decision_arcology_project
 
 	resources = {
 		category = decisions
 	}
 
 	potential = {
+		exists = owner
 		NOT = { has_modifier = planet_pre_construction }
 	}
 
@@ -17,15 +17,15 @@ decision_enable_pre_construction = {
 }
 
 decision_disable_pre_construction = {
-	owned_planets_only = yes
 	sound = event_administrative_work
-	icon = decision_politics
+	icon = decision_arcology_project
 
 	resources = {
 		category = decisions
 	}
 
 	potential = {
+		exists = owner
 		has_modifier = planet_pre_construction
 	}
 

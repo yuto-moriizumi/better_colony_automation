@@ -12,3 +12,9 @@ requires_more_job = {
 		free_jobs <= 0
 	}
 }
+
+has_minerals_to_build = {
+	owner = {
+		resource_stockpile_compare = {resource = minerals value >= reserve_minerals_amount}
+	}
+}

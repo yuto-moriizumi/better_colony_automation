@@ -5,6 +5,8 @@ automate_penal_planet = {
 	available = {
 		has_designation = col_penal
         requires_more_job = yes
+        has_minerals_to_build = yes
+
 	}
 
 	prio_districts = {

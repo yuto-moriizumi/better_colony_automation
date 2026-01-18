@@ -5,6 +5,8 @@ automate_arcology_autobuild_1 = {
 	available = {
         uses_district_set = city_world
         num_districts = { type = district_arcology_urban_1 value < 1 }
+        requires_more_job = yes
+        has_minerals_to_build = yes
 	}
 
 	prio_districts = {
@@ -18,6 +20,8 @@ automate_arcology_autobuild_2 = {
 	available = {
         uses_district_set = city_world
         num_districts = { type = district_arcology_urban_2 value < 1 }
+        requires_more_job = yes
+        has_minerals_to_build = yes
 	}
 
 	prio_districts = {
@@ -31,6 +35,8 @@ automate_arcology_autobuild_3 = {
 	available = {
         uses_district_set = city_world
         num_districts = { type = district_arcology_urban_3 value < 1 }
+        requires_more_job = yes
+        has_minerals_to_build = yes
 	}
 
 	prio_districts = {
@@ -46,6 +52,8 @@ automate_ring_autobuild_1 = {
 	available = {
         uses_district_set = ring_world
         num_districts = { type = district_rw_urban_1 value < 1 }
+        requires_more_job = yes
+        has_minerals_to_build = yes
 	}
 
 	prio_districts = {
@@ -59,6 +67,8 @@ automate_ring_autobuild_2 = {
 	available = {
         uses_district_set = ring_world
         num_districts = { type = district_rw_urban_2 value < 1 }
+        requires_more_job = yes
+        has_minerals_to_build = yes
 	}
 
 	prio_districts = {
@@ -72,6 +82,8 @@ automate_ring_autobuild_3 = {
 	available = {
         uses_district_set = ring_world
         num_districts = { type = district_rw_urban_3 value < 1 }
+        requires_more_job = yes
+        has_minerals_to_build = yes
 	}
 
 	prio_districts = {
@@ -86,6 +98,8 @@ automate_hive_autobuild_1 = {
 	available = {
         uses_district_set = hive_world
         num_districts = { type = district_hive_1 value < 1 }
+        requires_more_job = yes
+        has_minerals_to_build = yes
 	}
 
 	prio_districts = {
@@ -99,6 +113,8 @@ automate_hive_autobuild_2 = {
 	available = {
         uses_district_set = hive_world
         num_districts = { type = district_hive_2 value < 1 }
+        requires_more_job = yes
+        has_minerals_to_build = yes
 	}
 
 	prio_districts = {
@@ -112,6 +128,8 @@ automate_hive_autobuild_3 = {
 	available = {
         uses_district_set = hive_world
         num_districts = { type = district_hive_3 value < 1 }
+        requires_more_job = yes
+        has_minerals_to_build = yes
 	}
 
 	prio_districts = {
@@ -127,6 +145,8 @@ automate_nexus_autobuild_1 = {
 	available = {
         uses_district_set = machine_world
         num_districts = { type = district_nexus_1 value < 1 }
+        requires_more_job = yes
+        has_minerals_to_build = yes
 	}
 
 	prio_districts = {
@@ -140,6 +160,8 @@ automate_nexus_autobuild_2 = {
 	available = {
         uses_district_set = machine_world
         num_districts = { type = district_nexus_2 value < 1 }
+        requires_more_job = yes
+        has_minerals_to_build = yes
 	}
 
 	prio_districts = {
@@ -153,6 +175,8 @@ automate_nexus_autobuild_3 = {
 	available = {
         uses_district_set = machine_world
         num_districts = { type = district_nexus_3 value < 1 }
+        requires_more_job = yes
+        has_minerals_to_build = yes
 	}
 
 	prio_districts = {

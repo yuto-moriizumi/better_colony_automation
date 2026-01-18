@@ -1,5 +1,5 @@
 planet_pre_construction = {
-	icon = "gfx/interface/icons/planet_modifiers/pm_politics.dds"
+	icon = "gfx/interface/icons/decisions/decision_arcology_project.dds"
 	icon_frame = 2
 	custom_tooltip = "planet_pre_construction_desc"
 	show_only_custom_tooltip = no

@@ -7,6 +7,8 @@ better_automate_research_planet_physics_1 = {
 		has_physics_designation = yes
 		has_bt_trade_designation = no
         requires_more_job = yes
+        has_minerals_to_build = yes
+
 	}
 
 	prio_zones = {
@@ -29,6 +31,8 @@ better_automate_research_planet_physics_2 = {
 		has_physics_designation = yes
 		has_bt_trade_designation = yes
         requires_more_job = yes
+        has_minerals_to_build = yes
+
 	}
 
 	prio_zones = {
@@ -45,6 +49,8 @@ better_automate_research_planet_policy_1 = {
 		has_policy_designation = yes
 		has_bt_trade_designation = no
         requires_more_job = yes
+        has_minerals_to_build = yes
+
 	}
 
 	prio_zones = {
@@ -67,6 +73,8 @@ better_automate_research_planet_policy_2 = {
 		has_policy_designation = yes
 		has_bt_trade_designation = yes
         requires_more_job = yes
+        has_minerals_to_build = yes
+
 	}
 
 	prio_zones = {
@@ -83,6 +91,8 @@ better_automate_research_planet_engineering_1 = {
 		has_engineering_designation = yes
 		has_bt_trade_designation = no
         requires_more_job = yes
+        has_minerals_to_build = yes
+
 	}
 
 	prio_zones = {
@@ -105,6 +115,8 @@ better_automate_research_planet_engineering_2 = {
 		has_engineering_designation = yes
 		has_bt_trade_designation = yes
         requires_more_job = yes
+        has_minerals_to_build = yes
+
 	}
 
 	prio_zones = {

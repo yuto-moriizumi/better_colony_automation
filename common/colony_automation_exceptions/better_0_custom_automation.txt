@@ -7,6 +7,8 @@ automate_monument_autobuild = {
 		owner = {
             has_technology = tech_cultural_heritage
         }
+        requires_more_job = yes
+        has_minerals_to_build = yes
 	}
 	
 
@@ -70,7 +72,25 @@ automate_monument_autobuild = {
         }
 	}
 }
+automate_medical_autobuild = {
+    category = "planet_automation_medical"
+    
+    emergency = yes
+    available = {
+        exists = owner
+        owner = {
+            has_technology = tech_advanced_medical_centers
+        }
+        has_minerals_to_build = yes
+    }
+    
 
+    buildings = {
+        0 = {
+            building = building_medical_1
+        }
+    }
+}
 automate_engineered_autobuild = {
 	category = "planet_automation_engineered"
 	
@@ -79,6 +99,8 @@ automate_engineered_autobuild = {
 		owner = {
             has_ascension_perk = ap_engineered_evolution
 		}
+        requires_more_job = yes
+        has_minerals_to_build = yes
 	}
 	
 	buildings = {

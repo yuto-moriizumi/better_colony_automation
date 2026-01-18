@@ -9,6 +9,8 @@ automate_urban_planet = {
 			has_designation = col_nexus
 		}
         requires_more_job = yes
+        has_minerals_to_build = yes
+
 	}
 	prio_districts = {
 		district_city

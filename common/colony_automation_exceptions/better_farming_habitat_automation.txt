@@ -6,6 +6,8 @@ automate_farming_habitat_planet = {
 		has_farming_designation = yes
 		uses_district_set = habitat
         requires_more_job = yes
+        has_minerals_to_build = yes
+
 	}
 
 	prio_districts = {
