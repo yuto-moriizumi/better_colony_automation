@@ -1,6 +1,3 @@
-#############
-# Science buildings
-#############
 building_research_lab_1 = {
 	can_build = yes
 	base_buildtime = @b1_time
@@ -403,7 +400,6 @@ building_supercomputer = {
 	}
 }
 
-# Shroud-Forged
 building_shroud_observatory_1 = {
 	base_buildtime = @b1_time
 

@@ -1,0 +1,257 @@
+building_fe_lab_1 = {
+	base_buildtime = @b2_time
+	can_build = yes
+	can_demolish = yes
+
+	category = research
+
+	building_sets = {
+		fallen_empire
+		research
+		physics
+		society
+		engineering
+	}
+
+	potential = {
+		exists = owner
+		owner = {
+			OR = {
+				is_fallen_empire = yes
+				has_technology = tech_fe_lab_1
+				has_country_flag = fe_lab_1_can_build
+			}
+		}
+		NOR = {
+			has_modifier = resort_colony
+			has_modifier = slave_colony
+			has_modifier = penal_colony
+		}
+	}
+
+	allow = {
+		custom_tooltip = {
+			fail_text = ancrel.10004.failtext
+			exists = owner
+			owner = {
+				OR = {
+					check_variable = { which = fe_lab_1_build_count value >= 1 }
+					is_fallen_empire = yes
+					has_technology = tech_fe_lab_1
+				}
+			}
+		}
+	}
+
+	destroy_trigger = {
+		non_reasearch_colony_destruction = yes
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			alloys = @b3_minerals
+			exotic_gases = @fe_sr_cost
+		}
+		upkeep = {
+			exotic_gases = 2
+			alloys = @b3_alloy_upkeep
+			energy = 30
+		}
+		cost = {
+			trigger = {
+				owner = { is_wilderness_empire = yes }
+			}
+			biomass = @b3_biomass
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_wilderness_empire = yes
+				has_tradition = tr_purity_finish
+			}
+		}
+		planet_building_build_speed_mult = 0.03
+		planet_decision_enact_speed_mult = 0.03
+	}
+
+	inline_script = {
+		script = jobs/researchers_add
+		AMOUNT = @building_static_jobs
+	}
+
+	upgrades = {
+		building_fe_lab_2
+	}
+
+	on_queued = {
+		if = { # kill on the same planet
+			limit = {
+				is_variable_set = local_spent_biomass
+				any_owned_pop_group = {
+					has_trait = trait_wilderness
+					pop_group_size > local_spent_biomass
+				}
+			}
+			random_owned_pop_group = {
+				limit = {
+					has_trait = trait_wilderness
+					pop_group_size > local_spent_biomass
+				}
+				kill_pop_group = {
+					pop_group = this
+					amount = local_spent_biomass
+				}
+			}
+		}
+		else_if = {
+			limit = { is_variable_set = local_spent_biomass }
+			owner = {
+				global_biomass_spender = yes
+			}
+		}
+		owner = {
+			subtract_variable = { which = fe_lab_1_build_count value = 1 }
+		}
+	}
+
+	on_unqueued = {
+		unqueue_biomass_effect = yes
+		owner = {
+			change_variable = { which = fe_lab_1_build_count value = 1 }
+		}
+	}
+
+	show_in_tech = tech_fe_lab_1
+}
+
+building_fe_lab_2 = {
+	base_buildtime = @b2_time
+	can_build = no
+
+	category = research
+
+	building_sets = {
+		fallen_empire
+		research
+		physics
+		society
+		engineering
+	}
+
+	potential = {
+		exists = owner
+		owner = {
+			OR = {
+				is_fallen_empire = yes
+				has_technology = tech_fe_lab_2
+				has_country_flag = fe_lab_1_can_build
+			}
+		}
+		NOR = {
+			has_modifier = resort_colony
+			has_modifier = slave_colony
+			has_modifier = penal_colony
+		}
+	}
+
+	allow = {
+		custom_tooltip = {
+			fail_text = ancrel.10004.failtext
+			exists = owner
+			owner = {
+				OR = {
+					check_variable = { which = fe_lab_1_upgrade_count value >= 1 }
+					is_fallen_empire = yes
+					has_technology = tech_fe_lab_2
+				}
+			}
+		}
+	}
+
+	destroy_trigger = {
+		non_reasearch_colony_destruction = yes
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			alloys = @b3_minerals
+		}
+		upkeep = {
+			exotic_gases = 2
+			alloys = @b3_alloy_upkeep
+			energy = 30
+		}
+		cost = {
+			trigger = {
+				owner = { is_wilderness_empire = yes }
+			}
+			biomass = @b3_biomass
+		}
+		produces = {
+			physics_research = 20
+			society_research = 20
+			engineering_research = 20
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_wilderness_empire = yes
+				has_tradition = tr_purity_finish
+			}
+		}
+		planet_building_build_speed_mult = 0.03
+		planet_decision_enact_speed_mult = 0.03
+	}
+	inline_script = {
+		script = jobs/researchers_add
+		AMOUNT = @building_static_jobs_high
+	}
+
+	on_queued = {
+		if = { # kill on the same planet
+			limit = {
+				is_variable_set = local_spent_biomass
+				any_owned_pop_group = {
+					has_trait = trait_wilderness
+					pop_group_size > local_spent_biomass
+				}
+			}
+			random_owned_pop_group = {
+				limit = {
+					has_trait = trait_wilderness
+					pop_group_size > local_spent_biomass
+				}
+				kill_pop_group = {
+					pop_group = this
+					amount = local_spent_biomass
+				}
+			}
+		}
+		else_if = {
+			limit = { is_variable_set = local_spent_biomass }
+			owner = {
+				global_biomass_spender = yes
+			}
+		}
+		owner = {
+			subtract_variable = { which = fe_lab_1_upgrade_count value = 1 }
+		}
+	}
+
+	on_unqueued = {
+		unqueue_biomass_effect = yes
+		owner = {
+			change_variable = { which = fe_lab_1_upgrade_count value = 1 }
+		}
+	}
+
+	show_in_tech = tech_fe_lab_2
+}
