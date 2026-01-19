@@ -2,6 +2,7 @@ import os
 import re
 from typing import List, Tuple, Optional
 
+os.environ['STELLARIS_COMMON_ROOT'] = r'D:/SteamLibrary/steamapps/common/Stellaris/common'
 
 class InjectionDirective:
 	def __init__(self, target_path: List[str], operation: str, body: str):
@@ -433,6 +434,14 @@ def find_source_files_for_top(vanilla_category_dir: str, top_name: str) -> List[
 	return matches
 
 
+def build_output_path(src: str, source_root: str, output_root: str, prefix: str, suffix: str) -> str:
+	rel = os.path.relpath(src, source_root)
+	rel_dir, filename = os.path.split(rel)
+	base, ext = os.path.splitext(filename)
+	new_name = f"{prefix}{base}{suffix}{ext}"
+	return os.path.join(output_root, rel_dir, new_name)
+
+
 def group_directives_by_top(directives: List[InjectionDirective]) -> dict:
 	groups: dict = {}
 	for d in directives:
@@ -443,7 +452,7 @@ def group_directives_by_top(directives: List[InjectionDirective]) -> dict:
 	return groups
 
 
-def apply_directives_to_files(vanilla_dir: str, common_dir: str, directives: List[InjectionDirective]) -> None:
+def apply_directives_to_files(source_dir: str, common_dir: str, directives: List[InjectionDirective], output_prefix: str, output_suffix: str) -> None:
 	if not directives:
 		return
 	
@@ -455,7 +464,7 @@ def apply_directives_to_files(vanilla_dir: str, common_dir: str, directives: Lis
 		if not directive.target_path:
 			continue
 		top = directive.target_path[0]
-		source_files = find_source_files_for_top(vanilla_dir, top)
+		source_files = find_source_files_for_top(source_dir, top)
 		if not source_files:
 			continue
 		for src in source_files:
@@ -468,22 +477,51 @@ def apply_directives_to_files(vanilla_dir: str, common_dir: str, directives: Lis
 		text = read_text(src)
 		newline = detect_newline(text)
 		indent_unit = detect_indentation_unit(text)
-		
-		# Apply all directives for this file sequentially
+
+		# Group directives by top-level object
+		top_to_directives = {}
 		for d in directives_for_file:
-			text = apply_one_directive(text, d, newline, indent_unit)
-		
-		# Write to common path preserving relative
-		rel = os.path.relpath(src, vanilla_dir)
-		out_path = os.path.join(common_dir, rel)
-		write_text(out_path, text)
+			if not d.target_path:
+				continue
+			top = d.target_path[0]
+			top_to_directives.setdefault(top, []).append(d)
+
+		modified_blocks = []  # [(start_idx, block_text)]
+		for top, ds in top_to_directives.items():
+			found = find_top_object(text, top)
+			if not found:
+				continue
+			name_idx, _, brace_close = found
+			block_text = text[name_idx:brace_close + 1]
+			updated_block = block_text
+			for d in ds:
+				updated_block = apply_one_directive(updated_block, d, newline, indent_unit)
+			modified_blocks.append((name_idx, updated_block))
+
+		if not modified_blocks:
+			continue
+
+		modified_blocks.sort(key=lambda x: x[0])
+		out_text = (newline * 2).join(block for _, block in modified_blocks) + newline
+
+		out_path = build_output_path(src, source_dir, common_dir, output_prefix, output_suffix)
+		write_text(out_path, out_text)
 
 
 def main():
 	workspace_root = os.path.dirname(os.path.abspath(__file__))
-	vanilla_root = os.path.join(workspace_root, "vanilla_file")
 	injection_root = os.path.join(workspace_root, "code_injection")
 	common_root = os.path.join(workspace_root, "common")
+
+	# Configure source scripts and output naming
+	# source_root should point to the game's common folder, e.g. ".../Stellaris/common"
+	source_root = os.environ.get("STELLARIS_COMMON_ROOT")
+	output_prefix = os.environ.get("INJECTION_OUTPUT_PREFIX", "00_")
+	output_suffix = os.environ.get("INJECTION_OUTPUT_SUFFIX", "_override")
+
+	if not source_root:
+		print("Missing STELLARIS_COMMON_ROOT. Set it to the game's common folder.")
+		return
 
 	categories = []
 	# Mirror code_injection subfolders (e.g., buildings)
@@ -499,10 +537,10 @@ def main():
 
 	for cat in categories:
 		inj_dir = os.path.join(injection_root, cat)
-		v_dir = os.path.join(vanilla_root, cat)
+		v_dir = os.path.join(source_root, cat)
 		c_dir = os.path.join(common_root, cat)
 		directives = load_directives_for_category(inj_dir)
-		apply_directives_to_files(v_dir, c_dir, directives)
+		apply_directives_to_files(v_dir, c_dir, directives, output_prefix, output_suffix)
 		print(f"Applied {len(directives)} directives to category '{cat}'.")
 
 
