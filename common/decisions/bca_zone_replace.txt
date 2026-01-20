@@ -27,6 +27,12 @@ decision_zone_replace = {
 					zone_slot = 1
 					replace = yes
 				}
+                add_zone = {
+					district = district_city
+					zone = zone_research_physics
+					zone_slot = 1
+					replace = yes
+				}
 			}
 		}
 

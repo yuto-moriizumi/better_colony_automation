@@ -34,6 +34,43 @@ decision_disable_pre_construction = {
 	}
 }
 
+decision_disable_auto_destruction = {
+	sound = event_administrative_work
+	icon = default
+
+	resources = {
+		category = decisions
+	}
+
+	potential = {
+		exists = owner
+	}
+
+	effect = {
+		add_modifier = {
+			modifier = "bca_disable_planet_auto_destruction"
+			days = -1
+		}
+	}
+}
+
+decision_enable_auto_destruction = {
+	sound = event_administrative_work
+	icon = default
+
+	resources = {
+		category = decisions
+	}
+
+	potential = {
+		exists = owner
+	}
+
+	effect = {
+		remove_modifier = "bca_disable_planet_auto_destruction"
+	}
+}
+
 
 # decision_test = {
 # 	sound = event_administrative_work

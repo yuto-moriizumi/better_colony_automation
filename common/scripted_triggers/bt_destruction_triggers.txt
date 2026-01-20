@@ -1,6 +1,13 @@
-bca_can_remove_building_reasearch = {
+bca_can_remove_building = {
 	AND = {
 		owner = { has_country_flag = bac_building_destroy }
+		NOT = { has_planet_modifier = "bca_disable_planet_auto_destruction" }
+	}
+}
+
+bca_can_remove_building_reasearch = {
+	AND = {
+		bca_can_remove_building
 		free_building_slots = 0
 		has_any_research_designation = no
 	}
@@ -8,7 +15,7 @@ bca_can_remove_building_reasearch = {
 
 bca_can_remove_building_factory = {
 	AND = {
-		owner = { has_country_flag = bac_building_destroy }
+		bca_can_remove_building
 		free_building_slots = 0
 		has_factory_designation = no
 		has_industrial_designation = no
@@ -17,7 +24,7 @@ bca_can_remove_building_factory = {
 
 bca_can_remove_building_foundry = {
 	AND = {
-		owner = { has_country_flag = bac_building_destroy }
+		bca_can_remove_building
 		free_building_slots = 0
 		has_foundry_designation = no
 		has_industrial_designation = no
@@ -26,7 +33,7 @@ bca_can_remove_building_foundry = {
 
 bca_can_remove_building_industry = {
 	AND = {
-		owner = { has_country_flag = bac_building_destroy }
+		bca_can_remove_building
 		free_building_slots = 0
 		has_any_industrial_designation = no
 	}
@@ -34,7 +41,7 @@ bca_can_remove_building_industry = {
 
 bca_can_remove_building_trade = {
 	AND = {
-		owner = { has_country_flag = bac_building_destroy }
+		bca_can_remove_building
 		free_building_slots = 0
 		bca_has_any_trade_designation = no
 	}
@@ -42,7 +49,7 @@ bca_can_remove_building_trade = {
 
 bca_can_remove_pop_assemble = {
 	AND = {
-		owner = { has_country_flag = bac_building_destroy }
+		bca_can_remove_building
 		owner = { has_country_flag = bac_remove_pop_assemble_buildings }
 		free_district_slots = 0
 		free_building_slots = 0
@@ -53,7 +60,7 @@ bca_can_remove_pop_assemble = {
 
 bca_can_remove_district_generator = {
 	AND = {
-		owner = { has_country_flag = bac_building_destroy }
+		bca_can_remove_building
 		free_district_slots = 0
 		has_trade_designation = yes
 	}
@@ -61,7 +68,7 @@ bca_can_remove_district_generator = {
 
 bca_can_remove_district_mining = {
 	AND = {
-		owner = { has_country_flag = bac_building_destroy }
+		bca_can_remove_building
 		free_district_slots = 0
 		has_trade_designation = yes
 	}
@@ -69,7 +76,7 @@ bca_can_remove_district_mining = {
 
 bca_can_remove_district_farming = {
 	AND = {
-		owner = { has_country_flag = bac_building_destroy }
+		bca_can_remove_building
 		free_district_slots = 0
 		has_trade_designation = yes
 	}

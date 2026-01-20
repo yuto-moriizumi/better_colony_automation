@@ -18,7 +18,9 @@ country_event = {
 		# 遍历该国家拥有的所有星球
 		every_owned_planet = {
 			limit = {
+				is_capital = no
 				has_building_construction = no
+				NOT = { has_planet_modifier = "bca_disable_planet_auto_destruction" }
 			}
 			# 自动区划移除
 			if = {

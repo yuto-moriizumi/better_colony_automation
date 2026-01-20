@@ -9,10 +9,7 @@
  planet_automation_monument_desc: "自动修纪念碑" 
  planet_automation_silo: "一产填充仓库"
  planet_automation_silo_desc: "自动修仓库，在所有的可以有一产区划的殖民地都修建仓库，优先级低于一产建筑建筑"
- planet_pre_construction: "提前建造"
- planet_pre_construction_desc: "在殖民地人口增长前提前建造建筑物"
- decision_enable_pre_construction: "启用提前建造"
- decision_disable_pre_construction: "禁用提前建造"
+
  policy_cba_reserve_minerals: "自动建造矿物预留"
  policy_cba_reserve_minerals_desc: "当矿物低于一定数值时，停止自动建造以保留矿物"
  RESERVE_MINERALS_0: "禁用"
@@ -59,6 +56,20 @@
  disable_bac_remove_pop_assemble_buildings_desc: "禁用自动移除人口组装建筑"
  enable_bac_remove_pop_assemble_buildings: "启用自动移除人口组装建筑"
  enable_bac_remove_pop_assemble_buildings_desc: "启用自动移除人口组装建筑"
+
+ planet_pre_construction: "提前建造"
+ planet_pre_construction_desc: "在殖民地人口增长前提前建造建筑物"
+ decision_enable_pre_construction: "启用提前建造"
+ decision_enable_pre_construction_desc: "在殖民地人口增长前提前建造建筑物"
+ decision_disable_pre_construction: "禁用提前建造"
+ decision_disable_pre_construction_desc: "禁用在殖民地人口增长前提前建造建筑物"
+
+ bca_disable_planet_auto_destruction: "禁用自动拆除"
+ bca_disable_planet_auto_destruction_desc: "禁用建筑、区划和区划特化的自动拆除"
+ decision_disable_auto_destruction: "禁用自动拆除"
+ decision_disable_auto_destruction_desc: "禁用建筑、区划和区划特化的自动拆除"
+ decision_enable_auto_destruction: "启用自动拆除"
+ decision_enable_auto_destruction_desc: "启用建筑、区划和区划特化的自动拆除"
 
  decision_colony_transform: "去城市化"
  decision_colony_transform_desc: "难道我是个很坏的人吗？"

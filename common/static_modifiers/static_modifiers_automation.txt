@@ -2,5 +2,10 @@ planet_pre_construction = {
 	icon = "gfx/interface/icons/planet_modifiers/pm_arcology_project.dds"
 	icon_frame = 2
 	custom_tooltip = "planet_pre_construction_desc"
-	show_only_custom_tooltip = no
+}
+
+bca_disable_planet_auto_destruction = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_default.dds"
+	icon_frame = 2
+	custom_tooltip = "bca_disable_planet_auto_destroy_desc"
 }
