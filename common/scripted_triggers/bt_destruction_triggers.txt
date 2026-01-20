@@ -1,7 +1,7 @@
 bca_can_remove_building = {
 	AND = {
 		owner = { has_country_flag = bac_building_destroy }
-		NOT = { has_planet_modifier = "bca_disable_planet_auto_destruction" }
+		NOT = { has_modifier = bca_pm_disable_planet_auto_destruction }
 	}
 }
 

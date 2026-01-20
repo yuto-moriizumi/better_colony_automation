@@ -8,7 +8,7 @@ any_owned_pop_group = {
 
 requires_more_job = {
 	OR = {
-		has_modifier = planet_pre_construction
+		has_modifier = bca_pm_planet_pre_construction
 		free_jobs <= 0
 	}
 }
