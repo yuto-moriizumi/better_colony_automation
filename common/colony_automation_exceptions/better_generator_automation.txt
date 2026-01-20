@@ -10,7 +10,7 @@ automate_generator_planet = {
 			has_deposit = d_betharian_deposit
 		}
         requires_more_job = yes
-        has_minerals_to_build = yes
+        bca_has_minerals_to_build = yes
 
 	}
 

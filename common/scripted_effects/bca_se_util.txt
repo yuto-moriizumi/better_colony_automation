@@ -1,0 +1,10 @@
+remove_zone_if_found = {
+	if = {
+		limit = {
+			has_zone = { zone = $zone$ }
+		}
+		remove_zone = {
+			zone = $zone$
+		}
+	}
+}

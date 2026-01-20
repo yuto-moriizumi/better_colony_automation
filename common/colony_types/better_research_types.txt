@@ -79,7 +79,7 @@ col_research_physics = {
 }
 
 # 科研星球_社会学
-col_research_sociology = {
+col_research_society = {
 	icon = GFX_colony_type_research
 
 	potential = {
@@ -298,7 +298,7 @@ col_research_physics_trade = {
 }
 
 # 科研星球_社会学_贸易
-col_research_sociology_trade = {
+col_research_society_trade = {
 	icon = GFX_colony_type_research
 
 	potential = {
@@ -518,7 +518,7 @@ col_habitat_research_physics = {
 }
 
 # 科研站_社会学
-col_habitat_research_sociology = {
+col_habitat_research_society = {
 	icon = GFX_colony_type_habitat_research
 
 	potential = {
@@ -730,7 +730,7 @@ col_ring_research_physics = {
 }
 
 # 科研环_社会学
-col_ring_research_sociology = {
+col_ring_research_society = {
 	icon = GFX_colony_type_research
 
 	potential = {
@@ -919,7 +919,7 @@ col_ring_research_physics_trade = {
 }
 
 # 科研环_社会学_贸易
-col_ring_research_sociology_trade = {
+col_ring_research_society_trade = {
 	icon = GFX_colony_type_research
 
 	potential = {
@@ -1098,7 +1098,7 @@ col_ecu_research_physics = {
 }
 
 # 科研理想城_社会学
-col_ecu_research_sociology = {
+col_ecu_research_society = {
 	icon = GFX_colony_type_research
 
 	potential = {
@@ -1254,7 +1254,7 @@ col_ecu_research_physics_trade = {
 }
 
 # 科研理想城_社会学_贸易
-col_ecu_research_sociology_trade = {
+col_ecu_research_society_trade = {
 	icon = GFX_colony_type_research
 
 	potential = {

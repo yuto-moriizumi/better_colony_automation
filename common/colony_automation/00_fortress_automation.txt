@@ -6,7 +6,7 @@ better_automate_fortress_planet_1 = {
 		has_fortress_designation = yes
 		has_bt_trade_designation = no
         requires_more_job = yes
-        has_minerals_to_build = yes
+        bca_has_minerals_to_build = yes
 
 	}
 	prio_zones = {
@@ -26,7 +26,7 @@ better_automate_fortress_planet_2 = {
 		has_fortress_designation = yes
 		has_bt_trade_designation = yes 
         requires_more_job = yes
-        has_minerals_to_build = yes
+        bca_has_minerals_to_build = yes
 
 	}
 

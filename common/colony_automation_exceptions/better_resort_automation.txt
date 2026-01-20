@@ -8,7 +8,7 @@ automate_resort_planet = {
 			has_designation = col_pleasure
 		}
         requires_more_job = yes
-        has_minerals_to_build = yes
+        bca_has_minerals_to_build = yes
 
 	}
 

@@ -7,13 +7,13 @@ has_bt_trade_designation = {
 		has_designation = col_factory_trade
 
         has_designation = col_research_physics_trade
-        has_designation = col_research_sociology_trade
+        has_designation = col_research_society_trade
         has_designation = col_research_engineering_trade
         has_designation = col_ring_research_physics_trade
-        has_designation = col_ring_research_sociology_trade
+        has_designation = col_ring_research_society_trade
         has_designation = col_ring_research_engineering_trade
         has_designation = col_ecu_research_physics_trade
-        has_designation = col_ecu_research_sociology_trade
+        has_designation = col_ecu_research_society_trade
         has_designation = col_ecu_research_engineering_trade
 
         has_designation = col_wilderness_nest
@@ -53,6 +53,14 @@ has_foundry_designation = {
 	}
 }
 
+has_any_industrial_designation = {
+    OR = {
+        has_factory_designation = yes
+        has_foundry_designation = yes
+        has_industrial_designation = yes
+    }
+}
+
 # 物理学类型
 has_physics_designation = {
     OR = {
@@ -70,13 +78,13 @@ has_physics_designation = {
 # 社会学类型
 has_sociology_designation = {
     OR = {
-        has_designation = col_research_sociology
-        has_designation = col_research_sociology_trade
-        has_designation = col_habitat_research_sociology
-        has_designation = col_ring_research_sociology
-        has_designation = col_ring_research_sociology_trade
-        has_designation = col_ecu_research_sociology
-        has_designation = col_ecu_research_sociology_trade
+        has_designation = col_research_society
+        has_designation = col_research_society_trade
+        has_designation = col_habitat_research_society
+        has_designation = col_ring_research_society
+        has_designation = col_ring_research_society_trade
+        has_designation = col_ecu_research_society
+        has_designation = col_ecu_research_society_trade
         has_designation = col_wilderness_tech_sociology
     }
 }
@@ -106,13 +114,13 @@ has_any_research_designation = {
         has_designation = col_ecu_research_physics_trade
         has_designation = col_wilderness_tech_physics
         
-        has_designation = col_research_sociology
-        has_designation = col_research_sociology_trade
-        has_designation = col_habitat_research_sociology
-        has_designation = col_ring_research_sociology
-        has_designation = col_ring_research_sociology_trade
-        has_designation = col_ecu_research_sociology
-        has_designation = col_ecu_research_sociology_trade
+        has_designation = col_research_society
+        has_designation = col_research_society_trade
+        has_designation = col_habitat_research_society
+        has_designation = col_ring_research_society
+        has_designation = col_ring_research_society_trade
+        has_designation = col_ecu_research_society
+        has_designation = col_ecu_research_society_trade
         has_designation = col_wilderness_tech_sociology
 
         has_designation = col_research_engineering

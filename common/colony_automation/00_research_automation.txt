@@ -7,7 +7,7 @@ better_automate_research_planet_physics_1 = {
 		has_physics_designation = yes
 		has_bt_trade_designation = no
         requires_more_job = yes
-        has_minerals_to_build = yes
+        bca_has_minerals_to_build = yes
 
 	}
 
@@ -31,7 +31,7 @@ better_automate_research_planet_physics_2 = {
 		has_physics_designation = yes
 		has_bt_trade_designation = yes
         requires_more_job = yes
-        has_minerals_to_build = yes
+        bca_has_minerals_to_build = yes
 
 	}
 
@@ -49,16 +49,16 @@ better_automate_research_planet_policy_1 = {
 		has_sociology_designation = yes
 		has_bt_trade_designation = no
         requires_more_job = yes
-        has_minerals_to_build = yes
+        bca_has_minerals_to_build = yes
 
 	}
 
 	prio_zones = {
-        zone_research_sociology
-        zone_research_sociology_arcology
-        zone_research_sociology_ring_world
-        zone_research_sociology_nexus
-        zone_research_sociology_hive
+        zone_research_society
+        zone_research_society_arcology
+        zone_research_society_ring_world
+        zone_research_society_nexus
+        zone_research_society_hive
 
         zone_habitat_research_unity
 	}
@@ -73,12 +73,12 @@ better_automate_research_planet_policy_2 = {
 		has_sociology_designation = yes
 		has_bt_trade_designation = yes
         requires_more_job = yes
-        has_minerals_to_build = yes
+        bca_has_minerals_to_build = yes
 
 	}
 
 	prio_zones = {
-        zone_research_sociology
+        zone_research_society
 	}
 }
 
@@ -91,7 +91,7 @@ better_automate_research_planet_engineering_1 = {
 		has_engineering_designation = yes
 		has_bt_trade_designation = no
         requires_more_job = yes
-        has_minerals_to_build = yes
+        bca_has_minerals_to_build = yes
 
 	}
 
@@ -115,7 +115,7 @@ better_automate_research_planet_engineering_2 = {
 		has_engineering_designation = yes
 		has_bt_trade_designation = yes
         requires_more_job = yes
-        has_minerals_to_build = yes
+        bca_has_minerals_to_build = yes
 
 	}
 

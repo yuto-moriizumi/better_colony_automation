@@ -13,7 +13,7 @@ requires_more_job = {
 	}
 }
 
-has_minerals_to_build = {
+bca_has_minerals_to_build = {
 	owner = {
 		resource_stockpile_compare = {resource = minerals value >= reserve_minerals_amount}
 	}

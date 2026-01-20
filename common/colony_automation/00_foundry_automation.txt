@@ -6,7 +6,7 @@ better_automate_foundry_planet_1 = {
 		has_foundry_designation = yes
 		has_bt_trade_designation = no
         requires_more_job = yes
-        has_minerals_to_build = yes
+        bca_has_minerals_to_build = yes
 
 	}
 
@@ -28,7 +28,7 @@ better_automate_foundry_planet_2 = {
 		has_foundry_designation = yes
 		has_bt_trade_designation = yes 
         requires_more_job = yes
-        has_minerals_to_build = yes
+        bca_has_minerals_to_build = yes
 
 	}
 

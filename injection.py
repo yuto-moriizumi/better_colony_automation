@@ -516,7 +516,7 @@ def main():
 	# Configure source scripts and output naming
 	# source_root should point to the game's common folder, e.g. ".../Stellaris/common"
 	source_root = os.environ.get("STELLARIS_COMMON_ROOT")
-	output_prefix = os.environ.get("INJECTION_OUTPUT_PREFIX", "00_")
+	output_prefix = os.environ.get("INJECTION_OUTPUT_PREFIX", "99_")
 	output_suffix = os.environ.get("INJECTION_OUTPUT_SUFFIX", "_override")
 
 	if not source_root:

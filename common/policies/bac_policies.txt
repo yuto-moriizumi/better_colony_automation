@@ -1,0 +1,148 @@
+cba_reserve_minerals = {
+    allow = { always = yes }
+	potential = { always = yes }
+    option = {
+        name = "RESERVE_MINERALS_0"
+        on_enabled = {
+            set_variable = { which = reserve_minerals_amount value = 0 }
+        }
+    }
+    option = {
+        name = "RESERVE_MINERALS_5k"
+        on_enabled = {
+            set_variable = { which = reserve_minerals_amount value = 5000 }
+        }
+    }
+    option = {
+        name = "RESERVE_MINERALS_10k"
+        on_enabled = {
+            set_variable = { which = reserve_minerals_amount value = 10000 }
+        }
+    }
+	option = {
+        name = "RESERVE_MINERALS_20k"
+        on_enabled = {
+            set_variable = { which = reserve_minerals_amount value = 20000 }
+        }
+    }
+}
+
+bac_advanced_automation_category = {
+    allow = { always = yes }
+	potential = { always = yes }
+    option = {
+        name = "disable_bac_advanced_automation_category"
+        on_enabled = {
+            remove_country_flag = bac_advanced_automation_category_enabled
+        }
+        ai_weight = {
+            factor = 1
+        }
+    }
+    option = {
+        name = "enable_bac_advanced_automation_category"
+        on_enabled = {
+            set_country_flag = bac_advanced_automation_category_enabled
+        }
+        ai_weight = {
+            factor = 0
+        }
+    }
+
+}
+
+bac_building_destroy = {
+    allow = { always = yes }
+	potential = { always = yes }
+    option = {
+        name = "disable_bac_building_destroy"
+        on_enabled = {
+            remove_country_flag = bac_building_destroy
+        }
+        ai_weight = {
+            factor = 1
+            modifier = {
+                factor = 0
+                is_ai = no
+            }
+		}
+    }
+    option = {
+        name = "enable_bac_building_destroy"
+        on_enabled = {
+            set_country_flag = bac_building_destroy
+        }
+        ai_weight = {
+            factor = 0
+            modifier = {
+                factor = 1
+                is_ai = no
+            }
+        }
+    }
+
+}
+
+bac_district_destroy = {
+    allow = { always = yes }
+    potential = { always = yes }
+    option = {
+        name = "disable_bac_district_destroy"
+        on_enabled = {
+            remove_country_flag = bac_district_destroy
+        }
+        ai_weight = {
+            factor = 1
+            modifier = {
+                factor = 0
+                is_ai = no
+            }
+        }
+    }
+    option = {
+        name = "enable_bac_district_destroy"
+        on_enabled = {
+            set_country_flag = bac_district_destroy
+        }
+        ai_weight = {
+            factor = 0
+            modifier = {
+                factor = 1
+                is_ai = no
+            }
+        }
+    }
+
+}
+
+bac_zone_destroy = {
+    allow = { always = yes }
+    potential = { always = yes }
+    option = {
+        name = "disable_bac_zone_destroy"
+        on_enabled = {
+            remove_country_flag = bac_zone_destroy
+        }
+        ai_weight = {
+            factor = 1
+            modifier = {
+                factor = 0
+                is_ai = no
+            }
+        }
+    }
+    option = {
+        name = "enable_bac_zone_destroy"
+        on_enabled = {
+            set_country_flag = bac_zone_destroy
+        }
+        ai_weight = {
+            factor = 0
+            modifier = {
+                factor = 1
+                is_ai = no
+            }
+        }
+    }
+
+}

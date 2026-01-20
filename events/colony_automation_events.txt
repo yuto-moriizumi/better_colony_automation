@@ -1,0 +1,297 @@
+namespace = colony_automation_event
+
+country_event = {
+	id = colony_automation_event.1
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		is_ai = no
+		owner = {
+			OR = {
+				has_country_flag = bac_district_destroy
+				has_country_flag = bac_zone_destroy
+			}
+			
+		}
+		bca_has_minerals_to_build = yes
+	}
+
+	immediate = {
+		# 遍历该国家拥有的所有星球
+		every_owned_planet = {
+			limit = {
+				has_building_construction = no
+			}
+			# 自动区划移除
+			if = {
+				limit = {
+					NOT = { owner = {has_country_flag = bac_district_destroy} }
+				}
+				if = {
+					limit = {
+						free_district_slots = 0
+					}
+					# 一产区块
+					if = {
+						limit = {
+							num_districts = { type = district_generator value > 0 }
+							bca_can_remove_district_generator = yes
+						}
+						remove_district = district_generator
+					}
+					if = {
+						limit = {
+							num_districts = { type = district_geothermal value > 0 }
+							bca_can_remove_district_generator = yes
+						}
+						remove_district = district_geothermal
+					}
+					if = {
+						limit = {
+							num_districts = { type = district_mining value > 0 }
+							bca_can_remove_district_mining = yes
+						}
+						remove_district = district_mining
+					}
+					if = {
+						limit = {
+							num_districts = { type = district_melting value > 0 }
+							bca_can_remove_district_mining = yes
+						}
+						remove_district = district_melting
+					}
+					if = {
+						limit = {
+							num_districts = { type = district_farming value > 0 }
+							bca_can_remove_district_farming = yes
+						}
+						remove_district = district_farming
+					}
+					# 城市区块
+					if = {
+						limit = {
+							num_districts = { type = district_city value > 0 }
+							free_housing > 700
+							OR = {
+								bca_require_district_generator = yes
+								bca_require_district_mining = yes
+								bca_require_district_farming = yes
+							}
+						}
+						remove_district = district_city
+					}
+					# 蜂巢区块
+					if = {
+						limit = {
+							num_districts = { type = district_hive value > 0 }
+							free_housing > 700
+							OR = {
+								bca_require_district_generator = yes
+								bca_require_district_mining = yes
+								bca_require_district_farming = yes
+							}
+						}
+						remove_district = district_hive
+					}
+					# 中枢区块
+					if = {
+						limit = {
+							num_districts = { type = district_nexus value > 0 }
+							free_housing > 700
+							OR = {
+								bca_require_district_generator = yes
+							}
+						}
+						remove_district = district_nexus
+					}
+					# 居住站居住区块
+					if = {
+						limit = {
+							num_districts = { type = district_hab_housing value > 0 }
+							free_housing > 700
+							OR = {
+								AND = {
+									has_generator_designation = yes
+									num_free_districts = { type = district_hab_energy value = 0 }
+								}
+								AND = {
+									has_mining_designation = yes
+									num_free_districts = { type = district_hab_mining value = 0 }
+								}
+								AND = {
+									has_any_research_designation = yes
+									num_free_districts = { type = district_hab_science value = 0 }
+								}
+							}
+						}
+						remove_district = district_hab_housing
+					}
+					# 环世界城市区块
+					if = {
+						limit = {
+							num_districts = { type = district_rw_city value > 0 }
+							free_housing > 1500
+							OR = {
+								bca_require_district_rw_farming = yes
+								bca_require_district_rw_generator = yes
+							}
+						}
+						remove_district = district_rw_city
+					}
+					# 环世界蜂巢区块
+					if = {
+						limit = {
+							num_districts = { type = district_rw_hive value > 0 }
+							free_housing > 1500
+							OR = {
+								bca_require_district_rw_farming = yes
+								bca_require_district_rw_generator = yes
+							}
+						}
+						remove_district = district_rw_hive
+					}
+					# 环世界中枢区块
+					if = {
+						limit = {
+							num_districts = { type = district_rw_nexus value > 0 }
+							free_housing > 1500
+							OR = {
+								bca_require_district_rw_generator = yes
+							}
+						}
+						remove_district = district_rw_nexus
+					}
+				}
+			}
+			# 区划特化移除
+			if = {
+				limit = {
+					NOT = { owner = {has_country_flag = bac_zone_destroy} }
+				}
+				# 移除研究特化
+				if = {
+					limit = {
+						has_any_research_designation = no
+					}
+
+					remove_zone_if_found = { zone = zone_research }
+					remove_zone_if_found = { zone = zone_research_arcology }
+					remove_zone_if_found = { zone = zone_research_ring_world }
+					remove_zone_if_found = { zone = zone_research_nexus }
+					remove_zone_if_found = { zone = zone_research_hive }
+
+					
+					remove_zone_if_found = { zone = zone_research_physics }
+					remove_zone_if_found = { zone = zone_research_physics_arcology }
+					remove_zone_if_found = { zone = zone_research_physics_ring_world }
+					remove_zone_if_found = { zone = zone_research_physics_nexus }
+					remove_zone_if_found = { zone = zone_research_physics_hive }
+
+					remove_zone_if_found = { zone = zone_research_society }
+					remove_zone_if_found = { zone = zone_research_society_arcology }
+					remove_zone_if_found = { zone = zone_research_society_ring_world }
+					remove_zone_if_found = { zone = zone_research_society_nexus }
+					remove_zone_if_found = { zone = zone_research_society_hive }
+
+					remove_zone_if_found = { zone = zone_research_engineering }
+					remove_zone_if_found = { zone = zone_research_engineering_arcology }
+					remove_zone_if_found = { zone = zone_research_engineering_ring_world }
+					remove_zone_if_found = { zone = zone_research_engineering_nexus }
+					remove_zone_if_found = { zone = zone_research_engineering_hive }
+					
+					remove_zone_if_found = { zone = zone_habitat_research }
+					remove_zone_if_found = { zone = zone_research_wilderness }
+				}
+				
+				#移除贸易特化
+				if = {
+					limit = {
+						has_bt_trade_designation = no
+						has_trade_designation = no
+					}
+					remove_zone_if_found = { zone = zone_trade }
+					remove_zone_if_found = { zone = zone_trade_arcology }
+					remove_zone_if_found = { zone = zone_trade_ring_world }
+					remove_zone_if_found = { zone = zone_trade_nexus }
+					remove_zone_if_found = { zone = zone_trade_hive }
+					remove_zone_if_found = { zone = zone_trade_wilderness }
+				}
+				
+				#移除工厂特化
+				if = {
+					limit = {
+						has_any_industrial_designation = no
+					}
+					remove_zone_if_found = { zone = zone_factory }
+					remove_zone_if_found = { zone = zone_factory_arcology }
+					remove_zone_if_found = { zone = zone_factory_ring_world }
+					remove_zone_if_found = { zone = zone_factory_nexus }
+					remove_zone_if_found = { zone = zone_factory_hive }
+				}
+				
+				#移除铸造厂特化
+				if = {
+					limit = {
+						has_any_industrial_designation = no
+					}
+					remove_zone_if_found = { zone = zone_foundry }
+					remove_zone_if_found = { zone = zone_foundry_arcology }
+					remove_zone_if_found = { zone = zone_foundry_ring_world }
+					remove_zone_if_found = { zone = zone_foundry_nexus }
+					remove_zone_if_found = { zone = zone_foundry_hive }
+				}
+				
+				#移除混合工业特化
+				if = {
+					limit = {
+						has_any_industrial_designation = no
+					}
+					remove_zone_if_found = { zone = zone_industrial }
+					remove_zone_if_found = { zone = zone_industrial_arcology }
+					remove_zone_if_found = { zone = zone_industrial_ring_world }
+					remove_zone_if_found = { zone = zone_industrial_nexus }
+					remove_zone_if_found = { zone = zone_industrial_hive }
+				}
+				
+				#移除堡垒特化
+				if = {
+					limit = {
+						has_fortress_designation = no
+					}
+					remove_zone_if_found = { zone = zone_fortress }
+					remove_zone_if_found = { zone = zone_fortress_arcology }
+					remove_zone_if_found = { zone = zone_fortress_ring_world }
+					remove_zone_if_found = { zone = zone_fortress_nexus }
+					remove_zone_if_found = { zone = zone_fortress_hive }
+					remove_zone_if_found = { zone = zone_fortress_wilderness }
+				}
+				
+				#移除官僚特化
+				if = {
+					limit = {
+						has_unity_designation = no
+						NOT = { has_designation = col_resort }
+					}
+					remove_zone_if_found = { zone = zone_unity }
+					remove_zone_if_found = { zone = zone_unity_arcology }
+					remove_zone_if_found = { zone = zone_unity_ring_world }
+					remove_zone_if_found = { zone = zone_unity_nexus }
+					remove_zone_if_found = { zone = zone_unity_hive }
+					remove_zone_if_found = { zone = zone_unity_wilderness }
+					
+					remove_zone_if_found = { zone = zone_unity_spiritualist }
+					remove_zone_if_found = { zone = zone_unity_spiritualist_arcology }
+					remove_zone_if_found = { zone = zone_unity_spiritualist_ring_world }
+					remove_zone_if_found = { zone = zone_unity_spiritualist_nexus }
+					
+					remove_zone_if_found = { zone = zone_unity_bio_trophy }
+					remove_zone_if_found = { zone = zone_unity_bio_trophy_arcology }
+					remove_zone_if_found = { zone = zone_unity_bio_trophy_ring_world }
+					remove_zone_if_found = { zone = zone_unity_bio_trophy_nexus }
+				}
+			}
+
+		}
+	}
+}

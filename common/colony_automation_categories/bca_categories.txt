@@ -1,4 +1,5 @@
-planet_automation_medical = {}
+planet_automation_medical = {
+}
 
 # 有基因重塑飞升的时候显示
 planet_automation_engineered = {
@@ -14,7 +15,8 @@ planet_automation_fe_clinic = {
 	available = {
 		exists = owner
 		owner = {
-			has_ascension_perk = ap_engineered_evolution
+			has_technology = tech_fe_clinic_1
+			has_country_flag = bac_advanced_automation_category_enabled
 		}
 	}
 }
@@ -33,6 +35,9 @@ planet_automation_monument = {
 planet_automation_silo = {
 	available = {
 		exists = owner
+		owner = {
+			has_country_flag = bac_advanced_automation_category_enabled
+		}
 	}
 }
 

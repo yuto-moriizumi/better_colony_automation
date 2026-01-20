@@ -8,7 +8,7 @@ automate_monument_autobuild = {
             has_technology = tech_cultural_heritage
         }
         requires_more_job = yes
-        has_minerals_to_build = yes
+        bca_has_minerals_to_build = yes
 	}
 	
 
@@ -79,9 +79,9 @@ automate_medical_autobuild = {
     available = {
         exists = owner
         owner = {
-            has_technology = tech_advanced_medical_centers
+            has_technology = tech_basic_health
         }
-        has_minerals_to_build = yes
+        bca_has_minerals_to_build = yes
     }
     
 
@@ -100,7 +100,7 @@ automate_engineered_autobuild = {
             has_ascension_perk = ap_engineered_evolution
 		}
         requires_more_job = yes
-        has_minerals_to_build = yes
+        bca_has_minerals_to_build = yes
 	}
 	
 	buildings = {

@@ -9,8 +9,7 @@ automate_urban_planet = {
 			has_designation = col_nexus
 		}
         requires_more_job = yes
-        has_minerals_to_build = yes
-
+        bca_has_minerals_to_build = yes
 	}
 	prio_districts = {
 		district_city
@@ -30,13 +29,13 @@ automate_urban_planet = {
 	}
 
 	buildings = {
-		# 1 = {
-		# 	building = building_galactic_stock_exchange
-		# }
-		# 
-		# 2 = {
-		# 	building = building_commercial_megaplex
-		# }
+		1 = {
+			building = building_galactic_stock_exchange
+		}
+		
+		2 = {
+			building = building_commercial_megaplex
+		}
 
 		3 = {
 			building = building_commercial_zone

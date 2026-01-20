@@ -33,3 +33,27 @@ decision_disable_pre_construction = {
 		remove_modifier = "planet_pre_construction"
 	}
 }
+
+
+# decision_test = {
+# 	sound = event_administrative_work
+# 	icon = decision_arcology_project
+
+# 	resources = {
+# 		category = decisions
+# 	}
+
+# 	potential = {
+# 		exists = owner
+# 	}
+
+# 	effect = {
+# 		add_modifier = {
+# 			modifier = penal_colony
+# 			days = -1
+# 		}
+# 		hidden_effect = { validate_planet_buildings_and_districts = yes }
+# 		remove_modifier = penal_colony
+# 		hidden_effect = { validate_planet_buildings_and_districts = yes }
+# 	}
+# }

@@ -15,34 +15,34 @@
  col_factory_trade_tt: "下面三个(如果有)特化成贸易特化，便于修焕活"
 
  col_research_physics: "物理学星球"
- col_research_sociology: "社会学星球"
+ col_research_society: "社会学星球"
  col_research_engineering: "工程学星球"
  col_research_physics_trade: "物理学贸易"
- col_research_sociology_trade: "社会学贸易"
+ col_research_society_trade: "社会学贸易"
  col_research_engineering_trade: "工程学贸易"
 
  col_habitat_research_physics: "物理站"
- col_habitat_research_sociology: "社会站"
+ col_habitat_research_society: "社会站"
  col_habitat_research_engineering: "工程站"
 
  col_ring_research_physics: "物理环"
- col_ring_research_sociology: "社会环"
+ col_ring_research_society: "社会环"
  col_ring_research_engineering: "工程环"
  col_ring_research_physics_trade: "物理贸易"
- col_ring_research_sociology_trade: "社会贸易"
+ col_ring_research_society_trade: "社会贸易"
  col_ring_research_engineering_trade: "工程贸易"
 
 
  col_ecu_research_physics: "物理理想城"
- col_ecu_research_sociology: "社会理想城"
+ col_ecu_research_society: "社会理想城"
  col_ecu_research_engineering: "工程理想城"
  col_ecu_research_physics_trade: "物理贸易理想城"
- col_ecu_research_sociology_trade: "社会贸易理想城"
+ col_ecu_research_society_trade: "社会贸易理想城"
  col_ecu_research_engineering_trade: "工程贸易理想城"
 
 
  col_wilderness_tech_physics: "$col_research_physics$"
- col_wilderness_tech_sociology: "$col_research_sociology$"
+ col_wilderness_tech_sociology: "$col_research_society$"
  col_wilderness_tech_engineering: "$col_research_engineering$"
 
  col_fortress_trade: "堡垒贸易"

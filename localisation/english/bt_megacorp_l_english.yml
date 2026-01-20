@@ -10,34 +10,34 @@ l_english:
  col_factory_trade_desc: "factory maybe with trade"
 
  col_research_physics: "physic col"
- col_research_sociology: "sociology col"
+ col_research_society: "sociology col"
  col_research_engineering: "engineering col"
  col_research_physics_trade: "physic trade"
- col_research_sociology_trade: "sociology trade"
+ col_research_society_trade: "sociology trade"
  col_research_engineering_trade: "engineering trade"
 
  col_habitat_research_physics: "physics habitat"
- col_habitat_research_sociology: "sociology habitat"
+ col_habitat_research_society: "sociology habitat"
  col_habitat_research_engineering: "engineering habitat"
 
  col_ring_research_physics: "physics ring"
- col_ring_research_sociology: "sociology ring"
+ col_ring_research_society: "sociology ring"
  col_ring_research_engineering: "engineering ring"
  col_ring_research_physics_trade: "physics trade"
- col_ring_research_sociology_trade: "sociology trade"
+ col_ring_research_society_trade: "sociology trade"
  col_ring_research_engineering_trade: "engineering trade"
 
 
  col_ecu_research_physics: "physics ecu"
- col_ecu_research_sociology: "sociology ecu"
+ col_ecu_research_society: "sociology ecu"
  col_ecu_research_engineering: "engineering ecu"
  col_ecu_research_physics_trade: "physics trade ecu"
- col_ecu_research_sociology_trade: "sociology trade ecu"
+ col_ecu_research_society_trade: "sociology trade ecu"
  col_ecu_research_engineering_trade: "engineering trade ecu"
 
 
  col_wilderness_tech_physics: "$col_research_physics$"
- col_wilderness_tech_sociology: "$col_research_sociology$"
+ col_wilderness_tech_sociology: "$col_research_society$"
  col_wilderness_tech_engineering: "$col_research_engineering$"
  
  col_fortress_trade: "fortress with trade"

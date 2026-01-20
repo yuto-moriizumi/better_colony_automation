@@ -1,0 +1,6 @@
+# 推荐使用每两月一次的脉冲，平衡性能和实时性
+on_monthly_pulse_country = {
+	events = {
+		colony_automation_event.1  # 调用的事件 ID
+	}
+}

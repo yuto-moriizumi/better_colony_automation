@@ -1,6 +1,6 @@
 non_reasearch_colony_destruction = {
 	AND = {
-		has_policy_flag = automation_building_destruction
+		owner = { has_country_flag = bac_building_destroy }
 		free_building_slots = 0
 		has_any_research_designation = no
 	}
@@ -8,7 +8,7 @@ non_reasearch_colony_destruction = {
 
 non_factory_colony_destruction = {
 	AND = {
-		has_policy_flag = automation_building_destruction
+		owner = { has_country_flag = bac_building_destroy }
 		free_building_slots = 0
 		has_factory_designation = no
 		has_industrial_designation = no
@@ -17,7 +17,7 @@ non_factory_colony_destruction = {
 
 non_foundry_colony_destruction = {
 	AND = {
-		has_policy_flag = automation_building_destruction
+		owner = { has_country_flag = bac_building_destroy }
 		free_building_slots = 0
 		has_foundry_designation = no
 		has_industrial_designation = no
@@ -26,8 +26,70 @@ non_foundry_colony_destruction = {
 
 non_trade_colony_destruction = {
 	AND = {
-		has_policy_flag = automation_building_destruction
+		owner = { has_country_flag = bac_building_destroy }
 		free_building_slots = 0
 		has_bt_trade_designation = no
+	}
+}
+
+bca_can_remove_district_generator = {
+	AND = {
+		owner = { has_country_flag = bac_building_destroy }
+		free_district_slots = 0
+		has_trade_designation = yes
+	}
+}
+
+bca_can_remove_district_mining = {
+	AND = {
+		owner = { has_country_flag = bac_building_destroy }
+		free_district_slots = 0
+		has_trade_designation = yes
+	}
+}
+
+bca_can_remove_district_farming = {
+	AND = {
+		owner = { has_country_flag = bac_building_destroy }
+		free_district_slots = 0
+		has_trade_designation = yes
+	}
+}
+
+
+bca_require_district_generator = {
+	AND = {
+		has_generator_designation = yes
+		OR = {
+			num_districts = { type = district_generator value = 0 }
+			num_districts = { type = district_geothermal value = 0 }
+		}
+	}
+}
+bca_require_district_mining = {
+	AND = {
+		has_mining_designation = yes
+		OR = {
+			num_districts = { type = district_mining value = 0 }
+			num_districts = { type = district_melting value = 0 }
+		}
+	}
+}
+bca_require_district_farming = {
+	AND = {
+		has_farming_designation = yes
+		num_districts = { type = district_farming value = 0 }
+	}
+}
+bca_require_district_rw_farming = {
+	AND = {
+		has_designation = col_ring_farming
+		num_districts = { type = district_rw_farming value = 0 }
+	}
+}
+bca_require_district_rw_generator = {
+	AND = {
+		has_designation = col_ring_generator
+		num_districts = { type = district_rw_generator value = 0 }
 	}
 }

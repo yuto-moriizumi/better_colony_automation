@@ -9,7 +9,7 @@ automate_bt_colony_trade = {
             has_bt_trade_designation = yes
         }
         requires_more_job = yes
-        has_minerals_to_build = yes
+        bca_has_minerals_to_build = yes
     }
 
     prio_zones = {
@@ -39,7 +39,7 @@ automate_silo_1 = {
             has_designation = col_habitat_farming
             has_designation = col_habitat_gestalt_farming
         }
-        has_minerals_to_build = yes
+        bca_has_minerals_to_build = yes
     }
     prio_zones = {
 		zone_energy
@@ -54,7 +54,7 @@ automate_silo_2 = {
             has_designation = col_habitat_farming
             has_designation = col_habitat_gestalt_farming
         }
-        has_minerals_to_build = yes
+        bca_has_minerals_to_build = yes
     }
     prio_zones = {
         zone_habitat_hydroponics
