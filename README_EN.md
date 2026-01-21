@@ -14,6 +14,7 @@ Since Paradox has yet to fix the broken planetary automation bugs following the 
 
 #### Smart Construction Logic
 - **Build on Demand**: Construction is only triggered when there are insufficient jobs (`requires_more_job`) and no other ongoing construction. You can bypass this via Planetary Decisions to force early construction.
+- **Special Buildings**: Population growth-related buildings (Clinics, Clone Vats, Revitalization Centers, Gene Clinics) will also be constructed when there are available jobs.
 - **Mineral Reserve**: Added a national **Mineral Reserve Policy**. You can set a threshold; if minerals fall below this limit, automation will pause to prevent economic collapse.
 
 #### Enhanced Automation Options
@@ -88,11 +89,3 @@ Since Paradox has yet to fix the broken planetary automation bugs following the 
 - Improved Silo/FE Clinic construction logic to avoid "spamming" unless intended.
 - Fixed Trade specialization conflicts on Hive/Machine worlds.
 - General priority and bug fixes for agriculture specializations.
-
----
-## 为此mod贡献 / Contribute to this mod
-
-当前的 mod 只对常用的原版建筑和区划进行了支持。如果你希望添加对其他模组建筑和区划的支持，欢迎访问以下链接提交你的贡献（添加规则其实很简单的喵）
-Contribute support for additional mod buildings and districts by visiting:
-
-https://github.com/StellarWarp/better_colony_automation

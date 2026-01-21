@@ -1,9 +1,7 @@
-
-[h1]English / 英文[/h1]
+[h1]English[/h1]
 
 https://github.com/StellarWarp/better_colony_automation/blob/master/README_EN.md
 
-[h1]Chinese / 中文[/h1]
 [h1]Better Colony Automation (BCA) - 殖民地自动化改良[/h1]
 
 由于罪恶的P社在4.0更新后一直没修复自动托管的bug，导致每到中后期的游戏体验极差，最后还得是自己来解决P社的bug
@@ -20,6 +18,7 @@ https://github.com/StellarWarp/better_colony_automation/blob/master/README_EN.md
 
 [b]自动建造逻辑[/b]
 [b]·[/b] [b]按需建造[/b]：仅在岗位不足、且星球不存在建设中建筑的情况下才进行建造。可以通过行星决策进行无视岗位需求的提前建造
+[b]·[/b] [b]特殊建筑[/b]：人口增长相关的建筑（诊所、克隆舱、焕活所、基因研究所）在有岗位空余时也会建造
 [b]·[/b] [b]矿物预留[/b]：增加了国家级的[b]矿物预留政策[/b]。你可以设置矿物阈值，若国家矿物低于该值，自动化将暂停建设，避免造成经济崩溃。
 
 [b]增加自动化选项[/b]
@@ -100,6 +99,10 @@ https://github.com/StellarWarp/better_colony_automation/blob/master/README_EN.md
 [b]·[/b] 修复贸易特化在蜂巢或机械星球上的建设和拆除冲突
 [b]·[/b] 优化区划建设优先级
 [b]·[/b] 修复农业区划特化建设bug
+
+哇噗 [b]26-01-21 - v0.4.1[/b]：
+
+[b]·[/b] 基因研究所在有岗位空余时也会建造
 
 
 [hr][/hr]

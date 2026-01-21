@@ -45,7 +45,7 @@ def generate_steam_page():
     steam_zh = markdown_to_steam(zh_content)
     steam_en = markdown_to_steam(en_content)
 
-    final_content = "[h1]Chinese / 中文[/h1]\n" + steam_zh + "\n\n[hr][/hr]\n\n" + "[h1]English / 英文[/h1]\n" + steam_en
+    final_content = steam_zh
 
     with open(output_path, 'w', encoding='utf-8') as f:
         f.read = f.write(final_content)
