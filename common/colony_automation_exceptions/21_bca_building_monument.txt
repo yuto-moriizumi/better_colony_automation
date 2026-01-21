@@ -70,88 +70,9 @@ automate_monument_autobuild = {
         18 = {
             building = building_avatar_chamber_1
         }
+        19 = {
+            building = building_uplink_node
+        }
+        
 	}
 }
-
-automate_engineered_autobuild = {
-	category = "planet_automation_engineered"
-	
-    emergency = yes
-	available = {
-		owner = {
-            has_ascension_perk = ap_engineered_evolution
-		}
-        requires_more_job = yes
-        bca_has_minerals_to_build = yes
-	}
-	
-	buildings = {
-        # 基因组研究所
-		0 = {
-			building = building_genomic_facility
-		}
-        # 老登医院
-        2 = {
-            building = building_fe_clinic_1
-            available = {
-                NOT = { has_building = building_fe_clinic_1 }
-                NOT = { has_building = building_fe_clinic_2 }
-            }
-        }
-	}
-
-}
-automate_medical_autobuild = {
-    category = "planet_automation_medical"
-    
-    emergency = yes
-    available = {
-        exists = owner
-        owner = {
-            has_technology = tech_basic_health
-        }
-        bca_has_minerals_to_build = yes
-    }
-    
-
-    buildings = {
-        0 = {
-            building = building_medical_1
-        }
-    }
-}
-
-
-automate_fe_clinic_autobuild = {
-	category = "planet_automation_fe_clinic"
-	
-    emergency = yes
-	available = {
-		owner = {
-			has_country_flag = fe_clinic_1_can_build
-            has_country_flag = bac_advanced_automation_category_enabled
-		}
-        bca_has_minerals_to_build = yes
-	}
-	
-	buildings = {
-        # 老登医院
-        0 = {
-            building = building_fe_clinic_1
-        }
-	}
-}
-
-# automate_silo_farming_autobuild = {
-# 	category = "planet_automation_silo"
-# 	
-#     emergency = yes
-# 	available = {
-# 	}
-# 
-#     prio_districts = {
-# 		district_farming
-# 	}
-# 
-# }
-

@@ -1,0 +1,41 @@
+automate_silo_building_autobuild = {
+	category = "planet_automation_silo"
+	
+    emergency = yes
+	available = {
+		bca_has_minerals_to_build = yes
+		exists = owner
+	}
+	
+	buildings = {
+        # 老登仓库
+		0 = {
+			building = building_fe_silo_1
+            available = {
+				OR = {
+					has_planet_flag = bca_pf_can_build_extra_zones_for_storage
+					NOR = {
+						has_building = building_fe_silo_1
+						has_building = building_fe_silo_2
+						has_building = building_resource_silo
+					}
+				}
+            }
+		}
+        # 资源仓库
+        1 = {
+            building = building_resource_silo
+			available = {
+				OR = {
+					has_planet_flag = bca_pf_can_build_extra_zones_for_storage
+					NOR = {
+						has_building = building_fe_silo_1
+						has_building = building_fe_silo_2
+						has_building = building_resource_silo
+					}
+				}
+            }
+        }
+	}
+}
+

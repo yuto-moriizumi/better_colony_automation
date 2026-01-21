@@ -1,6 +1,6 @@
 # 科研球
 
-automate_research_planet = {
+automate_research_planet_districts = {
 	category = "planet_automation_housing"
 
 	emergency = yes
@@ -24,7 +24,7 @@ automate_research_planet = {
 
 
 # 物理特化
-automate_research_planet_physics = {
+automate_research_planet_physics_districts = {
 	category = "planet_automation_housing"
 
 	emergency = yes
@@ -47,7 +47,7 @@ automate_research_planet_physics = {
 }
 
 # 社会特化
-automate_research_planet_policy = {
+automate_research_planet_policy_districts = {
 	category = "planet_automation_housing"
 
 	emergency = yes
@@ -71,7 +71,7 @@ automate_research_planet_policy = {
 }
 
 # 工程特化
-automate_research_planet_engineering = {
+automate_research_planet_engineering_districts = {
 	category = "planet_automation_housing"
 
 	emergency = yes

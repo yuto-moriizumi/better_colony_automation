@@ -1,4 +1,4 @@
-automate_slave_planet = {
+automate_slave_planet_districts = {
 	category = "planet_automation_designation_construction"
 
 	emergency = yes

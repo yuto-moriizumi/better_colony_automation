@@ -1,0 +1,202 @@
+[h1]Chinese / 中文[/h1]
+[h1]Better Colony Automation (BCA) - 殖民地自动化改良[/h1]
+
+由于罪恶的P社在4.0更新后一直没修复自动托管的bug，导致每到中后期的游戏体验极差，最后还得是自己来解决P社的bug
+
+[h2]快速开始[/h2]
+
+1. [b]全局设置[/b]：在【政策】中设置[b]自动建造矿物预留[/b]。
+2. [b]开启自动化[/b]：在行星界面开启【行星自动化】以及对相关自动化选项进行配置。
+3. [b]精准微调[/b]：点击【行星决策】，可额外开启[b]允许为仓库建造额外区划及特化[/b]或[b]理想城候选[/b]（需要可建设理想城才会显示）等。
+
+[h2]总览[/h2]
+
+[h3]建造功能[/h3]
+
+[b]自动建造逻辑[/b]
+[b]·[/b] [b]按需建造[/b]：仅在岗位不足、且星球不存在建设中建筑的情况下才进行建造。可以通过行星决策进行无视岗位需求的提前建造
+[b]·[/b] [b]矿物预留[/b]：增加了国家级的[b]矿物预留政策[/b]。你可以设置矿物阈值，若国家矿物低于该值，自动化将暂停建设，避免造成经济崩溃。
+
+[b]增加自动化选项[/b]
+[b]·[/b] [b]医疗[/b]：支持基础医疗建筑、基因组研究所及分子焕活所的建设。
+[b]·[/b] [b]文化丰碑[/b]：自动建造凝聚力产出建筑。
+[b]·[/b] [b]资源仓储[/b]：自动建造仓库。
+[b]·[/b] [b]人口管理细化[/b]：（非机械帝国）可独立管理机器人组装厂的建设。
+[b]·[/b] 移除了避免财政赤字的选项，若不手动关闭会经常卡住建筑建设。
+
+[b]新增规划类型[/b]
+新增物理/社会/工程专项科研星球，以及对应的“科研+贸易”、“工业+贸易”等混合型专精。
+注：当前版本的混合类型类型是半成品，主要用于理想城/环世界/蜂巢星球/机械星球，且贸易混合类型不会尝试建造贸易建筑，计划后继版本优化。
+
+[b]建筑建设[/b]
+优先建造辅助性建筑，如诊所、克隆舱、文化丰碑、生产部等、以提升星球整体效能，主产出建筑在辅助建筑建造完成后再进行建设。
+本模组对原版的自动建造逻辑进行了大量改良，包括适配各种特殊星球类型，稀有资源建筑的建造逻辑也得到了修复。
+
+[b]·[/b] [b]仓库建设[/b]：默认只建造一个仓库。可以通过行星决策来建造更多仓库，其还会自动建造一产区块以容纳仓库建筑。
+[b]·[/b] [b]分子焕活所[/b]：默认只建造一个焕活所。可以通过行星决策来解除限制。
+
+[b]区划建设[/b]
+[b]·[/b] [b]优先级优化[/b]：模组将在一产专精星球上优先建设一产区划，避免因优先级冲突导致的一产区划无法建设的问题。
+[b]·[/b] [b]理想城/环世界/蜂巢星球/机械星球[/b]：将优先建造未特化分区各一个，以增加建筑槽。
+
+[h3]拆除功能[/h3]
+
+[b]建筑拆除[/b]
+[b]·[/b] [b]职能不符拆除[/b]：当建筑槽位已满且当前建筑不符合星球当前的专精时，模组会自动将其移除。例如：在科研球上有工厂且没地方造实验室时，工厂会被拆除。
+[b]·[/b] [b]人口组装腾挪[/b]：当星球彻底填满（无住房、无岗位、无剩余空位）时，人口组装建筑会被自动拆除，为更高级的产出建筑腾出空间。可以通过政策关闭此功能。
+
+[b]区划拆除[/b]
+[b]·[/b] [b]一产区划[/b]：通过开启“理想城项目候选”决策，将在无空余区划时移除一级资源（发电/采矿/农业）区划，直到满足项目启动条件。
+[b]·[/b] [b]城市区划[/b]：行星拥有冗余住房，且为了建设特定的其它区划，会移除过剩的城市区划。
+
+[b]区划特化拆除[/b]
+当玩家手动更改行星专精时（例如从科研球改为贸易球），会自动移除星球上不适宜的旧特化（如研究特化等）。研究特化之间的转型（如社会专精转物理专精）不会触发移除
+
+[h3]其他[/h3]
+
+[b]·[/b] [b]理想城候选决策[/b]：增加了“理想城预备选项”的行星策略。将自动拆除一产区划，并在满足建设条件时提示玩家是否正式开启项目。
+[b]·[/b] [b]去城市化决策[/b]：提供了一个快速移除所有建筑、区划的决策（其实主要是用于模组测试），你并不需要使用这个决策来进行行星转型。
+[b]·[/b] [b]政策控制[/b]：可以在政策菜单中全局开启/关闭各等级的自动拆除功能。
+
+[h2]兼容性[/h2]
+
+[b]·[/b] 本模组对的[b]建筑拆除[/b]功能对原版建筑进行了修改，可能会与修改原版建筑的模组产生冲突。建议在使用本模组时避免加载其他修改原版建筑的模组。如果你能容忍没有建筑拆除功能，可以在加载顺序上将本模组放在修改原版建筑的模组之前。
+[b]·[/b] 修改ai行为的模组可能会与本模组产生冲突，建议将本模组放在加载顺序的最后。
+[b]·[/b] 本模组只支持原版建筑和区划的自动托管，暂不支持任何来自其他模组的建筑和区划。
+
+[h2]更新日志[/h2]
+
+红尘渡者 [b]previous - v0.1[/b]
+
+[b]·[/b] 进行了基础修复和优化
+
+哇噗 [b]26-01-18 - v0.2[/b]
+
+[b]·[/b] 现在自动托管会在岗位不足时才建造建筑，也可以通过行星决策进行提前建造
+[b]·[/b] 增加了矿物预留政策，可以通过政策设置预留的矿物阈值，低于阈值将不会进行建设
+[b]·[/b] 优化了诊所和焕活的建设，现在没有开启焕活建设模式下，默认只建设一个。如果开启会铺满焕活
+[b]·[/b] 完善了贸易和科研的自动化建设，普通的科研特化将变成半自动模式，玩家手动管理区划特化
+[b]·[/b] 支持了火山星球的一产建设
+[b]·[/b] 增加了去城市的行星决策，可以移除所有建筑，方便后期快速转型星球功能 (v 0.2 已不再需要，但保留此决策)
+
+哇噗 [b]26-01-20 - v0.3[/b]：
+[b]·[/b] 自动拆除：增加了建筑、区划、区划特化的自动拆除功能，不必再手改AI乱铺的球。可通过政策调整自动拆除功能。也可通过行星决策关闭自动拆除。
+[b]·[/b] 优先级修复：修复了在前的区划建设优先级冲突
+[b]·[/b] 优化自动建筑选项：现在会暴铺的建筑选项仓库修建与老登医院需要通过政策开启才能使用，避免忘记关闭（v 0.3 已删除）
+[b]·[/b] 增加对荒野、流放地、度假、奴隶、蜂巢、机械的支持优化
+[b]·[/b] 修复了原版的稀有资源建筑建设逻辑
+
+哇噗 [b]26-01-21 - v0.4[/b]：
+
+[b]·[/b] 增加了理想城预备选项的行星决策，将为建设理想城进行准备，自动拆除一产区划
+[b]·[/b] 优化自动化选项：增加了机器人组装厂的自动建设选项、修复了医疗自动化选项的显示问题
+[b]·[/b] 删除了原版纯属负优化的避免财政赤字选项，不必再手动关闭
+[b]·[/b] 改良了仓库建设与老登医院建设逻辑，避免暴铺建筑，增加相关的行星决策，现在这个两个选项将默认开启
+[b]·[/b] 修复贸易特化在蜂巢或机械星球上的建设和拆除冲突
+[b]·[/b] 优化区划建设优先级
+[b]·[/b] 修复农业区划特化建设bug
+
+
+
+
+[hr][/hr]
+
+[h1]English / 英文[/h1]
+[h1]Better Colony Automation (BCA) - Colony Automation Overhaul[/h1]
+
+Since Paradox has yet to fix the broken planetary automation bugs following the 4.0 update, the mid-to-late game experience has become increasingly frustrating. I decided to take matters into my own hands and fix these issues myself.
+
+[h2]Quick Start[/h2]
+
+1. [b]Global Settings[/b]: Set the [b]Mineral Reserve Policy[/b] in [Policies].
+2. [b]Enable Automation[/b]: Toggle [Planetary Automation] in the planet interface and configure the relevant automation categories.
+3. [b]Fine-tuning[/b]: Use [Planetary Decisions] to enable specific behaviors like [b]Build extra districts for Silos[/b] or [b]Arcology Project Candidate[/b] (only visible when eligible).
+
+[h2]Overview[/h2]
+
+[h3]Construction Features[/h3]
+
+[b]Smart Construction Logic[/b]
+[b]·[/b] [b]Build on Demand[/b]: Construction is only triggered when there are insufficient jobs ([i]requires_more_job[/i]) and no other ongoing construction. You can bypass this via Planetary Decisions to force early construction.
+[b]·[/b] [b]Mineral Reserve[/b]: Added a national [b]Mineral Reserve Policy[/b]. You can set a threshold; if minerals fall below this limit, automation will pause to prevent economic collapse.
+
+[b]Enhanced Automation Options[/b]
+[b]·[/b] [b]Medical[/b]: Supports construction of Medical Clinics, Gene Clinics, and Cyto-Revitalization Centers.
+[b]·[/b] [b]Cultural Monuments[/b]: Automatically builds and upgrades Unity-producing monument buildings.
+[b]·[/b] [b]Resource Silos[/b]: Automatically builds Resource Silos.
+[b]·[/b] [b]Pop Assembly Management[/b]: Non-machine empires can independently manage the automatic construction of Robot Assembly Plants.
+[b]·[/b] [b]Optimized UI[/b]: Removed the "Avoid Deficit" option from vanilla, which often froze construction due to scripting edge cases.
+
+[b]New Designations[/b]
+[b]·[/b] Added specialized research worlds (Physics/Society/Engineering) and hybrid specializations like "Research + Trade" or "Industry + Trade."
+[b]·[/b] *Note: Hybrid types are currently in a "beta" state, primarily intended for Ecumenopoleis, Ring Worlds, Hive Worlds, and Machine Worlds. Trade hybrid types do not currently build trade buildings; this is planned for a future update.*
+
+[b]Building Construction[/b]
+[b]·[/b] [b]Priority Logic[/b]: Auxiliary buildings (Clinics, Clone Vats, Monuments, Production Centers) are prioritized to boost planetary efficiency. Main production buildings are constructed after these are completed.
+[b]·[/b] Heavily improved vanilla logic for various planet types and fixed rare resource building construction logic.
+[b]·[/b] [b]Silo Construction[/b]: By default, only one Silo is built. This limit can be lifted via Planetary Decision, which will also automatically build basic resource districts to house them.
+[b]·[/b] [b]Revitalization Centers[/b]: By default, only one is built. Use Planetary Decisions to allow "Spamming" mode.
+
+[b]District Construction[/b]
+[b]·[/b] [b]Priority Optimization[/b]: Prioritizes basic resource districts on specialized worlds (Energy/Mining/Farming) to resolve priority conflicts.
+[b]·[/b] [b]Specialized Worlds[/b]: On Ecus/Ring Worlds/Hive/Machine worlds, the mod builds one of each non-specialized district first to unlock building slots.
+
+[h3]Demolition & Cleanup[/h3]
+
+[b]Building Demolition[/b]
+[b]·[/b] [b]Mismatched Designation Removal[/b]: When building slots are full and a building does not match the planet's current specialization, it will be automatically removed (e.g., removing a factory on a research world to make room for a lab).
+[b]·[/b] [b]Pop Assembly Cleanup[/b]: When a planet is completely full (no housing, no jobs, no slots), assembly buildings (Robot Plants/Clone Vats) are removed to make room for higher-tier production. This can be toggled via policy.
+
+[b]District Demolition[/b]
+[b]·[/b] [b]Basic Resource Cleanup[/b]: Enabling the "Arcology Project Candidate" decision will remove all basic resource districts (Energy/Mining/Farming) when no slots are left, paving the way for the project.
+[b]·[/b] [b]Housing Optimization[/b]: Automatically removes excess city districts if the planet has extreme surplus housing and needs space for other districts.
+
+[b]Specialization (Zone) Demolition[/b]
+[b]·[/b] When manually changing a planet's designation (e.g., Research to Trade), the mod automatically removes obsolete specializations (Zones). Switching between research sub-types (e.g., Society to Physics) does not trigger removal.
+
+[h3]Others[/h3]
+
+[b]·[/b] [b]Arcology Candidate Decision[/b]: A planetary decision that automates the cleanup of Tier 1 districts and notifies the player when the planet is ready for the Arcology Project.
+[b]·[/b] [b]De-urbanization Decision[/b]: Primarily used for testing; removes all buildings and districts. Not required for normal planetary transitions.
+[b]·[/b] [b]Policy Control[/b]: Globally toggle different tiers of automatic demolition via the Policy menu.
+
+[h2]Compatibility[/h2]
+
+[b]·[/b] [b]Building Demolition[/b]: This feature modifies vanilla building files. It may conflict with mods that change the same buildings. If you prefer to keep other building mods, place BCA higher in the load order (though you will lose auto-demolition).
+[b]·[/b] [b]AI Mods[/b]: Mods modifying AI behavior may conflict. It is recommended to place BCA at the bottom of your load order.
+[b]·[/b] [b]Supported Content[/b]: Currently only supports vanilla buildings and districts.
+
+[h2]Changelog[/h2]
+
+红尘渡者 [b]previous - v0.1[/b]
+
+哇噗 [b]26-01-18 - v0.2[/b]
+[b]·[/b] Construction now triggers only on job shortage (unless bypassed by decision).
+[b]·[/b] Added Mineral Reserve Policy.
+[b]·[/b] Optimized Medical logic (spamming mode vs. single-building limit).
+[b]·[/b] Refined Trade and Research automation; standard research is now "semi-automatic."
+[b]·[/b] Added support for Tier 1 resource construction on Volcanic worlds.
+[b]·[/b] Added "De-urbanization" decision.
+
+哇噗 [b]26-01-20 - v0.3[/b]：
+[b]·[/b] [b]Automatic Demolition[/b]: Added auto-removal for buildings, districts, and zones.
+[b]·[/b] Fixed district priority conflicts.
+[b]·[/b] Optimized automation categories; Silos and FE Clinics now default to smarter logic.
+[b]·[/b] Improved support for Wilderness, Penal, Resort, Slave, Hive, and Machine worlds.
+[b]·[/b] Fixed rare resource building logic.
+
+哇噗 [b]26-01-21 - v0.4[/b]：
+[b]·[/b] Added Arcology Project Candidate decision.
+[b]·[/b] Added Robot Assembly automation toggle; fixed Medical UI issues.
+[b]·[/b] Removed the vanilla "Avoid Deficit" option.
+[b]·[/b] Improved Silo/FE Clinic construction logic to avoid "spamming" unless intended.
+[b]·[/b] Fixed Trade specialization conflicts on Hive/Machine worlds.
+[b]·[/b] General priority and bug fixes for agriculture specializations.
+
+[hr][/hr]
+[h2]为此mod贡献 / Contribute to this mod[/h2]
+
+当前的 mod 只对常用的原版建筑和区划进行了支持。如果你希望添加对其他模组建筑和区划的支持，欢迎访问以下链接提交你的贡献（添加规则其实很简单的喵）
+Contribute support for additional mod buildings and districts by visiting:
+
+https://github.com/StellarWarp/better_colony_automation

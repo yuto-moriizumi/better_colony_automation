@@ -62,21 +62,21 @@ bca_can_remove_pop_assemble = {
 bca_can_remove_district_generator = {
 	AND = {
 		free_district_slots = 0
-		has_trade_designation = yes
+		has_modifier = bca_pm_arcology_project_candidate
 	}
 }
 
 bca_can_remove_district_mining = {
 	AND = {
 		free_district_slots = 0
-		has_trade_designation = yes
+		has_modifier = bca_pm_arcology_project_candidate
 	}
 }
 
 bca_can_remove_district_farming = {
 	AND = {
 		free_district_slots = 0
-		has_trade_designation = yes
+		has_modifier = bca_pm_arcology_project_candidate
 	}
 }
 

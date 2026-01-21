@@ -7,5 +7,11 @@ bca_pm_planet_pre_construction = {
 bca_pm_disable_planet_auto_destruction = {
 	icon = "gfx/interface/icons/planet_modifiers/pm_default.dds"
 	icon_frame = 2
-	custom_tooltip = "bca_disable_planet_auto_destroy_desc"
+	custom_tooltip = "bca_pm_disable_planet_auto_destruction_desc"
+}
+
+bca_pm_arcology_project_candidate = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_arcology_project.dds"
+	icon_frame = 2
+	custom_tooltip = "bca_pm_arcology_project_candidate_desc"
 }

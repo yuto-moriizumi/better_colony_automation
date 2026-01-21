@@ -2,6 +2,7 @@ automate_crystal_deficit_management = {
 	available = {
 		owner = { has_monthly_income = { resource = rare_crystals value < 0 } }
 		free_building_slots > 0
+		bca_has_minerals_to_build = yes
 		has_any_industrial_designation = yes
 	}
 
@@ -22,6 +23,7 @@ automate_mote_deficit_management = {
 	available = {
 		owner = { has_monthly_income = { resource = volatile_motes value < 0 } }
 		free_building_slots > 0
+		bca_has_minerals_to_build = yes
 		has_any_industrial_designation = yes
 	}
 
@@ -42,6 +44,7 @@ automate_gas_deficit_management = {
 	available = {
 		owner = { has_monthly_income = { resource = exotic_gases value < 0 } }
 		free_building_slots > 0
+		bca_has_minerals_to_build = yes
 		has_any_industrial_designation = yes
 	}
 

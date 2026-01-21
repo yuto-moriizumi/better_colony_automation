@@ -1,0 +1,43 @@
+automate_engineered_autobuild = {
+	category = "planet_automation_engineered"
+	
+    emergency = yes
+	available = {
+		owner = {
+            has_ascension_perk = ap_engineered_evolution
+		}
+        requires_more_job = yes
+        bca_has_minerals_to_build = yes
+	}
+	
+	buildings = {
+		0 = {
+			building = building_genomic_facility
+		}
+	}
+
+}
+
+automate_medical_autobuild = {
+    category = "planet_automation_medical"
+    
+    emergency = yes
+    available = {
+        exists = owner
+        owner = {
+            has_technology = tech_basic_health
+        }
+        bca_has_minerals_to_build = yes
+    }
+    
+
+    buildings = {
+        0 = {
+            building = building_medical_1
+        }
+    }
+}
+
+
+
+

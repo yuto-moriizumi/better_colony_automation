@@ -11,6 +11,8 @@ automate_unity_planet = {
 	}
 
 	prio_zones = {
-		zone_research_physics
+		zone_unity
+		zone_unity_spiritualist
+		zone_unity_bio_trophy
 	}
 }

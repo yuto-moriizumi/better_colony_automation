@@ -1,0 +1,110 @@
+automate_amenity_management = {
+	available = {
+		free_amenities < 0
+		owner = {
+			NOR = {
+				is_machine_empire = yes
+				is_hive_empire = yes
+			}
+		}
+	}
+
+	emergency = yes
+	category = "planet_automation_amenities"
+
+	buildings = {
+		clinic = {
+			building = building_medical_2
+			available = {
+				owner = { is_synthetic_empire = no }
+				NOT = { has_available_jobs = entertainer }
+				NOT = { has_available_jobs = healthcare }
+				NOT = { has_forbidden_jobs = entertainer }
+				NOT = { has_forbidden_jobs = healthcare }
+				any_owned_pop_group = { can_work_specific_job = healthcare }
+			}
+
+			upgrade_trigger = {
+				owner = { is_synthetic_empire = no }
+				NOT = { has_available_jobs = entertainer }
+				NOT = { has_available_jobs = healthcare }
+				NOT = { has_forbidden_jobs = entertainer }
+				NOT = { has_forbidden_jobs = healthcare }
+				any_owned_pop_group = { can_work_specific_job = healthcare }
+			}
+		}
+
+		holo = {
+			building = building_holo_theatres
+			available = {
+				NOT = { has_available_jobs = entertainer }
+				NOT = { has_available_jobs = healthcare }
+				NOT = { has_forbidden_jobs = entertainer }
+				NOT = { has_forbidden_jobs = healthcare }
+				any_owned_pop_group = { can_work_specific_job = entertainer }
+			}
+
+			upgrade_trigger = {
+				NOT = { has_available_jobs = entertainer }
+				NOT = { has_available_jobs = healthcare }
+				NOT = { has_forbidden_jobs = entertainer }
+				NOT = { has_forbidden_jobs = healthcare }
+				any_owned_pop_group = { can_work_specific_job = entertainer }
+			}
+		}
+		zoo = { building = building_xeno_zoo }
+	}
+}
+
+automate_hive_amenity_management = {
+	available = {
+		free_amenities < 0
+		owner = {
+			OR = {
+				is_machine_empire = yes
+				is_hive_empire = yes
+			}
+		}
+		NOT = { has_available_jobs = maintenance_drone }
+		NOT = { has_forbidden_jobs = maintenance_drone }
+	}
+
+	emergency = yes
+	category = "planet_automation_amenities"
+
+	prio_districts = {
+		district_hab_housing
+		district_arcology_housing
+		district_rw_nexus
+		district_city
+		district_hive
+		district_nexus
+	}
+}
+
+automate_amenity_management_ecu = {
+	available = {
+		free_amenities < 0
+		owner = {
+			NOR = {
+				is_machine_empire = yes
+				is_hive_empire = yes
+			}
+		}
+		uses_district_set = city_world
+		free_district_slots > 0
+		NOT = { has_available_jobs = entertainer }
+		NOT = { has_forbidden_jobs = entertainer }
+
+		owner = {
+			has_resource = { type = exotic_gases amount >= 75 }
+		}
+	}
+
+	emergency = yes
+	category = "planet_automation_amenities"
+
+	prio_districts = {
+		district_arcology_leisure
+	}
+}

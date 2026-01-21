@@ -1,0 +1,64 @@
+automate_hive_spawning_pool = {
+	available = {
+		owner = { is_hive_empire = yes }
+	}
+
+	emergency = yes
+	category = "planet_automation_pop_assembly"
+
+	buildings = {
+		assembly = {
+			building = building_spawning_pool
+		}
+	}
+}
+
+automate_machine_assembly = {
+	available = {
+		owner = { is_machine_empire = yes }
+	}
+
+	emergency = yes
+	category = "planet_automation_pop_assembly"
+
+	buildings = {
+		assembly = {
+			building = building_machine_assembly_plant
+		}
+	}
+}
+
+automate_robotic_pop_assembly = {
+	available = {
+		can_assemble_robot = yes
+		owner = {
+			NOT = { has_policy_flag = robots_outlawed }
+			NOT = { has_ascension_perk = ap_engineered_evolution }
+		}
+	}
+
+	emergency = yes
+	category = "planet_automation_robot_assembly"
+
+	buildings = {
+		assembly = {
+			building = building_robot_assembly_plant
+		}
+	}
+}
+
+automate_bio_cloning = {
+	available = {
+		can_assemble_bio_pop = yes
+		owner = { has_technology = tech_cloning }
+	}
+
+	emergency = yes
+	category = "planet_automation_pop_assembly"
+
+	buildings = {
+		assembly = {
+			building = building_clone_vats
+		}
+	}
+}

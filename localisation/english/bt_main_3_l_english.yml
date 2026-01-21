@@ -1,14 +1,16 @@
 l_english:
+ planet_automation_robot_assembly: "robot assembly automation"
+ planet_automation_robot_assembly_desc: "auto build $building_robot_assembly_plant$
  planet_automation_medical: "medical automation"
  planet_automation_medical_desc: "auto build $building_medical_1$"
  planet_automation_engineered: "$building_genomic_facility$"
- planet_automation_engineered_desc: "auto build $building_genomic_facility$ and one $building_fe_clinic_1$"
- planet_automation_fe_clinic: "fill $building_fe_clinic_1$"
- planet_automation_fe_clinic_desc: "available slots will be filled with $building_fe_clinic_1$"
+ planet_automation_engineered_desc: "auto build $building_genomic_facility$"
+ planet_automation_fe_clinic: "$building_fe_clinic_1$"
+ planet_automation_fe_clinic_desc: "default build one. build limit can be lifted by related decisions"
  planet_automation_monument: "monument"
  planet_automation_monument_desc: "auto build monument" 
- planet_automation_silo: "fill primary resource silo"
- planet_automation_silo_desc: "auto build silos on all colonies that can have primary resource districts, lower priority than primary resource buildings"
+ planet_automation_silo: "resource silo"
+ planet_automation_silo_desc: "auto build silo, default build one. build limit can be lifted by related decisions"
 
  policy_cba_reserve_minerals: "auto reserve minerals"
  policy_cba_reserve_minerals_desc: "when minerals below certain amount, stop auto building to reserve minerals"
@@ -69,3 +71,30 @@ l_english:
 
  decision_colony_transform: "remove all buildings"
  decision_colony_transform_desc: "remove all buildings on the current planet, but keep districts"
+
+ decision_enable_build_extra_zones_for_storage: "allow building extra districts and zones for storage"
+ decision_enable_build_extra_zones_for_storage_desc: "allow building extra districts and zones for storage silos, lifting the build limit. Current: disabled"
+ decision_disable_build_extra_zones_for_storage: "disallow building extra districts and zones for storage"
+ decision_disable_build_extra_zones_for_storage_desc: "Current: allowed"
+
+ decision_enable_build_fe_clinic: "more $building_fe_clinic_1$"
+ decision_enable_build_fe_clinic_desc: "allow building extra $building_fe_clinic_1$, lifting the build limit. Current: disabled"
+ decision_disable_build_fe_clinic: "limit $building_fe_clinic_1$"
+ decision_disable_build_fe_clinic_desc: "Current: unlimited"
+ 
+
+ bca_pm_arcology_project_candidate: "Arcology Project Candidate"
+ bca_pm_arcology_project_candidate_desc: "This planet has been marked as an Arcology Project candidate. Automation will plan based on this target."
+ decision_bca_enable_arcology_project_candidate: "Mark as Arcology Project Candidate"
+ decision_bca_enable_arcology_project_candidate_desc: "Mark this planet as an Arcology Project candidate to enable related automation planning."
+ decision_bca_disable_arcology_project_candidate: "Remove Arcology Project Candidate Mark"
+ decision_bca_disable_arcology_project_candidate_desc: "Remove the Arcology Project candidate mark from this planet."
+
+
+
+ colony_automation_event.3.name: "Arcology Project Ready"
+ colony_automation_event.3.desc: "[Root.GetName] has met the requirements for conversion into an Ecumenopolis. Shall we start the Arcology Project now?"
+ colony_automation_event.3.a: "Start Arcology Project"
+ colony_automation_event.3.b: "Maybe later"
+
+

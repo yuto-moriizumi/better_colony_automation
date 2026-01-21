@@ -1,4 +1,4 @@
-automate_generator_planet = {
+automate_generator_planet_districts = {
 	category = "planet_automation_housing"
 
 	emergency = yes

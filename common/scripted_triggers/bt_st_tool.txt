@@ -19,3 +19,11 @@ bca_has_minerals_to_build = {
 	}
 }
 
+bca_has_resource_for_arcology_project = {
+	owner = {
+		resource_stockpile_compare = {resource = minerals value >= bca_reserve_minerals_plus_20k}
+		resource_stockpile_compare = {resource = influence value >= 200}
+	}
+}
+
+

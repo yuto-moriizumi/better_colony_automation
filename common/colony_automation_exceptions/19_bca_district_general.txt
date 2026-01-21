@@ -1,4 +1,4 @@
-automate_building_housing = {
+automate_building_housing_districts = {
 	available = {
 		free_housing < 0
 		bca_has_minerals_to_build = yes

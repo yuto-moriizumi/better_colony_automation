@@ -1,3 +1,20 @@
+automate_farming_planet = {
+	category = "planet_automation_designation_construction"
+
+	available = {
+		has_farming_designation = yes
+		bca_has_minerals_to_build = yes
+		NOT = {
+			uses_district_set = habitat
+		}
+	}
+
+	prio_zones = {
+		zone_food
+		zone_food_ring_world
+	}
+}
+
 automate_generator_planet = {
 	category = "planet_automation_designation_construction"
 
@@ -16,23 +33,6 @@ automate_generator_planet = {
 		zone_energy_ring_world
 	}
 
-}
-
-automate_farming_planet = {
-	category = "planet_automation_designation_construction"
-
-	available = {
-		has_farming_designation = yes
-		NOT = {
-			bca_has_minerals_to_build = yes
-			uses_district_set = habitat
-		}
-	}
-
-	prio_zones = {
-		zone_food
-		zone_food_ring_world
-	}
 }
 
 automate_mining_planet = {

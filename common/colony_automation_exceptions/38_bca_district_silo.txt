@@ -4,12 +4,9 @@ automate_silo_autobuild_1 = {
 	
     emergency = yes
 	available = {
-		has_planet_flag = bca_can_build_extra_zones_for_storage
+		has_planet_flag = bca_pf_can_build_extra_zones_for_storage
 		bca_has_minerals_to_build = yes
 		exists = owner
-		owner = {
-			has_country_flag = bac_advanced_automation_category_enabled
-		}
         num_districts = { type = district_generator value < 1 }
         num_districts = { type = district_hab_energy value < 1 }
 	}
@@ -26,12 +23,9 @@ automate_silo_autobuild_2 = {
 	
     emergency = yes
 	available = {
-		has_planet_flag = bca_can_build_extra_zones_for_storage
+		has_planet_flag = bca_pf_can_build_extra_zones_for_storage
 		bca_has_minerals_to_build = yes
 		exists = owner
-		owner = {
-			has_country_flag = bac_advanced_automation_category_enabled
-		}
         num_districts = { type = district_mining value < 1 }
         num_districts = { type = district_hab_mining value < 1 }
 	}
@@ -48,12 +42,9 @@ automate_farming_autobuild = {
 	
     emergency = yes
 	available = {
-		has_planet_flag = bca_can_build_extra_zones_for_storage
+		has_planet_flag = bca_pf_can_build_extra_zones_for_storage
 		bca_has_minerals_to_build = yes
 		exists = owner
-		owner = {
-			has_country_flag = bac_advanced_automation_category_enabled
-		}
         num_districts = { type = district_farming value < 1 }
 	}
 

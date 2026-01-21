@@ -1,0 +1,26 @@
+automate_fe_clinic_autobuild = {
+	category = "planet_automation_fe_clinic"
+	
+    emergency = yes
+	available = {
+		owner = {
+			has_technology = tech_fe_clinic_1
+		}
+        bca_has_minerals_to_build = yes
+	}
+	
+	buildings = {
+        0 = {
+            building = building_fe_clinic_1
+            available = {
+				OR = {
+					has_planet_flag = bca_pf_fill_fe_clinic
+					NOR = {
+						has_building = building_fe_clinic_1
+						has_building = building_fe_clinic_2
+					}
+				}
+            }
+		}
+	}
+}

@@ -27,29 +27,29 @@ cba_reserve_minerals = {
     }
 }
 
-bac_advanced_automation_category = {
-    allow = { always = yes }
-	potential = { always = yes }
-    option = {
-        name = "disable_bac_advanced_automation_category"
-        on_enabled = {
-            remove_country_flag = bac_advanced_automation_category_enabled
-        }
-        ai_weight = {
-            factor = 1
-        }
-    }
-    option = {
-        name = "enable_bac_advanced_automation_category"
-        on_enabled = {
-            set_country_flag = bac_advanced_automation_category_enabled
-        }
-        ai_weight = {
-            factor = 0
-        }
-    }
+# bac_advanced_automation_category = {
+#     allow = { always = yes }
+# 	potential = { always = yes }
+#     option = {
+#         name = "disable_bac_advanced_automation_category"
+#         on_enabled = {
+#             remove_country_flag = bac_advanced_automation_category_enabled
+#         }
+#         ai_weight = {
+#             factor = 1
+#         }
+#     }
+#     option = {
+#         name = "enable_bac_advanced_automation_category"
+#         on_enabled = {
+#             set_country_flag = bac_advanced_automation_category_enabled
+#         }
+#         ai_weight = {
+#             factor = 0
+#         }
+#     }
 
-}
+# }
 
 bac_building_destroy = {
     allow = { always = yes }

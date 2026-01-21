@@ -1,0 +1,77 @@
+automate_worm_love = {
+	available = {
+		owner = {
+			has_technology = tech_akx_worm_3
+			has_event_chain = WORM_CHAIN_1
+			NOT = { has_country_flag = alignment_built }
+		}
+		is_capital = yes
+		NOT = { has_building = building_akx_worm_3 }
+	}
+
+	emergency = yes
+	category = "planet_automation_worm"
+
+	buildings = {
+		worm = {
+			building = building_akx_worm_3
+			available = { always = yes }
+		}
+	}
+}
+
+automate_permanent_employment_building = {
+	available = {
+		owner = { has_valid_civic = civic_permanent_employment }
+		NOT = { has_building = building_posthumous_employment_center }
+		free_building_slots > 1
+		NOR = {
+			colony_type = col_industrial
+			colony_type = col_foundry
+			colony_type = col_factory
+			colony_type = col_research
+			colony_type = col_habitat_trade
+			colony_type = col_habitat_foundry
+			colony_type = col_habitat_factory
+			colony_type = col_habitat_research
+			colony_type = col_habitat_industrial
+			colony_type = col_resort
+			colony_type = col_pleasure
+			colony_type = col_penal
+			colony_type = col_ring_research
+			colony_type = col_ring_trade
+			colony_type = col_ecu_industrial
+			colony_type = col_ecu_factory
+			colony_type = col_ecu_foundry
+			colony_type = col_ecu_research
+			colony_type = col_bureau
+			colony_type = col_habitat_bureau
+		}
+	}
+
+	emergency = yes
+	category = "planet_automation_permanent_employment_center"
+
+	buildings = {
+		posthumus = {
+			building = building_posthumous_employment_center
+		}
+	}
+}
+
+automate_psi_corps_building = {
+	available = {
+		owner = {
+			has_psionic_ascension = yes
+		}
+	}
+
+	emergency = yes
+	category = "planet_automation_psi_corps_building"
+
+	buildings = {
+		psi_corps = {
+			building = building_psi_corps
+		}
+	}
+}

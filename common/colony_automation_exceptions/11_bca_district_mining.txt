@@ -1,4 +1,4 @@
-automate_mining_planet = {
+automate_mining_planet_districts = {
 	category = "planet_automation_housing"
 
 	emergency = yes
@@ -12,19 +12,5 @@ automate_mining_planet = {
 		district_mining
 		district_hab_mining
 		district_melting
-	}
-
-	buildings = {
-		1 = {
-			building = building_crystal_mines
-		}
-
-		2 = {
-			building = building_mineral_purification_plant
-		}
-
-		3 = {
-			building = building_mining_districts_1
-		}
 	}
 }

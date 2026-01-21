@@ -2,12 +2,9 @@ automate_silo = {
  	category = "planet_automation_silo"
 
  	available = {
-        has_planet_flag = bca_can_build_extra_zones_for_storage
+        has_planet_flag = bca_pf_can_build_extra_zones_for_storage
         bca_has_minerals_to_build = yes
         exists = owner
-		owner = {
-			has_country_flag = bac_advanced_automation_category_enabled
-		}
     }
     prio_zones = {
 		zone_minerals
@@ -19,16 +16,13 @@ automate_silo_1 = {
  	category = "planet_automation_silo"
 
  	available = {
-        has_planet_flag = bca_can_build_extra_zones_for_storage
+        has_planet_flag = bca_pf_can_build_extra_zones_for_storage
         NOR = {
             has_designation = col_habitat_farming
             has_designation = col_habitat_gestalt_farming
         }
         bca_has_minerals_to_build = yes
         exists = owner
-		owner = {
-			has_country_flag = bac_advanced_automation_category_enabled
-		}
     }
     prio_zones = {
 		zone_energy
@@ -39,16 +33,13 @@ automate_silo_2 = {
  	category = "planet_automation_silo"
 
  	available = {
-        has_planet_flag = bca_can_build_extra_zones_for_storage
+        has_planet_flag = bca_pf_can_build_extra_zones_for_storage
         OR = {
             has_designation = col_habitat_farming
             has_designation = col_habitat_gestalt_farming
         }
         bca_has_minerals_to_build = yes
         exists = owner
-		owner = {
-			has_country_flag = bac_advanced_automation_category_enabled
-		}
     }
     prio_zones = {
         zone_habitat_hydroponics

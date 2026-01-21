@@ -3,13 +3,13 @@ automate_urban_planet = {
 
 	emergency = yes
 	available = {
+		requires_more_job = yes
+		bca_has_minerals_to_build = yes
 		OR = {
 			has_designation = col_city
 			has_designation = col_hive
 			has_designation = col_nexus
 		}
-        requires_more_job = yes
-        bca_has_minerals_to_build = yes
 	}
 	prio_districts = {
 		district_city

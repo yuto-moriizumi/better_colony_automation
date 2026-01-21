@@ -1,0 +1,69 @@
+automate_biotrophy_management_servitor_ecu = {
+	available = {
+		owner = {
+			is_machine_empire = yes
+			has_valid_civic = civic_machine_servitor
+		}
+		bca_has_minerals_to_build = yes
+
+
+		uses_district_set = city_world
+		free_district_slots > 0
+		any_owned_pop_group = {
+			is_unemployed = yes
+			has_citizenship_type = { type = citizenship_organic_trophy country = owner }
+		}
+	}
+
+	emergency = yes
+	category = "planet_automation_biotrophy_management"
+
+	prio_districts = {
+		district_arcology_organic_housing
+	}
+}
+
+automate_biotrophy_management_servitor_hab = {
+	available = {
+		owner = {
+			is_machine_empire = yes
+			has_valid_civic = civic_machine_servitor
+		}
+		bca_has_minerals_to_build = yes
+
+		uses_district_set = habitat
+		free_district_slots > 0
+		any_owned_pop_group = {
+			is_unemployed = yes
+			has_citizenship_type = { type = citizenship_organic_trophy country = owner }
+		}
+	}
+
+	emergency = yes
+	category = "planet_automation_biotrophy_management"
+
+	#todo ?
+}
+
+automate_biotrophy_management_servitor = {
+	available = {
+		owner = {
+			is_machine_empire = yes
+			has_valid_civic = civic_machine_servitor
+		}
+		free_building_slots > 1
+		any_owned_pop_group = {
+			is_unemployed = yes
+			has_citizenship_type = { type = citizenship_organic_trophy country = owner }
+		}
+	}
+
+	emergency = yes
+	category = "planet_automation_biotrophy_management"
+
+	buildings = {
+		sanctuary = {
+			building = building_organic_sanctuary
+		}
+	}
+}
