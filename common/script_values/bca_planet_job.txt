@@ -1,3 +1,8 @@
+bca_pop_bonus_workforce_mult = {
+	base = 1
+	add = modifier:planet_jobs_workforce_mult
+}
+
 bca_base_energy = {
 	base = 6
 	modifier = {
@@ -35,11 +40,12 @@ bca_unit_energy_production = {
 	multiply = value:cba_planet_energy_job_mult
 }
 
-bca_protential_energy_production = {
+bca_protential_standard_energy_production = {
 	add = value:bca_jobs_for_energy
 	divide = 100
 	mult = value:bca_unit_energy_production
 }
+
 
 bca_base_minerals = {
 	base = 4
@@ -56,7 +62,7 @@ bca_jobs_for_minerals = {
 	add = modifier:job_turtle_miner_gestalt_add
 }
 
-cba_planet_energy_job_mult = {
+bca_planet_mineral_job_mult = {
 	base = 1
 	add = modifier:planet_jobs_produces_mult
 	add = modifier:planet_jobs_productive_produces_mult
@@ -77,10 +83,10 @@ cba_planet_energy_job_mult = {
 bca_unit_mineral_production = {
 	add = value:bca_base_minerals
 	add = modifier:planet_miners_produces_add
-	mult = value:cba_planet_energy_job_mult
+	mult = value:bca_planet_mineral_job_mult
 }
 
-bca_protential_mineral_production = {
+bca_protential_standard_mineral_production = {
 	set = value:bca_jobs_for_minerals
 	divide = 100
 	mult = value:bca_unit_mineral_production
@@ -124,7 +130,7 @@ bca_unit_food_production = {
 	mult = value:bca_planet_food_job_mult
 }
 
-bca_protential_food_production = {
+bca_protential_standard_energy_production = {
 	set = value:bca_jobs_for_food
 	divide = 100
 	mult = value:bca_unit_food_production

@@ -30,25 +30,48 @@ def markdown_to_steam(md_content):
 
     return content
 
+
+def keep_latest_changelog_entries(md_content, keep=2, section_title="## 最近更新日志"):
+    """在指定更新日志章节中仅保留最新的若干条。
+
+    - 通过标题截取更新日志区域
+    - 使用粗体版本号/日期行作为分隔符拆分条目
+    """
+    pattern = rf"({section_title})([\s\S]*?)(\n## |\Z)"
+    match = re.search(pattern, md_content)
+    if not match:
+        return md_content
+
+    title, body = match.group(1), match.group(2)
+
+    # 使用包含粗体的行作为每条更新日志的开头进行拆分
+    entries = re.split(r"(?=^[^\s-].*\*\*.*\*\*.*$)", body, flags=re.MULTILINE)
+    entries = [entry.strip() for entry in entries if entry.strip()]
+    if not entries:
+        return md_content
+
+    latest_entries = entries[-keep:]
+    note = "完整更新日志见 GitHub"
+    new_body = "\n\n".join(latest_entries + [note])
+
+    prefix = md_content[: match.start(1)]
+    suffix = md_content[match.end(2) :].lstrip("\n")
+    rebuilt_section = f"{title}\n\n{new_body}\n\n"
+    return prefix + rebuilt_section + suffix
+
 def generate_steam_page():
     root_path = r'c:\Users\Estelle\Documents\Paradox Interactive\Stellaris\mod\better_colony_manage'
     zh_path = os.path.join(root_path, 'README.md')
-    en_path = os.path.join(root_path, 'README_EN.md')
     output_path = os.path.join(root_path, 'steam_page.txt')
 
     with open(zh_path, 'r', encoding='utf-8') as f:
         zh_content = f.read()
-    
-    with open(en_path, 'r', encoding='utf-8') as f:
-        en_content = f.read()
 
-    steam_zh = markdown_to_steam(zh_content)
-    steam_en = markdown_to_steam(en_content)
-
-    final_content = steam_zh
+    zh_trimmed = keep_latest_changelog_entries(zh_content)
+    final_content = markdown_to_steam(zh_trimmed)
 
     with open(output_path, 'w', encoding='utf-8') as f:
-        f.read = f.write(final_content)
+        f.write(final_content)
     
     print(f"Success! Steam page content generated at: {output_path}")
 

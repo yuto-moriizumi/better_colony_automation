@@ -97,11 +97,15 @@ country_event = {
 				}
 				# 移除一产特化
 				if = {
-					limit = {
-						has_any_resource_designation = no
-					}
+					limit = { has_generator_designation = no }
 					remove_zone_if_found = { zone = zone_urban_energy }
+				}
+				if = {
+					limit = { has_mining_designation = no }
 					remove_zone_if_found = { zone = zone_urban_minerals }
+				}
+				if = {
+					limit = { has_farming_designation = no }
 					remove_zone_if_found = { zone = zone_urban_food }
 				}
 				# 移除研究特化

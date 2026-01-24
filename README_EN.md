@@ -35,7 +35,8 @@ Since Paradox has yet to fix the broken planetary automation bugs following the 
 - **Revitalization Centers**: By default, only one is built. Use Planetary Decisions to allow "Spamming" mode.
 
 #### District Construction
-- **Priority Optimization**: Prioritizes basic resource districts on specialized worlds (Energy/Mining/Farming) to resolve priority conflicts.
+- **General Logic**: City districts are built when there is a shortage of jobs or housing.
+- **Basic Resource Optimization**: On basic resource worlds (Energy/Mining/Farming), if there are resource boost zones available, the mod automatically adjusts the ratio of City to Resource districts for optimal output.
 - **Specialized Worlds**: On Ecus/Ring Worlds/Hive/Machine worlds, the mod builds one of each non-specialized district first to unlock building slots.
 
 ### Demolition & Cleanup
@@ -90,7 +91,7 @@ Since Paradox has yet to fix the broken planetary automation bugs following the 
 - Fixed Trade specialization conflicts on Hive/Machine worlds.
 - General priority and bug fixes for agriculture specializations.
 
-哇噗 **26-01-23 - v0.5**：
+哇噗 **26-01-24 - v0.5**：
 - **Intro & Updates**: Added a welcome window on game start and update log notifications for existing saves to keep players informed.
 - **Basic Resource Logic**: Completely reworked the logic for Mining, Energy, and Farming specializations to fix conflicts between City and Resource districts.
 - **Dynamic Balancing**: The mod now automatically calculates and maintains the optimal ratio of City Districts to Resource Districts on basic resource worlds.

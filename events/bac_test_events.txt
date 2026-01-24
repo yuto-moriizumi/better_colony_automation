@@ -76,16 +76,8 @@ planet_event = {
 
 	immediate = {
 		set_variable = {
-			which = bca_test_energy_job
-			value = value:bca_jobs_for_energy
-		}
-		set_variable = {
-			which = bca_test_bca_unit_energy_production
-			value = value:bca_unit_energy_production
-		}
-		set_variable = {
 			which = bca_test_energy_production
-			value = value:bca_protential_energy_production
+			value = value:bca_protential_standard_energy_production
 		}
 		set_variable = {
 			which = bca_test_district_metric_1_d
@@ -99,17 +91,49 @@ planet_event = {
 
 	option = {
 		name = "var_test"
+		# Energy Components
+		set_variable = { which = bca_test_base_energy value = value:bca_base_energy }
+
+		# Energy Multipliers Modifiers
+		set_variable = { which = bca_test_mod_pj_produce_mult value = modifier:planet_jobs_produces_mult }
+		set_variable = { which = bca_test_mod_pj_prod_produce_mult value = modifier:planet_jobs_productive_produces_mult }
+		set_variable = { which = bca_test_mod_pj_worker_produce_mult value = modifier:planet_jobs_worker_produces_mult }
+		set_variable = { which = bca_test_mod_pj_energy_produce_mult value = modifier:planet_jobs_energy_produces_mult }
+		set_variable = { which = bca_test_mod_pj_tech_produce_mult value = modifier:planet_technician_produces_mult }
+		set_variable = { which = bca_test_mod_pj_tech_energy_produce_mult value = modifier:planet_technician_energy_produces_mult }
+		set_variable = { which = bca_test_mod_pj_simple_drone_mult value = modifier:planet_jobs_simple_drone_produces_mult }
+		set_variable = { which = bca_test_mod_pj_complex_simple_drone_mult value = modifier:planet_jobs_complex_and_simple_drone_produces_mult }
+		set_variable = { which = bca_test_mod_habitat_jobs_produces_mult value = modifier:habitat_jobs_produces_mult }
+		
+		# Energy Multipliers Result
+		set_variable = { which = bca_test_planet_energy_job_mult value = value:cba_planet_energy_job_mult }
+		
+		# Modifiers
+		set_variable = { which = bca_test_pop_bonus_workforce_mult value = modifier:pop_bonus_workforce_mult }
+		set_variable = { which = bca_test_organic_pop_bonus_workforce_mult value = modifier:organic_pop_bonus_workforce_mult }
+        set_variable = { which = bca_test_robotic_pop_bonus_workforce_mult value = modifier:robotic_pop_bonus_workforce_mult }
+        set_variable = { which = bca_test_psionic_pop_bonus_workforce_mult value = modifier:psionic_pop_bonus_workforce_mult }
+        set_variable = { which = bca_test_cyborg_pop_bonus_workforce_mult value = modifier:cyborg_pop_bonus_workforce_mult }
+        set_variable = { which = bca_test_pop_slave_bonus_workforce_mult value = modifier:pop_slave_bonus_workforce_mult }
+        set_variable = { which = bca_test_psionic_specialist_pop_bonus_workforce_mult value = modifier:psionic_specialist_pop_bonus_workforce_mult }
+		# Job counts Modifiers
+		set_variable = { which = bca_test_mod_job_tech_add value = modifier:job_technician_add }
+		set_variable = { which = bca_test_mod_job_tech_drone_add value = modifier:job_technician_drone_add }
+
+		# Energy Jobs Result
+		set_variable = { which = bca_jobs_for_energy value = value:bca_jobs_for_energy }
+
+		# Additive Production Modifiers
+		set_variable = { which = bca_test_mod_pj_tech_energy_add value = modifier:planet_technician_energy_produces_add }
+
 		set_variable = {
 			which = bca_unit_energy_production
 			value = value:bca_unit_energy_production
 		}
-		set_variable = {
-			which = bca_jobs_for_energy
-			value = value:bca_jobs_for_energy
-		}
+		
 		set_variable = {
 			which = bca_test_energy_production
-			value = value:bca_protential_energy_production
+			value = value:bca_protential_standard_energy_production
 		}
 		set_variable = {
 			which = bca_test_district_metric_1_d
@@ -150,7 +174,7 @@ planet_event = {
 		bca_test_district_to_build_district_1_checked = {
 			district_1 = district_city
 			district_2 = district_generator
-			metric_value = value:bca_protential_energy_production
+			metric_value = value:bca_protential_standard_energy_production
 		}
 		planet_event = {
 			id = test_event.1
@@ -162,7 +186,7 @@ planet_event = {
 		bca_test_district_to_build = {
 			district_1 = district_city
 			district_2 = district_generator
-			metric_value = value:bca_protential_energy_production
+			metric_value = value:bca_protential_standard_energy_production
 		}
 		planet_event = {
 			id = test_event.1
@@ -206,7 +230,7 @@ planet_event = {
 		name = "replace check"
 		bca_test_district_to_replace_city_bidirectional = {
 			district_2 = district_generator
-			metric_value = value:bca_protential_energy_production
+			metric_value = value:bca_protential_standard_energy_production
 		}
 		planet_event = {
 			id = test_event.1
@@ -304,11 +328,11 @@ planet_event = {
 		}
 		set_variable = {
 			which = bca_test_minerals_production
-			value = value:bca_protential_mineral_production
+			value = value:bca_protential_standard_mineral_production
 		}
 		set_variable = {
 			which = bca_test_food_production
-			value = value:bca_protential_food_production
+			value = value:bca_protential_standard_energy_production
 		}
 		set_variable = {
 			which = bca_test_district_metric_1_d
@@ -332,15 +356,15 @@ planet_event = {
 		}
 		set_variable = {
 			which = bca_test_energy_production
-			value = value:bca_protential_energy_production
+			value = value:bca_protential_standard_energy_production
 		}
 		set_variable = {
 			which = bca_test_minerals_production
-			value = value:bca_protential_mineral_production
+			value = value:bca_protential_standard_mineral_production
 		}
 		set_variable = {
 			which = bca_test_food_production
-			value = value:bca_protential_food_production
+			value = value:bca_protential_standard_energy_production
 		}
 		set_variable = {
 			which = bca_test_district_metric_1_d
@@ -373,7 +397,7 @@ planet_event = {
 		bca_test_district_to_build_district_1_checked = {
 			district_1 = district_city
 			district_2 = district_mining
-			metric_value = value:bca_protential_mineral_production
+			metric_value = value:bca_protential_standard_mineral_production
 		}
 		planet_event = {
 			id = test_event.2
@@ -384,7 +408,7 @@ planet_event = {
 		name = "replace check district mining"
 		bca_test_district_to_replace_city_bidirectional = {
 			district_2 = district_mining
-			metric_value = value:bca_protential_mineral_production
+			metric_value = value:bca_protential_standard_mineral_production
 		}
 		planet_event = {
 			id = test_event.2
@@ -396,7 +420,7 @@ planet_event = {
 		bca_test_district_to_build_district_1_checked = {
 			district_1 = district_city
 			district_2 = district_generator
-			metric_value = value:bca_protential_energy_production
+			metric_value = value:bca_protential_standard_energy_production
 		}
 		planet_event = { id = test_event.2 }
 	}
@@ -405,7 +429,7 @@ planet_event = {
 		name = "replace check district generator"
 		bca_test_district_to_replace_city_bidirectional = {
 			district_2 = district_generator
-			metric_value = value:bca_protential_energy_production
+			metric_value = value:bca_protential_standard_energy_production
 		}
 		planet_event = { id = test_event.2 }
 	}
@@ -415,7 +439,7 @@ planet_event = {
 		bca_test_district_to_build_district_1_checked = {
 			district_1 = district_city
 			district_2 = district_farming
-			metric_value = value:bca_protential_food_production
+			metric_value = value:bca_protential_standard_energy_production
 		}
 		planet_event = { id = test_event.2 }
 	}
@@ -424,7 +448,7 @@ planet_event = {
 		name = "replace check district farming"
 		bca_test_district_to_replace_city_bidirectional = {
 			district_2 = district_farming
-			metric_value = value:bca_protential_food_production
+			metric_value = value:bca_protential_standard_energy_production
 		}
 		planet_event = { id = test_event.2 }
 	}

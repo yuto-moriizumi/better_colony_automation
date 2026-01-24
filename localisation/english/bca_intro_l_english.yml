@@ -3,7 +3,10 @@
  MESSAGE_BCA_STARTUP_desc: "§YBetter Colony Automation§! by 哇噗 & 红尘渡者\n\nThis mod fixes and improves colony automation. Configure behavior via ['concept_planet_automation'] on ['concept_colony'], planet ['concept_decision'] and empire ['concept_policies'].\n\n§HMain features:§!\n- §YSmart Planning:§! Automatically plan and build districts based on planet designation to maximize target yields\n- §YAuto Demolition:§! Automatically remove unneeded £building£ ['concept_buildings'], £district£ ['concept_district'] and £zone£ ['concept_district_specialization'] when necessary\n- §YMore:§! Visit the Workshop page for details.\n\n§HNote§!: §YAuto Demolition§! is independent from ['concept_planet_automation'], enabled by default and can be controlled via planet ['concept_decision'] and empire ['concept_policies'] (the game provides no official interface to detect whether automation is enabled)\n\nThe mod author has limited experience playing governments outside the vanilla civic; feedback and bug reports are welcome!"
 
  MESSAGE_BCA_UPDATE: "Better Colony Automation Update"
- MESSAGE_BCA_UPDATE_desc: "$MESSAGE_BCA_UPDATE_desc_verson$\n§HNote§!: This mod has received many recent updates; visit the Workshop page for details.\n$MESSAGE_BCA_STARTUP_desc_log_v05$"
+ MESSAGE_BCA_UPDATE_desc: "$MESSAGE_BCA_UPDATE_desc_verson$\n§HNote§!: This mod has received many recent updates; visit the Workshop page for details.\n$MESSAGE_BCA_STARTUP_desc_log$"
  MESSAGE_BCA_UPDATE_desc_verson: "§YBetter Colony Automation§! updated to v0.5"
 
- MESSAGE_BCA_STARTUP_desc_log_v05: "\n2026-1-24 - v0.5: Rewrote §Hprimary district construction and demolition§! logic; when a rural boost zone exists the mod will automatically rebalance city districts and rural districts to maximize output"
+ MESSAGE_BCA_STARTUP_desc_log: "$MESSAGE_BCA_STARTUP_desc_log_v051$$MESSAGE_BCA_STARTUP_desc_log_v05$"
+
+ MESSAGE_BCA_STARTUP_desc_log_v051: "\n2026-2-14 - v0.5.1: Fixed an error in energy output calculation that caused city district ratios to be too low. Fixed an issue where boost zones were not removed during rural district conversion."
+ MESSAGE_BCA_STARTUP_desc_log_v05: "\n2026-1-24 - v0.5: Rewrote §Hrural district construction and demolition§! logic; when a rural boost zone exists the mod will automatically rebalance city districts and rural districts to maximize output"
