@@ -364,7 +364,7 @@ planet_event = {
 		}
 		set_variable = {
 			which = bca_test_food_production
-			value = value:bca_protential_standard_energy_production
+			value = value:bca_protential_standard_food_production
 		}
 		set_variable = {
 			which = bca_test_district_metric_1_d
@@ -439,7 +439,7 @@ planet_event = {
 		bca_test_district_to_build_district_1_checked = {
 			district_1 = district_city
 			district_2 = district_farming
-			metric_value = value:bca_protential_standard_energy_production
+			metric_value = value:bca_protential_standard_food_production
 		}
 		planet_event = { id = test_event.2 }
 	}
@@ -448,7 +448,7 @@ planet_event = {
 		name = "replace check district farming"
 		bca_test_district_to_replace_city_bidirectional = {
 			district_2 = district_farming
-			metric_value = value:bca_protential_standard_energy_production
+			metric_value = value:bca_protential_standard_food_production
 		}
 		planet_event = { id = test_event.2 }
 	}

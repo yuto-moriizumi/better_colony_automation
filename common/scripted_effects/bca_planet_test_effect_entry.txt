@@ -49,7 +49,7 @@ bca_test_district_to_replace_entry = {
         }
         bca_test_district_to_replace_city_bidirectional_nexus_excluded = {
             district_2 = district_farming
-            metric_value = value:bca_protential_standard_energy_production
+            metric_value = value:bca_protential_standard_food_production
         }
     }
 }
@@ -106,12 +106,12 @@ bca_test_district_to_build_entry = {
         bca_test_district_to_build_district_1_checked = {
             district_1 = district_city
             district_2 = district_farming
-            metric_value = value:bca_protential_standard_energy_production
+            metric_value = value:bca_protential_standard_food_production
         }
         bca_test_district_to_build_district_1_checked = {
             district_1 = district_hive
             district_2 = district_farming
-            metric_value = value:bca_protential_standard_energy_production
+            metric_value = value:bca_protential_standard_food_production
         }
     }
 }
@@ -167,12 +167,12 @@ bca_test_zone_to_build_entry = {
         bca_test_district_to_build_district_1_checked = {
             district_1 = district_city
             district_2 = district_farming
-            metric_value = value:bca_protential_standard_energy_production
+            metric_value = value:bca_protential_standard_food_production
         }
         bca_test_district_to_build_district_1_checked = {
             district_1 = district_hive
             district_2 = district_farming
-            metric_value = value:bca_protential_standard_energy_production
+            metric_value = value:bca_protential_standard_food_production
         }
     }
 }
