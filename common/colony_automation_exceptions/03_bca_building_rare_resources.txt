@@ -3,11 +3,14 @@ automate_rare_deficit_management_archaeo_refinery = {
 		free_building_slots > 0
 		bca_has_minerals_to_build = yes
 		has_any_industrial_designation = yes
-		owner = { 
-			OR = {
-				has_monthly_income = { resource = rare_crystals value < 0 } 
-				has_monthly_income = { resource = volatile_motes value < 0 }
-				has_monthly_income = { resource = exotic_gases value < 0 }
+		OR = {
+			has_planet_flag = bca_pf_pre_build_rare_resource_buildings
+			owner = { 
+				OR = {
+					has_monthly_income = { resource = rare_crystals value < 0 } 
+					has_monthly_income = { resource = volatile_motes value < 0 }
+					has_monthly_income = { resource = exotic_gases value < 0 }
+				}
 			}
 		}
 	}
@@ -24,7 +27,10 @@ automate_rare_deficit_management_archaeo_refinery = {
 
 automate_crystal_deficit_management = {
 	available = {
-		owner = { has_monthly_income = { resource = rare_crystals value < 0 } }
+		OR = {
+			has_planet_flag = bca_pf_pre_build_rare_resource_buildings
+			owner = { has_monthly_income = { resource = rare_crystals value < 0 } }
+		}
 		free_building_slots > 0
 		bca_has_minerals_to_build = yes
 		NOT = { has_building = building_archaeo_refinery }
@@ -43,7 +49,10 @@ automate_crystal_deficit_management = {
 
 automate_mote_deficit_management = {
 	available = {
-		owner = { has_monthly_income = { resource = volatile_motes value < 0 } }
+		OR = {
+			has_planet_flag = bca_pf_pre_build_rare_resource_buildings
+			owner = { has_monthly_income = { resource = volatile_motes value < 0 } }
+		}
 		free_building_slots > 0
 		bca_has_minerals_to_build = yes
 		NOT = { has_building = building_archaeo_refinery }
@@ -62,7 +71,10 @@ automate_mote_deficit_management = {
 
 automate_gas_deficit_management = {
 	available = {
-		owner = { has_monthly_income = { resource = exotic_gases value < 0 } }
+		OR = {
+			has_planet_flag = bca_pf_pre_build_rare_resource_buildings
+			owner = { has_monthly_income = { resource = exotic_gases value < 0 } }
+		}
 		free_building_slots > 0
 		bca_has_minerals_to_build = yes
 		NOT = { has_building = building_archaeo_refinery }
@@ -81,7 +93,10 @@ automate_gas_deficit_management = {
 
 automate_crystal_deficit_management_mining_zone = {
 	available = {
-		owner = { has_monthly_income = { resource = rare_crystals value < 0 } }
+		OR = {
+			has_planet_flag = bca_pf_pre_build_rare_resource_buildings
+			owner = { has_monthly_income = { resource = rare_crystals value < 0 } }
+		}
 		free_building_slots > 0
 		bca_has_minerals_to_build = yes
 		NOT = { has_building = building_archaeo_refinery }
@@ -100,7 +115,10 @@ automate_crystal_deficit_management_mining_zone = {
 
 automate_mote_deficit_management_energy_zone = {
 	available = {
-		owner = { has_monthly_income = { resource = volatile_motes value < 0 } }
+		OR = {
+			has_planet_flag = bca_pf_pre_build_rare_resource_buildings
+			owner = { has_monthly_income = { resource = volatile_motes value < 0 } }
+		}
 		free_building_slots > 0
 		bca_has_minerals_to_build = yes
 		NOT = { has_building = building_archaeo_refinery }
@@ -119,7 +137,10 @@ automate_mote_deficit_management_energy_zone = {
 
 automate_gas_deficit_management_food_zone = {
 	available = {
-		owner = { has_monthly_income = { resource = exotic_gases value < 0 } }
+		OR = {
+			has_planet_flag = bca_pf_pre_build_rare_resource_buildings
+			owner = { has_monthly_income = { resource = exotic_gases value < 0 } }
+		}
 		free_building_slots > 0
 		bca_has_minerals_to_build = yes
 		NOT = { has_building = building_archaeo_refinery }

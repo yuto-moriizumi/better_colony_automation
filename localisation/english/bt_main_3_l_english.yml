@@ -69,37 +69,41 @@ l_english:
 
  bca_pm_planet_pre_construction: "Pre-construction"
  bca_pm_planet_pre_construction_desc: "Auto build buildings before population growth."
- decision_enable_pre_construction: "BCA: Enable Pre-construction"
+ decision_enable_pre_construction: "£district£ £zone£ £building£ Enable Pre-construction"
  decision_enable_pre_construction_desc: "Auto build buildings before population growth."
- decision_disable_pre_construction: "BCA: Disable Pre-construction"
+ decision_disable_pre_construction: "£district£ £zone£ £building£ Disable Pre-construction"
  decision_disable_pre_construction_desc: "Disable auto build buildings before population growth."
 
  bca_pm_disable_planet_auto_destruction: "Disable Auto Destruction"
  bca_pm_disable_planet_auto_destruction_desc: "Disable auto destruction of buildings, districts and zones on this planet."
- decision_disable_auto_destruction: "BCA: Disable Auto Destruction"
+ decision_disable_auto_destruction: "£district£ £zone£ £building£ Disable Auto Destruction"
  decision_disable_auto_destruction_desc: "Disable auto destruction of buildings, districts and zones on this planet."
- decision_enable_auto_destruction: "BCA: Enable Auto Destruction"
+ decision_enable_auto_destruction: "£district£ £zone£ £building£ Enable Auto Destruction"
  decision_enable_auto_destruction_desc: "Enable auto destruction of buildings, districts and zones on this planet."
 
  decision_colony_transform: "!BCA!: De-Urbanize"
  decision_colony_transform_desc: "Remove all buildings and districts on the current planet."
 
- decision_enable_build_extra_zones_for_storage: "BCA: Allow Building Extra Districts and Zones for Storage"
+ decision_enable_build_extra_zones_for_storage: "£district£ £zone£ £building£ Build Storage World"
  decision_enable_build_extra_zones_for_storage_desc: "Allow building extra districts and zones for storage silos, lifting the build limit. Current: Disabled."
- decision_disable_build_extra_zones_for_storage: "BCA: Disallow Building Extra Districts and Zones for Storage"
+ decision_disable_build_extra_zones_for_storage: "£district£ £zone£ £building£ Stop Storage World Construction"
  decision_disable_build_extra_zones_for_storage_desc: "Current: Allowed."
 
- decision_enable_build_fe_clinic: "BCA: More $building_fe_clinic_1$"
- decision_enable_build_fe_clinic_desc: "Allow building extra $building_fe_clinic_1$, lifting the build limit. Current: Disabled."
- decision_disable_build_fe_clinic: "BCA: Limit $building_fe_clinic_1$"
+ decision_enable_build_fe_clinic: "£building£ More $building_fe_clinic_1$"
+ decision_enable_build_fe_clinic_desc: "Allow building extra $building_fe_clinic_1$ per colony, lifting the build limit. Current: Disabled."
+ decision_disable_build_fe_clinic: "£building£ Limit $building_fe_clinic_1$"
  decision_disable_build_fe_clinic_desc: "Current: Unlimited."
- 
+
+ decision_enable_pre_build_rare_resource_buildings: "£building£ £exotic_gases£ £rare_crystals£ £volatile_motes£ Enable Rare Resource Building Pre-construction"
+ decision_enable_pre_build_rare_resource_buildings_desc: "Auto build rare resource buildings before deficit. Current: Disabled."
+ decision_disable_pre_build_rare_resource_buildings: "£building£ £exotic_gases£ £rare_crystals£ £volatile_motes£ Disable Rare Resource Building Pre-construction"
+ decision_disable_pre_build_rare_resource_buildings_desc: "Current: Allowed."
 
  bca_pm_arcology_project_candidate: "Arcology Project Candidate"
  bca_pm_arcology_project_candidate_desc: "This planet has been marked as an Arcology Project candidate. Automation will plan based on this target."
- decision_bca_enable_arcology_project_candidate: "BCA: Arcology Project Candidate"
+ decision_bca_enable_arcology_project_candidate: "£district£ £decision£ Mark as Arcology Project Candidate"
  decision_bca_enable_arcology_project_candidate_desc: "Mark this planet as an Arcology Project candidate to enable related automation planning."
- decision_bca_disable_arcology_project_candidate: "BCA: Remove Arcology Project Candidate"
+ decision_bca_disable_arcology_project_candidate: "£district£ £decision£ Remove Arcology Project Candidate"
  decision_bca_disable_arcology_project_candidate_desc: "Remove the Arcology Project candidate mark from this planet."
 
 

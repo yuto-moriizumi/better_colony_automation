@@ -111,7 +111,7 @@ decision_disable_build_extra_zones_for_storage = {
 
 decision_enable_build_fe_clinic = {
 	sound = event_administrative_work
-	icon = decision_resources
+	icon = decision_fe_clinic_1
 
 	resources = {
 		category = decisions
@@ -119,6 +119,7 @@ decision_enable_build_fe_clinic = {
 
 	potential = {
 		exists = owner
+		owner = { has_technology = tech_fe_clinic_1 }
 		NOT = { has_planet_flag = bca_pf_fill_fe_clinic }
 	}
 
@@ -129,7 +130,7 @@ decision_enable_build_fe_clinic = {
 
 decision_disable_build_fe_clinic = {
 	sound = event_administrative_work
-	icon = decision_resources
+	icon = decision_fe_clinic_1
 
 	resources = {
 		category = decisions
@@ -142,6 +143,42 @@ decision_disable_build_fe_clinic = {
 
 	effect = {
 		remove_planet_flag = bca_pf_fill_fe_clinic
+	}
+}
+
+decision_enable_pre_build_rare_resource_buildings = {
+	sound = event_administrative_work
+	icon = default
+
+	resources = {
+		category = decisions
+	}
+
+	potential = {
+		exists = owner
+		NOT = { has_planet_flag = bca_pf_pre_build_rare_resource_buildings }
+	}
+
+	effect = {
+		set_planet_flag = bca_pf_pre_build_rare_resource_buildings
+	}
+}
+
+decision_disable_pre_build_rare_resource_buildings = {
+	sound = event_administrative_work
+	icon = default
+
+	resources = {
+		category = decisions
+	}
+
+	potential = {
+		exists = owner
+		has_planet_flag = bca_pf_pre_build_rare_resource_buildings
+	}
+
+	effect = {
+		remove_planet_flag = bca_pf_pre_build_rare_resource_buildings
 	}
 }
 
@@ -193,6 +230,7 @@ decision_bca_enable_arcology_project_candidate = {
 
 	effect = {
 		add_modifier = { modifier = "bca_pm_arcology_project_candidate" days = -1 }
+		remove_planet_flag = bca_pf_can_build_extra_zones_for_storage
 	}
 }
 

@@ -1,5 +1,6 @@
 automate_hive_spawning_pool = {
 	available = {
+		bca_can_build_pop_assemble = yes
 		owner = { is_hive_empire = yes }
 	}
 
@@ -15,6 +16,7 @@ automate_hive_spawning_pool = {
 
 automate_machine_assembly = {
 	available = {
+		bca_can_build_pop_assemble = yes
 		owner = { is_machine_empire = yes }
 	}
 
@@ -30,6 +32,7 @@ automate_machine_assembly = {
 
 automate_robotic_pop_assembly = {
 	available = {
+		bca_can_build_pop_assemble = yes
 		can_assemble_robot = yes
 		owner = {
 			NOT = { has_policy_flag = robots_outlawed }
@@ -49,6 +52,7 @@ automate_robotic_pop_assembly = {
 
 automate_bio_cloning = {
 	available = {
+		bca_can_build_pop_assemble = yes
 		can_assemble_bio_pop = yes
 		owner = { has_technology = tech_cloning }
 	}

@@ -59,6 +59,11 @@ bca_can_remove_pop_assemble = {
 	}
 }
 
+bca_can_build_pop_assemble = {
+	free_jobs > 0
+	free_building_slots > 1
+}
+
 bca_can_remove_district_generator = {
 	OR = {
 		AND = {
