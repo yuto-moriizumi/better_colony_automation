@@ -1,6 +1,7 @@
 
 automate_capital_building = {
 	available = {
+		bca_has_minerals_to_build = yes
 		owner = {
 			NOR = {
 				is_machine_empire = yes
@@ -28,6 +29,7 @@ automate_capital_building = {
 
 automate_capital_building_machine = {
 	available = {
+		bca_has_minerals_to_build = yes
 		owner = {
 			is_machine_empire = yes
 		}
@@ -48,6 +50,7 @@ automate_capital_building_machine = {
 
 automate_capital_building_hive = {
 	available = {
+		bca_has_minerals_to_build = yes
 		owner = {
 			is_hive_empire = yes
 		}

@@ -7,7 +7,6 @@ better_automate_factory_planet = {
 		has_factory_designation = yes
         requires_more_job = yes
         bca_has_minerals_to_build = yes
-
 	}
 
 	prio_districts = {
@@ -17,10 +16,6 @@ better_automate_factory_planet = {
 		district_arcology_housing
 		district_rw_city
 		district_hab_housing
-	}
-	
-	prio_zones = {
-		zone_factory
 	}
 
 	buildings = {

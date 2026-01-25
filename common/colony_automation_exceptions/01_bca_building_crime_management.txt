@@ -4,6 +4,7 @@ automate_crime_management = {
 	available = {
 		exists = owner
 		owner = { is_gestalt = no }
+		bca_has_minerals_to_build = yes
 	}
 
 	emergency = yes
@@ -55,7 +56,9 @@ automate_crime_management = {
 
 		enforcer_increase = {
 			available = {
-				planet_crime > 27
+				OR = {
+					planet_crime > 27
+				}
 			}
 
 			job = enforcer
@@ -70,6 +73,7 @@ automate_crime_management_gestalt = {
 	available = {
 		exists = owner
 		owner = { is_gestalt = yes }
+		bca_has_minerals_to_build = yes
 	}
 
 	emergency = yes

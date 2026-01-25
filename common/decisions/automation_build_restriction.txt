@@ -1,6 +1,6 @@
 decision_enable_pre_construction = {
 	sound = event_administrative_work
-	icon = decision_arcology_project
+	icon = decision_pre_construction
 
 	resources = {
 		category = decisions
@@ -18,7 +18,7 @@ decision_enable_pre_construction = {
 
 decision_disable_pre_construction = {
 	sound = event_administrative_work
-	icon = decision_arcology_project
+	icon = decision_pre_construction
 
 	resources = {
 		category = decisions
@@ -157,6 +157,7 @@ decision_enable_pre_build_rare_resource_buildings = {
 	potential = {
 		exists = owner
 		NOT = { has_planet_flag = bca_pf_pre_build_rare_resource_buildings }
+		has_any_industrial_designation = yes
 	}
 
 	effect = {
@@ -175,6 +176,7 @@ decision_disable_pre_build_rare_resource_buildings = {
 	potential = {
 		exists = owner
 		has_planet_flag = bca_pf_pre_build_rare_resource_buildings
+		has_any_industrial_designation = yes
 	}
 
 	effect = {
@@ -184,7 +186,7 @@ decision_disable_pre_build_rare_resource_buildings = {
 
 decision_bca_enable_arcology_project_candidate = {
 	sound = event_administrative_work
-	icon = decision_arcology_project
+	icon = decision_arcology_project_candidate
 
 	resources = {
 		category = decisions
@@ -236,7 +238,7 @@ decision_bca_enable_arcology_project_candidate = {
 
 decision_bca_disable_arcology_project_candidate = {
 	sound = event_administrative_work
-	icon = decision_arcology_project
+	icon = decision_arcology_project_candidate
 
 	resources = {
 		category = decisions
