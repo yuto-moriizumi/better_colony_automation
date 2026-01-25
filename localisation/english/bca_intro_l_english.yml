@@ -6,8 +6,9 @@
  MESSAGE_BCA_UPDATE_desc: "$MESSAGE_BCA_UPDATE_desc_verson$\n§HNote§!: This mod has received many recent updates; visit the Workshop page for details.\n$MESSAGE_BCA_STARTUP_desc_log$"
  MESSAGE_BCA_UPDATE_desc_verson: "§YBetter Colony Automation§! updated to v0.5"
 
- MESSAGE_BCA_STARTUP_desc_log: "$MESSAGE_BCA_STARTUP_desc_log_v052$$MESSAGE_BCA_STARTUP_desc_log_v051$$MESSAGE_BCA_STARTUP_desc_log_v05$"
+ MESSAGE_BCA_STARTUP_desc_log: "$MESSAGE_BCA_STARTUP_desc_log_v053$$MESSAGE_BCA_STARTUP_desc_log_v052$$MESSAGE_BCA_STARTUP_desc_log_v051$$MESSAGE_BCA_STARTUP_desc_log_v05$"
 
+ MESSAGE_BCA_STARTUP_desc_log_v053: "\n2026-2-25 - v0.5.3: Fixed an energy output calculation error caused by an unintended naming mistake"
  MESSAGE_BCA_STARTUP_desc_log_v052: "\n2026-2-25 - v0.5.2: Fixed and improve rare resource building automation logic : after building the Archaeological Refinery, other rare resource buildings will no longer be built. Rural districts will only build related buildings when the rare resource building option is enabled. Fixed the robot assembly options still shows up for cases where robots are outlawed or engineered evolution is taken."
  MESSAGE_BCA_STARTUP_desc_log_v051: "\n2026-2-25 - v0.5.1: Fixed an error in energy output calculation that caused city district ratios to be too low. Fixed an issue where boost zones were not removed during rural district conversion."
  MESSAGE_BCA_STARTUP_desc_log_v05: "\n2026-1-24 - v0.5: Rewrote §Hrural district construction and demolition§! logic; when a rural boost zone exists the mod will automatically rebalance city districts and rural districts to maximize output"

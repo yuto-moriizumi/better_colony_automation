@@ -7,8 +7,9 @@
  MESSAGE_BCA_UPDATE_desc: "$MESSAGE_BCA_UPDATE_desc_verson$\n§H注意§!：本模组近期进行了大量更新，可访问创意工坊页面了解详情。\n$MESSAGE_BCA_STARTUP_desc_log$"
  MESSAGE_BCA_UPDATE_desc_verson: "§YBetter Colony Automation§! 更新到 v0.5"
 
-MESSAGE_BCA_STARTUP_desc_log: "$MESSAGE_BCA_STARTUP_desc_log_v051$$MESSAGE_BCA_STARTUP_desc_log_v05$"
+MESSAGE_BCA_STARTUP_desc_log: "$MESSAGE_BCA_STARTUP_desc_log_v053$$MESSAGE_BCA_STARTUP_desc_log_v052$$MESSAGE_BCA_STARTUP_desc_log_v051$$MESSAGE_BCA_STARTUP_desc_log_v05$"
 
+MESSAGE_BCA_STARTUP_desc_log_v053: "\n2026-2-25 - v0.5.3：修复了由意外的命名错误导致的电能产出计算错误"
 MESSAGE_BCA_STARTUP_desc_log_v052: "\n2026-2-25 - v0.5.2：修复并改良了稀有资源建筑的自动化逻辑：建造远古精炼厂后不会再建造其他稀有资源建筑。一产区划需要开启稀有资源建造选项才会建造相关建筑。修复了在机器人被禁用或选择了基因进化时仍然显示机器人组装选项的问题。"
 MESSAGE_BCA_STARTUP_desc_log_v051: "\n2026-2-14 - v0.5.1： 修复电能产出的计算错误，导致城市比例偏低的问题。修复了一产区间进行转换时增益特化不进行拆除的问题"
 MESSAGE_BCA_STARTUP_desc_log_v05: "\n2026-1-24 - v0.5：重写§H一产区划建设与拆除§!逻辑，在§H存在一产增益特化§!时将自动调配城市区划与一产区划的比例以最大化产出，并且会自动建设一产增益特化"

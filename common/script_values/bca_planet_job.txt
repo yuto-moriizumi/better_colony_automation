@@ -130,7 +130,7 @@ bca_unit_food_production = {
 	mult = value:bca_planet_food_job_mult
 }
 
-bca_protential_standard_energy_production = {
+bca_protential_standard_food_production = {
 	set = value:bca_jobs_for_food
 	divide = 100
 	mult = value:bca_unit_food_production
