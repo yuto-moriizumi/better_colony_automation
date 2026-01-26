@@ -1,4 +1,4 @@
-l_japanese:
+﻿l_japanese:
  planet_automation_robot_assembly: "ロボット組立の自動化"
  planet_automation_robot_assembly_desc: "$building_robot_assembly_plant$を自動建設します。"
  planet_automation_medical: "医療の自動化"
@@ -113,5 +113,3 @@ l_japanese:
  colony_automation_event.3.desc: "[Root.GetName]がエキュメノポリスへの変換要件を満たしました。今すぐアーコロジー計画を開始しますか？"
  colony_automation_event.3.a: "アーコロジー計画を開始"
  colony_automation_event.3.b: "後で"
-
-
