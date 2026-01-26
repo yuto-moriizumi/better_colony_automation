@@ -1,0 +1,46 @@
+﻿l_japanese:
+ col_ecu_foundry_trade: "鋳造所 交易"
+ col_ecu_factory_trade: "工場 交易"
+ col_foundry_trade: "鋳造所 交易"
+ col_factory_trade: "工場 交易"
+
+ col_ecu_foundry_trade_desc: "交易を含む鋳造所"
+ col_ecu_factory_trade_desc: "交易を含む工場"
+ col_foundry_trade_desc: "交易を含む可能性のある鋳造所"
+ col_factory_trade_desc: "交易を含む可能性のある工場"
+
+ col_research_physics: "物理学コロニー"
+ col_research_society: "社会学コロニー"
+ col_research_engineering: "工学コロニー"
+ col_research_physics_trade: "物理学 交易"
+ col_research_society_trade: "社会学 交易"
+ col_research_engineering_trade: "工学 交易"
+
+ col_habitat_research_physics: "物理学ハビタット"
+ col_habitat_research_society: "社会学ハビタット"
+ col_habitat_research_engineering: "工学ハビタット"
+
+ col_ring_research_physics: "物理学リング"
+ col_ring_research_society: "社会学リング"
+ col_ring_research_engineering: "工学リング"
+ col_ring_research_physics_trade: "物理学 交易"
+ col_ring_research_society_trade: "社会学 交易"
+ col_ring_research_engineering_trade: "工学 交易"
+
+
+ col_ecu_research_physics: "物理学エキュメノポリス"
+ col_ecu_research_society: "社会学エキュメノポリス"
+ col_ecu_research_engineering: "工学エキュメノポリス"
+ col_ecu_research_physics_trade: "物理学 交易 エキュメノポリス"
+ col_ecu_research_society_trade: "社会学 交易 エキュメノポリス"
+ col_ecu_research_engineering_trade: "工学 交易 エキュメノポリス"
+
+
+ col_wilderness_tech_physics: "$col_research_physics$"
+ col_wilderness_tech_sociology: "$col_research_society$"
+ col_wilderness_tech_engineering: "$col_research_engineering$"
+ 
+ col_fortress_trade: "交易を含む要塞"
+
+ col_research_tt: "この惑星は科学研究と技術進歩の灯台です。注意：この自動化は地区の特殊化を建設しません。手動建設が必要です。"
+ col_research_desc: "§H研究所の建設速度§!を向上させ、£research£§H研究者の維持費§!を削減します。注意：この自動化は地区の特殊化を建設しません。手動建設が必要です。"

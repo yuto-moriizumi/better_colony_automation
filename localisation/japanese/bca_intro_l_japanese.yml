@@ -1,0 +1,14 @@
+l_japanese:
+ MESSAGE_BCA_STARTUP: "Better Colony Automation 通知"
+ MESSAGE_BCA_STARTUP_desc: "§YBetter Colony Automation§! by 哇噗 & 红尘渡者\n\nこのMODは植民地の自動化を修正・改善します。['concept_colony']の['concept_planet_automation']、惑星['concept_decision']、帝国['concept_policies']から動作を設定できます。\n\n§H主な機能:§!\n- §Yスマート計画:§! 惑星の指定に基づいて、目標収量を最大化するよう自動的に地区を計画・建設します\n- §Y自動解体:§! 必要に応じて不要な£building£['concept_buildings']、£district£['concept_district']、£zone£['concept_district_specialization']を自動的に削除します\n- §Yその他:§! 詳細はワークショップページをご覧ください。\n\n§H注意§!: §Y自動解体§!は['concept_planet_automation']とは独立しており、デフォルトで有効です。惑星['concept_decision']と帝国['concept_policies']で制御できます（ゲームは自動化が有効かどうかを検出する公式インターフェースを提供していません）\n\nMOD作者はバニラ市民権以外の政府でのプレイ経験が限られています。フィードバックとバグ報告を歓迎します！"
+
+ MESSAGE_BCA_UPDATE: "Better Colony Automation アップデート"
+ MESSAGE_BCA_UPDATE_desc: "$MESSAGE_BCA_UPDATE_desc_verson$\n§H注意§!: このMODは最近多くのアップデートを受けています。詳細はワークショップページをご覧ください。\n$MESSAGE_BCA_STARTUP_desc_log$"
+ MESSAGE_BCA_UPDATE_desc_verson: "§YBetter Colony Automation§!がv0.5にアップデートされました"
+
+ MESSAGE_BCA_STARTUP_desc_log: "$MESSAGE_BCA_STARTUP_desc_log_v053$$MESSAGE_BCA_STARTUP_desc_log_v052$$MESSAGE_BCA_STARTUP_desc_log_v051$$MESSAGE_BCA_STARTUP_desc_log_v05$"
+
+ MESSAGE_BCA_STARTUP_desc_log_v053: "\n2026-2-25 - v0.5.3: 意図しない命名ミスによって引き起こされたエネルギー出力計算エラーを修正しました"
+ MESSAGE_BCA_STARTUP_desc_log_v052: "\n2026-2-25 - v0.5.2: レア資源建造物の自動化ロジックを修正・改善：考古学精製所の建設後、他のレア資源建造物は建設されなくなります。農村地区は、レア資源建造物オプションが有効な場合のみ関連建造物を建設します。ロボットが違法化されている場合や遺伝子進化が取得されている場合でも、ロボット組立オプションが表示される問題を修正しました。"
+ MESSAGE_BCA_STARTUP_desc_log_v051: "\n2026-2-25 - v0.5.1: エネルギー出力計算のエラーを修正し、都市地区の比率が低すぎる問題を解決しました。農村地区変換時にブーストゾーンが削除されない問題を修正しました。"
+ MESSAGE_BCA_STARTUP_desc_log_v05: "\n2026-1-24 - v0.5: §H農村地区の建設と解体§!ロジックを書き直しました。農村ブーストゾーンが存在する場合、MODは都市地区と農村地区を自動的に再バランスして出力を最大化します"
