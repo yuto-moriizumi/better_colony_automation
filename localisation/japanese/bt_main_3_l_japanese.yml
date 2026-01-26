@@ -67,39 +67,44 @@
  enable_bac_remove_pop_assemble_buildings: "POP組立建造物の自動削除を有効化"
  enable_bac_remove_pop_assemble_buildings_desc: "POP組立建造物の自動削除を有効化します。"
 
- bca_pm_planet_pre_construction: "事前建設"
- bca_pm_planet_pre_construction_desc: "人口増加前に建造物を自動建設します。"
- decision_enable_pre_construction: "BCA: 事前建設を有効化"
- decision_enable_pre_construction_desc: "人口増加前に建造物を自動建設します。"
- decision_disable_pre_construction: "BCA: 事前建設を無効化"
- decision_disable_pre_construction_desc: "人口増加前の建造物自動建設を無効化します。"
-
- bca_pm_disable_planet_auto_destruction: "自動解体を無効化"
- bca_pm_disable_planet_auto_destruction_desc: "この惑星の建造物、地区、ゾーンの自動解体を無効化します。"
- decision_disable_auto_destruction: "BCA: 自動解体を無効化"
- decision_disable_auto_destruction_desc: "この惑星の建造物、地区、ゾーンの自動解体を無効化します。"
- decision_enable_auto_destruction: "BCA: 自動解体を有効化"
- decision_enable_auto_destruction_desc: "この惑星の建造物、地区、ゾーンの自動解体を有効化します。"
-
  decision_colony_transform: "!BCA!: 脱都市化"
  decision_colony_transform_desc: "現在の惑星のすべての建造物と地区を削除します。"
 
- decision_enable_build_extra_zones_for_storage: "BCA: 貯蔵用の追加地区とゾーンの建設を許可"
- decision_enable_build_extra_zones_for_storage_desc: "貯蔵サイロ用の追加地区とゾーンの建設を許可し、建設制限を解除します。現在：無効"
- decision_disable_build_extra_zones_for_storage: "BCA: 貯蔵用の追加地区とゾーンの建設を禁止"
- decision_disable_build_extra_zones_for_storage_desc: "現在：許可"
 
- decision_enable_build_fe_clinic: "BCA: 追加の$building_fe_clinic_1$"
- decision_enable_build_fe_clinic_desc: "追加の$building_fe_clinic_1$の建設を許可し、建設制限を解除します。現在：無効"
- decision_disable_build_fe_clinic: "BCA: $building_fe_clinic_1$を制限"
- decision_disable_build_fe_clinic_desc: "現在：無制限"
- 
+ bca_pm_planet_pre_construction: "事前建設"
+ bca_pm_planet_pre_construction_desc: "植民地での人口増加前に建造物を自動建設します。"
+ decision_enable_pre_construction: "£district£ £zone£ £building£ §r無効§!: 事前建設"
+ decision_enable_pre_construction_desc: "植民地での人口増加前に建造物を自動建設します。現在：§H無効§!"
+ decision_disable_pre_construction: "£district£ £zone£ £building£ §G有効§!: 事前建設"
+ decision_disable_pre_construction_desc: "植民地での人口増加前に建造物を自動建設します。現在：§H有効§!"
+
+ bca_pm_disable_planet_auto_destruction: "自動解体を無効化"
+ bca_pm_disable_planet_auto_destruction_desc: "建造物、地区、地区特殊化の自動解体を無効化します。"
+ decision_disable_auto_destruction: "£district£ £zone£ £building£ §G有効§!: 自動解体"
+ decision_disable_auto_destruction_desc: "建造物、地区、地区特殊化の自動解体。現在：§H有効§!"
+ decision_enable_auto_destruction: "£district£ £zone£ £building£ §r無効§!: 自動解体"
+ decision_enable_auto_destruction_desc: "建造物、地区、地区特殊化の自動解体を有効化します。現在：§H無効§!"
+
+ decision_enable_build_extra_zones_for_storage: "£district£ £zone£ £building£ §r無効§!: 貯蔵世界"
+ decision_enable_build_extra_zones_for_storage_desc: "貯蔵サイロ用の追加地区と特殊化を建設し、建設制限を解除します。現在：§H無効§!"
+ decision_disable_build_extra_zones_for_storage: "£district£ £zone£ £building£ §G有効§!: 貯蔵世界"
+ decision_disable_build_extra_zones_for_storage_desc: "貯蔵サイロ用の追加地区と特殊化を建設し、建設制限を解除します。現在：§H有効§!"
+
+ decision_enable_build_fe_clinic: "£building£ §r無効§!: 追加$building_fe_clinic_1$を建設"
+ decision_enable_build_fe_clinic_desc: "植民地ごとに追加の$building_fe_clinic_1$を建設します。現在：§H無効§!"
+ decision_disable_build_fe_clinic: "£building£ §G有効§!: 追加$building_fe_clinic_1$を建設"
+ decision_disable_build_fe_clinic_desc: "植民地ごとに追加の$building_fe_clinic_1$を建設します。現在：§H有効§!"
+
+ decision_enable_pre_build_rare_resource_buildings: "£building£ £exotic_gases£ £rare_crystals£ £volatile_motes£ §r無効§!: レア資源建造物の事前建設"
+ decision_enable_pre_build_rare_resource_buildings_desc: "不足が発生する前にレア資源建造物を事前建設します。現在：§H無効§!"
+ decision_disable_pre_build_rare_resource_buildings: "£building£ £exotic_gases£ £rare_crystals£ £volatile_motes£ §G有効§!: レア資源建造物の事前建設"
+ decision_disable_pre_build_rare_resource_buildings_desc: "現在：§H有効§!"
 
  bca_pm_arcology_project_candidate: "アーコロジー計画候補"
  bca_pm_arcology_project_candidate_desc: "この惑星はアーコロジー計画の候補としてマークされています。自動化はこの目標に基づいて計画します。"
- decision_bca_enable_arcology_project_candidate: "BCA: アーコロジー計画候補"
+ decision_bca_enable_arcology_project_candidate: "£district£ £decision£ アーコロジー計画候補としてマーク"
  decision_bca_enable_arcology_project_candidate_desc: "この惑星をアーコロジー計画の候補としてマークし、関連する自動化計画を有効にします。"
- decision_bca_disable_arcology_project_candidate: "BCA: アーコロジー計画候補を削除"
+ decision_bca_disable_arcology_project_candidate: "£district£ £decision£ アーコロジー計画候補を削除"
  decision_bca_disable_arcology_project_candidate_desc: "この惑星からアーコロジー計画候補のマークを削除します。"
 
 

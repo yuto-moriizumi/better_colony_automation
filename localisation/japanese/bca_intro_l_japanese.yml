@@ -6,9 +6,11 @@ l_japanese:
  MESSAGE_BCA_UPDATE_desc: "$MESSAGE_BCA_UPDATE_desc_verson$\n§H注意§!: このMODは最近多くのアップデートを受けています。詳細はワークショップページをご覧ください。\n$MESSAGE_BCA_STARTUP_desc_log$"
  MESSAGE_BCA_UPDATE_desc_verson: "§YBetter Colony Automation§!がv0.5にアップデートされました"
 
- MESSAGE_BCA_STARTUP_desc_log: "$MESSAGE_BCA_STARTUP_desc_log_v053$$MESSAGE_BCA_STARTUP_desc_log_v052$$MESSAGE_BCA_STARTUP_desc_log_v051$$MESSAGE_BCA_STARTUP_desc_log_v05$"
+ MESSAGE_BCA_STARTUP_desc_log: "$MESSAGE_BCA_STARTUP_desc_log_v055$\n$MESSAGE_BCA_STARTUP_desc_log_v054$\n$MESSAGE_BCA_STARTUP_desc_log_v053$\n$MESSAGE_BCA_STARTUP_desc_log_v052$\n$MESSAGE_BCA_STARTUP_desc_log_v051$\n$MESSAGE_BCA_STARTUP_desc_log_v05$"
 
- MESSAGE_BCA_STARTUP_desc_log_v053: "\n2026-2-25 - v0.5.3: 意図しない命名ミスによって引き起こされたエネルギー出力計算エラーを修正しました"
- MESSAGE_BCA_STARTUP_desc_log_v052: "\n2026-2-25 - v0.5.2: レア資源建造物の自動化ロジックを修正・改善：考古学精製所の建設後、他のレア資源建造物は建設されなくなります。農村地区は、レア資源建造物オプションが有効な場合のみ関連建造物を建設します。ロボットが違法化されている場合や遺伝子進化が取得されている場合でも、ロボット組立オプションが表示される問題を修正しました。"
- MESSAGE_BCA_STARTUP_desc_log_v051: "\n2026-2-25 - v0.5.1: エネルギー出力計算のエラーを修正し、都市地区の比率が低すぎる問題を解決しました。農村地区変換時にブーストゾーンが削除されない問題を修正しました。"
+ MESSAGE_BCA_STARTUP_desc_log_v055: "\n§Y2026-1-25 - v0.5.5§!: \n\t読みやすさのために決定テキストを調整し、同じ決定の有効/無効の位置が変わらないようにしました。視覚効果を高めるためにいくつかのカスタム決定アイコンを追加しました; \n\tレア資源建設の調整: レア資源決定は工業指定惑星にのみ表示されるようになり、農村地区では、レア資源建造物が建設可能な場合、他の制限なしで関連建造物が優先されます。\n\t一部の建造物に鉱物確保制約がない問題を修正しました。"
+ MESSAGE_BCA_STARTUP_desc_log_v054: "\n§Y2026-1-25 - v0.5.4§!: \n\tレア資源建造物建設調整の決定を追加; \n\t読みやすさのために決定テキストとアイコンを調整しました; 解体条件下でもPOP組立建造物が建設される問題を修正しました。POP組立建造物は1つ以上の建造物スロットと空き仕事を必要とするようになりました"
+ MESSAGE_BCA_STARTUP_desc_log_v053: "\n§Y2026-1-25 - v0.5.3§!: \n\t意図しない命名ミスによって引き起こされたエネルギー出力計算エラーを修正しました"
+ MESSAGE_BCA_STARTUP_desc_log_v052: "\n§Y2026-1-25 - v0.5.2§!: \n\tレア資源建造物の自動化ロジックを修正・改善：考古学精製所の建設後、他のレア資源建造物は建設されなくなります。 \n\tロボットが違法化されている場合や遺伝子進化が取得されている場合でも、ロボット組立オプションが表示される問題を修正しました。"
+ MESSAGE_BCA_STARTUP_desc_log_v051: "\n§Y2026-1-25 - v0.5.1§!: \n\tエネルギー出力計算のエラーを修正し、都市地区の比率が低すぎる問題を解決しました。 \n\tブースト地区変換時にブーストゾーンが削除されない問題を修正しました。"
  MESSAGE_BCA_STARTUP_desc_log_v05: "\n2026-1-24 - v0.5: §H農村地区の建設と解体§!ロジックを書き直しました。農村ブーストゾーンが存在する場合、MODは都市地区と農村地区を自動的に再バランスして出力を最大化します"
