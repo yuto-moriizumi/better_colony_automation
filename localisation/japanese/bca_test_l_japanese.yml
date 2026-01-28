@@ -1,0 +1,4 @@
+﻿l_japanese:
+ test_event.1.x: "都市エネルギー需要 [This.bca_test_energy_need]"
+ test_event.1.y: "都市鉱物需要 [This.bca_test_mineral_need]"
+ test_event.1.z: "都市食料需要 [This.bca_test_food_need]"
