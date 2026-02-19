@@ -2,54 +2,32 @@
 try_construct_district = {
 	if = {
 		limit = { check_variable = { which = bca_selected_index value = $index$ } }
-		bca_set_district_build_flag = {
-			district = $district$
-		}
+		set_planet_flag = bca_pf_plan_build_district_$district_slot$
 	}
 	else_if = {
-		limit = { 
+		limit = {
+			NOT = { has_planet_flag = bca_pf_disable_auto_district_manage }
 			check_variable = { which = bca_selected_index value = -1 }
-			num_free_districts = { type = $district$ value > 0 }
-			num_districts = {
-				type = $district$
+			check_variable_arithmetic = {
+				which = value:num_free_district_$district_slot$
+				value > 0
+			}
+
+			[[district_max]
+			check_variable_arithmetic = {
+				which = value:num_district_$district_slot$
 				value < $district_max$
 			}
+			]
 		}
-		add_district = { district_type = $district$ }
+		bca_add_potential_district_$district_slot$ = yes
 		bca_test_update_construction_metric_max_with_cost = {
 			production = $production$
 			cost = $cost$
 			priority_shift = $priority_shift$
 			index = $index$
 		}
-		remove_district = $district$
-	}
-}
-
-try_construct_district_city = {
-	try_construct_district = {
-		district = district_city
-		district_max = $district_max$
-		production = $production$
-		cost = 480
-		priority_shift = $priority_shift$
-		index = $index$
-	}
-	try_construct_district = {
-		district = district_hive
-		district_max = $district_max$
-		production = $production$
-		cost = 480
-		priority_shift = $priority_shift$
-		index = $index$
-	}
-	try_construct_district = {
-		district = district_nexus
-		district_max = $district_max$
-		production = $production$
-		cost = 480
-		priority_shift = $priority_shift$
-		index = $index$
+		bca_remove_district_$district_slot$ = yes
 	}
 }
 
@@ -63,9 +41,15 @@ try_construct_building = {
 	else_if = {
 		limit = { 
 			check_variable = { which = bca_selected_index value = -1 } 
+			bca_can_build_$building$ = yes
 		}
 		bca_test_update_construction_metric_max_with_cost = {
+			[[!MULT]
 			production = value:$standard_production$|INC_JOB|$INC_JOB$|INC_ADD|$INC_ADD$|INC_MULT|$INC_MULT$|
+			]
+			[[MULT]
+			production = value:$standard_production$|INC_JOB|$INC_JOB$|INC_ADD|$INC_ADD$|INC_MULT|$INC_MULT$|MULT|$MULT$|
+			]
 			cost = $cost$
 			priority_shift = $priority_shift$
 			index = $index$
@@ -77,13 +61,18 @@ try_construct_building = {
 try_construct_zone_city = {
 	if = {
 		limit = { check_variable = { which = bca_selected_index value = $index$ } }
-		bca_set_zone_build_flag = {
-			zone = $zone$
-		}
+		set_planet_flag = bca_pf_plan_build_primary_zone_type_$zone_type$
 	}
 	else_if = {
-		limit = { check_variable = { which = bca_selected_index value = -1 } }
-		bac_get_num_free_city_zones = yes
+		limit = { 
+			check_variable = { which = bca_selected_index value = -1 }
+			bca_can_build_$zone$ = yes
+			num_zones = {
+				type = $zone$
+				value < value:bca_future_planed_$zone$
+			}
+		}
+		bca_get_num_free_city_zones = yes
 
 		if = {
 			limit = { 

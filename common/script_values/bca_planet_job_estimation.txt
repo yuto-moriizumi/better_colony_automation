@@ -1,4 +1,19 @@
 #---------------------------------
+# Districts
+#---------------------------------
+
+bca_planet_max_districts_of = {
+	modifier = {
+		bca_is_uncapped_$type$ = no
+		set = modifier:$type$_max_add
+	}
+	modifier = {
+		bca_is_uncapped_$type$ = yes
+		set = value:bca_planet_max_districts
+	}
+}
+
+#---------------------------------
 # Other
 #---------------------------------
 
@@ -31,11 +46,22 @@ bca_production_inc_mult_from_urban_resource = {
 	multiply = value:bca_resource_designation_num_city_districts
 }
 
+bca_production_inc_jobs_from_zone= {
+	base = 100
+	multiply = value:bca_resource_designation_num_city_districts
+}
+
+
 
 #---------------------------------
 # Energy
 #---------------------------------
 
+bca_potential_urban_energy_production_inc_mult = {
+	set = $num_d0$
+	mult = value:bca_future_planed_zone_urban_energy
+	mult = 0.2
+}
 
 bca_planet_energy_job_mult_estimate = {
 	# remove the modifier from zone_urban_energy
@@ -49,13 +75,14 @@ bca_planet_energy_job_mult_estimate = {
 	mult = value:bca_production_inc_mult_from_urban_resource
 	add = value:bca_planet_energy_job_mult # current value is mult with out zone_urban_energy
 	# assume 2 zone_urban_energy will be built, each city district provides 0.4 multiplier
-	add = value:bca_value_mult|VALUE|$num_district_city$|MULT|0.4|
+	add = value:bca_potential_urban_energy_production_inc_mult|num_d0|$num_district_city$|
 	modifier = {
 		add = 0.2
 		NOR = {
 			has_building = building_energy_grid
 			has_building = building_energy_nexus
 		}
+		bca_can_build_building_energy_grid = yes
 	}
 }
 
@@ -64,6 +91,7 @@ bca_planet_energy_job_add_estimate = {
 	modifier = {
 		add = 2
 		NOT = {has_building = building_energy_nexus}
+		bca_can_build_building_energy_nexus = yes
 	}
 }
 
@@ -95,23 +123,36 @@ bca_potential_energy_district_max_inc = {
 	add = @b4_max_districts_add
 }
 
-#note: no planet size check here
-bca_potential_district_generator_max_add = {
+bca_potential_district_max_add_energy = {
 	add = modifier:district_generator_max_add
-	add = value:bca_potential_energy_district_max_inc
+	add = modifier:district_hab_energy_max_add
+	add = modifier:district_photosynthesis_fields_max_add
+	modifier = {
+		bca_can_build_building_generator_districts_1 = yes
+		add = value:bca_potential_energy_district_max_inc
+	}
+	modifier = {
+		OR = {
+			is_generator_district_uncapped = yes
+			bca_has_secondary_districts = yes
+		}
+		set = value:bca_planet_max_districts
+	}
+	max = value:bca_planet_max_districts
 }
-
-bca_potential_district_geothermal_max_add = {
-	add = modifier:district_geothermal_max_add
-	add = value:bca_potential_energy_district_max_inc
-}
-
 
 #---------------------------------
 # Minerals
 #---------------------------------
 
-bca_planet_minerals_job_mult_exclude_city_zone = {
+bca_potential_urban_mineral_production_inc_mult = {
+	set = $num_d0$
+	mult = value:bca_future_planed_zone_urban_minerals
+	mult = 0.2
+}
+
+bca_planet_minerals_job_mult_estimate = {
+	# remove the modifier from zone_urban_minerals
 	complex_trigger_modifier = {
 		trigger = num_zones
 		parameters = {
@@ -119,20 +160,17 @@ bca_planet_minerals_job_mult_exclude_city_zone = {
 		}
 		mode = subtract
 	}
-	multiply = 0.2
-	add = value:bca_planet_minerals_job_mult
-}
-
-bca_planet_minerals_job_mult_estimate = {
-	set = $num_district_city$
-	mult = 0.4 # assume 2 zone_urban_minerals were built, each city district provides 0.4 multiplier
-	add = value:bca_planet_minerals_job_mult_exclude_city_zone
+	mult = value:bca_production_inc_mult_from_urban_resource
+	add = value:bca_planet_minerals_job_mult # current value is mult with out zone_urban_minerals
+	# assume 2 zone_urban_minerals will be built, each city district provides 0.4 multiplier
+	add = value:bca_potential_urban_mineral_production_inc_mult|num_d0|$num_district_city$|
 	modifier = {
 		add = 0.2
 		NOR = {
 			has_building = building_mineral_purification_plant
 			has_building = building_mineral_purification_hub
 		}
+		bca_can_build_building_mineral_purification_plant = yes
 	}
 }
 
@@ -141,6 +179,7 @@ bca_planet_minerals_job_add_estimate = {
 	modifier = {
 		add = 2
 		NOT = {has_building = building_mineral_purification_hub}
+		bca_can_build_building_mineral_purification_hub = yes
 	}
 }
 
@@ -172,21 +211,33 @@ bca_potential_minerals_district_max_inc = {
 	add = @b4_max_districts_add
 }
 
-#note: no planet size check here
-bca_potential_district_mining_max_add = {
+bca_potential_district_max_add_minerals = {
 	add = modifier:district_mining_max_add
-	add = value:bca_potential_minerals_district_max_inc
-}
-
-bca_potential_district_melting_max_add = {
 	add = modifier:district_melting_max_add
-	add = value:bca_potential_minerals_district_max_inc
+	add = modifier:district_hollow_mountains_max_add
+	modifier = {
+		bca_can_build_building_mining_districts_1 = yes
+		add = value:bca_potential_minerals_district_max_inc
+	}
+	modifier = {
+		OR = {
+			is_mining_district_uncapped = yes
+			bca_has_secondary_districts = yes
+		}
+		set = value:bca_planet_max_districts
+	}
+	max = value:bca_planet_max_districts
 }
-
 
 #---------------------------------
 # Food
 #---------------------------------
+
+bca_potential_urban_food_production_inc_mult = {
+	set = $num_d0$
+	mult = value:bca_future_planed_zone_urban_food
+	mult = 0.2
+}
 
 bca_planet_food_job_mult_estimate = {
 	# remove the modifier from zone_urban_food
@@ -200,13 +251,14 @@ bca_planet_food_job_mult_estimate = {
 	mult = value:bca_production_inc_mult_from_urban_resource
 	add = value:bca_planet_food_job_mult # current value is mult with out zone_urban_food
 	# assume 2 zone_urban_food will be built, each city district provides 0.4 multiplier
-	add = value:bca_value_mult|VALUE|$num_district_city$|MULT|0.4|
+	add = value:bca_potential_urban_food_production_inc_mult|num_d0|$num_district_city$|
 	modifier = {
 		add = 0.2
 		NOR = {
 			has_building = building_food_processing_facility
 			has_building = building_food_processing_center
 		}
+		bca_can_build_building_food_processing_facility = yes
 	}
 }
 
@@ -215,6 +267,7 @@ bca_planet_food_job_add_estimate = {
 	modifier = {
 		add = 2
 		NOT = {has_building = building_food_processing_center}
+		bca_can_build_building_food_processing_center = yes
 	}
 }
 
@@ -246,10 +299,20 @@ bca_potential_food_district_max_inc = {
 	add = @b4_max_districts_add
 }
 
-#note: no planet size check here
-bca_potential_district_farming_max_add = {
+bca_potential_district_max_add_food = {
 	add = modifier:district_farming_max_add
-	add = value:bca_potential_food_district_max_inc
+	add = modifier:district_orchard_forests_max_add
+	modifier = {
+		bca_can_build_building_farming_districts_1 = yes
+		add = value:bca_potential_food_district_max_inc
+	}
+	modifier = {
+		OR = {
+			is_farming_district_uncapped = yes
+			bca_has_secondary_districts = yes
+		}
+		set = value:bca_planet_max_districts
+	}
+	max = value:bca_planet_max_districts
 }
-
 

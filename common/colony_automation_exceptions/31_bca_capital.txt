@@ -13,24 +13,6 @@ automate_capital_planet = {
 		}
 	}
 
-	prio_districts = {
-		district_city
-		district_hive
-		district_nexus
-		district_arcology_housing
-		district_rw_city
-		district_hab_housing
-	}
-	
-	prio_zones = {
-		zone_industrial
-		zone_research_unity
-		zone_foundry
-		zone_energy
-		zone_food
-		zone_minerals
-	}
-	
 	buildings = {
 		1 = {
 			building = building_embassy

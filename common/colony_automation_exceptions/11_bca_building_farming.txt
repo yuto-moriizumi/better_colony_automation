@@ -26,7 +26,7 @@ automate_farming_planet_building = {
 	}
 }
 
-automate_farming_planet_district = {
+automate_farming_planet_housing = {
 	category = "planet_automation_housing"
 
 	emergency = yes
@@ -36,7 +36,7 @@ automate_farming_planet_district = {
 		has_farming_designation = yes
 		num_districts = {
 			type = district_farming
-			value < bca_opti_count_district_farming
+			value < bca_opti_count_secondary_district
 		}
 		NOT = {
 			uses_district_set = habitat

@@ -3,39 +3,25 @@ automate_trade_planet = {
 
 	emergency = yes
 	available = {
-		requires_more_job = yes
         bca_has_minerals_to_build = yes
 		has_trade_designation = yes
 	}
 
-	prio_districts = {
-		district_city
-		district_hive
-		district_nexus
-		district_arcology_housing
-		district_rw_city
-		district_hab_housing
-	}
-	
-	prio_zones = {
-		zone_trade
-	}
 
 	buildings = {
-        1 = {
+		1 = {
             building = building_fe_market_1
         }
-
 		2 = {
 			building = building_galactic_stock_exchange
 		}
-		
 		3 = {
 			building = building_commercial_megaplex
 		}
 
 		4 = {
 			building = building_commercial_zone
+			available = { requires_more_job = yes }
 		}
 	}
 }

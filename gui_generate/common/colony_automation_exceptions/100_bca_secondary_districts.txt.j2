@@ -1,0 +1,28 @@
+
+{% for district_slot in ['d1','d2','d3'] %}
+automate_secondary_districts_{{ district_slot }} = {
+	category = "planet_automation_designation_construction"
+
+	emergency = yes
+	available = {
+		bca_has_minerals_to_build = yes
+        has_planet_flag = bca_pf_plan_build_district_{{ district_slot }}
+	}
+
+    prio_districts = {
+        {% if district_slot == 'd1' %}
+            {% for district in secondary_districts_d1 %}
+        {{ district }}
+            {% endfor %}
+        {% elif district_slot == 'd2' %}
+            {% for district in secondary_districts_d2 %}
+        {{ district }}
+            {% endfor %}
+        {% elif district_slot == 'd3' %}
+            {% for district in secondary_districts_d3 %}
+        {{ district }}
+            {% endfor %}
+        {% endif %}
+	}
+}
+{% endfor %}

@@ -1,0 +1,20 @@
+
+
+bca_district_reach_planet_max = {
+    if = {
+        limit = {
+            bca_is_uncapped_$type$ = yes
+        }
+        check_variable_arithmetic = {
+            which = value:bca_planet_max_districts
+            value = value:bca_num_districts_value|TYPE|$type$|
+        }
+    }
+    else = {
+        check_modifier_value = {
+            modifier = $type$_max_add
+            value = value:bca_num_districts_value|TYPE|$type$|
+        }
+    }
+
+}

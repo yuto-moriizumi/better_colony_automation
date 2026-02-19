@@ -1,25 +1,21 @@
 bca_can_remove_building = {
 	AND = {
-		owner = { has_country_flag = bac_building_destroy }
-		NOT = { has_modifier = bca_pm_disable_planet_auto_destruction }
+		NOT = { has_planet_flag = bca_pf_disable_planet_auto_destruction_building }
 	}
 }
 
 
 bca_can_remove_building_reasearch = {
-	AND = {
-		bca_can_remove_building = yes
-		free_building_slots = 0
-		has_any_research_designation = no
-	}
+	bca_can_remove_building = yes
+	free_building_slots = 0
+	has_any_research_designation = no
 }
 
 bca_can_remove_building_factory = {
 	AND = {
 		bca_can_remove_building = yes
 		free_building_slots = 0
-		has_factory_designation = no
-		has_industrial_designation = no
+		has_any_factory_designation = no
 	}
 }
 
@@ -27,8 +23,7 @@ bca_can_remove_building_foundry = {
 	AND = {
 		bca_can_remove_building = yes
 		free_building_slots = 0
-		has_foundry_designation = no
-		has_industrial_designation = no
+		has_any_foundry_designation = no
 	}
 }
 
@@ -45,6 +40,22 @@ bca_can_remove_building_trade = {
 		bca_can_remove_building = yes
 		free_building_slots = 0
 		bca_has_any_trade_designation = no
+	}
+}
+
+bca_can_remove_building_fortress = {
+	AND = {
+		bca_can_remove_building = yes
+		free_building_slots = 0
+		has_any_fortress_designation = no
+	}
+}
+
+bca_can_remove_building_unity = {
+	AND = {
+		bca_can_remove_building = yes
+		free_building_slots = 0
+		has_any_unity_designation = no
 	}
 }
 
@@ -119,12 +130,7 @@ bca_can_remove_district_hab_housing = {
 
 
 
-bca_district_reach_planet_max = {
-	check_modifier_value = {
-		modifier = $type$_max_add
-		value = value:bca_num_districts_value|TYPE|$type$|
-	}
-}
+
 
 bca_require_district_generator = {
 	has_planet_flag = bca_pf_plan_build_district_generator
@@ -146,14 +152,14 @@ bca_can_remove_district_city = {
 	}
 }
 
-bca_require_district_city = {
-	has_planet_flag = bca_pf_has_district_build_plan
-	OR = {
-		has_planet_flag = bca_pf_plan_build_district_city
-		has_planet_flag = bca_pf_plan_build_district_hive
-		has_planet_flag = bca_pf_plan_build_district_nexus
-	}
-}
+# bca_require_district_city = {
+# 	has_planet_flag = bca_pf_has_district_build_plan
+# 	OR = {
+# 		has_planet_flag = bca_pf_plan_build_district_city
+# 		has_planet_flag = bca_pf_plan_build_district_hive
+# 		has_planet_flag = bca_pf_plan_build_district_nexus
+# 	}
+# }
 
 bca_require_district_rw_farming = {
 	AND = {

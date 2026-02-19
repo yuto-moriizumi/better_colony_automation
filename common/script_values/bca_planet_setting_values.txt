@@ -1,0 +1,7805 @@
+bca_potential_max_districts = {
+	complex_trigger_modifier = {
+		trigger = num_districts
+		parameters = {
+			type = any
+		}
+		mode = set
+	}
+	complex_trigger_modifier = {
+		trigger = num_free_districts
+		parameters = {
+			type = any
+		}
+		mode = add
+	}
+    modifier = {
+        has_modifier = bca_pm_arcology_project_candidate
+        add = trigger:planet_size
+    }
+}
+
+bca_num_free_secondary_districts_plan = {
+    set = value:bca_potential_max_districts
+    subtract = value:num_primary_district
+    subtract = bca_ps_plan_district_count_z3
+    subtract = bca_ps_plan_district_count_z4
+    subtract = bca_ps_plan_district_count_z5
+}
+
+bca_num_free_primary_districts_plan = {
+    set = value:bca_potential_max_districts
+    subtract = value:num_secondary_district
+}
+
+bca_num_primary_districts_plan = {
+    set = value:bca_potential_max_districts
+    subtract = bca_ps_plan_district_count_z3
+    subtract = bca_ps_plan_district_count_z4
+    subtract = bca_ps_plan_district_count_z5
+}
+
+bca_num_secondary_districts_plan = {
+    add = bca_ps_plan_district_count_z3
+    add = bca_ps_plan_district_count_z4
+    add = bca_ps_plan_district_count_z5
+}
+
+# floor(value:bca_potential_max_districts * RATIO)
+bca_num_main_districts_from_ratio = {
+    set = value:bca_potential_max_districts
+    multiply = $RATIO$
+    round = yes
+}
+bca_built_primary_districts_to_ratio = {
+    set = value:num_primary_district
+    divide = value:bca_potential_max_districts
+}
+bca_plan_primary_districts_to_ratio = {
+    set = value:bca_num_primary_districts_plan
+    divide = value:bca_potential_max_districts
+}
+bca_built_secondary_districts_to_ratio = {
+    set = value:num_secondary_district
+    divide = value:bca_potential_max_districts
+}
+bca_plan_secondary_districts_to_ratio = {
+    add = bca_ps_plan_district_count_z3
+    add = bca_ps_plan_district_count_z4
+    add = bca_ps_plan_district_count_z5
+    divide = value:bca_potential_max_districts
+}
+
+
+
+num_primary_district = {
+    complex_trigger_modifier = {
+        trigger = num_districts
+        parameters = {
+            type = district_mindlink
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_districts
+        parameters = {
+            type = district_city
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_districts
+        parameters = {
+            type = district_resort
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_districts
+        parameters = {
+            type = district_prison
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_districts
+        parameters = {
+            type = district_slave
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_districts
+        parameters = {
+            type = district_hive
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_districts
+        parameters = {
+            type = district_nexus
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_districts
+        parameters = {
+            type = district_prison_industrial
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_districts
+        parameters = {
+            type = district_battle_thrall
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_districts
+        parameters = {
+            type = district_arcology_housing
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_districts
+        parameters = {
+            type = district_arcology_leisure
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_districts
+        parameters = {
+            type = district_hab_housing
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_districts
+        parameters = {
+            type = district_rw_city
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_districts
+        parameters = {
+            type = district_rw_hive
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_districts
+        parameters = {
+            type = district_rw_nexus
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_districts
+        parameters = {
+            type = district_craglands
+        }
+        mode = add
+    }
+}
+
+num_secondary_district = {
+    complex_trigger_modifier = {
+        trigger = num_districts
+        parameters = {
+            type = district_resort_1
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_districts
+        parameters = {
+            type = district_resort_2
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_districts
+        parameters = {
+            type = district_resort_3
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_districts
+        parameters = {
+            type = district_hive_1
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_districts
+        parameters = {
+            type = district_hive_2
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_districts
+        parameters = {
+            type = district_hive_3
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_districts
+        parameters = {
+            type = district_nexus_1
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_districts
+        parameters = {
+            type = district_nexus_2
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_districts
+        parameters = {
+            type = district_nexus_3
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_districts
+        parameters = {
+            type = district_arcology_urban_1
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_districts
+        parameters = {
+            type = district_arcology_urban_2
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_districts
+        parameters = {
+            type = district_arcology_urban_3
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_districts
+        parameters = {
+            type = district_generator
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_districts
+        parameters = {
+            type = district_mining
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_districts
+        parameters = {
+            type = district_farming
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_districts
+        parameters = {
+            type = district_geothermal
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_districts
+        parameters = {
+            type = district_melting
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_districts
+        parameters = {
+            type = district_polytechnic
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_districts
+        parameters = {
+            type = district_hab_energy
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_districts
+        parameters = {
+            type = district_hab_mining
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_districts
+        parameters = {
+            type = district_hab_science
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_districts
+        parameters = {
+            type = district_rw_urban_1
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_districts
+        parameters = {
+            type = district_rw_urban_2
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_districts
+        parameters = {
+            type = district_rw_urban_3
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_districts
+        parameters = {
+            type = district_photosynthesis_fields
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_districts
+        parameters = {
+            type = district_hollow_mountains
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_districts
+        parameters = {
+            type = district_orchard_forests
+        }
+        mode = add
+    }
+}
+
+num_district_d0 = {
+    complex_trigger_modifier = {
+        trigger = num_districts
+        parameters = {
+            type = district_mindlink
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_districts
+        parameters = {
+            type = district_city
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_districts
+        parameters = {
+            type = district_resort
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_districts
+        parameters = {
+            type = district_prison
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_districts
+        parameters = {
+            type = district_slave
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_districts
+        parameters = {
+            type = district_hive
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_districts
+        parameters = {
+            type = district_nexus
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_districts
+        parameters = {
+            type = district_prison_industrial
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_districts
+        parameters = {
+            type = district_battle_thrall
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_districts
+        parameters = {
+            type = district_arcology_housing
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_districts
+        parameters = {
+            type = district_arcology_leisure
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_districts
+        parameters = {
+            type = district_hab_housing
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_districts
+        parameters = {
+            type = district_rw_city
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_districts
+        parameters = {
+            type = district_rw_hive
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_districts
+        parameters = {
+            type = district_rw_nexus
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_districts
+        parameters = {
+            type = district_craglands
+        }
+        mode = add
+    }
+}
+num_district_d1 = {
+    complex_trigger_modifier = {
+        trigger = num_districts
+        parameters = {
+            type = district_resort_1
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_districts
+        parameters = {
+            type = district_hive_1
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_districts
+        parameters = {
+            type = district_nexus_1
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_districts
+        parameters = {
+            type = district_arcology_urban_1
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_districts
+        parameters = {
+            type = district_rw_urban_1
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_districts
+        parameters = {
+            type = district_generator
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_districts
+        parameters = {
+            type = district_geothermal
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_districts
+        parameters = {
+            type = district_hab_energy
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_districts
+        parameters = {
+            type = district_photosynthesis_fields
+        }
+        mode = add
+    }
+}
+num_district_d2 = {
+    complex_trigger_modifier = {
+        trigger = num_districts
+        parameters = {
+            type = district_resort_2
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_districts
+        parameters = {
+            type = district_hive_2
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_districts
+        parameters = {
+            type = district_nexus_2
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_districts
+        parameters = {
+            type = district_arcology_urban_2
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_districts
+        parameters = {
+            type = district_rw_urban_2
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_districts
+        parameters = {
+            type = district_mining
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_districts
+        parameters = {
+            type = district_melting
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_districts
+        parameters = {
+            type = district_hab_mining
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_districts
+        parameters = {
+            type = district_hollow_mountains
+        }
+        mode = add
+    }
+}
+num_district_d3 = {
+    complex_trigger_modifier = {
+        trigger = num_districts
+        parameters = {
+            type = district_resort_3
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_districts
+        parameters = {
+            type = district_hive_3
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_districts
+        parameters = {
+            type = district_nexus_3
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_districts
+        parameters = {
+            type = district_arcology_urban_3
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_districts
+        parameters = {
+            type = district_rw_urban_3
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_districts
+        parameters = {
+            type = district_farming
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_districts
+        parameters = {
+            type = district_polytechnic
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_districts
+        parameters = {
+            type = district_hab_science
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_districts
+        parameters = {
+            type = district_orchard_forests
+        }
+        mode = add
+    }
+}
+
+
+num_free_primary_district = {
+    complex_trigger_modifier = {
+        trigger = num_free_districts
+        parameters = {
+            type = district_mindlink
+        }
+        mode = set
+        potential = {
+            bca_can_build_district_mindlink = yes
+        }
+    }
+    complex_trigger_modifier = {
+        trigger = num_free_districts
+        parameters = {
+            type = district_city
+        }
+        mode = set
+        potential = {
+            bca_can_build_district_city = yes
+        }
+    }
+    complex_trigger_modifier = {
+        trigger = num_free_districts
+        parameters = {
+            type = district_resort
+        }
+        mode = set
+        potential = {
+            bca_can_build_district_resort = yes
+        }
+    }
+    complex_trigger_modifier = {
+        trigger = num_free_districts
+        parameters = {
+            type = district_prison
+        }
+        mode = set
+        potential = {
+            bca_can_build_district_prison = yes
+        }
+    }
+    complex_trigger_modifier = {
+        trigger = num_free_districts
+        parameters = {
+            type = district_slave
+        }
+        mode = set
+        potential = {
+            bca_can_build_district_slave = yes
+        }
+    }
+    complex_trigger_modifier = {
+        trigger = num_free_districts
+        parameters = {
+            type = district_hive
+        }
+        mode = set
+        potential = {
+            bca_can_build_district_hive = yes
+        }
+    }
+    complex_trigger_modifier = {
+        trigger = num_free_districts
+        parameters = {
+            type = district_nexus
+        }
+        mode = set
+        potential = {
+            bca_can_build_district_nexus = yes
+        }
+    }
+    complex_trigger_modifier = {
+        trigger = num_free_districts
+        parameters = {
+            type = district_prison_industrial
+        }
+        mode = set
+        potential = {
+            bca_can_build_district_prison_industrial = yes
+        }
+    }
+    complex_trigger_modifier = {
+        trigger = num_free_districts
+        parameters = {
+            type = district_battle_thrall
+        }
+        mode = set
+        potential = {
+            bca_can_build_district_battle_thrall = yes
+        }
+    }
+    complex_trigger_modifier = {
+        trigger = num_free_districts
+        parameters = {
+            type = district_arcology_housing
+        }
+        mode = set
+        potential = {
+            bca_can_build_district_arcology_housing = yes
+        }
+    }
+    complex_trigger_modifier = {
+        trigger = num_free_districts
+        parameters = {
+            type = district_arcology_leisure
+        }
+        mode = set
+        potential = {
+            bca_can_build_district_arcology_leisure = yes
+        }
+    }
+    complex_trigger_modifier = {
+        trigger = num_free_districts
+        parameters = {
+            type = district_hab_housing
+        }
+        mode = set
+        potential = {
+            bca_can_build_district_hab_housing = yes
+        }
+    }
+    complex_trigger_modifier = {
+        trigger = num_free_districts
+        parameters = {
+            type = district_rw_city
+        }
+        mode = set
+        potential = {
+            bca_can_build_district_rw_city = yes
+        }
+    }
+    complex_trigger_modifier = {
+        trigger = num_free_districts
+        parameters = {
+            type = district_rw_hive
+        }
+        mode = set
+        potential = {
+            bca_can_build_district_rw_hive = yes
+        }
+    }
+    complex_trigger_modifier = {
+        trigger = num_free_districts
+        parameters = {
+            type = district_rw_nexus
+        }
+        mode = set
+        potential = {
+            bca_can_build_district_rw_nexus = yes
+        }
+    }
+    complex_trigger_modifier = {
+        trigger = num_free_districts
+        parameters = {
+            type = district_craglands
+        }
+        mode = set
+        potential = {
+            bca_can_build_district_craglands = yes
+        }
+    }
+}
+
+num_free_secondary_district = {
+    complex_trigger_modifier = {
+        trigger = num_free_districts
+        parameters = {
+            type = district_resort_1
+        }
+        mode = set
+        potential = {
+            bca_can_build_district_resort_1 = yes
+        }
+    }
+    complex_trigger_modifier = {
+        trigger = num_free_districts
+        parameters = {
+            type = district_resort_2
+        }
+        mode = set
+        potential = {
+            bca_can_build_district_resort_2 = yes
+        }
+    }
+    complex_trigger_modifier = {
+        trigger = num_free_districts
+        parameters = {
+            type = district_resort_3
+        }
+        mode = set
+        potential = {
+            bca_can_build_district_resort_3 = yes
+        }
+    }
+    complex_trigger_modifier = {
+        trigger = num_free_districts
+        parameters = {
+            type = district_hive_1
+        }
+        mode = set
+        potential = {
+            bca_can_build_district_hive_1 = yes
+        }
+    }
+    complex_trigger_modifier = {
+        trigger = num_free_districts
+        parameters = {
+            type = district_hive_2
+        }
+        mode = set
+        potential = {
+            bca_can_build_district_hive_2 = yes
+        }
+    }
+    complex_trigger_modifier = {
+        trigger = num_free_districts
+        parameters = {
+            type = district_hive_3
+        }
+        mode = set
+        potential = {
+            bca_can_build_district_hive_3 = yes
+        }
+    }
+    complex_trigger_modifier = {
+        trigger = num_free_districts
+        parameters = {
+            type = district_nexus_1
+        }
+        mode = set
+        potential = {
+            bca_can_build_district_nexus_1 = yes
+        }
+    }
+    complex_trigger_modifier = {
+        trigger = num_free_districts
+        parameters = {
+            type = district_nexus_2
+        }
+        mode = set
+        potential = {
+            bca_can_build_district_nexus_2 = yes
+        }
+    }
+    complex_trigger_modifier = {
+        trigger = num_free_districts
+        parameters = {
+            type = district_nexus_3
+        }
+        mode = set
+        potential = {
+            bca_can_build_district_nexus_3 = yes
+        }
+    }
+    complex_trigger_modifier = {
+        trigger = num_free_districts
+        parameters = {
+            type = district_arcology_urban_1
+        }
+        mode = set
+        potential = {
+            bca_can_build_district_arcology_urban_1 = yes
+        }
+    }
+    complex_trigger_modifier = {
+        trigger = num_free_districts
+        parameters = {
+            type = district_arcology_urban_2
+        }
+        mode = set
+        potential = {
+            bca_can_build_district_arcology_urban_2 = yes
+        }
+    }
+    complex_trigger_modifier = {
+        trigger = num_free_districts
+        parameters = {
+            type = district_arcology_urban_3
+        }
+        mode = set
+        potential = {
+            bca_can_build_district_arcology_urban_3 = yes
+        }
+    }
+    complex_trigger_modifier = {
+        trigger = num_free_districts
+        parameters = {
+            type = district_generator
+        }
+        mode = set
+        potential = {
+            bca_can_build_district_generator = yes
+        }
+    }
+    complex_trigger_modifier = {
+        trigger = num_free_districts
+        parameters = {
+            type = district_mining
+        }
+        mode = set
+        potential = {
+            bca_can_build_district_mining = yes
+        }
+    }
+    complex_trigger_modifier = {
+        trigger = num_free_districts
+        parameters = {
+            type = district_farming
+        }
+        mode = set
+        potential = {
+            bca_can_build_district_farming = yes
+        }
+    }
+    complex_trigger_modifier = {
+        trigger = num_free_districts
+        parameters = {
+            type = district_geothermal
+        }
+        mode = set
+        potential = {
+            bca_can_build_district_geothermal = yes
+        }
+    }
+    complex_trigger_modifier = {
+        trigger = num_free_districts
+        parameters = {
+            type = district_melting
+        }
+        mode = set
+        potential = {
+            bca_can_build_district_melting = yes
+        }
+    }
+    complex_trigger_modifier = {
+        trigger = num_free_districts
+        parameters = {
+            type = district_polytechnic
+        }
+        mode = set
+        potential = {
+            bca_can_build_district_polytechnic = yes
+        }
+    }
+    complex_trigger_modifier = {
+        trigger = num_free_districts
+        parameters = {
+            type = district_hab_energy
+        }
+        mode = set
+        potential = {
+            bca_can_build_district_hab_energy = yes
+        }
+    }
+    complex_trigger_modifier = {
+        trigger = num_free_districts
+        parameters = {
+            type = district_hab_mining
+        }
+        mode = set
+        potential = {
+            bca_can_build_district_hab_mining = yes
+        }
+    }
+    complex_trigger_modifier = {
+        trigger = num_free_districts
+        parameters = {
+            type = district_hab_science
+        }
+        mode = set
+        potential = {
+            bca_can_build_district_hab_science = yes
+        }
+    }
+    complex_trigger_modifier = {
+        trigger = num_free_districts
+        parameters = {
+            type = district_rw_urban_1
+        }
+        mode = set
+        potential = {
+            bca_can_build_district_rw_urban_1 = yes
+        }
+    }
+    complex_trigger_modifier = {
+        trigger = num_free_districts
+        parameters = {
+            type = district_rw_urban_2
+        }
+        mode = set
+        potential = {
+            bca_can_build_district_rw_urban_2 = yes
+        }
+    }
+    complex_trigger_modifier = {
+        trigger = num_free_districts
+        parameters = {
+            type = district_rw_urban_3
+        }
+        mode = set
+        potential = {
+            bca_can_build_district_rw_urban_3 = yes
+        }
+    }
+    complex_trigger_modifier = {
+        trigger = num_free_districts
+        parameters = {
+            type = district_photosynthesis_fields
+        }
+        mode = set
+        potential = {
+            bca_can_build_district_photosynthesis_fields = yes
+        }
+    }
+    complex_trigger_modifier = {
+        trigger = num_free_districts
+        parameters = {
+            type = district_hollow_mountains
+        }
+        mode = set
+        potential = {
+            bca_can_build_district_hollow_mountains = yes
+        }
+    }
+    complex_trigger_modifier = {
+        trigger = num_free_districts
+        parameters = {
+            type = district_orchard_forests
+        }
+        mode = set
+        potential = {
+            bca_can_build_district_orchard_forests = yes
+        }
+    }
+}
+
+num_free_district_d0 = {
+    complex_trigger_modifier = {
+        trigger = num_free_districts
+        parameters = { type = district_mindlink }
+        mode = set
+        potential = {
+            bca_can_build_district_mindlink = yes
+        }
+    }
+    complex_trigger_modifier = {
+        trigger = num_free_districts
+        parameters = { type = district_city }
+        mode = set
+        potential = {
+            bca_can_build_district_city = yes
+        }
+    }
+    complex_trigger_modifier = {
+        trigger = num_free_districts
+        parameters = { type = district_resort }
+        mode = set
+        potential = {
+            bca_can_build_district_resort = yes
+        }
+    }
+    complex_trigger_modifier = {
+        trigger = num_free_districts
+        parameters = { type = district_prison }
+        mode = set
+        potential = {
+            bca_can_build_district_prison = yes
+        }
+    }
+    complex_trigger_modifier = {
+        trigger = num_free_districts
+        parameters = { type = district_slave }
+        mode = set
+        potential = {
+            bca_can_build_district_slave = yes
+        }
+    }
+    complex_trigger_modifier = {
+        trigger = num_free_districts
+        parameters = { type = district_hive }
+        mode = set
+        potential = {
+            bca_can_build_district_hive = yes
+        }
+    }
+    complex_trigger_modifier = {
+        trigger = num_free_districts
+        parameters = { type = district_nexus }
+        mode = set
+        potential = {
+            bca_can_build_district_nexus = yes
+        }
+    }
+    complex_trigger_modifier = {
+        trigger = num_free_districts
+        parameters = { type = district_prison_industrial }
+        mode = set
+        potential = {
+            bca_can_build_district_prison_industrial = yes
+        }
+    }
+    complex_trigger_modifier = {
+        trigger = num_free_districts
+        parameters = { type = district_battle_thrall }
+        mode = set
+        potential = {
+            bca_can_build_district_battle_thrall = yes
+        }
+    }
+    complex_trigger_modifier = {
+        trigger = num_free_districts
+        parameters = { type = district_arcology_housing }
+        mode = set
+        potential = {
+            bca_can_build_district_arcology_housing = yes
+        }
+    }
+    complex_trigger_modifier = {
+        trigger = num_free_districts
+        parameters = { type = district_arcology_leisure }
+        mode = set
+        potential = {
+            bca_can_build_district_arcology_leisure = yes
+        }
+    }
+    complex_trigger_modifier = {
+        trigger = num_free_districts
+        parameters = { type = district_hab_housing }
+        mode = set
+        potential = {
+            bca_can_build_district_hab_housing = yes
+        }
+    }
+    complex_trigger_modifier = {
+        trigger = num_free_districts
+        parameters = { type = district_rw_city }
+        mode = set
+        potential = {
+            bca_can_build_district_rw_city = yes
+        }
+    }
+    complex_trigger_modifier = {
+        trigger = num_free_districts
+        parameters = { type = district_rw_hive }
+        mode = set
+        potential = {
+            bca_can_build_district_rw_hive = yes
+        }
+    }
+    complex_trigger_modifier = {
+        trigger = num_free_districts
+        parameters = { type = district_rw_nexus }
+        mode = set
+        potential = {
+            bca_can_build_district_rw_nexus = yes
+        }
+    }
+    complex_trigger_modifier = {
+        trigger = num_free_districts
+        parameters = { type = district_craglands }
+        mode = set
+        potential = {
+            bca_can_build_district_craglands = yes
+        }
+    }
+}
+num_free_district_d1 = {
+    complex_trigger_modifier = {
+        trigger = num_free_districts
+        parameters = { type = district_resort_1 }
+        mode = set
+        potential = {
+            bca_can_build_district_resort_1 = yes
+        }
+    }
+    complex_trigger_modifier = {
+        trigger = num_free_districts
+        parameters = { type = district_hive_1 }
+        mode = set
+        potential = {
+            bca_can_build_district_hive_1 = yes
+        }
+    }
+    complex_trigger_modifier = {
+        trigger = num_free_districts
+        parameters = { type = district_nexus_1 }
+        mode = set
+        potential = {
+            bca_can_build_district_nexus_1 = yes
+        }
+    }
+    complex_trigger_modifier = {
+        trigger = num_free_districts
+        parameters = { type = district_arcology_urban_1 }
+        mode = set
+        potential = {
+            bca_can_build_district_arcology_urban_1 = yes
+        }
+    }
+    complex_trigger_modifier = {
+        trigger = num_free_districts
+        parameters = { type = district_rw_urban_1 }
+        mode = set
+        potential = {
+            bca_can_build_district_rw_urban_1 = yes
+        }
+    }
+    complex_trigger_modifier = {
+        trigger = num_free_districts
+        parameters = { type = district_generator }
+        mode = set
+        potential = {
+            bca_can_build_district_generator = yes
+        }
+    }
+    complex_trigger_modifier = {
+        trigger = num_free_districts
+        parameters = { type = district_geothermal }
+        mode = set
+        potential = {
+            bca_can_build_district_geothermal = yes
+        }
+    }
+    complex_trigger_modifier = {
+        trigger = num_free_districts
+        parameters = { type = district_hab_energy }
+        mode = set
+        potential = {
+            bca_can_build_district_hab_energy = yes
+        }
+    }
+    complex_trigger_modifier = {
+        trigger = num_free_districts
+        parameters = { type = district_photosynthesis_fields }
+        mode = set
+        potential = {
+            bca_can_build_district_photosynthesis_fields = yes
+        }
+    }
+}
+num_free_district_d2 = {
+    complex_trigger_modifier = {
+        trigger = num_free_districts
+        parameters = { type = district_resort_2 }
+        mode = set
+        potential = {
+            bca_can_build_district_resort_2 = yes
+        }
+    }
+    complex_trigger_modifier = {
+        trigger = num_free_districts
+        parameters = { type = district_hive_2 }
+        mode = set
+        potential = {
+            bca_can_build_district_hive_2 = yes
+        }
+    }
+    complex_trigger_modifier = {
+        trigger = num_free_districts
+        parameters = { type = district_nexus_2 }
+        mode = set
+        potential = {
+            bca_can_build_district_nexus_2 = yes
+        }
+    }
+    complex_trigger_modifier = {
+        trigger = num_free_districts
+        parameters = { type = district_arcology_urban_2 }
+        mode = set
+        potential = {
+            bca_can_build_district_arcology_urban_2 = yes
+        }
+    }
+    complex_trigger_modifier = {
+        trigger = num_free_districts
+        parameters = { type = district_rw_urban_2 }
+        mode = set
+        potential = {
+            bca_can_build_district_rw_urban_2 = yes
+        }
+    }
+    complex_trigger_modifier = {
+        trigger = num_free_districts
+        parameters = { type = district_mining }
+        mode = set
+        potential = {
+            bca_can_build_district_mining = yes
+        }
+    }
+    complex_trigger_modifier = {
+        trigger = num_free_districts
+        parameters = { type = district_melting }
+        mode = set
+        potential = {
+            bca_can_build_district_melting = yes
+        }
+    }
+    complex_trigger_modifier = {
+        trigger = num_free_districts
+        parameters = { type = district_hab_mining }
+        mode = set
+        potential = {
+            bca_can_build_district_hab_mining = yes
+        }
+    }
+    complex_trigger_modifier = {
+        trigger = num_free_districts
+        parameters = { type = district_hollow_mountains }
+        mode = set
+        potential = {
+            bca_can_build_district_hollow_mountains = yes
+        }
+    }
+}
+num_free_district_d3 = {
+    complex_trigger_modifier = {
+        trigger = num_free_districts
+        parameters = { type = district_resort_3 }
+        mode = set
+        potential = {
+            bca_can_build_district_resort_3 = yes
+        }
+    }
+    complex_trigger_modifier = {
+        trigger = num_free_districts
+        parameters = { type = district_hive_3 }
+        mode = set
+        potential = {
+            bca_can_build_district_hive_3 = yes
+        }
+    }
+    complex_trigger_modifier = {
+        trigger = num_free_districts
+        parameters = { type = district_nexus_3 }
+        mode = set
+        potential = {
+            bca_can_build_district_nexus_3 = yes
+        }
+    }
+    complex_trigger_modifier = {
+        trigger = num_free_districts
+        parameters = { type = district_arcology_urban_3 }
+        mode = set
+        potential = {
+            bca_can_build_district_arcology_urban_3 = yes
+        }
+    }
+    complex_trigger_modifier = {
+        trigger = num_free_districts
+        parameters = { type = district_rw_urban_3 }
+        mode = set
+        potential = {
+            bca_can_build_district_rw_urban_3 = yes
+        }
+    }
+    complex_trigger_modifier = {
+        trigger = num_free_districts
+        parameters = { type = district_farming }
+        mode = set
+        potential = {
+            bca_can_build_district_farming = yes
+        }
+    }
+    complex_trigger_modifier = {
+        trigger = num_free_districts
+        parameters = { type = district_polytechnic }
+        mode = set
+        potential = {
+            bca_can_build_district_polytechnic = yes
+        }
+    }
+    complex_trigger_modifier = {
+        trigger = num_free_districts
+        parameters = { type = district_hab_science }
+        mode = set
+        potential = {
+            bca_can_build_district_hab_science = yes
+        }
+    }
+    complex_trigger_modifier = {
+        trigger = num_free_districts
+        parameters = { type = district_orchard_forests }
+        mode = set
+        potential = {
+            bca_can_build_district_orchard_forests = yes
+        }
+    }
+}
+
+num_zones_primary_district = {
+	complex_trigger_modifier = {
+		trigger = num_zones
+		parameters = {
+			type = zone_central_spire
+		}
+		mode = add
+	}
+	complex_trigger_modifier = {
+		trigger = num_zones
+		parameters = {
+			type = zone_energy_physics
+		}
+		mode = add
+	}
+	complex_trigger_modifier = {
+		trigger = num_zones
+		parameters = {
+			type = zone_factory
+		}
+		mode = add
+	}
+	complex_trigger_modifier = {
+		trigger = num_zones
+		parameters = {
+			type = zone_food_biology
+		}
+		mode = add
+	}
+	complex_trigger_modifier = {
+		trigger = num_zones
+		parameters = {
+			type = zone_fortress
+		}
+		mode = add
+	}
+	complex_trigger_modifier = {
+		trigger = num_zones
+		parameters = {
+			type = zone_fortress_wilderness
+		}
+		mode = add
+	}
+	complex_trigger_modifier = {
+		trigger = num_zones
+		parameters = {
+			type = zone_foundry
+		}
+		mode = add
+	}
+	complex_trigger_modifier = {
+		trigger = num_zones
+		parameters = {
+			type = zone_foundry_wilderness
+		}
+		mode = add
+	}
+	complex_trigger_modifier = {
+		trigger = num_zones
+		parameters = {
+			type = zone_habitat_knights
+		}
+		mode = add
+	}
+	complex_trigger_modifier = {
+		trigger = num_zones
+		parameters = {
+			type = zone_habitat_research_unity
+		}
+		mode = add
+	}
+	complex_trigger_modifier = {
+		trigger = num_zones
+		parameters = {
+			type = zone_industrial
+		}
+		mode = add
+	}
+	complex_trigger_modifier = {
+		trigger = num_zones
+		parameters = {
+			type = zone_machine_replication
+		}
+		mode = add
+	}
+	complex_trigger_modifier = {
+		trigger = num_zones
+		parameters = {
+			type = zone_minerals_engineering
+		}
+		mode = add
+	}
+	complex_trigger_modifier = {
+		trigger = num_zones
+		parameters = {
+			type = zone_research
+		}
+		mode = add
+	}
+	complex_trigger_modifier = {
+		trigger = num_zones
+		parameters = {
+			type = zone_research_engineering
+		}
+		mode = add
+	}
+	complex_trigger_modifier = {
+		trigger = num_zones
+		parameters = {
+			type = zone_research_physics
+		}
+		mode = add
+	}
+	complex_trigger_modifier = {
+		trigger = num_zones
+		parameters = {
+			type = zone_research_society
+		}
+		mode = add
+	}
+	complex_trigger_modifier = {
+		trigger = num_zones
+		parameters = {
+			type = zone_research_unity
+		}
+		mode = add
+	}
+	complex_trigger_modifier = {
+		trigger = num_zones
+		parameters = {
+			type = zone_research_unity_wilderness
+		}
+		mode = add
+	}
+	complex_trigger_modifier = {
+		trigger = num_zones
+		parameters = {
+			type = zone_research_wilderness
+		}
+		mode = add
+	}
+	complex_trigger_modifier = {
+		trigger = num_zones
+		parameters = {
+			type = zone_resort
+		}
+		mode = add
+	}
+	complex_trigger_modifier = {
+		trigger = num_zones
+		parameters = {
+			type = zone_resort_entertainment
+		}
+		mode = add
+	}
+	complex_trigger_modifier = {
+		trigger = num_zones
+		parameters = {
+			type = zone_spawning
+		}
+		mode = add
+	}
+	complex_trigger_modifier = {
+		trigger = num_zones
+		parameters = {
+			type = zone_trade
+		}
+		mode = add
+	}
+	complex_trigger_modifier = {
+		trigger = num_zones
+		parameters = {
+			type = zone_trade_wilderness
+		}
+		mode = add
+	}
+	complex_trigger_modifier = {
+		trigger = num_zones
+		parameters = {
+			type = zone_unity
+		}
+		mode = add
+	}
+	complex_trigger_modifier = {
+		trigger = num_zones
+		parameters = {
+			type = zone_unity_bio_trophy
+		}
+		mode = add
+	}
+	complex_trigger_modifier = {
+		trigger = num_zones
+		parameters = {
+			type = zone_unity_spiritualist
+		}
+		mode = add
+	}
+	complex_trigger_modifier = {
+		trigger = num_zones
+		parameters = {
+			type = zone_unity_wilderness
+		}
+		mode = add
+	}
+	complex_trigger_modifier = {
+		trigger = num_zones
+		parameters = {
+			type = zone_urban
+		}
+		mode = add
+	}
+	complex_trigger_modifier = {
+		trigger = num_zones
+		parameters = {
+			type = zone_urban_energy
+		}
+		mode = add
+	}
+	complex_trigger_modifier = {
+		trigger = num_zones
+		parameters = {
+			type = zone_urban_food
+		}
+		mode = add
+	}
+	complex_trigger_modifier = {
+		trigger = num_zones
+		parameters = {
+			type = zone_urban_minerals
+		}
+		mode = add
+	}
+	complex_trigger_modifier = {
+		trigger = num_zones
+		parameters = {
+			type = zone_urban_wilderness
+		}
+		mode = add
+	}
+}
+
+num_zones_secondary_district = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_agrarian_anglers
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_agrarian_urban
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_anglers
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_betharian
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_betharian_hive
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_betharian_nexus
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_energy
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_energy_hive
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_energy_nexus
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_energy_physics
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_energy_ring_world
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_energy_wilderness
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_exotic_gases
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_exotic_gases_hive
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_exotic_gases_nexus
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_factory_arcology
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_factory_hive
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_factory_nexus
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_factory_ring_world
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_food
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_food_biology
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_food_hive
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_food_ring_world
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_food_wilderness
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_fortress_arcology
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_fortress_hive
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_fortress_nexus
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_fortress_ring_world
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_foundry_arcology
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_foundry_hive
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_foundry_nexus
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_foundry_ring_world
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_habitat_hydroponics
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_habitat_research
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_habitat_research_unity
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_industrial_arcology
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_industrial_hive
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_industrial_nexus
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_industrial_ring_world
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_minerals
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_minerals_engineering
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_minerals_hive
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_minerals_nexus
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_minerals_wilderness
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_rare_crystals
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_rare_crystals_hive
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_rare_crystals_nexus
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_research
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_research_arcology
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_research_engineering
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_research_engineering_arcology
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_research_engineering_hive
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_research_engineering_nexus
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_research_engineering_ring_world
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_research_hive
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_research_nexus
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_research_physics
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_research_physics_arcology
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_research_physics_hive
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_research_physics_nexus
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_research_physics_ring_world
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_research_ring_world
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_research_society
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_research_society_arcology
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_research_society_hive
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_research_society_nexus
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_research_society_ring_world
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_research_unity
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_resort_grand_museum
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_resort_hunting_ground
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_resort_proving_grounds
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_resort_restoration_enclave
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_resort_spiritual_retreat
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_resort_zoo
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_spawning_hive
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_subterranean_urban
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_trade_arcology
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_trade_hive
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_trade_nexus
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_trade_ring_world
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_unity
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_unity_arcology
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_unity_bio_trophy
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_unity_bio_trophy_arcology
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_unity_bio_trophy_nexus
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_unity_bio_trophy_ring_world
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_unity_hive
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_unity_nexus
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_unity_ring_world
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_unity_spiritualist
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_unity_spiritualist_arcology
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_unity_spiritualist_nexus
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_unity_spiritualist_ring_world
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_volatile_motes
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_volatile_motes_hive
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_volatile_motes_nexus
+        }
+        mode = add
+    }
+}
+
+num_primary_zones_of_type_urban = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_urban
+        }
+        mode = add
+    }
+}
+
+num_primary_zone_plan_of_type_urban = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z1_urban
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z2_urban
+        add = 1
+    }
+
+}
+
+num_secondary_zones_of_type_urban = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_subterranean_urban
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_agrarian_anglers
+        }
+        mode = add
+    }
+}
+
+num_secondary_zone_plan_of_type_urban = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z3_urban
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z4_urban
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z5_urban
+        add = 1
+    }
+}
+
+num_primary_zones_of_type_trade = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_trade
+        }
+        mode = add
+    }
+}
+
+num_primary_zone_plan_of_type_trade = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z1_trade
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z2_trade
+        add = 1
+    }
+
+}
+
+num_secondary_zones_of_type_trade = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_trade_arcology
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_trade_ring_world
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_trade_nexus
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_trade_hive
+        }
+        mode = add
+    }
+}
+
+num_secondary_zone_plan_of_type_trade = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z3_trade
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z4_trade
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z5_trade
+        add = 1
+    }
+}
+
+num_primary_zones_of_type_industrial = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_industrial
+        }
+        mode = add
+    }
+}
+
+num_primary_zone_plan_of_type_industrial = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z1_industrial
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z2_industrial
+        add = 1
+    }
+
+}
+
+num_secondary_zones_of_type_industrial = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_industrial_arcology
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_industrial_ring_world
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_industrial_nexus
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_industrial_hive
+        }
+        mode = add
+    }
+}
+
+num_secondary_zone_plan_of_type_industrial = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z3_industrial
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z4_industrial
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z5_industrial
+        add = 1
+    }
+}
+
+num_primary_zones_of_type_foundry = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_foundry
+        }
+        mode = add
+    }
+}
+
+num_primary_zone_plan_of_type_foundry = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z1_foundry
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z2_foundry
+        add = 1
+    }
+
+}
+
+num_secondary_zones_of_type_foundry = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_foundry_arcology
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_foundry_ring_world
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_foundry_nexus
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_foundry_hive
+        }
+        mode = add
+    }
+}
+
+num_secondary_zone_plan_of_type_foundry = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z3_foundry
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z4_foundry
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z5_foundry
+        add = 1
+    }
+}
+
+num_primary_zones_of_type_factory = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_factory
+        }
+        mode = add
+    }
+}
+
+num_primary_zone_plan_of_type_factory = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z1_factory
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z2_factory
+        add = 1
+    }
+
+}
+
+num_secondary_zones_of_type_factory = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_factory_arcology
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_factory_ring_world
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_factory_nexus
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_factory_hive
+        }
+        mode = add
+    }
+}
+
+num_secondary_zone_plan_of_type_factory = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z3_factory
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z4_factory
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z5_factory
+        add = 1
+    }
+}
+
+num_primary_zones_of_type_research = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_research
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_central_spire
+        }
+        mode = add
+    }
+}
+
+num_primary_zone_plan_of_type_research = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z1_research
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z2_research
+        add = 1
+    }
+
+}
+
+num_secondary_zones_of_type_research = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_research
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_habitat_research
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_research_arcology
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_research_ring_world
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_research_nexus
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_research_hive
+        }
+        mode = add
+    }
+}
+
+num_secondary_zone_plan_of_type_research = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z3_research
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z4_research
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z5_research
+        add = 1
+    }
+}
+
+num_primary_zones_of_type_physics = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_research_physics
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_energy_physics
+        }
+        mode = add
+    }
+}
+
+num_primary_zone_plan_of_type_physics = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z1_physics
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z2_physics
+        add = 1
+    }
+
+}
+
+num_secondary_zones_of_type_physics = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_research_physics
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_energy_physics
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_research_physics_arcology
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_research_physics_ring_world
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_research_physics_nexus
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_research_physics_hive
+        }
+        mode = add
+    }
+}
+
+num_secondary_zone_plan_of_type_physics = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z3_physics
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z4_physics
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z5_physics
+        add = 1
+    }
+}
+
+num_primary_zones_of_type_society = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_research_society
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_food_biology
+        }
+        mode = add
+    }
+}
+
+num_primary_zone_plan_of_type_society = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z1_society
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z2_society
+        add = 1
+    }
+
+}
+
+num_secondary_zones_of_type_society = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_research_society
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_food_biology
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_research_society_arcology
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_research_society_ring_world
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_research_society_nexus
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_research_society_hive
+        }
+        mode = add
+    }
+}
+
+num_secondary_zone_plan_of_type_society = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z3_society
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z4_society
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z5_society
+        add = 1
+    }
+}
+
+num_primary_zones_of_type_engineering = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_research_engineering
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_minerals_engineering
+        }
+        mode = add
+    }
+}
+
+num_primary_zone_plan_of_type_engineering = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z1_engineering
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z2_engineering
+        add = 1
+    }
+
+}
+
+num_secondary_zones_of_type_engineering = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_research_engineering
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_minerals_engineering
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_research_engineering_arcology
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_research_engineering_ring_world
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_research_engineering_nexus
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_research_engineering_hive
+        }
+        mode = add
+    }
+}
+
+num_secondary_zone_plan_of_type_engineering = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z3_engineering
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z4_engineering
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z5_engineering
+        add = 1
+    }
+}
+
+num_primary_zones_of_type_bureaucrat = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_research_unity
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_habitat_research_unity
+        }
+        mode = add
+    }
+}
+
+num_primary_zone_plan_of_type_bureaucrat = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z1_bureaucrat
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z2_bureaucrat
+        add = 1
+    }
+
+}
+
+num_secondary_zones_of_type_bureaucrat = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_research_unity
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_habitat_research_unity
+        }
+        mode = add
+    }
+}
+
+num_secondary_zone_plan_of_type_bureaucrat = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z3_bureaucrat
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z4_bureaucrat
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z5_bureaucrat
+        add = 1
+    }
+}
+
+num_primary_zones_of_type_unity = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_unity
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_unity_bio_trophy
+        }
+        mode = add
+    }
+}
+
+num_primary_zone_plan_of_type_unity = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z1_unity
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z2_unity
+        add = 1
+    }
+
+}
+
+num_secondary_zones_of_type_unity = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_unity
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_unity_bio_trophy
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_unity_arcology
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_unity_bio_trophy_arcology
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_unity_ring_world
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_unity_bio_trophy_ring_world
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_unity_nexus
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_unity_bio_trophy_nexus
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_unity_hive
+        }
+        mode = add
+    }
+}
+
+num_secondary_zone_plan_of_type_unity = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z3_unity
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z4_unity
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z5_unity
+        add = 1
+    }
+}
+
+num_primary_zones_of_type_priest = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_unity_spiritualist
+        }
+        mode = add
+    }
+}
+
+num_primary_zone_plan_of_type_priest = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z1_priest
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z2_priest
+        add = 1
+    }
+
+}
+
+num_secondary_zones_of_type_priest = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_unity_spiritualist
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_resort_spiritual_retreat
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_unity_spiritualist_arcology
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_unity_spiritualist_ring_world
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_unity_spiritualist_nexus
+        }
+        mode = add
+    }
+}
+
+num_secondary_zone_plan_of_type_priest = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z3_priest
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z4_priest
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z5_priest
+        add = 1
+    }
+}
+
+num_primary_zones_of_type_fortress = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_fortress
+        }
+        mode = add
+    }
+}
+
+num_primary_zone_plan_of_type_fortress = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z1_fortress
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z2_fortress
+        add = 1
+    }
+
+}
+
+num_secondary_zones_of_type_fortress = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_fortress_arcology
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_fortress_ring_world
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_fortress_nexus
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_fortress_hive
+        }
+        mode = add
+    }
+}
+
+num_secondary_zone_plan_of_type_fortress = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z3_fortress
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z4_fortress
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z5_fortress
+        add = 1
+    }
+}
+
+num_primary_zones_of_type_resort = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_resort
+        }
+        mode = add
+    }
+}
+
+num_primary_zone_plan_of_type_resort = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z1_resort
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z2_resort
+        add = 1
+    }
+
+}
+
+num_primary_zones_of_type_entertainer = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_resort_entertainment
+        }
+        mode = add
+    }
+}
+
+num_primary_zone_plan_of_type_entertainer = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z1_entertainer
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z2_entertainer
+        add = 1
+    }
+
+}
+
+num_secondary_zones_of_type_zoo = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_resort_zoo
+        }
+        mode = add
+    }
+}
+
+num_secondary_zone_plan_of_type_zoo = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z3_zoo
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z4_zoo
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z5_zoo
+        add = 1
+    }
+}
+
+num_secondary_zones_of_type_culture_worker = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_resort_grand_museum
+        }
+        mode = add
+    }
+}
+
+num_secondary_zone_plan_of_type_culture_worker = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z3_culture_worker
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z4_culture_worker
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z5_culture_worker
+        add = 1
+    }
+}
+
+num_secondary_zones_of_type_trophy_hunter = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_resort_hunting_ground
+        }
+        mode = add
+    }
+}
+
+num_secondary_zone_plan_of_type_trophy_hunter = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z3_trophy_hunter
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z4_trophy_hunter
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z5_trophy_hunter
+        add = 1
+    }
+}
+
+num_secondary_zones_of_type_healthcare = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_resort_restoration_enclave
+        }
+        mode = add
+    }
+}
+
+num_secondary_zone_plan_of_type_healthcare = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z3_healthcare
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z4_healthcare
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z5_healthcare
+        add = 1
+    }
+}
+
+num_secondary_zones_of_type_duelist = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_resort_proving_grounds
+        }
+        mode = add
+    }
+}
+
+num_secondary_zone_plan_of_type_duelist = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z3_duelist
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z4_duelist
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z5_duelist
+        add = 1
+    }
+}
+
+num_primary_zones_of_type_energy = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_urban_energy
+        }
+        mode = add
+    }
+}
+
+num_primary_zone_plan_of_type_energy = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z1_energy
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z2_energy
+        add = 1
+    }
+
+}
+
+num_secondary_zones_of_type_energy = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_energy
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_energy_ring_world
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_energy_nexus
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_energy_hive
+        }
+        mode = add
+    }
+}
+
+num_secondary_zone_plan_of_type_energy = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z3_energy
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z4_energy
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z5_energy
+        add = 1
+    }
+}
+
+num_secondary_zones_of_type_betharian = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_betharian
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_betharian_nexus
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_betharian_hive
+        }
+        mode = add
+    }
+}
+
+num_secondary_zone_plan_of_type_betharian = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z3_betharian
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z4_betharian
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z5_betharian
+        add = 1
+    }
+}
+
+num_primary_zones_of_type_minerals = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_urban_minerals
+        }
+        mode = add
+    }
+}
+
+num_primary_zone_plan_of_type_minerals = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z1_minerals
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z2_minerals
+        add = 1
+    }
+
+}
+
+num_secondary_zones_of_type_minerals = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_minerals
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_minerals_nexus
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_minerals_hive
+        }
+        mode = add
+    }
+}
+
+num_secondary_zone_plan_of_type_minerals = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z3_minerals
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z4_minerals
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z5_minerals
+        add = 1
+    }
+}
+
+num_primary_zones_of_type_food = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_urban_food
+        }
+        mode = add
+    }
+}
+
+num_primary_zone_plan_of_type_food = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z1_food
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z2_food
+        add = 1
+    }
+
+}
+
+num_secondary_zones_of_type_food = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_food
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_food_ring_world
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_food_hive
+        }
+        mode = add
+    }
+}
+
+num_secondary_zone_plan_of_type_food = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z3_food
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z4_food
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z5_food
+        add = 1
+    }
+}
+
+num_secondary_zones_of_type_rare_crystals = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_rare_crystals
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_rare_crystals_nexus
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_rare_crystals_hive
+        }
+        mode = add
+    }
+}
+
+num_secondary_zone_plan_of_type_rare_crystals = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z3_rare_crystals
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z4_rare_crystals
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z5_rare_crystals
+        add = 1
+    }
+}
+
+num_secondary_zones_of_type_volatile_motes = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_volatile_motes
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_volatile_motes_nexus
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_volatile_motes_hive
+        }
+        mode = add
+    }
+}
+
+num_secondary_zone_plan_of_type_volatile_motes = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z3_volatile_motes
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z4_volatile_motes
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z5_volatile_motes
+        add = 1
+    }
+}
+
+num_secondary_zones_of_type_exotic_gases = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_exotic_gases
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_exotic_gases_nexus
+        }
+        mode = add
+    }
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_exotic_gases_hive
+        }
+        mode = add
+    }
+}
+
+num_secondary_zone_plan_of_type_exotic_gases = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z3_exotic_gases
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z4_exotic_gases
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z5_exotic_gases
+        add = 1
+    }
+}
+
+num_secondary_zones_of_type_angler = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_anglers
+        }
+        mode = add
+    }
+}
+
+num_secondary_zone_plan_of_type_angler = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z3_angler
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z4_angler
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z5_angler
+        add = 1
+    }
+}
+
+num_primary_zones_of_type_spawning = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_spawning
+        }
+        mode = add
+    }
+}
+
+num_primary_zone_plan_of_type_spawning = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z1_spawning
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z2_spawning
+        add = 1
+    }
+
+}
+
+num_secondary_zones_of_type_spawning = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_spawning_hive
+        }
+        mode = add
+    }
+}
+
+num_secondary_zone_plan_of_type_spawning = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z3_spawning
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z4_spawning
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z5_spawning
+        add = 1
+    }
+}
+
+num_primary_zones_of_type_wilderness_foundry = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_foundry_wilderness
+        }
+        mode = add
+    }
+}
+
+num_primary_zone_plan_of_type_wilderness_foundry = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z1_wilderness_foundry
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z2_wilderness_foundry
+        add = 1
+    }
+
+}
+
+num_primary_zones_of_type_wilderness_research = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_research_wilderness
+        }
+        mode = add
+    }
+}
+
+num_primary_zone_plan_of_type_wilderness_research = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z1_wilderness_research
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z2_wilderness_research
+        add = 1
+    }
+
+}
+
+num_primary_zones_of_type_wilderness_unity = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_unity_wilderness
+        }
+        mode = add
+    }
+}
+
+num_primary_zone_plan_of_type_wilderness_unity = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z1_wilderness_unity
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z2_wilderness_unity
+        add = 1
+    }
+
+}
+
+num_primary_zones_of_type_wilderness_spawning = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_research_unity_wilderness
+        }
+        mode = add
+    }
+}
+
+num_primary_zone_plan_of_type_wilderness_spawning = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z1_wilderness_spawning
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z2_wilderness_spawning
+        add = 1
+    }
+
+}
+
+num_primary_zones_of_type_wilderness_trade = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_trade_wilderness
+        }
+        mode = add
+    }
+}
+
+num_primary_zone_plan_of_type_wilderness_trade = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z1_wilderness_trade
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z2_wilderness_trade
+        add = 1
+    }
+
+}
+
+num_primary_zones_of_type_wilderness_fortress = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_fortress_wilderness
+        }
+        mode = add
+    }
+}
+
+num_primary_zone_plan_of_type_wilderness_fortress = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z1_wilderness_fortress
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z2_wilderness_fortress
+        add = 1
+    }
+
+}
+
+num_secondary_zones_of_type_wilderness_minerals = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_minerals_wilderness
+        }
+        mode = add
+    }
+}
+
+num_secondary_zone_plan_of_type_wilderness_minerals = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z3_wilderness_minerals
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z4_wilderness_minerals
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z5_wilderness_minerals
+        add = 1
+    }
+}
+
+num_secondary_zones_of_type_wilderness_energy = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_energy_wilderness
+        }
+        mode = add
+    }
+}
+
+num_secondary_zone_plan_of_type_wilderness_energy = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z3_wilderness_energy
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z4_wilderness_energy
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z5_wilderness_energy
+        add = 1
+    }
+}
+
+num_secondary_zones_of_type_wilderness_food = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_food_wilderness
+        }
+        mode = add
+    }
+}
+
+num_secondary_zone_plan_of_type_wilderness_food = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z3_wilderness_food
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z4_wilderness_food
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z5_wilderness_food
+        add = 1
+    }
+}
+
+
+
+num_zones_of_zone_urban = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_urban
+        }
+        mode = add
+    }
+}
+
+num_zone_plan_of_zone_urban = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z1_zone_urban
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z2_zone_urban
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z3_zone_urban
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z4_zone_urban
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z5_zone_urban
+        add = 1
+    }
+}
+num_zones_of_zone_subterranean_urban = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_subterranean_urban
+        }
+        mode = add
+    }
+}
+
+num_zone_plan_of_zone_subterranean_urban = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z1_zone_subterranean_urban
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z2_zone_subterranean_urban
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z3_zone_subterranean_urban
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z4_zone_subterranean_urban
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z5_zone_subterranean_urban
+        add = 1
+    }
+}
+num_zones_of_zone_agrarian_anglers = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_agrarian_anglers
+        }
+        mode = add
+    }
+}
+
+num_zone_plan_of_zone_agrarian_anglers = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z1_zone_agrarian_anglers
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z2_zone_agrarian_anglers
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z3_zone_agrarian_anglers
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z4_zone_agrarian_anglers
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z5_zone_agrarian_anglers
+        add = 1
+    }
+}
+num_zones_of_zone_trade = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_trade
+        }
+        mode = add
+    }
+}
+
+num_zone_plan_of_zone_trade = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z1_zone_trade
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z2_zone_trade
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z3_zone_trade
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z4_zone_trade
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z5_zone_trade
+        add = 1
+    }
+}
+num_zones_of_zone_trade_arcology = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_trade_arcology
+        }
+        mode = add
+    }
+}
+
+num_zone_plan_of_zone_trade_arcology = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z1_zone_trade_arcology
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z2_zone_trade_arcology
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z3_zone_trade_arcology
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z4_zone_trade_arcology
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z5_zone_trade_arcology
+        add = 1
+    }
+}
+num_zones_of_zone_trade_ring_world = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_trade_ring_world
+        }
+        mode = add
+    }
+}
+
+num_zone_plan_of_zone_trade_ring_world = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z1_zone_trade_ring_world
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z2_zone_trade_ring_world
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z3_zone_trade_ring_world
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z4_zone_trade_ring_world
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z5_zone_trade_ring_world
+        add = 1
+    }
+}
+num_zones_of_zone_trade_nexus = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_trade_nexus
+        }
+        mode = add
+    }
+}
+
+num_zone_plan_of_zone_trade_nexus = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z1_zone_trade_nexus
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z2_zone_trade_nexus
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z3_zone_trade_nexus
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z4_zone_trade_nexus
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z5_zone_trade_nexus
+        add = 1
+    }
+}
+num_zones_of_zone_trade_hive = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_trade_hive
+        }
+        mode = add
+    }
+}
+
+num_zone_plan_of_zone_trade_hive = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z1_zone_trade_hive
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z2_zone_trade_hive
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z3_zone_trade_hive
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z4_zone_trade_hive
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z5_zone_trade_hive
+        add = 1
+    }
+}
+num_zones_of_zone_industrial = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_industrial
+        }
+        mode = add
+    }
+}
+
+num_zone_plan_of_zone_industrial = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z1_zone_industrial
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z2_zone_industrial
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z3_zone_industrial
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z4_zone_industrial
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z5_zone_industrial
+        add = 1
+    }
+}
+num_zones_of_zone_industrial_arcology = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_industrial_arcology
+        }
+        mode = add
+    }
+}
+
+num_zone_plan_of_zone_industrial_arcology = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z1_zone_industrial_arcology
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z2_zone_industrial_arcology
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z3_zone_industrial_arcology
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z4_zone_industrial_arcology
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z5_zone_industrial_arcology
+        add = 1
+    }
+}
+num_zones_of_zone_industrial_ring_world = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_industrial_ring_world
+        }
+        mode = add
+    }
+}
+
+num_zone_plan_of_zone_industrial_ring_world = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z1_zone_industrial_ring_world
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z2_zone_industrial_ring_world
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z3_zone_industrial_ring_world
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z4_zone_industrial_ring_world
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z5_zone_industrial_ring_world
+        add = 1
+    }
+}
+num_zones_of_zone_industrial_nexus = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_industrial_nexus
+        }
+        mode = add
+    }
+}
+
+num_zone_plan_of_zone_industrial_nexus = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z1_zone_industrial_nexus
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z2_zone_industrial_nexus
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z3_zone_industrial_nexus
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z4_zone_industrial_nexus
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z5_zone_industrial_nexus
+        add = 1
+    }
+}
+num_zones_of_zone_industrial_hive = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_industrial_hive
+        }
+        mode = add
+    }
+}
+
+num_zone_plan_of_zone_industrial_hive = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z1_zone_industrial_hive
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z2_zone_industrial_hive
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z3_zone_industrial_hive
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z4_zone_industrial_hive
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z5_zone_industrial_hive
+        add = 1
+    }
+}
+num_zones_of_zone_foundry = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_foundry
+        }
+        mode = add
+    }
+}
+
+num_zone_plan_of_zone_foundry = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z1_zone_foundry
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z2_zone_foundry
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z3_zone_foundry
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z4_zone_foundry
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z5_zone_foundry
+        add = 1
+    }
+}
+num_zones_of_zone_foundry_arcology = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_foundry_arcology
+        }
+        mode = add
+    }
+}
+
+num_zone_plan_of_zone_foundry_arcology = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z1_zone_foundry_arcology
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z2_zone_foundry_arcology
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z3_zone_foundry_arcology
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z4_zone_foundry_arcology
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z5_zone_foundry_arcology
+        add = 1
+    }
+}
+num_zones_of_zone_foundry_ring_world = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_foundry_ring_world
+        }
+        mode = add
+    }
+}
+
+num_zone_plan_of_zone_foundry_ring_world = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z1_zone_foundry_ring_world
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z2_zone_foundry_ring_world
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z3_zone_foundry_ring_world
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z4_zone_foundry_ring_world
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z5_zone_foundry_ring_world
+        add = 1
+    }
+}
+num_zones_of_zone_foundry_nexus = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_foundry_nexus
+        }
+        mode = add
+    }
+}
+
+num_zone_plan_of_zone_foundry_nexus = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z1_zone_foundry_nexus
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z2_zone_foundry_nexus
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z3_zone_foundry_nexus
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z4_zone_foundry_nexus
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z5_zone_foundry_nexus
+        add = 1
+    }
+}
+num_zones_of_zone_foundry_hive = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_foundry_hive
+        }
+        mode = add
+    }
+}
+
+num_zone_plan_of_zone_foundry_hive = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z1_zone_foundry_hive
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z2_zone_foundry_hive
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z3_zone_foundry_hive
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z4_zone_foundry_hive
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z5_zone_foundry_hive
+        add = 1
+    }
+}
+num_zones_of_zone_factory = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_factory
+        }
+        mode = add
+    }
+}
+
+num_zone_plan_of_zone_factory = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z1_zone_factory
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z2_zone_factory
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z3_zone_factory
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z4_zone_factory
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z5_zone_factory
+        add = 1
+    }
+}
+num_zones_of_zone_factory_arcology = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_factory_arcology
+        }
+        mode = add
+    }
+}
+
+num_zone_plan_of_zone_factory_arcology = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z1_zone_factory_arcology
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z2_zone_factory_arcology
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z3_zone_factory_arcology
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z4_zone_factory_arcology
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z5_zone_factory_arcology
+        add = 1
+    }
+}
+num_zones_of_zone_factory_ring_world = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_factory_ring_world
+        }
+        mode = add
+    }
+}
+
+num_zone_plan_of_zone_factory_ring_world = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z1_zone_factory_ring_world
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z2_zone_factory_ring_world
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z3_zone_factory_ring_world
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z4_zone_factory_ring_world
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z5_zone_factory_ring_world
+        add = 1
+    }
+}
+num_zones_of_zone_factory_nexus = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_factory_nexus
+        }
+        mode = add
+    }
+}
+
+num_zone_plan_of_zone_factory_nexus = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z1_zone_factory_nexus
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z2_zone_factory_nexus
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z3_zone_factory_nexus
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z4_zone_factory_nexus
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z5_zone_factory_nexus
+        add = 1
+    }
+}
+num_zones_of_zone_factory_hive = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_factory_hive
+        }
+        mode = add
+    }
+}
+
+num_zone_plan_of_zone_factory_hive = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z1_zone_factory_hive
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z2_zone_factory_hive
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z3_zone_factory_hive
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z4_zone_factory_hive
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z5_zone_factory_hive
+        add = 1
+    }
+}
+num_zones_of_zone_research = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_research
+        }
+        mode = add
+    }
+}
+
+num_zone_plan_of_zone_research = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z1_zone_research
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z2_zone_research
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z3_zone_research
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z4_zone_research
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z5_zone_research
+        add = 1
+    }
+}
+num_zones_of_zone_habitat_research = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_habitat_research
+        }
+        mode = add
+    }
+}
+
+num_zone_plan_of_zone_habitat_research = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z1_zone_habitat_research
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z2_zone_habitat_research
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z3_zone_habitat_research
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z4_zone_habitat_research
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z5_zone_habitat_research
+        add = 1
+    }
+}
+num_zones_of_zone_central_spire = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_central_spire
+        }
+        mode = add
+    }
+}
+
+num_zone_plan_of_zone_central_spire = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z1_zone_central_spire
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z2_zone_central_spire
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z3_zone_central_spire
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z4_zone_central_spire
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z5_zone_central_spire
+        add = 1
+    }
+}
+num_zones_of_zone_research_arcology = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_research_arcology
+        }
+        mode = add
+    }
+}
+
+num_zone_plan_of_zone_research_arcology = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z1_zone_research_arcology
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z2_zone_research_arcology
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z3_zone_research_arcology
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z4_zone_research_arcology
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z5_zone_research_arcology
+        add = 1
+    }
+}
+num_zones_of_zone_research_ring_world = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_research_ring_world
+        }
+        mode = add
+    }
+}
+
+num_zone_plan_of_zone_research_ring_world = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z1_zone_research_ring_world
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z2_zone_research_ring_world
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z3_zone_research_ring_world
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z4_zone_research_ring_world
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z5_zone_research_ring_world
+        add = 1
+    }
+}
+num_zones_of_zone_research_nexus = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_research_nexus
+        }
+        mode = add
+    }
+}
+
+num_zone_plan_of_zone_research_nexus = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z1_zone_research_nexus
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z2_zone_research_nexus
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z3_zone_research_nexus
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z4_zone_research_nexus
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z5_zone_research_nexus
+        add = 1
+    }
+}
+num_zones_of_zone_research_hive = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_research_hive
+        }
+        mode = add
+    }
+}
+
+num_zone_plan_of_zone_research_hive = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z1_zone_research_hive
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z2_zone_research_hive
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z3_zone_research_hive
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z4_zone_research_hive
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z5_zone_research_hive
+        add = 1
+    }
+}
+num_zones_of_zone_research_physics = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_research_physics
+        }
+        mode = add
+    }
+}
+
+num_zone_plan_of_zone_research_physics = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z1_zone_research_physics
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z2_zone_research_physics
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z3_zone_research_physics
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z4_zone_research_physics
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z5_zone_research_physics
+        add = 1
+    }
+}
+num_zones_of_zone_energy_physics = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_energy_physics
+        }
+        mode = add
+    }
+}
+
+num_zone_plan_of_zone_energy_physics = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z1_zone_energy_physics
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z2_zone_energy_physics
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z3_zone_energy_physics
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z4_zone_energy_physics
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z5_zone_energy_physics
+        add = 1
+    }
+}
+num_zones_of_zone_research_physics_arcology = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_research_physics_arcology
+        }
+        mode = add
+    }
+}
+
+num_zone_plan_of_zone_research_physics_arcology = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z1_zone_research_physics_arcology
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z2_zone_research_physics_arcology
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z3_zone_research_physics_arcology
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z4_zone_research_physics_arcology
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z5_zone_research_physics_arcology
+        add = 1
+    }
+}
+num_zones_of_zone_research_physics_ring_world = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_research_physics_ring_world
+        }
+        mode = add
+    }
+}
+
+num_zone_plan_of_zone_research_physics_ring_world = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z1_zone_research_physics_ring_world
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z2_zone_research_physics_ring_world
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z3_zone_research_physics_ring_world
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z4_zone_research_physics_ring_world
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z5_zone_research_physics_ring_world
+        add = 1
+    }
+}
+num_zones_of_zone_research_physics_nexus = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_research_physics_nexus
+        }
+        mode = add
+    }
+}
+
+num_zone_plan_of_zone_research_physics_nexus = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z1_zone_research_physics_nexus
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z2_zone_research_physics_nexus
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z3_zone_research_physics_nexus
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z4_zone_research_physics_nexus
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z5_zone_research_physics_nexus
+        add = 1
+    }
+}
+num_zones_of_zone_research_physics_hive = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_research_physics_hive
+        }
+        mode = add
+    }
+}
+
+num_zone_plan_of_zone_research_physics_hive = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z1_zone_research_physics_hive
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z2_zone_research_physics_hive
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z3_zone_research_physics_hive
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z4_zone_research_physics_hive
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z5_zone_research_physics_hive
+        add = 1
+    }
+}
+num_zones_of_zone_research_society = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_research_society
+        }
+        mode = add
+    }
+}
+
+num_zone_plan_of_zone_research_society = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z1_zone_research_society
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z2_zone_research_society
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z3_zone_research_society
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z4_zone_research_society
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z5_zone_research_society
+        add = 1
+    }
+}
+num_zones_of_zone_food_biology = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_food_biology
+        }
+        mode = add
+    }
+}
+
+num_zone_plan_of_zone_food_biology = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z1_zone_food_biology
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z2_zone_food_biology
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z3_zone_food_biology
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z4_zone_food_biology
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z5_zone_food_biology
+        add = 1
+    }
+}
+num_zones_of_zone_research_society_arcology = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_research_society_arcology
+        }
+        mode = add
+    }
+}
+
+num_zone_plan_of_zone_research_society_arcology = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z1_zone_research_society_arcology
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z2_zone_research_society_arcology
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z3_zone_research_society_arcology
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z4_zone_research_society_arcology
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z5_zone_research_society_arcology
+        add = 1
+    }
+}
+num_zones_of_zone_research_society_ring_world = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_research_society_ring_world
+        }
+        mode = add
+    }
+}
+
+num_zone_plan_of_zone_research_society_ring_world = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z1_zone_research_society_ring_world
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z2_zone_research_society_ring_world
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z3_zone_research_society_ring_world
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z4_zone_research_society_ring_world
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z5_zone_research_society_ring_world
+        add = 1
+    }
+}
+num_zones_of_zone_research_society_nexus = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_research_society_nexus
+        }
+        mode = add
+    }
+}
+
+num_zone_plan_of_zone_research_society_nexus = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z1_zone_research_society_nexus
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z2_zone_research_society_nexus
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z3_zone_research_society_nexus
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z4_zone_research_society_nexus
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z5_zone_research_society_nexus
+        add = 1
+    }
+}
+num_zones_of_zone_research_society_hive = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_research_society_hive
+        }
+        mode = add
+    }
+}
+
+num_zone_plan_of_zone_research_society_hive = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z1_zone_research_society_hive
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z2_zone_research_society_hive
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z3_zone_research_society_hive
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z4_zone_research_society_hive
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z5_zone_research_society_hive
+        add = 1
+    }
+}
+num_zones_of_zone_research_engineering = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_research_engineering
+        }
+        mode = add
+    }
+}
+
+num_zone_plan_of_zone_research_engineering = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z1_zone_research_engineering
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z2_zone_research_engineering
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z3_zone_research_engineering
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z4_zone_research_engineering
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z5_zone_research_engineering
+        add = 1
+    }
+}
+num_zones_of_zone_minerals_engineering = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_minerals_engineering
+        }
+        mode = add
+    }
+}
+
+num_zone_plan_of_zone_minerals_engineering = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z1_zone_minerals_engineering
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z2_zone_minerals_engineering
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z3_zone_minerals_engineering
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z4_zone_minerals_engineering
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z5_zone_minerals_engineering
+        add = 1
+    }
+}
+num_zones_of_zone_research_engineering_arcology = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_research_engineering_arcology
+        }
+        mode = add
+    }
+}
+
+num_zone_plan_of_zone_research_engineering_arcology = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z1_zone_research_engineering_arcology
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z2_zone_research_engineering_arcology
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z3_zone_research_engineering_arcology
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z4_zone_research_engineering_arcology
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z5_zone_research_engineering_arcology
+        add = 1
+    }
+}
+num_zones_of_zone_research_engineering_ring_world = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_research_engineering_ring_world
+        }
+        mode = add
+    }
+}
+
+num_zone_plan_of_zone_research_engineering_ring_world = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z1_zone_research_engineering_ring_world
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z2_zone_research_engineering_ring_world
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z3_zone_research_engineering_ring_world
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z4_zone_research_engineering_ring_world
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z5_zone_research_engineering_ring_world
+        add = 1
+    }
+}
+num_zones_of_zone_research_engineering_nexus = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_research_engineering_nexus
+        }
+        mode = add
+    }
+}
+
+num_zone_plan_of_zone_research_engineering_nexus = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z1_zone_research_engineering_nexus
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z2_zone_research_engineering_nexus
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z3_zone_research_engineering_nexus
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z4_zone_research_engineering_nexus
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z5_zone_research_engineering_nexus
+        add = 1
+    }
+}
+num_zones_of_zone_research_engineering_hive = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_research_engineering_hive
+        }
+        mode = add
+    }
+}
+
+num_zone_plan_of_zone_research_engineering_hive = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z1_zone_research_engineering_hive
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z2_zone_research_engineering_hive
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z3_zone_research_engineering_hive
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z4_zone_research_engineering_hive
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z5_zone_research_engineering_hive
+        add = 1
+    }
+}
+num_zones_of_zone_research_unity = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_research_unity
+        }
+        mode = add
+    }
+}
+
+num_zone_plan_of_zone_research_unity = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z1_zone_research_unity
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z2_zone_research_unity
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z3_zone_research_unity
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z4_zone_research_unity
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z5_zone_research_unity
+        add = 1
+    }
+}
+num_zones_of_zone_habitat_research_unity = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_habitat_research_unity
+        }
+        mode = add
+    }
+}
+
+num_zone_plan_of_zone_habitat_research_unity = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z1_zone_habitat_research_unity
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z2_zone_habitat_research_unity
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z3_zone_habitat_research_unity
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z4_zone_habitat_research_unity
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z5_zone_habitat_research_unity
+        add = 1
+    }
+}
+num_zones_of_zone_unity = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_unity
+        }
+        mode = add
+    }
+}
+
+num_zone_plan_of_zone_unity = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z1_zone_unity
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z2_zone_unity
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z3_zone_unity
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z4_zone_unity
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z5_zone_unity
+        add = 1
+    }
+}
+num_zones_of_zone_unity_bio_trophy = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_unity_bio_trophy
+        }
+        mode = add
+    }
+}
+
+num_zone_plan_of_zone_unity_bio_trophy = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z1_zone_unity_bio_trophy
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z2_zone_unity_bio_trophy
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z3_zone_unity_bio_trophy
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z4_zone_unity_bio_trophy
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z5_zone_unity_bio_trophy
+        add = 1
+    }
+}
+num_zones_of_zone_unity_arcology = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_unity_arcology
+        }
+        mode = add
+    }
+}
+
+num_zone_plan_of_zone_unity_arcology = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z1_zone_unity_arcology
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z2_zone_unity_arcology
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z3_zone_unity_arcology
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z4_zone_unity_arcology
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z5_zone_unity_arcology
+        add = 1
+    }
+}
+num_zones_of_zone_unity_bio_trophy_arcology = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_unity_bio_trophy_arcology
+        }
+        mode = add
+    }
+}
+
+num_zone_plan_of_zone_unity_bio_trophy_arcology = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z1_zone_unity_bio_trophy_arcology
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z2_zone_unity_bio_trophy_arcology
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z3_zone_unity_bio_trophy_arcology
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z4_zone_unity_bio_trophy_arcology
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z5_zone_unity_bio_trophy_arcology
+        add = 1
+    }
+}
+num_zones_of_zone_unity_ring_world = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_unity_ring_world
+        }
+        mode = add
+    }
+}
+
+num_zone_plan_of_zone_unity_ring_world = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z1_zone_unity_ring_world
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z2_zone_unity_ring_world
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z3_zone_unity_ring_world
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z4_zone_unity_ring_world
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z5_zone_unity_ring_world
+        add = 1
+    }
+}
+num_zones_of_zone_unity_bio_trophy_ring_world = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_unity_bio_trophy_ring_world
+        }
+        mode = add
+    }
+}
+
+num_zone_plan_of_zone_unity_bio_trophy_ring_world = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z1_zone_unity_bio_trophy_ring_world
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z2_zone_unity_bio_trophy_ring_world
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z3_zone_unity_bio_trophy_ring_world
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z4_zone_unity_bio_trophy_ring_world
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z5_zone_unity_bio_trophy_ring_world
+        add = 1
+    }
+}
+num_zones_of_zone_unity_nexus = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_unity_nexus
+        }
+        mode = add
+    }
+}
+
+num_zone_plan_of_zone_unity_nexus = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z1_zone_unity_nexus
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z2_zone_unity_nexus
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z3_zone_unity_nexus
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z4_zone_unity_nexus
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z5_zone_unity_nexus
+        add = 1
+    }
+}
+num_zones_of_zone_unity_bio_trophy_nexus = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_unity_bio_trophy_nexus
+        }
+        mode = add
+    }
+}
+
+num_zone_plan_of_zone_unity_bio_trophy_nexus = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z1_zone_unity_bio_trophy_nexus
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z2_zone_unity_bio_trophy_nexus
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z3_zone_unity_bio_trophy_nexus
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z4_zone_unity_bio_trophy_nexus
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z5_zone_unity_bio_trophy_nexus
+        add = 1
+    }
+}
+num_zones_of_zone_unity_hive = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_unity_hive
+        }
+        mode = add
+    }
+}
+
+num_zone_plan_of_zone_unity_hive = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z1_zone_unity_hive
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z2_zone_unity_hive
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z3_zone_unity_hive
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z4_zone_unity_hive
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z5_zone_unity_hive
+        add = 1
+    }
+}
+num_zones_of_zone_unity_spiritualist = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_unity_spiritualist
+        }
+        mode = add
+    }
+}
+
+num_zone_plan_of_zone_unity_spiritualist = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z1_zone_unity_spiritualist
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z2_zone_unity_spiritualist
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z3_zone_unity_spiritualist
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z4_zone_unity_spiritualist
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z5_zone_unity_spiritualist
+        add = 1
+    }
+}
+num_zones_of_zone_resort_spiritual_retreat = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_resort_spiritual_retreat
+        }
+        mode = add
+    }
+}
+
+num_zone_plan_of_zone_resort_spiritual_retreat = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z1_zone_resort_spiritual_retreat
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z2_zone_resort_spiritual_retreat
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z3_zone_resort_spiritual_retreat
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z4_zone_resort_spiritual_retreat
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z5_zone_resort_spiritual_retreat
+        add = 1
+    }
+}
+num_zones_of_zone_unity_spiritualist_arcology = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_unity_spiritualist_arcology
+        }
+        mode = add
+    }
+}
+
+num_zone_plan_of_zone_unity_spiritualist_arcology = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z1_zone_unity_spiritualist_arcology
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z2_zone_unity_spiritualist_arcology
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z3_zone_unity_spiritualist_arcology
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z4_zone_unity_spiritualist_arcology
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z5_zone_unity_spiritualist_arcology
+        add = 1
+    }
+}
+num_zones_of_zone_unity_spiritualist_ring_world = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_unity_spiritualist_ring_world
+        }
+        mode = add
+    }
+}
+
+num_zone_plan_of_zone_unity_spiritualist_ring_world = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z1_zone_unity_spiritualist_ring_world
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z2_zone_unity_spiritualist_ring_world
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z3_zone_unity_spiritualist_ring_world
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z4_zone_unity_spiritualist_ring_world
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z5_zone_unity_spiritualist_ring_world
+        add = 1
+    }
+}
+num_zones_of_zone_unity_spiritualist_nexus = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_unity_spiritualist_nexus
+        }
+        mode = add
+    }
+}
+
+num_zone_plan_of_zone_unity_spiritualist_nexus = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z1_zone_unity_spiritualist_nexus
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z2_zone_unity_spiritualist_nexus
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z3_zone_unity_spiritualist_nexus
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z4_zone_unity_spiritualist_nexus
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z5_zone_unity_spiritualist_nexus
+        add = 1
+    }
+}
+num_zones_of_zone_fortress = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_fortress
+        }
+        mode = add
+    }
+}
+
+num_zone_plan_of_zone_fortress = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z1_zone_fortress
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z2_zone_fortress
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z3_zone_fortress
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z4_zone_fortress
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z5_zone_fortress
+        add = 1
+    }
+}
+num_zones_of_zone_fortress_arcology = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_fortress_arcology
+        }
+        mode = add
+    }
+}
+
+num_zone_plan_of_zone_fortress_arcology = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z1_zone_fortress_arcology
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z2_zone_fortress_arcology
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z3_zone_fortress_arcology
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z4_zone_fortress_arcology
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z5_zone_fortress_arcology
+        add = 1
+    }
+}
+num_zones_of_zone_fortress_ring_world = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_fortress_ring_world
+        }
+        mode = add
+    }
+}
+
+num_zone_plan_of_zone_fortress_ring_world = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z1_zone_fortress_ring_world
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z2_zone_fortress_ring_world
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z3_zone_fortress_ring_world
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z4_zone_fortress_ring_world
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z5_zone_fortress_ring_world
+        add = 1
+    }
+}
+num_zones_of_zone_fortress_nexus = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_fortress_nexus
+        }
+        mode = add
+    }
+}
+
+num_zone_plan_of_zone_fortress_nexus = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z1_zone_fortress_nexus
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z2_zone_fortress_nexus
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z3_zone_fortress_nexus
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z4_zone_fortress_nexus
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z5_zone_fortress_nexus
+        add = 1
+    }
+}
+num_zones_of_zone_fortress_hive = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_fortress_hive
+        }
+        mode = add
+    }
+}
+
+num_zone_plan_of_zone_fortress_hive = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z1_zone_fortress_hive
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z2_zone_fortress_hive
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z3_zone_fortress_hive
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z4_zone_fortress_hive
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z5_zone_fortress_hive
+        add = 1
+    }
+}
+num_zones_of_zone_resort = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_resort
+        }
+        mode = add
+    }
+}
+
+num_zone_plan_of_zone_resort = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z1_zone_resort
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z2_zone_resort
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z3_zone_resort
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z4_zone_resort
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z5_zone_resort
+        add = 1
+    }
+}
+num_zones_of_zone_resort_entertainment = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_resort_entertainment
+        }
+        mode = add
+    }
+}
+
+num_zone_plan_of_zone_resort_entertainment = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z1_zone_resort_entertainment
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z2_zone_resort_entertainment
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z3_zone_resort_entertainment
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z4_zone_resort_entertainment
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z5_zone_resort_entertainment
+        add = 1
+    }
+}
+num_zones_of_zone_resort_zoo = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_resort_zoo
+        }
+        mode = add
+    }
+}
+
+num_zone_plan_of_zone_resort_zoo = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z1_zone_resort_zoo
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z2_zone_resort_zoo
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z3_zone_resort_zoo
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z4_zone_resort_zoo
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z5_zone_resort_zoo
+        add = 1
+    }
+}
+num_zones_of_zone_resort_grand_museum = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_resort_grand_museum
+        }
+        mode = add
+    }
+}
+
+num_zone_plan_of_zone_resort_grand_museum = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z1_zone_resort_grand_museum
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z2_zone_resort_grand_museum
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z3_zone_resort_grand_museum
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z4_zone_resort_grand_museum
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z5_zone_resort_grand_museum
+        add = 1
+    }
+}
+num_zones_of_zone_resort_hunting_ground = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_resort_hunting_ground
+        }
+        mode = add
+    }
+}
+
+num_zone_plan_of_zone_resort_hunting_ground = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z1_zone_resort_hunting_ground
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z2_zone_resort_hunting_ground
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z3_zone_resort_hunting_ground
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z4_zone_resort_hunting_ground
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z5_zone_resort_hunting_ground
+        add = 1
+    }
+}
+num_zones_of_zone_resort_restoration_enclave = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_resort_restoration_enclave
+        }
+        mode = add
+    }
+}
+
+num_zone_plan_of_zone_resort_restoration_enclave = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z1_zone_resort_restoration_enclave
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z2_zone_resort_restoration_enclave
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z3_zone_resort_restoration_enclave
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z4_zone_resort_restoration_enclave
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z5_zone_resort_restoration_enclave
+        add = 1
+    }
+}
+num_zones_of_zone_resort_proving_grounds = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_resort_proving_grounds
+        }
+        mode = add
+    }
+}
+
+num_zone_plan_of_zone_resort_proving_grounds = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z1_zone_resort_proving_grounds
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z2_zone_resort_proving_grounds
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z3_zone_resort_proving_grounds
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z4_zone_resort_proving_grounds
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z5_zone_resort_proving_grounds
+        add = 1
+    }
+}
+num_zones_of_zone_energy = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_energy
+        }
+        mode = add
+    }
+}
+
+num_zone_plan_of_zone_energy = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z1_zone_energy
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z2_zone_energy
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z3_zone_energy
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z4_zone_energy
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z5_zone_energy
+        add = 1
+    }
+}
+num_zones_of_zone_urban_energy = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_urban_energy
+        }
+        mode = add
+    }
+}
+
+num_zone_plan_of_zone_urban_energy = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z1_zone_urban_energy
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z2_zone_urban_energy
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z3_zone_urban_energy
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z4_zone_urban_energy
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z5_zone_urban_energy
+        add = 1
+    }
+}
+num_zones_of_zone_energy_ring_world = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_energy_ring_world
+        }
+        mode = add
+    }
+}
+
+num_zone_plan_of_zone_energy_ring_world = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z1_zone_energy_ring_world
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z2_zone_energy_ring_world
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z3_zone_energy_ring_world
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z4_zone_energy_ring_world
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z5_zone_energy_ring_world
+        add = 1
+    }
+}
+num_zones_of_zone_energy_nexus = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_energy_nexus
+        }
+        mode = add
+    }
+}
+
+num_zone_plan_of_zone_energy_nexus = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z1_zone_energy_nexus
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z2_zone_energy_nexus
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z3_zone_energy_nexus
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z4_zone_energy_nexus
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z5_zone_energy_nexus
+        add = 1
+    }
+}
+num_zones_of_zone_energy_hive = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_energy_hive
+        }
+        mode = add
+    }
+}
+
+num_zone_plan_of_zone_energy_hive = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z1_zone_energy_hive
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z2_zone_energy_hive
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z3_zone_energy_hive
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z4_zone_energy_hive
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z5_zone_energy_hive
+        add = 1
+    }
+}
+num_zones_of_zone_betharian = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_betharian
+        }
+        mode = add
+    }
+}
+
+num_zone_plan_of_zone_betharian = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z1_zone_betharian
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z2_zone_betharian
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z3_zone_betharian
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z4_zone_betharian
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z5_zone_betharian
+        add = 1
+    }
+}
+num_zones_of_zone_betharian_nexus = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_betharian_nexus
+        }
+        mode = add
+    }
+}
+
+num_zone_plan_of_zone_betharian_nexus = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z1_zone_betharian_nexus
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z2_zone_betharian_nexus
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z3_zone_betharian_nexus
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z4_zone_betharian_nexus
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z5_zone_betharian_nexus
+        add = 1
+    }
+}
+num_zones_of_zone_betharian_hive = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_betharian_hive
+        }
+        mode = add
+    }
+}
+
+num_zone_plan_of_zone_betharian_hive = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z1_zone_betharian_hive
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z2_zone_betharian_hive
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z3_zone_betharian_hive
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z4_zone_betharian_hive
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z5_zone_betharian_hive
+        add = 1
+    }
+}
+num_zones_of_zone_minerals = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_minerals
+        }
+        mode = add
+    }
+}
+
+num_zone_plan_of_zone_minerals = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z1_zone_minerals
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z2_zone_minerals
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z3_zone_minerals
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z4_zone_minerals
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z5_zone_minerals
+        add = 1
+    }
+}
+num_zones_of_zone_urban_minerals = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_urban_minerals
+        }
+        mode = add
+    }
+}
+
+num_zone_plan_of_zone_urban_minerals = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z1_zone_urban_minerals
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z2_zone_urban_minerals
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z3_zone_urban_minerals
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z4_zone_urban_minerals
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z5_zone_urban_minerals
+        add = 1
+    }
+}
+num_zones_of_zone_minerals_nexus = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_minerals_nexus
+        }
+        mode = add
+    }
+}
+
+num_zone_plan_of_zone_minerals_nexus = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z1_zone_minerals_nexus
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z2_zone_minerals_nexus
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z3_zone_minerals_nexus
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z4_zone_minerals_nexus
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z5_zone_minerals_nexus
+        add = 1
+    }
+}
+num_zones_of_zone_minerals_hive = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_minerals_hive
+        }
+        mode = add
+    }
+}
+
+num_zone_plan_of_zone_minerals_hive = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z1_zone_minerals_hive
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z2_zone_minerals_hive
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z3_zone_minerals_hive
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z4_zone_minerals_hive
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z5_zone_minerals_hive
+        add = 1
+    }
+}
+num_zones_of_zone_food = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_food
+        }
+        mode = add
+    }
+}
+
+num_zone_plan_of_zone_food = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z1_zone_food
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z2_zone_food
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z3_zone_food
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z4_zone_food
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z5_zone_food
+        add = 1
+    }
+}
+num_zones_of_zone_urban_food = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_urban_food
+        }
+        mode = add
+    }
+}
+
+num_zone_plan_of_zone_urban_food = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z1_zone_urban_food
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z2_zone_urban_food
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z3_zone_urban_food
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z4_zone_urban_food
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z5_zone_urban_food
+        add = 1
+    }
+}
+num_zones_of_zone_food_ring_world = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_food_ring_world
+        }
+        mode = add
+    }
+}
+
+num_zone_plan_of_zone_food_ring_world = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z1_zone_food_ring_world
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z2_zone_food_ring_world
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z3_zone_food_ring_world
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z4_zone_food_ring_world
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z5_zone_food_ring_world
+        add = 1
+    }
+}
+num_zones_of_zone_food_hive = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_food_hive
+        }
+        mode = add
+    }
+}
+
+num_zone_plan_of_zone_food_hive = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z1_zone_food_hive
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z2_zone_food_hive
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z3_zone_food_hive
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z4_zone_food_hive
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z5_zone_food_hive
+        add = 1
+    }
+}
+num_zones_of_zone_rare_crystals = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_rare_crystals
+        }
+        mode = add
+    }
+}
+
+num_zone_plan_of_zone_rare_crystals = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z1_zone_rare_crystals
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z2_zone_rare_crystals
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z3_zone_rare_crystals
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z4_zone_rare_crystals
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z5_zone_rare_crystals
+        add = 1
+    }
+}
+num_zones_of_zone_rare_crystals_nexus = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_rare_crystals_nexus
+        }
+        mode = add
+    }
+}
+
+num_zone_plan_of_zone_rare_crystals_nexus = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z1_zone_rare_crystals_nexus
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z2_zone_rare_crystals_nexus
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z3_zone_rare_crystals_nexus
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z4_zone_rare_crystals_nexus
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z5_zone_rare_crystals_nexus
+        add = 1
+    }
+}
+num_zones_of_zone_rare_crystals_hive = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_rare_crystals_hive
+        }
+        mode = add
+    }
+}
+
+num_zone_plan_of_zone_rare_crystals_hive = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z1_zone_rare_crystals_hive
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z2_zone_rare_crystals_hive
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z3_zone_rare_crystals_hive
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z4_zone_rare_crystals_hive
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z5_zone_rare_crystals_hive
+        add = 1
+    }
+}
+num_zones_of_zone_volatile_motes = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_volatile_motes
+        }
+        mode = add
+    }
+}
+
+num_zone_plan_of_zone_volatile_motes = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z1_zone_volatile_motes
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z2_zone_volatile_motes
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z3_zone_volatile_motes
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z4_zone_volatile_motes
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z5_zone_volatile_motes
+        add = 1
+    }
+}
+num_zones_of_zone_volatile_motes_nexus = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_volatile_motes_nexus
+        }
+        mode = add
+    }
+}
+
+num_zone_plan_of_zone_volatile_motes_nexus = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z1_zone_volatile_motes_nexus
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z2_zone_volatile_motes_nexus
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z3_zone_volatile_motes_nexus
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z4_zone_volatile_motes_nexus
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z5_zone_volatile_motes_nexus
+        add = 1
+    }
+}
+num_zones_of_zone_volatile_motes_hive = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_volatile_motes_hive
+        }
+        mode = add
+    }
+}
+
+num_zone_plan_of_zone_volatile_motes_hive = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z1_zone_volatile_motes_hive
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z2_zone_volatile_motes_hive
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z3_zone_volatile_motes_hive
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z4_zone_volatile_motes_hive
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z5_zone_volatile_motes_hive
+        add = 1
+    }
+}
+num_zones_of_zone_exotic_gases = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_exotic_gases
+        }
+        mode = add
+    }
+}
+
+num_zone_plan_of_zone_exotic_gases = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z1_zone_exotic_gases
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z2_zone_exotic_gases
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z3_zone_exotic_gases
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z4_zone_exotic_gases
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z5_zone_exotic_gases
+        add = 1
+    }
+}
+num_zones_of_zone_exotic_gases_nexus = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_exotic_gases_nexus
+        }
+        mode = add
+    }
+}
+
+num_zone_plan_of_zone_exotic_gases_nexus = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z1_zone_exotic_gases_nexus
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z2_zone_exotic_gases_nexus
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z3_zone_exotic_gases_nexus
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z4_zone_exotic_gases_nexus
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z5_zone_exotic_gases_nexus
+        add = 1
+    }
+}
+num_zones_of_zone_exotic_gases_hive = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_exotic_gases_hive
+        }
+        mode = add
+    }
+}
+
+num_zone_plan_of_zone_exotic_gases_hive = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z1_zone_exotic_gases_hive
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z2_zone_exotic_gases_hive
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z3_zone_exotic_gases_hive
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z4_zone_exotic_gases_hive
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z5_zone_exotic_gases_hive
+        add = 1
+    }
+}
+num_zones_of_zone_anglers = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_anglers
+        }
+        mode = add
+    }
+}
+
+num_zone_plan_of_zone_anglers = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z1_zone_anglers
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z2_zone_anglers
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z3_zone_anglers
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z4_zone_anglers
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z5_zone_anglers
+        add = 1
+    }
+}
+num_zones_of_zone_spawning = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_spawning
+        }
+        mode = add
+    }
+}
+
+num_zone_plan_of_zone_spawning = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z1_zone_spawning
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z2_zone_spawning
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z3_zone_spawning
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z4_zone_spawning
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z5_zone_spawning
+        add = 1
+    }
+}
+num_zones_of_zone_spawning_hive = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_spawning_hive
+        }
+        mode = add
+    }
+}
+
+num_zone_plan_of_zone_spawning_hive = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z1_zone_spawning_hive
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z2_zone_spawning_hive
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z3_zone_spawning_hive
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z4_zone_spawning_hive
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z5_zone_spawning_hive
+        add = 1
+    }
+}
+num_zones_of_zone_foundry_wilderness = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_foundry_wilderness
+        }
+        mode = add
+    }
+}
+
+num_zone_plan_of_zone_foundry_wilderness = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z1_zone_foundry_wilderness
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z2_zone_foundry_wilderness
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z3_zone_foundry_wilderness
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z4_zone_foundry_wilderness
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z5_zone_foundry_wilderness
+        add = 1
+    }
+}
+num_zones_of_zone_research_wilderness = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_research_wilderness
+        }
+        mode = add
+    }
+}
+
+num_zone_plan_of_zone_research_wilderness = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z1_zone_research_wilderness
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z2_zone_research_wilderness
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z3_zone_research_wilderness
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z4_zone_research_wilderness
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z5_zone_research_wilderness
+        add = 1
+    }
+}
+num_zones_of_zone_unity_wilderness = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_unity_wilderness
+        }
+        mode = add
+    }
+}
+
+num_zone_plan_of_zone_unity_wilderness = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z1_zone_unity_wilderness
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z2_zone_unity_wilderness
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z3_zone_unity_wilderness
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z4_zone_unity_wilderness
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z5_zone_unity_wilderness
+        add = 1
+    }
+}
+num_zones_of_zone_research_unity_wilderness = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_research_unity_wilderness
+        }
+        mode = add
+    }
+}
+
+num_zone_plan_of_zone_research_unity_wilderness = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z1_zone_research_unity_wilderness
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z2_zone_research_unity_wilderness
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z3_zone_research_unity_wilderness
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z4_zone_research_unity_wilderness
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z5_zone_research_unity_wilderness
+        add = 1
+    }
+}
+num_zones_of_zone_trade_wilderness = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_trade_wilderness
+        }
+        mode = add
+    }
+}
+
+num_zone_plan_of_zone_trade_wilderness = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z1_zone_trade_wilderness
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z2_zone_trade_wilderness
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z3_zone_trade_wilderness
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z4_zone_trade_wilderness
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z5_zone_trade_wilderness
+        add = 1
+    }
+}
+num_zones_of_zone_fortress_wilderness = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_fortress_wilderness
+        }
+        mode = add
+    }
+}
+
+num_zone_plan_of_zone_fortress_wilderness = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z1_zone_fortress_wilderness
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z2_zone_fortress_wilderness
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z3_zone_fortress_wilderness
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z4_zone_fortress_wilderness
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z5_zone_fortress_wilderness
+        add = 1
+    }
+}
+num_zones_of_zone_minerals_wilderness = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_minerals_wilderness
+        }
+        mode = add
+    }
+}
+
+num_zone_plan_of_zone_minerals_wilderness = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z1_zone_minerals_wilderness
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z2_zone_minerals_wilderness
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z3_zone_minerals_wilderness
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z4_zone_minerals_wilderness
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z5_zone_minerals_wilderness
+        add = 1
+    }
+}
+num_zones_of_zone_energy_wilderness = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_energy_wilderness
+        }
+        mode = add
+    }
+}
+
+num_zone_plan_of_zone_energy_wilderness = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z1_zone_energy_wilderness
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z2_zone_energy_wilderness
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z3_zone_energy_wilderness
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z4_zone_energy_wilderness
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z5_zone_energy_wilderness
+        add = 1
+    }
+}
+num_zones_of_zone_food_wilderness = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = zone_food_wilderness
+        }
+        mode = add
+    }
+}
+
+num_zone_plan_of_zone_food_wilderness = {
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z1_zone_food_wilderness
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z2_zone_food_wilderness
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z3_zone_food_wilderness
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z4_zone_food_wilderness
+        add = 1
+    }
+    modifier = {
+        has_planet_flag = bca_pf_ps_selected_zone_z5_zone_food_wilderness
+        add = 1
+    }
+}

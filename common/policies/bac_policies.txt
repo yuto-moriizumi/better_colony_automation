@@ -55,122 +55,6 @@ bca_reserve_influence = {
         }
     }
 }
-#         name = "disable_bac_advanced_automation_category"
-#         on_enabled = {
-#             remove_country_flag = bac_advanced_automation_category_enabled
-#         }
-#         ai_weight = {
-#             factor = 1
-#         }
-#     }
-#     option = {
-#         name = "enable_bac_advanced_automation_category"
-#         on_enabled = {
-#             set_country_flag = bac_advanced_automation_category_enabled
-#         }
-#         ai_weight = {
-#             factor = 0
-#         }
-#     }
-
-# }
-
-bac_building_destroy = {
-    allow = { always = yes }
-	potential = { always = yes }
-    option = {
-        name = "disable_bac_building_destroy"
-        on_enabled = {
-            remove_country_flag = bac_building_destroy
-        }
-        ai_weight = {
-            factor = 0
-            modifier = {
-                factor = 1
-                is_ai = yes
-            }
-		}
-    }
-    option = {
-        name = "enable_bac_building_destroy"
-        on_enabled = {
-            set_country_flag = bac_building_destroy
-        }
-        ai_weight = {
-            factor = 1
-            modifier = {
-                factor = 0
-                is_ai = yes
-            }
-        }
-    }
-
-}
-
-bac_allow_district_destruction = {
-    allow = { always = yes }
-    potential = { always = yes }
-    option = {
-        name = "disable_bac_allow_district_destruction"
-        on_enabled = {
-            remove_country_flag = bac_allow_district_destruction
-        }
-        ai_weight = {
-            factor = 0
-            modifier = {
-                factor = 1
-                is_ai = yes
-            }
-        }
-    }
-    option = {
-        name = "enable_bac_allow_district_destruction"
-        on_enabled = {
-            set_country_flag = bac_allow_district_destruction
-        }
-        ai_weight = {
-            factor = 1
-            modifier = {
-                factor = 0
-                is_ai = yes
-            }
-        }
-    }
-
-}
-
-bac_zone_destroy = {
-    allow = { always = yes }
-    potential = { always = yes }
-    option = {
-        name = "disable_bac_zone_destroy"
-        on_enabled = {
-            remove_country_flag = bac_zone_destroy
-        }
-        ai_weight = {
-            factor = 0
-            modifier = {
-                factor = 1
-                is_ai = yes
-            }
-        }
-    }
-    option = {
-        name = "enable_bac_zone_destroy"
-        on_enabled = {
-            set_country_flag = bac_zone_destroy
-        }
-        ai_weight = {
-            factor = 1
-            modifier = {
-                factor = 0
-                is_ai = yes
-            }
-        }
-    }
-
-}
-
 
 bac_remove_pop_assemble_buildings = {
     allow = { always = yes }
@@ -204,29 +88,28 @@ bac_remove_pop_assemble_buildings = {
 
 }
 
-# bac_allow_deurbanization = {
-#     allow = { always = yes }
-#     potential = { always = yes }
-#     option = {
-#         name = "disable_bac_allow_deurbanization"
-#         on_enabled = {
-#             remove_country_flag = bac_allow_deurbanization
-#         }
-#         ai_weight = {
-#             factor = 1
-#         }
-#     }
-#     option = {
-#         name = "enable_bac_allow_deurbanization"
-#         on_enabled = {
-#             set_country_flag = bac_allow_deurbanization
-#         }
-#         ai_weight = {
-#             factor = 0
-#         }
-#     }
-
-# }
+bac_allow_deurbanization = {
+    allow = { always = yes }
+    potential = { always = yes }
+    option = {
+        name = "disable_bac_allow_deurbanization"
+        on_enabled = {
+            remove_country_flag = bac_allow_deurbanization
+        }
+        ai_weight = {
+            factor = 1
+        }
+    }
+    option = {
+        name = "enable_bac_allow_deurbanization"
+        on_enabled = {
+            set_country_flag = bac_allow_deurbanization
+        }
+        ai_weight = {
+            factor = 0
+        }
+    }
+}
 
 
 

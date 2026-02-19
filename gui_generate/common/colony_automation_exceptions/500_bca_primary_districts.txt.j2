@@ -1,0 +1,19 @@
+{% import 'component/planet_flag_ps.j2' as pf with context -%}
+{% import 'component/conditions.j2' as cond with context %}
+
+automate_primary_districts = {
+	category = "planet_automation_designation_construction"
+
+	emergency = yes
+	available = {
+		bca_has_minerals_to_build = yes
+        has_planet_flag = {{ pf.flag_district_plan_build('d0') }}
+	}
+
+    prio_districts = {
+		{% for district in primary_districts %}
+        {{ district }}
+        {% endfor %}
+	}
+}
+

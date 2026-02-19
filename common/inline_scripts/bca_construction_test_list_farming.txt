@@ -1,0 +1,66 @@
+if = {
+	limit = {
+		check_variable = {
+			which = bca_selected_index
+			value = -1
+		}
+	}
+	
+	bca_opti_estimate_num_district_farming = yes
+
+	set_variable = {
+		which = bca_current_production
+		value = value:bca_potential_standard_food_production
+	}
+}
+
+
+
+try_construct_district = {
+	district = district_farming
+	district_max = bca_opti_count_district_farming
+	production = value:bca_potential_standard_food_production
+	cost = 240
+	priority_shift = 0
+	index = 1
+}
+try_construct_district_city = {
+	production = value:bca_potential_standard_food_production
+	district_max = bca_opti_count_primary_district
+	priority_shift = bca_non_job_provider_priority_shift
+	index = 2
+}
+# zone_food does not needed to test as it's first priority
+
+try_construct_zone_city = {
+	zone = zone_urban_food
+	production = value:bca_potential_standard_food_production|INC_MULT|value:bca_production_inc_mult_from_urban_resource|
+	cost = @zone_buildtime
+	priority_shift = bca_non_job_provider_priority_shift
+	index = 3
+}
+
+try_construct_building = {
+	building = building_food_processing_facility
+	production = value:bca_potential_standard_food_production|INC_MULT|0.20|
+	cost = @b1_time
+	priority_shift = bca_non_job_provider_priority_shift
+	index = 4
+}
+
+inline_script = {
+	script = bca_try_construct_unique_building_series_2
+	standard_production = bca_potential_standard_food_production
+	building_1 = building_food_processing_facility
+	b1_inc_job = 0
+	b1_inc_add = 0
+	b1_inc_mult = 0.2
+	building_1_cost = @b1_time
+	building_2 = building_food_processing_center
+	b2_inc_job = 0
+	b2_inc_add = 2
+	b2_inc_mult = 0
+	building_2_cost = @b2_time
+	priority_shift = bca_non_job_provider_priority_shift
+	index = 5
+}

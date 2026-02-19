@@ -79,7 +79,7 @@ if = {
 		value = sim_resource_district_count
 	}
 	set_variable = {
-		which = bca_opti_count_district_city
+		which = bca_opti_count_primary_district
 		value = sim_district_city_count
 	}
 
@@ -114,7 +114,7 @@ if = {
 			value = sim_resource_district_count
 		}
 		set_variable = {
-			which = bca_opti_count_district_city
+			which = bca_opti_count_primary_district
 			value = sim_district_city_count
 		}
 
@@ -146,7 +146,7 @@ if = {
 		value = value:bca_planet_energy_job_add_estimate
 	}
 
-	# retain bca_opti_count_$DISTRICT$ and bca_opti_count_district_city and conditions
+	# retain bca_opti_count_$DISTRICT$ and bca_opti_count_primary_district and conditions
 	clear_variable = sim_district_city_count
 	clear_variable = sim_resource_district_count
 	clear_variable = max_production

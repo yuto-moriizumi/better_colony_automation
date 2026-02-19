@@ -1,0 +1,271 @@
+{% import 'component/planet_variable.j2' as v -%}
+{% import 'component/conditions.j2' as cond with context %}
+{% import 'component/planet_flag_ps.j2' as pf with context -%}
+
+bca_potential_max_districts = {
+	complex_trigger_modifier = {
+		trigger = num_districts
+		parameters = {
+			type = any
+		}
+		mode = set
+	}
+	complex_trigger_modifier = {
+		trigger = num_free_districts
+		parameters = {
+			type = any
+		}
+		mode = add
+	}
+    modifier = {
+        has_modifier = bca_pm_arcology_project_candidate
+        add = trigger:planet_size
+    }
+}
+
+bca_num_free_secondary_districts_plan = {
+    set = value:bca_potential_max_districts
+    subtract = value:num_primary_district
+    {% for i in range(3,6) %}
+    {% set zone_slot = "z"~i %}
+    subtract = {{ v.var_district_num_plan(zone_slot) }}
+    {% endfor %}
+}
+
+bca_num_free_primary_districts_plan = {
+    set = value:bca_potential_max_districts
+    subtract = value:num_secondary_district
+}
+
+bca_num_primary_districts_plan = {
+    set = value:bca_potential_max_districts
+    {% for i in range(3,6) %}
+    {% set zone_slot = "z"~i %}
+    subtract = {{ v.var_district_num_plan(zone_slot) }}
+    {% endfor %}
+}
+
+bca_num_secondary_districts_plan = {
+    {% for i in range(3,6) %}
+    {% set zone_slot = "z"~i %}
+    add = {{ v.var_district_num_plan(zone_slot) }}
+    {% endfor %}
+}
+
+# floor(value:bca_potential_max_districts * RATIO)
+bca_num_main_districts_from_ratio = {
+    set = value:bca_potential_max_districts
+    multiply = $RATIO$
+    round = yes
+}
+bca_built_primary_districts_to_ratio = {
+    set = value:num_primary_district
+    divide = value:bca_potential_max_districts
+}
+bca_plan_primary_districts_to_ratio = {
+    set = value:bca_num_primary_districts_plan
+    divide = value:bca_potential_max_districts
+}
+bca_built_secondary_districts_to_ratio = {
+    set = value:num_secondary_district
+    divide = value:bca_potential_max_districts
+}
+bca_plan_secondary_districts_to_ratio = {
+    {% for i in range(3,6) %}
+    {% set zone_slot = "z"~i %}
+    add = {{ v.var_district_num_plan(zone_slot) }}
+    {% endfor %}
+    divide = value:bca_potential_max_districts
+}
+
+
+
+num_primary_district = {
+{% for district in primary_districts %}
+    complex_trigger_modifier = {
+        trigger = num_districts
+        parameters = {
+            type = {{ district }}
+        }
+        mode = add
+    }
+{% endfor %}
+}
+
+num_secondary_district = {
+{% for district in secondary_districts %}
+    complex_trigger_modifier = {
+        trigger = num_districts
+        parameters = {
+            type = {{ district }}
+        }
+        mode = add
+    }
+{% endfor %}
+}
+
+{% set all_district_set = [primary_districts, secondary_districts_d1, secondary_districts_d2, secondary_districts_d3] %}
+{% for district_set_idx in range(4) %}
+num_district_d{{ district_set_idx }} = {
+    {% for district in all_district_set[district_set_idx] %}
+    complex_trigger_modifier = {
+        trigger = num_districts
+        parameters = {
+            type = {{ district }}
+        }
+        mode = add
+    }
+    {% endfor %}
+}
+{% endfor %}
+
+
+num_free_primary_district = {
+{% for district in primary_districts %}
+    complex_trigger_modifier = {
+        trigger = num_free_districts
+        parameters = {
+            type = {{ district }}
+        }
+        mode = set
+        potential = {
+            bca_can_build_{{ district }} = yes
+        }
+    }
+{% endfor %}
+}
+
+num_free_secondary_district = {
+{% for district in secondary_districts %}
+    complex_trigger_modifier = {
+        trigger = num_free_districts
+        parameters = {
+            type = {{ district }}
+        }
+        mode = set
+        potential = {
+            bca_can_build_{{ district }} = yes
+        }
+    }
+{% endfor %}
+}
+
+{% for district_set_idx in range(4) %}
+num_free_district_d{{ district_set_idx }} = {
+    {% for district in all_district_set[district_set_idx] %}
+    complex_trigger_modifier = {
+        trigger = num_free_districts
+        parameters = { type = {{ district }} }
+        mode = set
+        potential = {
+            bca_can_build_{{ district }} = yes
+        }
+    }
+    {% endfor %}
+}
+{% endfor %}
+
+num_zones_primary_district = {
+{% for zone in primary_districts_for_zone %}
+	complex_trigger_modifier = {
+		trigger = num_zones
+		parameters = {
+			type = {{ zone }}
+		}
+		mode = add
+	}
+{% endfor %}
+}
+
+num_zones_secondary_district = {
+{% for zone in secondary_districts_for_zone %}
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = {{ zone }}
+        }
+        mode = add
+    }
+{% endfor %}
+}
+
+{% for item in zones_info %}
+{% set type = item.type %}
+{% if cond.contain_any_zones_of(item.zones, primary_districts_for_zone)|int %}
+num_primary_zones_of_type_{{ type }} = {
+    {% for zone in item.zones %}
+    {% if zone in primary_districts_for_zone %}
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = {{ zone }}
+        }
+        mode = add
+    }
+    {% endif %}
+    {% endfor %}
+}
+
+num_primary_zone_plan_of_type_{{ type }} = {
+    {% for zone_slot in ['z1','z2'] %}
+    modifier = {
+        has_planet_flag = {{ pf.flag_selected_zone_type(zone_slot, type) }}
+        add = 1
+    }
+    {% endfor %}
+
+}
+
+{% endif %}
+{% if cond.contain_any_zones_of(item.zones, secondary_districts_for_zone)|int %}
+num_secondary_zones_of_type_{{ type }} = {
+    {% for zone in item.zones %}
+    {% if zone in secondary_districts_for_zone %}
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = {{ zone }}
+        }
+        mode = add
+    }
+    {% endif %}
+    {% endfor %}
+}
+
+num_secondary_zone_plan_of_type_{{ type }} = {
+    {% for zone_slot in ['z3','z4','z5'] %}
+    modifier = {
+        has_planet_flag = {{ pf.flag_selected_zone_type(zone_slot, type) }}
+        add = 1
+    }
+    {% endfor %}
+}
+
+{% endif %}
+{% endfor %}
+
+
+{% for item in zones_info %}
+{% set type = item.type %}
+{% for zone in item.zones %}
+num_zones_of_{{ zone }} = {
+    complex_trigger_modifier = {
+        trigger = num_zones
+        parameters = {
+            type = {{ zone }}
+        }
+        mode = add
+    }
+}
+
+num_zone_plan_of_{{ zone }} = {
+    {% for zone_slot in ['z1','z2','z3','z4','z5'] %}
+    modifier = {
+        has_planet_flag = {{ pf.flag_selected_zone(zone_slot, zone) }}
+        add = 1
+    }
+    {% endfor %}
+}
+{% endfor %}
+{% endfor %}
+

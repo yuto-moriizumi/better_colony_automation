@@ -1,0 +1,158 @@
+
+
+# 物理学
+better_automate_research_planet_physics_1 = {
+	category = "planet_automation_designation_construction"
+
+	available = {
+        requires_more_job = yes
+        bca_has_minerals_to_build = yes
+		has_research_designation = yes
+		# bca_has_mixed_trade_designation = no
+		OR = {
+			has_planet_flag = bca_research_preference_physics
+			bca_num_zone_research_physics_under_limit = yes
+		}
+	}
+
+	prio_zones = {
+        zone_research_physics
+        zone_research_physics_arcology
+        zone_research_physics_ring_world
+        zone_research_physics_nexus
+        zone_research_physics_hive
+
+        zone_habitat_research_unity
+	}
+}
+
+#社会学
+better_automate_research_planet_society_1 = {
+	category = "planet_automation_designation_construction"
+
+	available = {
+        requires_more_job = yes
+        bca_has_minerals_to_build = yes
+		has_sociology_designation = yes
+		# bca_has_mixed_trade_designation = no
+		OR = {
+			has_planet_flag = bca_research_preference_society
+			bca_num_zone_research_society_under_limit = yes
+		}
+	}
+
+	prio_zones = {
+        zone_research_society
+        zone_research_society_arcology
+        zone_research_society_ring_world
+        zone_research_society_nexus
+        zone_research_society_hive
+
+        zone_habitat_research_unity
+	}
+}
+
+# 工程学
+better_automate_research_planet_engineering_1 = {
+	category = "planet_automation_designation_construction"
+
+	available = {
+        requires_more_job = yes
+        bca_has_minerals_to_build = yes
+		has_engineering_designation = yes
+		# bca_has_mixed_trade_designation = no
+		OR = {
+			has_planet_flag = bca_research_preference_engineering
+			bca_num_zone_research_engineering_under_limit = yes
+		}
+	}
+
+	prio_zones = {
+        zone_research_engineering
+        zone_research_engineering_arcology
+        zone_research_engineering_ring_world
+        zone_research_engineering_nexus
+        zone_research_engineering_hive
+
+        zone_habitat_research_unity
+	}
+}
+
+# will fall back to this if none of the above match
+automate_research_planet = {
+	category = "planet_automation_designation_construction"
+
+	available = {
+		requires_more_job = yes
+		bca_has_minerals_to_build = yes
+		has_research_designation = yes
+		# OR = {
+		# 	has_planet_flag = bca_research_preference_balance
+		# 	bca_num_zone_research_balance_under_limit = yes
+		# }
+		
+	}
+
+	prio_zones = {
+		zone_research
+		zone_research_arcology
+		zone_research_ring_world
+		zone_research_nexus
+		zone_research_hive
+		
+		zone_habitat_research_unity # fall back
+	}
+
+}
+
+
+#物理学带贸易
+better_automate_research_planet_physics_2 = {
+	category = "planet_automation_designation_construction"
+
+	available = {
+        requires_more_job = yes
+        bca_has_minerals_to_build = yes
+		has_physics_designation = yes
+		bca_has_mixed_trade_designation = yes
+	}
+
+	prio_zones = {
+        zone_research_physics
+	}
+}
+
+
+
+# 社会学带贸易
+better_automate_research_planet_policy_2 = {
+	category = "planet_automation_designation_construction"
+
+	available = {
+        requires_more_job = yes
+        bca_has_minerals_to_build = yes
+		has_sociology_designation = yes
+		bca_has_mixed_trade_designation = yes
+	}
+
+	prio_zones = {
+        zone_research_society
+	}
+}
+
+
+#工程学带贸易
+better_automate_research_planet_engineering_2 = {
+	category = "planet_automation_designation_construction"
+
+	available = {
+        requires_more_job = yes
+        bca_has_minerals_to_build = yes
+		has_engineering_designation = yes
+		bca_has_mixed_trade_designation = yes
+	}
+
+	prio_zones = {
+        zone_research_engineering
+	}
+}

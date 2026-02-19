@@ -9,18 +9,6 @@ automate_penal_planet = {
 
 	}
 
-	prio_districts = {
-		district_generator
-		district_mining
-		district_farming
-		district_prison
-	}
-
-	prio_zones = {
-		zone_industrial
-		zone_foundry
-	}
-
 	buildings = {
 		1 = {
 			building = building_ministry_production

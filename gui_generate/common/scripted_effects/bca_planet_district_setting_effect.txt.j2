@@ -1,0 +1,162 @@
+{% import 'component/planet_flag_ps.j2' as pf with context -%}
+{% import 'component/planet_variable.j2' as v -%}
+{% import 'component/planet_variable.j2' as v -%}
+
+try_set_secondary_districts_plan_zero_to_one = {
+    {% for i in range(3,6) %}
+    {% set zone_slot = "z"~(i) %}
+    if = {
+        limit = {
+             check_variable = {
+                 which = {{v.var_district_num_plan(zone_slot)}}
+                 value = 0
+             }
+            check_variable_arithmetic = {
+                which = value:bca_num_free_secondary_districts_plan
+                value > 0
+            }
+        }
+        add_variable = {
+            which = {{v.var_district_num_plan(zone_slot)}}
+            value = 1
+        }
+    }
+    {% endfor %}
+}
+
+try_set_secondary_districts_plan_one_to_zero = {
+    bca_set_secondary_district_type_flag = yes
+    {% for i in range(3,6) %}
+    {% set zone_slot = "z"~(i) %}
+    {% for district in secondary_districts %}
+    if = {
+        limit = {
+             has_planet_flag = {{ pf.flag_zone_district(zone_slot, district) }}
+             NOT = { has_district = {{district}} }
+             check_variable = {
+                 which = {{v.var_district_num_plan(zone_slot)}}
+                 value = 1
+             }
+        }
+        set_variable = {
+            which = {{v.var_district_num_plan(zone_slot)}}
+            value = 0
+        }
+    }
+    {% endfor %}
+    {% endfor %}
+    bca_clean_flags_zone_selector_secondary_district = yes
+}
+
+bca_set_district_plan_by_ratio = {
+    set_variable = {
+        which = new_num_main_districts_plan_diff
+        value = value:bca_num_main_districts_from_ratio|RATIO|$RATIO$|
+    }
+    subtract_variable = {
+         which = new_num_main_districts_plan_diff
+         value = value:bca_num_primary_districts_plan
+    }
+    bca_set_district_plan_by_diff = yes
+}
+
+bca_set_district_plan_inc_1 = {
+    set_variable = {
+        which = new_num_main_districts_plan_diff
+        value = 1
+    }
+    bca_set_district_plan_by_diff = yes
+}
+
+bca_set_district_plan_dec_1 = {
+    set_variable = {
+        which = new_num_main_districts_plan_diff
+        value = -1
+    }
+    bca_set_district_plan_by_diff = yes
+}
+
+bca_set_district_plan_by_diff = {
+
+    while = {
+         limit = {
+             check_variable = {
+                 which = new_num_main_districts_plan_diff
+                 value > 0
+             }
+         }
+        {% for i in range(3,6) %}
+        {% set zone_slot = "z"~(i) %}
+        if = {
+            limit = {
+                check_variable = {
+                    which = {{v.var_district_num_plan(zone_slot)}}
+                    value > value:num_district_{{ zone_slot_district_slot_mapping[zone_slot] }}
+                }
+                 check_variable = {
+                     which = new_num_main_districts_plan_diff
+                     value > 0
+                 }
+            }
+            subtract_variable = {
+                which = {{v.var_district_num_plan(zone_slot)}}
+                value = 1
+            }
+            subtract_variable = {
+                which = new_num_main_districts_plan_diff
+                value = 1
+            }
+        }
+        {% endfor %}
+    }
+    while = {
+         limit = {
+             check_variable = {
+                 which = new_num_main_districts_plan_diff
+                 value < 0
+             }
+         }
+        {% for i in range(3,6) %}
+        {% set zone_slot = "z"~(i) %}
+        if = {
+            limit = {
+                check_variable_arithmetic = {
+                    which = value:bca_num_free_secondary_districts_plan
+                    value > 0
+                }
+                 check_variable = {
+                     which = new_num_main_districts_plan_diff
+                     value < 0
+                 }
+                 OR = {
+                    bca_has_secondary_districts = yes
+                    AND = {
+                       {% if zone_slot == 'z3' %}
+                       has_farming_designation = no
+                       has_mining_designation = no
+                       {% elif zone_slot == 'z4' %}
+                       has_generator_designation = no
+                       has_farming_designation = no
+                       {% elif zone_slot == 'z5' %}
+                       has_generator_designation = no
+                       has_mining_designation = no
+                       {% endif %}
+                    }
+                 }
+            }
+            add_variable = {
+                which = {{v.var_district_num_plan(zone_slot)}}
+                value = 1
+            }
+            add_variable = {
+                which = new_num_main_districts_plan_diff
+                value = 1
+            }
+        }
+        {% endfor %}
+    }
+
+    clear_variable = new_num_main_districts_plan_diff
+
+
+}

@@ -82,32 +82,24 @@ planet_event = {
 	}
 
 	option = {
-		name = "var_test"
-		# # Energy Components
+		name = "var_test 1"
+				# # Energy Components
 		# set_variable = { which = bca_test_base_energy value = value:bca_base_energy }
 
 		# # Energy Multipliers Modifiers
-		# set_variable = { which = bca_test_mod_pj_produce_mult value = modifier:planet_jobs_produces_mult }
-		# set_variable = { which = bca_test_mod_pj_prod_produce_mult value = modifier:planet_jobs_productive_produces_mult }
-		# set_variable = { which = bca_test_mod_pj_worker_produce_mult value = modifier:planet_jobs_worker_produces_mult }
-		# set_variable = { which = bca_test_mod_pj_energy_produce_mult value = modifier:planet_jobs_energy_produces_mult }
-		# set_variable = { which = bca_test_mod_pj_tech_produce_mult value = modifier:planet_technician_produces_mult }
-		# set_variable = { which = bca_test_mod_pj_tech_energy_produce_mult value = modifier:planet_technician_energy_produces_mult }
-		# set_variable = { which = bca_test_mod_pj_simple_drone_mult value = modifier:planet_jobs_simple_drone_produces_mult }
-		# set_variable = { which = bca_test_mod_pj_complex_simple_drone_mult value = modifier:planet_jobs_complex_and_simple_drone_produces_mult }
-		# set_variable = { which = bca_test_mod_habitat_jobs_produces_mult value = modifier:habitat_jobs_produces_mult }
+		set_variable = { which = bca_test_mod_pj_produce_mult value = modifier:planet_jobs_produces_mult }
+		set_variable = { which = bca_test_mod_pj_prod_produce_mult value = modifier:planet_jobs_productive_produces_mult }
+		set_variable = { which = bca_test_mod_pj_complex_simple_drone_mult value = modifier:planet_jobs_complex_and_simple_drone_produces_mult }
 		
-		# # Energy Multipliers Result
-		# set_variable = { which = bca_test_planet_energy_job_mult value = value:bca_planet_energy_job_mult }
+		set_variable = { which = bca_test_mod_pj_worker_produce_mult value = modifier:planet_jobs_worker_produces_mult }
+		set_variable = { which = bca_test_mod_pj_simple_drone_mult value = modifier:planet_jobs_simple_drone_produces_mult }
+
+		set_variable = { which = bca_test_mod_pj_energy_produce_mult value = modifier:planet_jobs_energy_produces_mult }
+
+		set_variable = { which = bca_test_mod_pj_tech_produce_mult value = modifier:planet_technician_produces_mult }
+		set_variable = { which = bca_test_mod_pj_tech_energy_produce_mult value = modifier:planet_technician_energy_produces_mult }
+			
 		
-		# # Modifiers
-		# set_variable = { which = bca_test_pop_bonus_workforce_mult value = modifier:pop_bonus_workforce_mult }
-		# set_variable = { which = bca_test_organic_pop_bonus_workforce_mult value = modifier:organic_pop_bonus_workforce_mult }
-        # set_variable = { which = bca_test_robotic_pop_bonus_workforce_mult value = modifier:robotic_pop_bonus_workforce_mult }
-        # set_variable = { which = bca_test_psionic_pop_bonus_workforce_mult value = modifier:psionic_pop_bonus_workforce_mult }
-        # set_variable = { which = bca_test_cyborg_pop_bonus_workforce_mult value = modifier:cyborg_pop_bonus_workforce_mult }
-        # set_variable = { which = bca_test_pop_slave_bonus_workforce_mult value = modifier:pop_slave_bonus_workforce_mult }
-        # set_variable = { which = bca_test_psionic_specialist_pop_bonus_workforce_mult value = modifier:psionic_specialist_pop_bonus_workforce_mult }
 		# # Job counts Modifiers
 		# set_variable = { which = bca_test_mod_job_tech_add value = modifier:job_technician_add }
 		# set_variable = { which = bca_test_mod_job_tech_drone_add value = modifier:job_technician_drone_add }
@@ -118,10 +110,50 @@ planet_event = {
 		# # Additive Production Modifiers
 		# set_variable = { which = bca_test_mod_pj_tech_energy_add value = modifier:planet_technician_energy_produces_add }
 
-		# set_variable = {
-		# 	which = bca_unit_energy_production
-		# 	value = value:bca_unit_energy_production
-		# }
+
+		set_variable = {
+			which = country_produces_mult
+			value = modifier:country_produces_mult
+		}
+		set_variable = {
+			which = country_base_energy_produces_add
+			value = modifier:country_base_energy_produces_add
+		}
+		set_variable = {
+			which = bca_planet_energy_job_add
+			value = value:bca_planet_energy_job_add
+		}
+		set_variable = {
+			which = bca_planet_energy_job_add
+			value = value:bca_planet_energy_job_add
+		}
+		set_variable = {
+			which = planet_jobs_energy_produces_add
+			value = modifier:planet_jobs_energy_produces_add
+		}
+		set_variable = {
+			which = planet_technician_energy_produces_add
+			value = modifier:planet_technician_energy_produces_add
+		}
+		set_variable = {
+			which = bca_planet_energy_job_mult
+			value = value:bca_planet_energy_job_mult
+		}
+		set_variable = {
+			which = bca_planet_energy_job_mult_1
+			value = value:bca_planet_energy_job_mult_1
+		}
+		set_variable = {
+			which = planet_jobs_energy_produces_mult
+			value = modifier:planet_jobs_energy_produces_mult
+		}
+	}
+
+	option = {
+		name = "var_test"
+
+
+
 		set_variable = {
 			which = bca_planet_max_districts
 			value = value:bca_planet_max_districts
@@ -148,8 +180,8 @@ planet_event = {
 			value = bca_opti_count_district_generator
 		}
 		set_variable = {
-			which = bca_opti_count_district_city
-			value = bca_opti_count_district_city
+			which = bca_opti_count_primary_district
+			value = bca_opti_count_primary_district
 		}
 
 		set_variable = {
@@ -163,7 +195,7 @@ planet_event = {
 		}
 		set_variable = {
 			which = production_estimation
-			value = value:$PRODUCTION_ESTIMATION$|NUM_R_DST|bca_opti_count_district_generator|NUM_C_DST|bca_opti_count_district_city|
+			value = value:$PRODUCTION_ESTIMATION$|NUM_R_DST|bca_opti_count_district_generator|NUM_C_DST|bca_opti_count_primary_district|
 		}
 		set_variable = {
 			which = debug_max_production
@@ -215,7 +247,7 @@ planet_event = {
 		
         inline_script = {
             script = bca_construction_test_template
-            TEST_LIST = bca_generator_construction_test_list
+            TEST_LIST = bca_construction_test_list_generator
         }
 
 		planet_event = {
@@ -273,7 +305,7 @@ planet_event = {
 		}
 		try_construct_district_city = {
 			production = value:bca_potential_standard_energy_production
-			district_max = bca_opti_count_district_city
+			district_max = bca_opti_count_primary_district
 			priority_shift = 0
 			index = 3
 		}
@@ -556,230 +588,29 @@ planet_event = {
 
 }
 
+
 planet_event = {
-	id = test_event.2
+	id = test_event.35
 
 	is_triggered_only = yes
-	title = "Test Event for Scripted Triggers"
-	desc = test_event.1.desc
+	title = "Test 3"
+	desc = "xxx"
 
 
 	option = {
-		name = "add pop"
-		create_pop_group = { size = 1000  species = owner_main_species }
-		planet_event = {
-			id = test_event.2
-		}
+		name = "check1"
+		allow = { always = yes }
+		remove_planet_flag = tp_zone_processed_z1
+		remove_planet_flag = tp_zone_processed_z2
+        bca_primary_zone_setting_set_by_current_zones = yes
 	}
-
 	option = {
-		name = "bca_pf_district_balanced"
-		allow = {
-			has_planet_flag = bca_pf_district_balanced
-		}
-	}
-
-
-	immediate = {
-		set_variable = {
-			which = bca_test_energy_job
-			value = value:bca_jobs_for_minerals
-		}
-		set_variable = {
-			which = bca_test_bca_unit_energy_production
-			value = value:bca_unit_energy_production
-		}
-		set_variable = {
-			which = bca_test_minerals_production
-			value = value:bca_potential_standard_mineral_production
-		}
-		set_variable = {
-			which = bca_test_food_production
-			value = value:bca_potential_standard_energy_production
-		}
-		set_variable = {
-			which = bca_test_district_metric_1_d
-			value = bca_test_district_metric_1
-		}
-		set_variable = {
-			which = bca_test_district_metric_2_d
-			value = bca_test_district_metric_2
-		}
-	}
-
-	option = {
-		name = "var_test"
-		set_variable = {
-			which = bca_unit_minerals_production
-			value = value:bca_unit_minerals_production
-		}
-		set_variable = {
-			which = bca_jobs_for_minerals
-			value = value:bca_jobs_for_minerals
-		}
-		set_variable = {
-			which = bca_test_energy_production
-			value = value:bca_potential_standard_energy_production
-		}
-		set_variable = {
-			which = bca_test_minerals_production
-			value = value:bca_potential_standard_mineral_production
-		}
-		set_variable = {
-			which = bca_test_food_production
-			value = value:bca_potential_standard_food_production
-		}
-		set_variable = {
-			which = bca_test_district_metric_1_d
-			value = bca_test_district_metric_1
-		}
-		set_variable = {
-			which = bca_test_district_metric_2_d
-			value = bca_test_district_metric_2
-		}
-		set_variable = {
-			which = bca_district_balanced_test_counter_t
-			value = bca_district_balanced_test_counter
-		}
-	}
-
-	option = {
-		name = "trigger check event"
-		owner = {
-			country_event = {
-				id = colony_automation_event.10
-			}
-		}
-		planet_event = {
-			id = test_event.2
-		}
-	}
-
-	option = {
-		name = "build check district mining"
-		bca_test_district_to_build_district_1_checked = {
-			district_1 = district_city
-			district_2 = district_mining
-			metric_value = value:bca_potential_standard_mineral_production
-		}
-		planet_event = {
-			id = test_event.2
-		}
-	}
-
-	option = {
-		name = "replace check district mining"
-		bca_test_district_to_replace_city_bidirectional = {
-			district_2 = district_mining
-			metric_value = value:bca_potential_standard_mineral_production
-		}
-		planet_event = {
-			id = test_event.2
-		}
-	}
-
-	option = {
-		name = "build check district generator"
-		bca_test_district_to_build_district_1_checked = {
-			district_1 = district_city
-			district_2 = district_generator
-			metric_value = value:bca_potential_standard_energy_production
-		}
-		planet_event = { id = test_event.2 }
-	}
-
-	option = {
-		name = "replace check district generator"
-		bca_test_district_to_replace_city_bidirectional = {
-			district_2 = district_generator
-			metric_value = value:bca_potential_standard_energy_production
-		}
-		planet_event = { id = test_event.2 }
-	}
-
-	option = {
-		name = "build check district farming"
-		bca_test_district_to_build_district_1_checked = {
-			district_1 = district_city
-			district_2 = district_farming
-			metric_value = value:bca_potential_standard_food_production
-		}
-		planet_event = { id = test_event.2 }
-	}
-
-	option = {
-		name = "replace check district farming"
-		bca_test_district_to_replace_city_bidirectional = {
-			district_2 = district_farming
-			metric_value = value:bca_potential_standard_food_production
-		}
-		planet_event = { id = test_event.2 }
-	}
-
-	option = {
-		name = "bca_pf_has_district_build_plan"
-		allow = {
-			has_planet_flag = bca_pf_has_district_build_plan
-		}
-		remove_planet_flag = bca_pf_has_district_build_plan
-		planet_event = {
-			id = test_event.2
-		}
-	}
-	
-	option = {
-		name = "bca_pf_has_district_build_plan"
-		allow = {
-			has_planet_flag = bca_pf_has_district_remove_plan
-		}
-		remove_planet_flag = bca_pf_has_district_remove_plan
-		planet_event = {
-			id = test_event.2
-		}
-	}
-
-	option = {
-		name = "bca_pf_plan_build_district_city"
-		allow = {
-			has_planet_flag = bca_pf_plan_build_district_city
-		}
-		remove_planet_flag = bca_pf_plan_build_district_city
-		planet_event = {
-			id = test_event.2
-		}
-	}
-
-	option = {
-		name = "bca_pf_plan_build_district_generator"
-		allow = {
-			has_planet_flag = bca_pf_plan_build_district_generator
-		}
-		remove_planet_flag = bca_pf_plan_build_district_generator
-		planet_event = {
-			id = test_event.2
-		}
-	}
-
-	option = {
-		name = "bca_pf_plan_build_district_mining"
-		allow = {
-			has_planet_flag = bca_pf_plan_build_district_mining
-		}
-		remove_planet_flag = bca_pf_plan_build_district_mining
-		planet_event = {
-			id = test_event.2
-		}
-	}
-
-	option = {
-		name = "bca_pf_plan_build_district_farming"
-		allow = {
-			has_planet_flag = bca_pf_plan_build_district_farming
-		}
-		remove_planet_flag = bca_pf_plan_build_district_farming
-		planet_event = {
-			id = test_event.2
-		}
+		name = "check2"
+		allow = { always = yes }
+		remove_planet_flag = tp_zone_processed_z3
+		remove_planet_flag = tp_zone_processed_z4
+		remove_planet_flag = tp_zone_processed_z5
+        bca_secondary_zone_setting_set_by_current_zones = yes
 	}
 
 

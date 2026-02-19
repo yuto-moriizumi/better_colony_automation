@@ -1,11 +1,9 @@
 zone_bca_test = {
+
 	icon = GFX_district_specialization_energy
 	base_buildtime = @zone_buildtime
 	potential = { # planet scope
-		hidden_trigger = { exists = owner }
-		owner = {
-			is_ai = no						# AI isn't great at handling these
-		}
+		always = no
 	}
 
 	unlock = { # planet scope

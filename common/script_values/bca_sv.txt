@@ -56,6 +56,4 @@ bca_num_zone_value = {
 	}
 }
 
-test_inline_math = {
-	add = @\[ $p1$ + $p2$ + $p3$]
-}
+

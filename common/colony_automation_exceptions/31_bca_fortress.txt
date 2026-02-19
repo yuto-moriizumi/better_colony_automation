@@ -8,19 +8,6 @@ automate_fortress_planet = {
         bca_has_minerals_to_build = yes
 
 	}
-	
-	prio_districts = {
-		district_city
-		district_hive
-		district_nexus
-		district_arcology_housing
-		district_rw_city
-		district_hab_housing
-	}
-	
-	# prio_zones = {
-	# 	zone_fortress
-	# }
 
 	buildings = {
 		1 = {

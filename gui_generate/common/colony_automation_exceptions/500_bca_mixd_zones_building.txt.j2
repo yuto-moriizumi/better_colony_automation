@@ -1,0 +1,81 @@
+{% import 'component/planet_flag_ps.j2' as pf with context -%}
+{% import 'component/conditions.j2' as cond with context %}
+
+{% macro building_config(building) -%}
+            {% if building is string %}
+            building = {{ building }}
+            {% else %}
+            {% for building_key,building_values in building.items() %}
+            building = {{ building_key }}
+            {% for building_setting_key,building_setting_value in building_values.items() %}
+            {{building_setting_key }} = {{ building_setting_value }}
+            {% endfor %}
+            {% endfor %}
+            {% endif %}
+{%- endmacro %}
+
+{% for item in mixed_zone_buildings %}
+{% if item.job_need_priority%}
+automate_mixed_zone_{{ item.types[0] }}_building_job = {
+	category = "planet_automation_designation_construction"
+
+	emergency = yes
+	available = {
+	    really_requires_more_job = yes
+		bca_has_minerals_to_build = yes
+{#		NOT = { has_planet_flag = bca_pf_advance_controller_order }#}
+		OR = {
+		    {% for type in item.types %}
+		    {% for zone_slot in ['z1','z2','z3','z4','z5'] %}
+	        has_planet_flag = {{ pf.flag_selected_zone_type(zone_slot, type) }}
+		    {% endfor %}
+		    {% endfor %}
+		}
+	}
+
+	buildings = {
+        {% for building in item.job_need_priority %}
+	    {{ loop.index0 }} = {
+{{building_config(building)}}
+	    }
+        {% endfor %}
+	}
+}
+{% endif %}
+{% if item.always %}
+automate_mixed_zone_{{ item.types[0] }}_building_non_job = {
+	category = "planet_automation_designation_construction"
+
+	emergency = yes
+	available = {
+		bca_has_minerals_to_build = yes
+{#		NOT = { has_planet_flag = bca_pf_advance_controller_order }#}
+		OR = {
+		    {% for type in item.types %}
+		    {% for zone_slot in ['z1','z2','z3','z4','z5'] %}
+	        has_planet_flag = {{ pf.flag_selected_zone_type(zone_slot, type) }}
+		    {% endfor %}
+		    {% endfor %}
+		}
+	}
+
+	buildings = {
+        {% for building in item.always %}
+	    {{ loop.index0 }} = {
+{{building_config(building)}}
+	    }
+        {% endfor %}
+
+        {% if item.job_need_priority%}
+        {% for building in item.job_need_priority %}
+        {{ loop.index0 + 20 }} = {
+{{building_config(building)}}
+            available = { requires_more_job = yes }
+        }
+        {% endfor %}
+	    {% endif %}
+
+	}
+}
+{% endif %}
+{% endfor %}

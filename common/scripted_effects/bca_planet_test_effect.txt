@@ -1,244 +1,33 @@
-bca_set_district_build_flag ={
-	set_planet_flag = bca_pf_has_district_build_plan
-	set_planet_flag = bca_pf_plan_build_$district$
-}
-bca_set_district_remove_flag ={
-	set_planet_flag = bca_pf_has_district_remove_plan
-	set_planet_flag = bca_pf_plan_remove_$district$
-}
 
+# bca_set_district_build_flag ={
+# 	# set_planet_flag = bca_pf_has_district_build_plan
+# 	set_planet_flag = bca_pf_plan_build_$district$
+# }
+#
+# bca_set_district_remove_flag ={
+# 	# set_planet_flag = bca_pf_has_district_remove_plan
+# 	set_planet_flag = bca_pf_plan_remove_$district$
+# }
 
 bca_set_building_build_flag ={
-	set_planet_flag = bca_pf_has_building_build_plan
+	# set_planet_flag = bca_pf_has_building_build_plan
 	set_planet_flag = bca_pf_plan_build_$building$
 }
 
-bca_set_building_remove_flag ={
-	set_planet_flag = bca_pf_has_building_remove_plan
-	set_planet_flag = bca_pf_plan_remove_$building$
-}
+# bca_set_building_remove_flag ={
+# 	# set_planet_flag = bca_pf_has_building_remove_plan
+# 	set_planet_flag = bca_pf_plan_remove_$building$
+# }
 
-bca_set_zone_build_flag ={
-	set_planet_flag = bca_pf_has_zone_build_plan
-	set_planet_flag = bca_pf_plan_build_$zone$
-}
+# bca_set_zone_build_flag ={
+# 	# set_planet_flag = bca_pf_has_zone_build_plan
+# 	set_planet_flag = bca_pf_plan_build_$zone$
+# }
 
-bca_set_zone_remove_flag ={
-	set_planet_flag = bca_pf_has_zone_remove_plan
-	set_planet_flag = bca_pf_plan_remove_$zone$
-}
-
-# test which district to build based on metric value comparison
-# make shure that district_1 and district_2 can be added
-# district_1 is preferred if metric_value is equal
-bca_test_district_to_build = {
-	add_district = { district_type = $district_1$ }
-	set_variable = {
-		which = bca_test_district_metric_1
-		value = $metric_value$
-	}
-	remove_district = $district_1$
-	add_district = { district_type = $district_2$ }
-	set_variable = {
-		which = bca_test_district_metric_2
-		value = $metric_value$
-	}
-	remove_district = $district_2$
-	if = {
-		limit = {
-			check_variable = {
-				which = bca_test_district_metric_1
-				value >= bca_test_district_metric_2
-			}
-		}
-		bca_set_district_build_flag = {
-			district = $district_1$
-		}
-	}
-	else = {
-		bca_set_district_build_flag = {
-			district = $district_2$
-		}
-	}
-
-}
-
-
-
-bca_test_district_to_build_district_1_checked = {
-	if = {
-		limit = {
-			has_district = $district_1$
-			free_district_slots > 0
-		}
-		if = {
-			limit = { 
-				num_free_districts = { type = $district_2$ value = 0 }
-				num_free_districts = { type = $district_1$ value > 0 } 
-			}
-			bca_set_district_build_flag = {
-				district = $district_1$
-			}
-		}
-		else_if = {
-			limit = { 
-				num_free_districts = { type = $district_1$ value = 0 }
-				num_free_districts = { type = $district_2$ value > 0 }
-			}	 
-			bca_set_district_build_flag = {
-				district = $district_2$
-			}
-		}
-		else_if = {
-			limit = {
-				num_free_districts = { type = $district_1$ value > 0 }
-				num_free_districts = { type = $district_2$ value > 0 }
-			}
-			bca_test_district_to_build = {
-				district_1 = $district_1$
-				district_2 = $district_2$
-				metric_value = $metric_value$
-			}
-		}
-	}
-}
-
-bca_test_district_to_build_district_city_checked = {
-	bca_test_district_to_build_district_1_checked = {
-		district_1 = district_city
-		district_2 = $district_2$
-		metric_value = $metric_value$
-	}
-	bca_test_district_to_build_district_1_checked = {
-		district_1 = district_hive
-		district_2 = $district_2$
-		metric_value = $metric_value$
-	}
-	bca_test_district_to_build_district_1_checked = {
-		district_1 = district_nexus
-		district_2 = $district_2$
-		metric_value = $metric_value$
-	}
-}
-
-
-bca_test_district_to_replace = {
-	if = {
-		limit = {
-			num_districts = { type = $district_replace_from$ value > $min_district_rf$ }
-			NOT = { 
-				bca_district_reach_planet_max = {
-					type = $district_replace_to$
-				}
-			}
-		}
-		set_variable = {
-			which = bca_test_district_metric_1
-			value = $metric_value$
-		}
-		remove_district = $district_replace_from$
-		add_district = { district_type = $district_replace_to$ }
-		set_variable = {
-			which = bca_test_district_metric_2
-			value = $metric_value$
-		}
-		remove_district = $district_replace_to$
-		add_district = { district_type = $district_replace_from$ }
-		if = {
-			limit = {
-				check_variable = {
-					which = bca_test_district_metric_2
-					[[is_priority_district] value >= bca_test_district_metric_1 ]
-					[[!is_priority_district] value > bca_test_district_metric_1 ]
-				}
-			}
-			bca_set_district_remove_flag = {
-				district = $district_replace_from$
-			}
-			bca_set_district_build_flag = {
-				district = $district_replace_to$
-			}
-		}
-		if = {limit = {always = $is_priority_district$}}
-	}
-}
-
-
-
-
-# Scope = Planet
-bca_test_district_to_replace_city_bidirectional = {
-
-	bca_test_district_to_replace = {
-		district_replace_from = district_city
-		min_district_rf = 1
-		district_replace_to = $district_2$
-		metric_value = $metric_value$
-	}
-	bca_test_district_to_replace = {
-		district_replace_from = $district_2$
-		min_district_rf = 0
-		district_replace_to = district_city
-		metric_value = $metric_value$
-		is_priority_district = yes
-	}
-	bca_test_district_to_replace = {
-		district_replace_from = district_hive
-		min_district_rf = 1
-		district_replace_to = $district_2$
-		metric_value = $metric_value$
-	}
-	bca_test_district_to_replace = {
-		district_replace_from = $district_2$
-		min_district_rf = 0
-		district_replace_to = district_hive
-		metric_value = $metric_value$
-		is_priority_district = yes
-	}
-	bca_test_district_to_replace = {
-		district_replace_from = district_nexus
-		min_district_rf = 1
-		district_replace_to = $district_2$
-		metric_value = $metric_value$
-	}
-	bca_test_district_to_replace = {
-		district_replace_from = $district_2$
-		min_district_rf = 0
-		district_replace_to = district_nexus
-		metric_value = $metric_value$
-		is_priority_district = yes
-	}
-}
-
-# Scope = Planet
-bca_test_district_to_replace_city_bidirectional_nexus_excluded = {
-	bca_test_district_to_replace = {
-		district_replace_from = district_city
-		min_district_rf = 1
-		district_replace_to = $district_2$
-		metric_value = $metric_value$
-	}
-	bca_test_district_to_replace = {
-		district_replace_from = $district_2$
-		min_district_rf = 0
-		district_replace_to = district_city
-		metric_value = $metric_value$
-		is_priority_district = yes
-	}
-	bca_test_district_to_replace = {
-		district_replace_from = district_hive
-		min_district_rf = 1
-		district_replace_to = $district_2$
-		metric_value = $metric_value$
-	}
-	bca_test_district_to_replace = {
-		district_replace_from = $district_2$
-		min_district_rf = 0
-		district_replace_to = district_hive
-		metric_value = $metric_value$
-		is_priority_district = yes
-	}
-}
+# bca_set_zone_remove_flag ={
+# 	# set_planet_flag = bca_pf_has_zone_remove_plan
+# 	set_planet_flag = bca_pf_plan_remove_$zone$
+# }
 
 bca_test_update_construction_metric_max_with_cost = {
 	if = {
@@ -275,102 +64,48 @@ bca_test_update_construction_metric_max_with_cost = {
 }
 
 
-
-# bac_test_building_to_add = {
-# 	export_trigger_value_to_variable = {
-# 		trigger = num_buildings
-# 		parameters = {
-# 			type = any
-# 		}
-# 		variable = bca_test_counter_1
+# bac_get_num_free_building_slots_leq = {
+# 	while = {
+# 		count = @\[ $leq$ + 1 ]
+# 		add_building = building_bca_test_$type$_slots
 # 	}
-
-# 	add_building = {
-# 		building = $building$
-# 	}
-
-# 	export_trigger_value_to_variable = {
-# 		trigger = num_buildings
-# 		parameters = {
-# 			type = any
-# 		}
-# 		variable = bca_test_counter_2
-# 	}
+#
 # 	if = {
 # 		limit = {
-# 			check_variable = { which = bca_test_counter_1 value = bca_test_counter_2 }
+# 			num_buildings = {
+# 				type = building_bca_test_$type$_slots
+# 				value != @\[ $leq$ + 1 ]
+# 			}
 # 		}
-# 		set_planet_flag = bca_pf_failed_to_add
-# 		set_planet_flag = bca_pf_failed_to_add_$building$
+# 		set_planet_flag = bca_free_$type$_slots_leq_$leq$
 # 	}
 # 	else = {
-# 		bca_test_update_construction_metric_max_with_cost = {
-# 			production = $production$
-# 			cost = $cost$
-# 			index = $index$
-# 		}
-# 		remove_building = $building$
+# 		remove_planet_flag = bca_free_$type$_slots_leq_$leq$
+# 	}
+#
+# 	while = {
+# 		count = @\[ $leq$ + 1 ]
+# 		remove_building = building_bca_test_$type$_slots
 # 	}
 # }
 
-bac_get_num_free_building_slots_leq = {
-	while = {
-		count = @\[ $leq$ + 1 ]
-		add_building = building_bca_test_$type$_slots
+
+
+bca_get_num_free_city_zones = {
+	add_zone = {
+		district = 0
+		zone = zone_bca_test
+		zone_slot = 1
 	}
-	
 	if = {
 		limit = {
-			num_buildings = { 
-				type = building_bca_test_$type$_slots  
-				value != @\[ $leq$ + 1 ]
-			}
+			has_upgraded_capital = yes
 		}
-		set_planet_flag = bca_free_$type$_slots_leq_$leq$
-	}
-	else = {
-		remove_planet_flag = bca_free_$type$_slots_leq_$leq$
-	}
-
-	while = {
-		count = @\[ $leq$ + 1 ]
-		remove_building = building_bca_test_$type$_slots
-	}
-}
-
-bac_get_num_free_foundry_building_slots_leq_2 = {
-	while = {
-		count = 3
-		add_building = building_bca_test_foundry_slots
-	}
-	
-	if = {
-		limit = {
-			num_buildings = { 
-				type = building_bca_test_foundry_slots  
-				value != 3
-			}
+		add_zone = {
+			district = 0
+			zone = zone_bca_test
+			zone_slot = 2
 		}
-		set_planet_flag = bca_free_foundry_slots_leq_2
-	}
-	else = {
-		remove_planet_flag = bca_free_foundry_slots_leq_2
-	}
-
-	while = {
-		count = 3
-		remove_building = building_bca_test_foundry_slots
-	}
-}
-
-
-
-bac_get_num_free_city_zones = {
-	add_zone = {
-		zone = zone_bca_test
-	}
-	add_zone = {
-		zone = zone_bca_test
 	}
 
 	export_trigger_value_to_variable = {
@@ -389,98 +124,6 @@ bac_get_num_free_city_zones = {
 	}
 }
 
-
-
-bac_test_zone_to_add = {
-	export_trigger_value_to_variable = {
-		trigger = num_zones
-		parameters = {
-			type = $zone$
-		}
-		variable = bca_test_counter_1
-	}
-
-	add_zone = {
-		district = $district$
-		zone = $zone$
-		zone_slot = $zone_slot$
-	}
-
-	export_trigger_value_to_variable = {
-		trigger = num_zones
-		parameters = {
-			type = $zone$
-		}
-		variable = bca_test_counter_2
-	}
-
-	if = {
-		limit = {
-			check_variable = { which = bca_test_counter_1 value = bca_test_counter_2 }
-		}
-		set_planet_flag = bca_pf_failed_to_add_$zone$
-	}
-	else = {
-		bca_test_update_construction_metric_max_with_cost = {
-			production = $production$
-			cost = $cost$
-			priority_shift = $priority_shift$
-			index = $index$
-		}
-
-		remove_zone = {
-			district = $district$
-			zone = $zone$
-			zone_slot = $zone_slot$
-		}
-	}
-}
-
-bac_test_zone_to_add_checked = {
-	if = {
-		limit = { has_district = $district$ }
-		bac_test_zone_to_add = {
-			district = $district$
-			zone = $zone$
-			zone_slot = $zone_slot$
-			production = $production$
-			cost = $cost$
-			priority_shift = $priority_shift$
-			index = $index$
-		}
-	}
-}
-
-bac_test_zone_to_add_main_district = {
-	if = {
-		limit = { has_district = $district$ }
-		bac_test_zone_to_add = {
-			district = $district$
-			zone = $zone$
-			zone_slot = 1
-			production = $production$
-			cost = $cost$
-			priority_shift = $priority_shift$
-			index = $index$
-		}
-		# test secondary slot only if primary slot failed
-		if = {
-			limit = { 
-				has_planet_flag = bca_pf_failed_to_add_$zone$
-			}
-			bac_test_zone_to_add = {
-				district = $district$
-				zone = $zone$
-				zone_slot = 2
-				production = $production$
-				cost = $cost$
-				priority_shift = $priority_shift$
-				index = $index$
-			}
-		}
-		remove_planet_flag = bca_pf_failed_to_add_$zone$
-	}
-}
 
 # estimate final number of generator districts to be built
 # assume only 2 district types: generator and city

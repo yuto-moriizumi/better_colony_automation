@@ -1,0 +1,392 @@
+bca_planet_setting_preconstruction_enable = {
+    potential = {
+        NOT = { has_planet_flag = bca_pf_planet_pre_construction }
+    }
+    allow = {
+        always = yes
+    }
+    effect ={
+        custom_tooltip = BCA_PLANET_SETTING_PRECONSTRUCTION_DESC
+        set_planet_flag = bca_pf_planet_pre_construction
+    }
+}
+
+bca_planet_setting_preconstruction_disable = {
+    potential = {
+        has_planet_flag = bca_pf_planet_pre_construction
+    }
+    allow = {
+        always = yes
+    }
+    effect ={
+        custom_tooltip = BCA_PLANET_SETTING_PRECONSTRUCTION_DESC
+        remove_planet_flag = bca_pf_planet_pre_construction
+    }
+}
+
+bca_planet_setting_auto_destruction_enable = {
+    potential = {
+        exists = owner
+        AND = {
+            has_planet_flag = bca_pf_disable_planet_auto_destruction_building
+            has_planet_flag = bca_pf_disable_planet_auto_destruction_district
+            has_planet_flag = bca_pf_disable_planet_auto_destruction_zone
+        }
+    }
+    allow = {
+        always = yes
+    }
+    effect = {
+        custom_tooltip = BCA_PLANET_SETTING_AUTO_DESTRUCTION_DESC
+        remove_planet_flag = bca_pf_disable_planet_auto_destruction_building
+        remove_planet_flag = bca_pf_disable_planet_auto_destruction_district
+        remove_planet_flag = bca_pf_disable_planet_auto_destruction_zone
+    }
+}
+
+bca_planet_setting_auto_destruction_disable = {
+    potential = {
+        exists = owner
+        NAND = {
+            has_planet_flag = bca_pf_disable_planet_auto_destruction_building
+            has_planet_flag = bca_pf_disable_planet_auto_destruction_district
+            has_planet_flag = bca_pf_disable_planet_auto_destruction_zone
+        }
+    }
+    allow = {
+        always = yes
+    }
+    effect = {
+        custom_tooltip = BCA_PLANET_SETTING_AUTO_DESTRUCTION_DESC
+        set_planet_flag = bca_pf_disable_planet_auto_destruction_building
+        set_planet_flag = bca_pf_disable_planet_auto_destruction_district
+        set_planet_flag = bca_pf_disable_planet_auto_destruction_zone
+    }
+}
+
+bca_planet_setting_auto_destruction_disable_buidlings = {
+    potential = {
+        exists = owner
+        NOT = { has_planet_flag = bca_pf_disable_planet_auto_destruction_building }
+    }
+    allow = {
+        always = yes
+    }
+    effect = {
+        custom_tooltip = BCA_PLANET_SETTING_AUTO_DESTRUCTION_BUILDING_DESC
+        set_planet_flag = bca_pf_disable_planet_auto_destruction_building
+    }
+}
+
+bca_planet_setting_auto_destruction_enable_buidlings = {
+    potential = {
+        exists = owner
+        has_planet_flag = bca_pf_disable_planet_auto_destruction_building
+    }
+    allow = {
+        always = yes
+    }
+    effect = {
+        custom_tooltip = BCA_PLANET_SETTING_AUTO_DESTRUCTION_BUILDING_DESC
+        remove_planet_flag = bca_pf_disable_planet_auto_destruction_building
+    }
+}
+
+bca_planet_setting_auto_destruction_disable_districts = {
+    potential = {
+        exists = owner
+        NOT = { has_planet_flag = bca_pf_disable_planet_auto_destruction_district }
+    }
+    allow = {
+        always = yes
+    }
+    effect = {
+        custom_tooltip = BCA_PLANET_SETTING_AUTO_DESTRUCTION_DISTRICT_DESC
+        set_planet_flag = bca_pf_disable_planet_auto_destruction_district
+    }
+}
+
+bca_planet_setting_auto_destruction_enable_districts = {
+    potential = {
+        exists = owner
+        has_planet_flag = bca_pf_disable_planet_auto_destruction_district
+    }
+    allow = {
+        always = yes
+    }
+    effect = {
+        custom_tooltip = BCA_PLANET_SETTING_AUTO_DESTRUCTION_DISTRICT_DESC
+        remove_planet_flag = bca_pf_disable_planet_auto_destruction_district
+    }
+}
+
+bca_planet_setting_auto_destruction_disable_zones = {
+    potential = {
+        exists = owner
+        NOT = { has_planet_flag = bca_pf_disable_planet_auto_destruction_zone }
+    }
+    allow = {
+        always = yes
+    }
+    effect = {
+        custom_tooltip = BCA_PLANET_SETTING_AUTO_DESTRUCTION_ZONE_DESC
+        set_planet_flag = bca_pf_disable_planet_auto_destruction_zone
+    }
+}
+
+bca_planet_setting_auto_destruction_enable_zones = {
+    potential = {
+        exists = owner
+        has_planet_flag = bca_pf_disable_planet_auto_destruction_zone
+    }
+    allow = {
+        always = yes
+    }
+    effect = {
+        custom_tooltip = BCA_PLANET_SETTING_AUTO_DESTRUCTION_ZONE_DESC
+        remove_planet_flag = bca_pf_disable_planet_auto_destruction_zone
+    }
+}
+
+
+bca_planet_setting_storage_world_icon = {
+    potential = {
+        bca_has_secondary_districts = no
+    }
+    allow = {
+        always = yes
+    }
+}
+
+bca_planet_setting_storage_world_enable = {
+    potential = {
+        bca_has_secondary_districts = no
+		NOT = { has_planet_flag = bca_pf_can_build_extra_zones_for_storage }
+    }
+    allow = {
+        always = yes
+    }
+    effect = {
+        custom_tooltip = BCA_PLANET_SETTING_STORAGE_WORLD_DESC
+		set_planet_flag = bca_pf_can_build_extra_zones_for_storage
+        try_set_secondary_districts_plan_zero_to_one = yes
+    }
+}
+
+bca_planet_setting_storage_world_disable = {
+    potential = {
+        bca_has_secondary_districts = no
+        has_planet_flag = bca_pf_can_build_extra_zones_for_storage
+    }
+    allow = {
+        always = yes
+    }
+    effect = {
+        custom_tooltip = BCA_PLANET_SETTING_STORAGE_WORLD_DESC
+        remove_planet_flag = bca_pf_can_build_extra_zones_for_storage
+        try_set_secondary_districts_plan_one_to_zero = yes
+    }
+}
+
+bca_planet_setting_world_transform_candidate_arcology_project = {
+    potential = {
+        bca_has_secondary_districts = no
+		exists = owner
+		NOT = { has_modifier = bca_pm_arcology_project_candidate }
+		is_artificial = no
+		OR = {
+			AND = {
+				NOR = {
+					is_planet_class = pc_city
+					is_planet_class = pc_relic
+					has_modifier = resort_colony
+					has_modifier = penal_colony
+					has_modifier = slave_colony
+					has_modifier = pm_wenkwort_custodian
+				}
+				owner = { has_ascension_perk = ap_arcology_project }
+				NOT = { has_designation = col_nanotech_world }
+			}
+			AND ={
+				is_planet_class = pc_relic
+				owner = {
+					OR = {
+						is_regular_empire = yes
+						has_valid_civic = civic_machine_servitor
+					}
+				}
+			}
+		}
+
+	}
+
+    allow = {
+		has_farming_designation = no
+		has_mining_designation = no
+		has_generator_designation = no
+	}
+
+    effect = {
+        hidden_effect = {
+            add_modifier = { modifier = "bca_pm_arcology_project_candidate" days = -1 }
+            remove_planet_flag = bca_pf_can_build_extra_zones_for_storage
+            clear_open_selector = yes
+            bca_secondary_district_auto_select_default = yes
+            set_variable = {
+                which = bca_ps_plan_district_count_z3
+                value = 1
+            }
+            set_variable = {
+                which = bca_ps_plan_district_count_z4
+                value = 1
+            }
+            set_variable = {
+                which = bca_ps_plan_district_count_z5
+                value = 1
+            }
+        }
+	}
+}
+
+bca_planet_setting_world_transform_candidate_cancel = {
+    potential = {
+        has_modifier = bca_pm_arcology_project_candidate
+    }
+
+    allow = {
+        always = yes
+    }
+
+    effect = {
+        hidden_effect = {
+            planet_event = { id=colony_automation_event.100 }
+        }
+    }
+}
+
+bca_planet_setting_detailed_secondary_districts_regular_enable = {
+    potential = {
+        bca_has_secondary_districts = no
+        NOT = { has_planet_flag = bca_pf_ps_show_detailed_secondary_districts }
+    }
+
+    allow = {
+        always = yes
+    }
+
+    effect = {
+        set_planet_flag = bca_pf_ps_show_detailed_secondary_districts
+        clear_open_selector = yes
+    }
+}
+
+bca_planet_setting_detailed_secondary_districts_regular_disable = {
+    potential = {
+        bca_has_secondary_districts = no
+        has_planet_flag = bca_pf_ps_show_detailed_secondary_districts
+    }
+
+    allow = {
+        always = yes
+    }
+
+    effect = {
+        remove_planet_flag = bca_pf_ps_show_detailed_secondary_districts
+        clear_open_selector = yes
+    }
+
+}
+
+bca_planet_setting_detailed_secondary_districts_advanced_enable = {
+    potential = {
+        bca_has_secondary_districts = yes
+        NOT = { has_planet_flag = bca_pf_ps_show_detailed_secondary_districts }
+    }
+
+    allow = {
+        always = yes
+    }
+
+    effect = {
+        set_planet_flag = bca_pf_ps_show_detailed_secondary_districts
+        clear_open_selector = yes
+        bca_planet_setting_remove_current_selected_zone = {
+            ZONE_SLOT = zx
+        }
+    }
+}
+
+bca_planet_setting_detailed_secondary_districts_advanced_disable = {
+    potential = {
+        bca_has_secondary_districts = yes
+        has_planet_flag = bca_pf_ps_show_detailed_secondary_districts
+    }
+
+    allow = {
+        always = yes
+    }
+
+    effect = {
+        remove_planet_flag = bca_pf_ps_show_detailed_secondary_districts
+        clear_open_selector = yes
+        bca_secondary_district_auto_select_default = yes
+    }
+}
+
+bca_planet_setting_show_up_on_designation_changed = {
+    potential = {
+        bca_designation_changed = yes
+    }
+    allow = { always = yes }
+}
+
+bca_planet_setting_maintain_settings_on_designation_changed = {
+    potential = {
+        bca_designation_changed = yes
+    }
+    allow = { always = yes }
+    effect = {
+        hidden_effect = { bca_designation_sync_with_system = yes }
+    }
+}
+
+bca_planet_setting_reset_settings_on_designation_changed = {
+    potential = {
+        bca_designation_changed = yes
+    }
+    allow = { always = yes }
+    effect = {
+        hidden_effect = {
+            bca_designation_sync_with_system = yes
+            planet_event = { id = colony_automation_event.27 }
+        }
+    }
+}
+
+bca_planet_setting_auto_district_management_enable = {
+    potential = {
+        OR = {
+            has_planet_flag = bca_pf_disable_auto_district_manage
+            bca_has_auto_district_manage = no
+        }
+    }
+    allow = {
+        bca_has_auto_district_manage = yes
+    }
+    effect = {
+        remove_planet_flag = bca_pf_disable_auto_district_manage
+    }
+}
+
+bca_planet_setting_auto_district_management_disable = {
+    potential = {
+        NOT = { has_planet_flag = bca_pf_disable_auto_district_manage }
+        bca_has_auto_district_manage = yes
+    }
+    allow = {
+        always = yes
+    }
+    effect = {
+        set_planet_flag = bca_pf_disable_auto_district_manage
+    }
+}

@@ -1,0 +1,242 @@
+{% import 'component/planet_flag_ps.j2' as pf with context -%}
+{% import 'component/conditions.j2' as cond with context %}
+{% import 'component/planet_variable.j2' as v with context %}
+{% import 'component/zone_setting_option_operation.j2' as op with context -%}
+
+bca_clear_designation_flag = {
+    {% for designation in all_designations %}
+    remove_planet_flag = {{ pf.flag_current_designation(designation) }}
+    {% endfor %}
+}
+
+bca_designation_sync_with_system = {
+    bca_clear_designation_flag = yes
+{% for designation in all_designations %}
+    {{ "if" if loop.first else "else_if" }} = {
+        limit = {  has_designation = {{ designation }} }
+        set_planet_flag = {{ pf.flag_current_designation(designation) }}
+    }
+{% endfor %}
+}
+
+bca_designation_sync_with_prev = {
+{% for designation in all_designations %}
+    {{ "if" if loop.first else "else_if" }} = {
+        limit = {  has_planet_flag = {{ pf.flag_current_designation(designation) }} }
+        set_colony_type = {{ designation }}
+    }
+{% endfor %}
+}
+
+bca_helper_temp_num_zones_subtract_one = {
+    subtract_variable = {
+        which = temp_num_zones
+        value = 1
+    }
+}
+
+bca_secondary_zone_setting_set_by_current_zones_helper = {
+    {% for zone_slot in ['z3','z4','z5'] %}
+    {% set type = '$TYPE$' %}
+    {% set zone = '$ZONE$' %}
+    {% set district = '$DISTRICT$' %}
+    if = {
+        limit = {
+            NOT = { has_planet_flag = tp_zone_processed_{{ zone_slot }} }
+            has_planet_flag = {{ pf.flag_zone_district(zone_slot, district) }}
+            check_variable = {
+                which = temp_num_zones
+                value > 0
+            }
+        }
+        set_planet_flag = {{pf.flag_selected_zone_type(zone_slot, type)}}
+        set_planet_flag = {{pf.flag_selected_zone(zone_slot, zone)}}
+        set_planet_flag = tp_zone_processed_{{ zone_slot }}
+        export_trigger_value_to_variable = {
+            trigger = num_districts
+            parameters = { type = {{ district }} }
+            variable = {{ v.var_district_num_plan(zone_slot) }}
+        }
+
+        subtract_variable = {
+            which = temp_num_zones
+            value = 1
+        }
+    }
+    {% endfor %}
+}
+
+{# potential bug: overlapping zone e.g. zone_research would be buggy#}
+bca_secondary_zone_setting_set_by_current_zones = {
+hidden_effect = {
+    {% for zone_slot in ['z3','z4','z5'] %}
+    {{ op.clear_zone_selection(zone_slot) }}
+    {% endfor %}
+    bca_set_secondary_district_type_flag = yes
+    {% for item in zones_info %}
+        {% set type = item.type %}
+        {% if cond.contain_any_zones_of(item.zones, secondary_districts_for_zone)|int %}
+        if = {
+            limit = {
+                check_variable_arithmetic = {
+                    which = value:num_secondary_zones_of_type_{{ type }}
+                    value > 0
+                }
+            }
+            {% for zone in item.zones %}
+            {% if zone in secondary_districts_for_zone %}
+{#            set_planet_flag = last_test_{{ zone }}#}
+            if = {
+                limit = {
+                    check_variable_arithmetic = {
+                        which = value:num_zones_of_{{ zone }}
+                        value > 0
+                    }
+                }
+{#                set_planet_flag = last_test_export_1#}
+                export_trigger_value_to_variable = {
+                    trigger = num_zones
+                    parameters = { type = {{ zone }} }
+                    variable = temp_num_zones
+                }
+{#                remove_planet_flag = last_test_export_1#}
+                {% for district in secondary_districts_for_zone[zone] %}
+{#                set_planet_flag = last_test_{{ district }}#}
+                bca_secondary_zone_setting_set_by_current_zones_helper = {
+                    TYPE = {{ type }}
+                    ZONE = {{ zone }}
+                    DISTRICT = {{ district }}
+                }
+{#                remove_planet_flag = last_test_{{ district }}#}
+                {% endfor %}
+            }
+{#            remove_planet_flag = last_test_{{ zone }}#}
+            {% endif %}
+            {% endfor %}
+        }
+        {% endif %}
+    {% endfor %}
+    {# process for zero case #}
+    {% for zone_slot in ['z3','z4','z5'] %}
+    if = {
+        limit = {
+            NOT = { has_planet_flag = tp_zone_processed_{{ zone_slot }} }
+        }
+        set_variable = {
+            which = {{ v.var_district_num_plan(zone_slot) }}
+            value = 0
+        }
+    }
+    remove_planet_flag = tp_zone_processed_{{ zone_slot }}
+    {% endfor %}
+    clear_variable = temp_num_zones
+    bca_clean_flags_zone_selector_secondary_district = yes
+}
+}
+
+
+bca_primary_zone_setting_set_by_current_zones_helper = {
+    {% set type = '$TYPE$' %}
+    {% set zone = '$ZONE$' %}
+    export_trigger_value_to_variable = {
+        trigger = num_zones
+        parameters = { type = {{ zone }} }
+        variable = temp_num_zones
+    }
+    {% for zone_index in [1,2] %}
+    {% set zone_slot = 'z'~zone_index %}
+    if = {
+        limit = {
+            NOT = { has_planet_flag = tp_zone_processed_{{ zone_slot }} }
+            check_variable = {
+                which = temp_num_zones
+                value > 0
+            }
+        }
+        set_planet_flag = {{pf.flag_selected_zone_type(zone_slot, type)}}
+        set_planet_flag = {{pf.flag_selected_zone(zone_slot, zone)}}
+        set_planet_flag = tp_zone_processed_{{ zone_slot }}
+        bca_helper_temp_num_zones_subtract_one = yes
+    }
+    {% endfor %}
+}
+{# potential bug: overlapping zone e.g. zone_research would be buggy#}
+bca_primary_zone_setting_set_by_current_zones = {
+hidden_effect = {
+    {% for zone_slot in ['z1','z2'] %}
+    {{ op.clear_zone_selection(zone_slot) }}
+    {% endfor %}
+    {% for item in zones_info %}
+        {% set type = item.type %}
+        {% if cond.contain_any_zones_of(item.zones, primary_districts_for_zone)|int %}
+        if = {
+            limit = {
+                check_variable_arithmetic = {
+                    which = value:num_primary_zones_of_type_{{ type }}
+                    value > 0
+                }
+            }
+            {% for zone in item.zones %}
+            {% if zone in primary_districts_for_zone %}
+{#            set_planet_flag = last_test_{{ zone }}#}
+            if = {
+                limit = {
+                    check_variable_arithmetic = {
+                        which = value:num_zones_of_{{ zone }}
+                        value > 0
+                    }
+                }
+                bca_primary_zone_setting_set_by_current_zones_helper = {
+                    TYPE = {{ type }}
+                    ZONE = {{ zone }}
+                }
+            }
+{#            remove_planet_flag = last_test_{{ zone }}#}
+            {% endif %}
+            {% endfor %}
+        }
+        {% endif %}
+    {% endfor %}
+    {% for zone_slot in ['z1','z2'] %}
+    remove_planet_flag = tp_zone_processed_{{ zone_slot }}
+    {% endfor %}
+    clear_variable = temp_num_zones
+
+}
+}
+
+
+bca_set_zx_for_identical_secondary_zone_plan = {
+    optimize_memory
+    bca_planet_setting_remove_current_selected_zone = {
+        ZONE_SLOT = zx
+    }
+    {% for item in zones_info %}
+        {% set type = item.type %}
+        {% if cond.contain_any_zones_of(item.zones, secondary_districts_for_zone)|int %}
+        {{ "if" if loop.first else "else_if" }} = {
+            limit = {
+                {% for zone_slot in ['z3','z4','z5'] %}
+                has_planet_flag = {{ pf.flag_selected_zone_type(zone_slot, type) }}
+                {% endfor %}
+            }
+            set_planet_flag = {{pf.flag_selected_zone_type('zx', type)}}
+            {% for zone in item.zones %}
+            {% if zone in secondary_districts_for_zone %}
+            if = {
+                limit = {
+                    has_planet_flag = {{ pf.flag_selected_zone('z3', zone) }}
+                }
+                set_planet_flag = {{pf.flag_selected_zone('zx', zone)}}
+            }
+            {% endif %}
+            {% endfor %}
+        }
+        {% endif %}
+    {% endfor %}
+    else = {
+        set_planet_flag = bca_pf_ps_show_detailed_secondary_districts
+    }
+}
+
+

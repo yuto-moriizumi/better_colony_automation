@@ -1,0 +1,1382 @@
+try_set_secondary_districts_plan_zero_to_one = {
+    if = {
+        limit = {
+             check_variable = {
+                 which = bca_ps_plan_district_count_z3
+                 value = 0
+             }
+            check_variable_arithmetic = {
+                which = value:bca_num_free_secondary_districts_plan
+                value > 0
+            }
+        }
+        add_variable = {
+            which = bca_ps_plan_district_count_z3
+            value = 1
+        }
+    }
+    if = {
+        limit = {
+             check_variable = {
+                 which = bca_ps_plan_district_count_z4
+                 value = 0
+             }
+            check_variable_arithmetic = {
+                which = value:bca_num_free_secondary_districts_plan
+                value > 0
+            }
+        }
+        add_variable = {
+            which = bca_ps_plan_district_count_z4
+            value = 1
+        }
+    }
+    if = {
+        limit = {
+             check_variable = {
+                 which = bca_ps_plan_district_count_z5
+                 value = 0
+             }
+            check_variable_arithmetic = {
+                which = value:bca_num_free_secondary_districts_plan
+                value > 0
+            }
+        }
+        add_variable = {
+            which = bca_ps_plan_district_count_z5
+            value = 1
+        }
+    }
+}
+
+try_set_secondary_districts_plan_one_to_zero = {
+    bca_set_secondary_district_type_flag = yes
+    if = {
+        limit = {
+             has_planet_flag = bca_pf_ps_zone_district_z3_district_resort_1
+             NOT = { has_district = district_resort_1 }
+             check_variable = {
+                 which = bca_ps_plan_district_count_z3
+                 value = 1
+             }
+        }
+        set_variable = {
+            which = bca_ps_plan_district_count_z3
+            value = 0
+        }
+    }
+    if = {
+        limit = {
+             has_planet_flag = bca_pf_ps_zone_district_z3_district_resort_2
+             NOT = { has_district = district_resort_2 }
+             check_variable = {
+                 which = bca_ps_plan_district_count_z3
+                 value = 1
+             }
+        }
+        set_variable = {
+            which = bca_ps_plan_district_count_z3
+            value = 0
+        }
+    }
+    if = {
+        limit = {
+             has_planet_flag = bca_pf_ps_zone_district_z3_district_resort_3
+             NOT = { has_district = district_resort_3 }
+             check_variable = {
+                 which = bca_ps_plan_district_count_z3
+                 value = 1
+             }
+        }
+        set_variable = {
+            which = bca_ps_plan_district_count_z3
+            value = 0
+        }
+    }
+    if = {
+        limit = {
+             has_planet_flag = bca_pf_ps_zone_district_z3_district_hive_1
+             NOT = { has_district = district_hive_1 }
+             check_variable = {
+                 which = bca_ps_plan_district_count_z3
+                 value = 1
+             }
+        }
+        set_variable = {
+            which = bca_ps_plan_district_count_z3
+            value = 0
+        }
+    }
+    if = {
+        limit = {
+             has_planet_flag = bca_pf_ps_zone_district_z3_district_hive_2
+             NOT = { has_district = district_hive_2 }
+             check_variable = {
+                 which = bca_ps_plan_district_count_z3
+                 value = 1
+             }
+        }
+        set_variable = {
+            which = bca_ps_plan_district_count_z3
+            value = 0
+        }
+    }
+    if = {
+        limit = {
+             has_planet_flag = bca_pf_ps_zone_district_z3_district_hive_3
+             NOT = { has_district = district_hive_3 }
+             check_variable = {
+                 which = bca_ps_plan_district_count_z3
+                 value = 1
+             }
+        }
+        set_variable = {
+            which = bca_ps_plan_district_count_z3
+            value = 0
+        }
+    }
+    if = {
+        limit = {
+             has_planet_flag = bca_pf_ps_zone_district_z3_district_nexus_1
+             NOT = { has_district = district_nexus_1 }
+             check_variable = {
+                 which = bca_ps_plan_district_count_z3
+                 value = 1
+             }
+        }
+        set_variable = {
+            which = bca_ps_plan_district_count_z3
+            value = 0
+        }
+    }
+    if = {
+        limit = {
+             has_planet_flag = bca_pf_ps_zone_district_z3_district_nexus_2
+             NOT = { has_district = district_nexus_2 }
+             check_variable = {
+                 which = bca_ps_plan_district_count_z3
+                 value = 1
+             }
+        }
+        set_variable = {
+            which = bca_ps_plan_district_count_z3
+            value = 0
+        }
+    }
+    if = {
+        limit = {
+             has_planet_flag = bca_pf_ps_zone_district_z3_district_nexus_3
+             NOT = { has_district = district_nexus_3 }
+             check_variable = {
+                 which = bca_ps_plan_district_count_z3
+                 value = 1
+             }
+        }
+        set_variable = {
+            which = bca_ps_plan_district_count_z3
+            value = 0
+        }
+    }
+    if = {
+        limit = {
+             has_planet_flag = bca_pf_ps_zone_district_z3_district_arcology_urban_1
+             NOT = { has_district = district_arcology_urban_1 }
+             check_variable = {
+                 which = bca_ps_plan_district_count_z3
+                 value = 1
+             }
+        }
+        set_variable = {
+            which = bca_ps_plan_district_count_z3
+            value = 0
+        }
+    }
+    if = {
+        limit = {
+             has_planet_flag = bca_pf_ps_zone_district_z3_district_arcology_urban_2
+             NOT = { has_district = district_arcology_urban_2 }
+             check_variable = {
+                 which = bca_ps_plan_district_count_z3
+                 value = 1
+             }
+        }
+        set_variable = {
+            which = bca_ps_plan_district_count_z3
+            value = 0
+        }
+    }
+    if = {
+        limit = {
+             has_planet_flag = bca_pf_ps_zone_district_z3_district_arcology_urban_3
+             NOT = { has_district = district_arcology_urban_3 }
+             check_variable = {
+                 which = bca_ps_plan_district_count_z3
+                 value = 1
+             }
+        }
+        set_variable = {
+            which = bca_ps_plan_district_count_z3
+            value = 0
+        }
+    }
+    if = {
+        limit = {
+             has_planet_flag = bca_pf_ps_zone_district_z3_district_generator
+             NOT = { has_district = district_generator }
+             check_variable = {
+                 which = bca_ps_plan_district_count_z3
+                 value = 1
+             }
+        }
+        set_variable = {
+            which = bca_ps_plan_district_count_z3
+            value = 0
+        }
+    }
+    if = {
+        limit = {
+             has_planet_flag = bca_pf_ps_zone_district_z3_district_mining
+             NOT = { has_district = district_mining }
+             check_variable = {
+                 which = bca_ps_plan_district_count_z3
+                 value = 1
+             }
+        }
+        set_variable = {
+            which = bca_ps_plan_district_count_z3
+            value = 0
+        }
+    }
+    if = {
+        limit = {
+             has_planet_flag = bca_pf_ps_zone_district_z3_district_farming
+             NOT = { has_district = district_farming }
+             check_variable = {
+                 which = bca_ps_plan_district_count_z3
+                 value = 1
+             }
+        }
+        set_variable = {
+            which = bca_ps_plan_district_count_z3
+            value = 0
+        }
+    }
+    if = {
+        limit = {
+             has_planet_flag = bca_pf_ps_zone_district_z3_district_geothermal
+             NOT = { has_district = district_geothermal }
+             check_variable = {
+                 which = bca_ps_plan_district_count_z3
+                 value = 1
+             }
+        }
+        set_variable = {
+            which = bca_ps_plan_district_count_z3
+            value = 0
+        }
+    }
+    if = {
+        limit = {
+             has_planet_flag = bca_pf_ps_zone_district_z3_district_melting
+             NOT = { has_district = district_melting }
+             check_variable = {
+                 which = bca_ps_plan_district_count_z3
+                 value = 1
+             }
+        }
+        set_variable = {
+            which = bca_ps_plan_district_count_z3
+            value = 0
+        }
+    }
+    if = {
+        limit = {
+             has_planet_flag = bca_pf_ps_zone_district_z3_district_polytechnic
+             NOT = { has_district = district_polytechnic }
+             check_variable = {
+                 which = bca_ps_plan_district_count_z3
+                 value = 1
+             }
+        }
+        set_variable = {
+            which = bca_ps_plan_district_count_z3
+            value = 0
+        }
+    }
+    if = {
+        limit = {
+             has_planet_flag = bca_pf_ps_zone_district_z3_district_hab_energy
+             NOT = { has_district = district_hab_energy }
+             check_variable = {
+                 which = bca_ps_plan_district_count_z3
+                 value = 1
+             }
+        }
+        set_variable = {
+            which = bca_ps_plan_district_count_z3
+            value = 0
+        }
+    }
+    if = {
+        limit = {
+             has_planet_flag = bca_pf_ps_zone_district_z3_district_hab_mining
+             NOT = { has_district = district_hab_mining }
+             check_variable = {
+                 which = bca_ps_plan_district_count_z3
+                 value = 1
+             }
+        }
+        set_variable = {
+            which = bca_ps_plan_district_count_z3
+            value = 0
+        }
+    }
+    if = {
+        limit = {
+             has_planet_flag = bca_pf_ps_zone_district_z3_district_hab_science
+             NOT = { has_district = district_hab_science }
+             check_variable = {
+                 which = bca_ps_plan_district_count_z3
+                 value = 1
+             }
+        }
+        set_variable = {
+            which = bca_ps_plan_district_count_z3
+            value = 0
+        }
+    }
+    if = {
+        limit = {
+             has_planet_flag = bca_pf_ps_zone_district_z3_district_rw_urban_1
+             NOT = { has_district = district_rw_urban_1 }
+             check_variable = {
+                 which = bca_ps_plan_district_count_z3
+                 value = 1
+             }
+        }
+        set_variable = {
+            which = bca_ps_plan_district_count_z3
+            value = 0
+        }
+    }
+    if = {
+        limit = {
+             has_planet_flag = bca_pf_ps_zone_district_z3_district_rw_urban_2
+             NOT = { has_district = district_rw_urban_2 }
+             check_variable = {
+                 which = bca_ps_plan_district_count_z3
+                 value = 1
+             }
+        }
+        set_variable = {
+            which = bca_ps_plan_district_count_z3
+            value = 0
+        }
+    }
+    if = {
+        limit = {
+             has_planet_flag = bca_pf_ps_zone_district_z3_district_rw_urban_3
+             NOT = { has_district = district_rw_urban_3 }
+             check_variable = {
+                 which = bca_ps_plan_district_count_z3
+                 value = 1
+             }
+        }
+        set_variable = {
+            which = bca_ps_plan_district_count_z3
+            value = 0
+        }
+    }
+    if = {
+        limit = {
+             has_planet_flag = bca_pf_ps_zone_district_z3_district_photosynthesis_fields
+             NOT = { has_district = district_photosynthesis_fields }
+             check_variable = {
+                 which = bca_ps_plan_district_count_z3
+                 value = 1
+             }
+        }
+        set_variable = {
+            which = bca_ps_plan_district_count_z3
+            value = 0
+        }
+    }
+    if = {
+        limit = {
+             has_planet_flag = bca_pf_ps_zone_district_z3_district_hollow_mountains
+             NOT = { has_district = district_hollow_mountains }
+             check_variable = {
+                 which = bca_ps_plan_district_count_z3
+                 value = 1
+             }
+        }
+        set_variable = {
+            which = bca_ps_plan_district_count_z3
+            value = 0
+        }
+    }
+    if = {
+        limit = {
+             has_planet_flag = bca_pf_ps_zone_district_z3_district_orchard_forests
+             NOT = { has_district = district_orchard_forests }
+             check_variable = {
+                 which = bca_ps_plan_district_count_z3
+                 value = 1
+             }
+        }
+        set_variable = {
+            which = bca_ps_plan_district_count_z3
+            value = 0
+        }
+    }
+    if = {
+        limit = {
+             has_planet_flag = bca_pf_ps_zone_district_z4_district_resort_1
+             NOT = { has_district = district_resort_1 }
+             check_variable = {
+                 which = bca_ps_plan_district_count_z4
+                 value = 1
+             }
+        }
+        set_variable = {
+            which = bca_ps_plan_district_count_z4
+            value = 0
+        }
+    }
+    if = {
+        limit = {
+             has_planet_flag = bca_pf_ps_zone_district_z4_district_resort_2
+             NOT = { has_district = district_resort_2 }
+             check_variable = {
+                 which = bca_ps_plan_district_count_z4
+                 value = 1
+             }
+        }
+        set_variable = {
+            which = bca_ps_plan_district_count_z4
+            value = 0
+        }
+    }
+    if = {
+        limit = {
+             has_planet_flag = bca_pf_ps_zone_district_z4_district_resort_3
+             NOT = { has_district = district_resort_3 }
+             check_variable = {
+                 which = bca_ps_plan_district_count_z4
+                 value = 1
+             }
+        }
+        set_variable = {
+            which = bca_ps_plan_district_count_z4
+            value = 0
+        }
+    }
+    if = {
+        limit = {
+             has_planet_flag = bca_pf_ps_zone_district_z4_district_hive_1
+             NOT = { has_district = district_hive_1 }
+             check_variable = {
+                 which = bca_ps_plan_district_count_z4
+                 value = 1
+             }
+        }
+        set_variable = {
+            which = bca_ps_plan_district_count_z4
+            value = 0
+        }
+    }
+    if = {
+        limit = {
+             has_planet_flag = bca_pf_ps_zone_district_z4_district_hive_2
+             NOT = { has_district = district_hive_2 }
+             check_variable = {
+                 which = bca_ps_plan_district_count_z4
+                 value = 1
+             }
+        }
+        set_variable = {
+            which = bca_ps_plan_district_count_z4
+            value = 0
+        }
+    }
+    if = {
+        limit = {
+             has_planet_flag = bca_pf_ps_zone_district_z4_district_hive_3
+             NOT = { has_district = district_hive_3 }
+             check_variable = {
+                 which = bca_ps_plan_district_count_z4
+                 value = 1
+             }
+        }
+        set_variable = {
+            which = bca_ps_plan_district_count_z4
+            value = 0
+        }
+    }
+    if = {
+        limit = {
+             has_planet_flag = bca_pf_ps_zone_district_z4_district_nexus_1
+             NOT = { has_district = district_nexus_1 }
+             check_variable = {
+                 which = bca_ps_plan_district_count_z4
+                 value = 1
+             }
+        }
+        set_variable = {
+            which = bca_ps_plan_district_count_z4
+            value = 0
+        }
+    }
+    if = {
+        limit = {
+             has_planet_flag = bca_pf_ps_zone_district_z4_district_nexus_2
+             NOT = { has_district = district_nexus_2 }
+             check_variable = {
+                 which = bca_ps_plan_district_count_z4
+                 value = 1
+             }
+        }
+        set_variable = {
+            which = bca_ps_plan_district_count_z4
+            value = 0
+        }
+    }
+    if = {
+        limit = {
+             has_planet_flag = bca_pf_ps_zone_district_z4_district_nexus_3
+             NOT = { has_district = district_nexus_3 }
+             check_variable = {
+                 which = bca_ps_plan_district_count_z4
+                 value = 1
+             }
+        }
+        set_variable = {
+            which = bca_ps_plan_district_count_z4
+            value = 0
+        }
+    }
+    if = {
+        limit = {
+             has_planet_flag = bca_pf_ps_zone_district_z4_district_arcology_urban_1
+             NOT = { has_district = district_arcology_urban_1 }
+             check_variable = {
+                 which = bca_ps_plan_district_count_z4
+                 value = 1
+             }
+        }
+        set_variable = {
+            which = bca_ps_plan_district_count_z4
+            value = 0
+        }
+    }
+    if = {
+        limit = {
+             has_planet_flag = bca_pf_ps_zone_district_z4_district_arcology_urban_2
+             NOT = { has_district = district_arcology_urban_2 }
+             check_variable = {
+                 which = bca_ps_plan_district_count_z4
+                 value = 1
+             }
+        }
+        set_variable = {
+            which = bca_ps_plan_district_count_z4
+            value = 0
+        }
+    }
+    if = {
+        limit = {
+             has_planet_flag = bca_pf_ps_zone_district_z4_district_arcology_urban_3
+             NOT = { has_district = district_arcology_urban_3 }
+             check_variable = {
+                 which = bca_ps_plan_district_count_z4
+                 value = 1
+             }
+        }
+        set_variable = {
+            which = bca_ps_plan_district_count_z4
+            value = 0
+        }
+    }
+    if = {
+        limit = {
+             has_planet_flag = bca_pf_ps_zone_district_z4_district_generator
+             NOT = { has_district = district_generator }
+             check_variable = {
+                 which = bca_ps_plan_district_count_z4
+                 value = 1
+             }
+        }
+        set_variable = {
+            which = bca_ps_plan_district_count_z4
+            value = 0
+        }
+    }
+    if = {
+        limit = {
+             has_planet_flag = bca_pf_ps_zone_district_z4_district_mining
+             NOT = { has_district = district_mining }
+             check_variable = {
+                 which = bca_ps_plan_district_count_z4
+                 value = 1
+             }
+        }
+        set_variable = {
+            which = bca_ps_plan_district_count_z4
+            value = 0
+        }
+    }
+    if = {
+        limit = {
+             has_planet_flag = bca_pf_ps_zone_district_z4_district_farming
+             NOT = { has_district = district_farming }
+             check_variable = {
+                 which = bca_ps_plan_district_count_z4
+                 value = 1
+             }
+        }
+        set_variable = {
+            which = bca_ps_plan_district_count_z4
+            value = 0
+        }
+    }
+    if = {
+        limit = {
+             has_planet_flag = bca_pf_ps_zone_district_z4_district_geothermal
+             NOT = { has_district = district_geothermal }
+             check_variable = {
+                 which = bca_ps_plan_district_count_z4
+                 value = 1
+             }
+        }
+        set_variable = {
+            which = bca_ps_plan_district_count_z4
+            value = 0
+        }
+    }
+    if = {
+        limit = {
+             has_planet_flag = bca_pf_ps_zone_district_z4_district_melting
+             NOT = { has_district = district_melting }
+             check_variable = {
+                 which = bca_ps_plan_district_count_z4
+                 value = 1
+             }
+        }
+        set_variable = {
+            which = bca_ps_plan_district_count_z4
+            value = 0
+        }
+    }
+    if = {
+        limit = {
+             has_planet_flag = bca_pf_ps_zone_district_z4_district_polytechnic
+             NOT = { has_district = district_polytechnic }
+             check_variable = {
+                 which = bca_ps_plan_district_count_z4
+                 value = 1
+             }
+        }
+        set_variable = {
+            which = bca_ps_plan_district_count_z4
+            value = 0
+        }
+    }
+    if = {
+        limit = {
+             has_planet_flag = bca_pf_ps_zone_district_z4_district_hab_energy
+             NOT = { has_district = district_hab_energy }
+             check_variable = {
+                 which = bca_ps_plan_district_count_z4
+                 value = 1
+             }
+        }
+        set_variable = {
+            which = bca_ps_plan_district_count_z4
+            value = 0
+        }
+    }
+    if = {
+        limit = {
+             has_planet_flag = bca_pf_ps_zone_district_z4_district_hab_mining
+             NOT = { has_district = district_hab_mining }
+             check_variable = {
+                 which = bca_ps_plan_district_count_z4
+                 value = 1
+             }
+        }
+        set_variable = {
+            which = bca_ps_plan_district_count_z4
+            value = 0
+        }
+    }
+    if = {
+        limit = {
+             has_planet_flag = bca_pf_ps_zone_district_z4_district_hab_science
+             NOT = { has_district = district_hab_science }
+             check_variable = {
+                 which = bca_ps_plan_district_count_z4
+                 value = 1
+             }
+        }
+        set_variable = {
+            which = bca_ps_plan_district_count_z4
+            value = 0
+        }
+    }
+    if = {
+        limit = {
+             has_planet_flag = bca_pf_ps_zone_district_z4_district_rw_urban_1
+             NOT = { has_district = district_rw_urban_1 }
+             check_variable = {
+                 which = bca_ps_plan_district_count_z4
+                 value = 1
+             }
+        }
+        set_variable = {
+            which = bca_ps_plan_district_count_z4
+            value = 0
+        }
+    }
+    if = {
+        limit = {
+             has_planet_flag = bca_pf_ps_zone_district_z4_district_rw_urban_2
+             NOT = { has_district = district_rw_urban_2 }
+             check_variable = {
+                 which = bca_ps_plan_district_count_z4
+                 value = 1
+             }
+        }
+        set_variable = {
+            which = bca_ps_plan_district_count_z4
+            value = 0
+        }
+    }
+    if = {
+        limit = {
+             has_planet_flag = bca_pf_ps_zone_district_z4_district_rw_urban_3
+             NOT = { has_district = district_rw_urban_3 }
+             check_variable = {
+                 which = bca_ps_plan_district_count_z4
+                 value = 1
+             }
+        }
+        set_variable = {
+            which = bca_ps_plan_district_count_z4
+            value = 0
+        }
+    }
+    if = {
+        limit = {
+             has_planet_flag = bca_pf_ps_zone_district_z4_district_photosynthesis_fields
+             NOT = { has_district = district_photosynthesis_fields }
+             check_variable = {
+                 which = bca_ps_plan_district_count_z4
+                 value = 1
+             }
+        }
+        set_variable = {
+            which = bca_ps_plan_district_count_z4
+            value = 0
+        }
+    }
+    if = {
+        limit = {
+             has_planet_flag = bca_pf_ps_zone_district_z4_district_hollow_mountains
+             NOT = { has_district = district_hollow_mountains }
+             check_variable = {
+                 which = bca_ps_plan_district_count_z4
+                 value = 1
+             }
+        }
+        set_variable = {
+            which = bca_ps_plan_district_count_z4
+            value = 0
+        }
+    }
+    if = {
+        limit = {
+             has_planet_flag = bca_pf_ps_zone_district_z4_district_orchard_forests
+             NOT = { has_district = district_orchard_forests }
+             check_variable = {
+                 which = bca_ps_plan_district_count_z4
+                 value = 1
+             }
+        }
+        set_variable = {
+            which = bca_ps_plan_district_count_z4
+            value = 0
+        }
+    }
+    if = {
+        limit = {
+             has_planet_flag = bca_pf_ps_zone_district_z5_district_resort_1
+             NOT = { has_district = district_resort_1 }
+             check_variable = {
+                 which = bca_ps_plan_district_count_z5
+                 value = 1
+             }
+        }
+        set_variable = {
+            which = bca_ps_plan_district_count_z5
+            value = 0
+        }
+    }
+    if = {
+        limit = {
+             has_planet_flag = bca_pf_ps_zone_district_z5_district_resort_2
+             NOT = { has_district = district_resort_2 }
+             check_variable = {
+                 which = bca_ps_plan_district_count_z5
+                 value = 1
+             }
+        }
+        set_variable = {
+            which = bca_ps_plan_district_count_z5
+            value = 0
+        }
+    }
+    if = {
+        limit = {
+             has_planet_flag = bca_pf_ps_zone_district_z5_district_resort_3
+             NOT = { has_district = district_resort_3 }
+             check_variable = {
+                 which = bca_ps_plan_district_count_z5
+                 value = 1
+             }
+        }
+        set_variable = {
+            which = bca_ps_plan_district_count_z5
+            value = 0
+        }
+    }
+    if = {
+        limit = {
+             has_planet_flag = bca_pf_ps_zone_district_z5_district_hive_1
+             NOT = { has_district = district_hive_1 }
+             check_variable = {
+                 which = bca_ps_plan_district_count_z5
+                 value = 1
+             }
+        }
+        set_variable = {
+            which = bca_ps_plan_district_count_z5
+            value = 0
+        }
+    }
+    if = {
+        limit = {
+             has_planet_flag = bca_pf_ps_zone_district_z5_district_hive_2
+             NOT = { has_district = district_hive_2 }
+             check_variable = {
+                 which = bca_ps_plan_district_count_z5
+                 value = 1
+             }
+        }
+        set_variable = {
+            which = bca_ps_plan_district_count_z5
+            value = 0
+        }
+    }
+    if = {
+        limit = {
+             has_planet_flag = bca_pf_ps_zone_district_z5_district_hive_3
+             NOT = { has_district = district_hive_3 }
+             check_variable = {
+                 which = bca_ps_plan_district_count_z5
+                 value = 1
+             }
+        }
+        set_variable = {
+            which = bca_ps_plan_district_count_z5
+            value = 0
+        }
+    }
+    if = {
+        limit = {
+             has_planet_flag = bca_pf_ps_zone_district_z5_district_nexus_1
+             NOT = { has_district = district_nexus_1 }
+             check_variable = {
+                 which = bca_ps_plan_district_count_z5
+                 value = 1
+             }
+        }
+        set_variable = {
+            which = bca_ps_plan_district_count_z5
+            value = 0
+        }
+    }
+    if = {
+        limit = {
+             has_planet_flag = bca_pf_ps_zone_district_z5_district_nexus_2
+             NOT = { has_district = district_nexus_2 }
+             check_variable = {
+                 which = bca_ps_plan_district_count_z5
+                 value = 1
+             }
+        }
+        set_variable = {
+            which = bca_ps_plan_district_count_z5
+            value = 0
+        }
+    }
+    if = {
+        limit = {
+             has_planet_flag = bca_pf_ps_zone_district_z5_district_nexus_3
+             NOT = { has_district = district_nexus_3 }
+             check_variable = {
+                 which = bca_ps_plan_district_count_z5
+                 value = 1
+             }
+        }
+        set_variable = {
+            which = bca_ps_plan_district_count_z5
+            value = 0
+        }
+    }
+    if = {
+        limit = {
+             has_planet_flag = bca_pf_ps_zone_district_z5_district_arcology_urban_1
+             NOT = { has_district = district_arcology_urban_1 }
+             check_variable = {
+                 which = bca_ps_plan_district_count_z5
+                 value = 1
+             }
+        }
+        set_variable = {
+            which = bca_ps_plan_district_count_z5
+            value = 0
+        }
+    }
+    if = {
+        limit = {
+             has_planet_flag = bca_pf_ps_zone_district_z5_district_arcology_urban_2
+             NOT = { has_district = district_arcology_urban_2 }
+             check_variable = {
+                 which = bca_ps_plan_district_count_z5
+                 value = 1
+             }
+        }
+        set_variable = {
+            which = bca_ps_plan_district_count_z5
+            value = 0
+        }
+    }
+    if = {
+        limit = {
+             has_planet_flag = bca_pf_ps_zone_district_z5_district_arcology_urban_3
+             NOT = { has_district = district_arcology_urban_3 }
+             check_variable = {
+                 which = bca_ps_plan_district_count_z5
+                 value = 1
+             }
+        }
+        set_variable = {
+            which = bca_ps_plan_district_count_z5
+            value = 0
+        }
+    }
+    if = {
+        limit = {
+             has_planet_flag = bca_pf_ps_zone_district_z5_district_generator
+             NOT = { has_district = district_generator }
+             check_variable = {
+                 which = bca_ps_plan_district_count_z5
+                 value = 1
+             }
+        }
+        set_variable = {
+            which = bca_ps_plan_district_count_z5
+            value = 0
+        }
+    }
+    if = {
+        limit = {
+             has_planet_flag = bca_pf_ps_zone_district_z5_district_mining
+             NOT = { has_district = district_mining }
+             check_variable = {
+                 which = bca_ps_plan_district_count_z5
+                 value = 1
+             }
+        }
+        set_variable = {
+            which = bca_ps_plan_district_count_z5
+            value = 0
+        }
+    }
+    if = {
+        limit = {
+             has_planet_flag = bca_pf_ps_zone_district_z5_district_farming
+             NOT = { has_district = district_farming }
+             check_variable = {
+                 which = bca_ps_plan_district_count_z5
+                 value = 1
+             }
+        }
+        set_variable = {
+            which = bca_ps_plan_district_count_z5
+            value = 0
+        }
+    }
+    if = {
+        limit = {
+             has_planet_flag = bca_pf_ps_zone_district_z5_district_geothermal
+             NOT = { has_district = district_geothermal }
+             check_variable = {
+                 which = bca_ps_plan_district_count_z5
+                 value = 1
+             }
+        }
+        set_variable = {
+            which = bca_ps_plan_district_count_z5
+            value = 0
+        }
+    }
+    if = {
+        limit = {
+             has_planet_flag = bca_pf_ps_zone_district_z5_district_melting
+             NOT = { has_district = district_melting }
+             check_variable = {
+                 which = bca_ps_plan_district_count_z5
+                 value = 1
+             }
+        }
+        set_variable = {
+            which = bca_ps_plan_district_count_z5
+            value = 0
+        }
+    }
+    if = {
+        limit = {
+             has_planet_flag = bca_pf_ps_zone_district_z5_district_polytechnic
+             NOT = { has_district = district_polytechnic }
+             check_variable = {
+                 which = bca_ps_plan_district_count_z5
+                 value = 1
+             }
+        }
+        set_variable = {
+            which = bca_ps_plan_district_count_z5
+            value = 0
+        }
+    }
+    if = {
+        limit = {
+             has_planet_flag = bca_pf_ps_zone_district_z5_district_hab_energy
+             NOT = { has_district = district_hab_energy }
+             check_variable = {
+                 which = bca_ps_plan_district_count_z5
+                 value = 1
+             }
+        }
+        set_variable = {
+            which = bca_ps_plan_district_count_z5
+            value = 0
+        }
+    }
+    if = {
+        limit = {
+             has_planet_flag = bca_pf_ps_zone_district_z5_district_hab_mining
+             NOT = { has_district = district_hab_mining }
+             check_variable = {
+                 which = bca_ps_plan_district_count_z5
+                 value = 1
+             }
+        }
+        set_variable = {
+            which = bca_ps_plan_district_count_z5
+            value = 0
+        }
+    }
+    if = {
+        limit = {
+             has_planet_flag = bca_pf_ps_zone_district_z5_district_hab_science
+             NOT = { has_district = district_hab_science }
+             check_variable = {
+                 which = bca_ps_plan_district_count_z5
+                 value = 1
+             }
+        }
+        set_variable = {
+            which = bca_ps_plan_district_count_z5
+            value = 0
+        }
+    }
+    if = {
+        limit = {
+             has_planet_flag = bca_pf_ps_zone_district_z5_district_rw_urban_1
+             NOT = { has_district = district_rw_urban_1 }
+             check_variable = {
+                 which = bca_ps_plan_district_count_z5
+                 value = 1
+             }
+        }
+        set_variable = {
+            which = bca_ps_plan_district_count_z5
+            value = 0
+        }
+    }
+    if = {
+        limit = {
+             has_planet_flag = bca_pf_ps_zone_district_z5_district_rw_urban_2
+             NOT = { has_district = district_rw_urban_2 }
+             check_variable = {
+                 which = bca_ps_plan_district_count_z5
+                 value = 1
+             }
+        }
+        set_variable = {
+            which = bca_ps_plan_district_count_z5
+            value = 0
+        }
+    }
+    if = {
+        limit = {
+             has_planet_flag = bca_pf_ps_zone_district_z5_district_rw_urban_3
+             NOT = { has_district = district_rw_urban_3 }
+             check_variable = {
+                 which = bca_ps_plan_district_count_z5
+                 value = 1
+             }
+        }
+        set_variable = {
+            which = bca_ps_plan_district_count_z5
+            value = 0
+        }
+    }
+    if = {
+        limit = {
+             has_planet_flag = bca_pf_ps_zone_district_z5_district_photosynthesis_fields
+             NOT = { has_district = district_photosynthesis_fields }
+             check_variable = {
+                 which = bca_ps_plan_district_count_z5
+                 value = 1
+             }
+        }
+        set_variable = {
+            which = bca_ps_plan_district_count_z5
+            value = 0
+        }
+    }
+    if = {
+        limit = {
+             has_planet_flag = bca_pf_ps_zone_district_z5_district_hollow_mountains
+             NOT = { has_district = district_hollow_mountains }
+             check_variable = {
+                 which = bca_ps_plan_district_count_z5
+                 value = 1
+             }
+        }
+        set_variable = {
+            which = bca_ps_plan_district_count_z5
+            value = 0
+        }
+    }
+    if = {
+        limit = {
+             has_planet_flag = bca_pf_ps_zone_district_z5_district_orchard_forests
+             NOT = { has_district = district_orchard_forests }
+             check_variable = {
+                 which = bca_ps_plan_district_count_z5
+                 value = 1
+             }
+        }
+        set_variable = {
+            which = bca_ps_plan_district_count_z5
+            value = 0
+        }
+    }
+    bca_clean_flags_zone_selector_secondary_district = yes
+}
+
+bca_set_district_plan_by_ratio = {
+    set_variable = {
+        which = new_num_main_districts_plan_diff
+        value = value:bca_num_main_districts_from_ratio|RATIO|$RATIO$|
+    }
+    subtract_variable = {
+         which = new_num_main_districts_plan_diff
+         value = value:bca_num_primary_districts_plan
+    }
+    bca_set_district_plan_by_diff = yes
+}
+
+bca_set_district_plan_inc_1 = {
+    set_variable = {
+        which = new_num_main_districts_plan_diff
+        value = 1
+    }
+    bca_set_district_plan_by_diff = yes
+}
+
+bca_set_district_plan_dec_1 = {
+    set_variable = {
+        which = new_num_main_districts_plan_diff
+        value = -1
+    }
+    bca_set_district_plan_by_diff = yes
+}
+
+bca_set_district_plan_by_diff = {
+
+    while = {
+         limit = {
+             check_variable = {
+                 which = new_num_main_districts_plan_diff
+                 value > 0
+             }
+         }
+        if = {
+            limit = {
+                check_variable = {
+                    which = bca_ps_plan_district_count_z3
+                    value > value:num_district_d1
+                }
+                 check_variable = {
+                     which = new_num_main_districts_plan_diff
+                     value > 0
+                 }
+            }
+            subtract_variable = {
+                which = bca_ps_plan_district_count_z3
+                value = 1
+            }
+            subtract_variable = {
+                which = new_num_main_districts_plan_diff
+                value = 1
+            }
+        }
+        if = {
+            limit = {
+                check_variable = {
+                    which = bca_ps_plan_district_count_z4
+                    value > value:num_district_d2
+                }
+                 check_variable = {
+                     which = new_num_main_districts_plan_diff
+                     value > 0
+                 }
+            }
+            subtract_variable = {
+                which = bca_ps_plan_district_count_z4
+                value = 1
+            }
+            subtract_variable = {
+                which = new_num_main_districts_plan_diff
+                value = 1
+            }
+        }
+        if = {
+            limit = {
+                check_variable = {
+                    which = bca_ps_plan_district_count_z5
+                    value > value:num_district_d3
+                }
+                 check_variable = {
+                     which = new_num_main_districts_plan_diff
+                     value > 0
+                 }
+            }
+            subtract_variable = {
+                which = bca_ps_plan_district_count_z5
+                value = 1
+            }
+            subtract_variable = {
+                which = new_num_main_districts_plan_diff
+                value = 1
+            }
+        }
+    }
+    while = {
+         limit = {
+             check_variable = {
+                 which = new_num_main_districts_plan_diff
+                 value < 0
+             }
+         }
+        if = {
+            limit = {
+                check_variable_arithmetic = {
+                    which = value:bca_num_free_secondary_districts_plan
+                    value > 0
+                }
+                 check_variable = {
+                     which = new_num_main_districts_plan_diff
+                     value < 0
+                 }
+                 OR = {
+                    bca_has_secondary_districts = yes
+                    AND = {
+                       has_farming_designation = no
+                       has_mining_designation = no
+                    }
+                 }
+            }
+            add_variable = {
+                which = bca_ps_plan_district_count_z3
+                value = 1
+            }
+            add_variable = {
+                which = new_num_main_districts_plan_diff
+                value = 1
+            }
+        }
+        if = {
+            limit = {
+                check_variable_arithmetic = {
+                    which = value:bca_num_free_secondary_districts_plan
+                    value > 0
+                }
+                 check_variable = {
+                     which = new_num_main_districts_plan_diff
+                     value < 0
+                 }
+                 OR = {
+                    bca_has_secondary_districts = yes
+                    AND = {
+                       has_generator_designation = no
+                       has_farming_designation = no
+                    }
+                 }
+            }
+            add_variable = {
+                which = bca_ps_plan_district_count_z4
+                value = 1
+            }
+            add_variable = {
+                which = new_num_main_districts_plan_diff
+                value = 1
+            }
+        }
+        if = {
+            limit = {
+                check_variable_arithmetic = {
+                    which = value:bca_num_free_secondary_districts_plan
+                    value > 0
+                }
+                 check_variable = {
+                     which = new_num_main_districts_plan_diff
+                     value < 0
+                 }
+                 OR = {
+                    bca_has_secondary_districts = yes
+                    AND = {
+                       has_generator_designation = no
+                       has_mining_designation = no
+                    }
+                 }
+            }
+            add_variable = {
+                which = bca_ps_plan_district_count_z5
+                value = 1
+            }
+            add_variable = {
+                which = new_num_main_districts_plan_diff
+                value = 1
+            }
+        }
+    }
+
+    clear_variable = new_num_main_districts_plan_diff
+
+
+}

@@ -1,0 +1,60 @@
+if = {
+    limit = { has_building = $building_1$ }
+    try_construct_building = {
+        building = $building_2$
+        standard_production = $standard_production$
+        INC_JOB = $b2_inc_job$
+        INC_ADD = $b2_inc_add$
+        INC_MULT = $b2_inc_mult$
+        cost = $building_2_cost$
+        priority_shift = $priority_shift$
+        index = $index$
+    }
+    # long-term planing
+    try_construct_building = {
+        building = $building_3$
+        standard_production = $standard_production$
+        INC_JOB = @[ $b2_inc_job$ + $b3_inc_job$ ]
+        INC_ADD = @[ $b2_inc_add$ + $b3_inc_add$ ]
+        INC_MULT = @[ $b2_inc_mult$ + $b3_inc_mult$ ]
+        cost = $building_3_cost$
+        priority_shift = $priority_shift$
+        index = $index$
+    }
+}
+else_if = {
+    limit = { has_building = $building_2$ }
+    try_construct_building = {
+        building = $building_3$
+        standard_production = $standard_production$
+        INC_JOB = $b3_inc_job$
+        INC_ADD = $b3_inc_add$
+        INC_MULT = $b3_inc_mult$
+        cost = $building_3_cost$
+        priority_shift = $priority_shift$
+        index = $index$
+    }
+}
+else = { # can build multiple times
+    try_construct_building = {
+        building = $building_1$
+        standard_production = $standard_production$
+        INC_JOB = $b1_inc_job$
+        INC_ADD = $b1_inc_add$
+        INC_MULT = $b1_inc_mult$
+        cost = $building_1_cost$
+        priority_shift = $priority_shift$
+        index = $index$
+    }
+    # long-term planing
+    try_construct_building = {
+        building = $building_1$
+        standard_production = $standard_production$
+        INC_JOB = @[ $b1_inc_job$ + $b2_inc_job$ ]
+        INC_ADD = @[ $b1_inc_add$ + $b2_inc_add$ ]
+        INC_MULT = @[ $b1_inc_mult$ + $b2_inc_mult$ ]
+        cost = @[ $building_1_cost$ + $building_2_cost$ ]
+        priority_shift = $priority_shift$
+        index = $index$
+    }
+}

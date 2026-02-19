@@ -15,3 +15,5 @@ bca_pm_arcology_project_candidate = {
 	icon_frame = 2
 	custom_tooltip = "bca_pm_arcology_project_candidate_desc"
 }
+
+bca_pm_planet_setting_reflash = {}

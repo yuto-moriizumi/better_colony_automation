@@ -1,0 +1,142 @@
+{% import 'component/planet_flag_ps.j2' as pf with context %}
+{% import 'component/planet_variable.j2' as v with context %}
+{% import 'component/conditions.j2' as cond with context %}
+
+
+namespace = colony_automation_event
+
+country_event = {
+	id = colony_automation_event.20
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		is_ai = no
+		bca_has_minerals_to_build = yes
+	}
+
+	immediate = {
+		every_owned_planet = {
+			limit = {
+			    is_colony = yes
+				has_building_construction = no
+				NOT = { has_planet_flag = bca_pf_advance_controller_order }
+			}
+			remove_planet_flag = bac_plan_build_new_zone
+
+            {% for item in zones_info %}
+            {% set type = item.type %}
+            {% if cond.contain_any_zones_of(item.zones, primary_districts_for_zone)|int %}
+            remove_planet_flag = {{ pf.flag_plan_build_primary_zone_type(type) }}
+            {% endif %}
+            {% if cond.contain_any_zones_of(item.zones, secondary_districts_for_zone)|int %}
+            remove_planet_flag = {{ pf.flag_plan_build_secondary_zone_type(type) }}
+            {% endif %}
+            {% endfor %}
+           {# set build command to builder #}
+            {% for item in zones_info %}
+                {% set type = item.type %}
+                {% if cond.contain_any_zones_of(item.zones, primary_districts_for_zone)|int %}
+                {{ "if" if loop.first else "else_if" }} = {
+                    limit = {
+                        check_variable_arithmetic = {
+                            which = value:num_primary_zones_of_type_{{ type }}
+                            value < value:num_primary_zone_plan_of_type_{{ type }}
+                        }
+                    }
+                    set_planet_flag = {{ pf.flag_plan_build_primary_zone_type(type) }}
+                    set_planet_flag = bac_plan_build_new_zone
+                }
+                {% endif %}
+            {% endfor %}
+            {# some zones are shared between primary district and secondary district
+               however if the primary district zone slots are full (primary district zone build first),
+               it would be not possible to build in primary district for zones that should be build in secondary districts
+               thus no bug #}
+            {% for item in zones_info %}
+                {% set type = item.type %}
+                {% if cond.contain_any_zones_of(item.zones, secondary_districts_for_zone)|int %}
+                else_if = {
+                    limit = {
+                        check_variable_arithmetic = {
+                            which = value:num_secondary_zones_of_type_{{ type }}
+                            value < value:num_secondary_zone_plan_of_type_{{ type }}
+                        }
+                    }
+                    set_planet_flag = {{ pf.flag_plan_build_secondary_zone_type(type) }}
+                }
+                {% endif %}
+            {% endfor %}
+
+        }
+    }
+}
+
+country_event = {
+	id = colony_automation_event.21
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		is_ai = no
+		bca_has_minerals_to_build = yes
+		has_country_flag = bac_zone_destroy
+	}
+
+	immediate = {
+		every_owned_planet = {
+			limit = {
+			    is_colony = yes
+				has_building_construction = no
+				has_planet_flag = bac_plan_build_new_zone
+				NOT = { has_planet_flag = bca_pf_disable_planet_auto_destruction_zone }
+			}
+
+            {# remove zones #}
+            if = {
+                limit = {
+                    owner = {has_country_flag = bac_zone_destroy}
+                }
+                {% for item in zones_info %}
+                    {% set first = loop.first %}
+                    {% set type = item.type %}
+                    {% for zone in item.zones %}
+                {{ "if" if loop.first else "else_if" }} = {
+                    limit = {
+                        check_variable_arithmetic = {
+                            which = value:num_zones_of_{{ zone }}
+                            value > value:num_zone_plan_of_{{ zone }}
+                        }
+                    }
+                    remove_zone = { zone = {{ zone }} }
+                }
+                    {% endfor %}
+                {% endfor %}
+            }
+        }
+    }
+}
+
+# trigger by on_zone_complete
+# remove zone flag if construction completed
+planet_event = {
+	id = colony_automation_event.12
+	is_triggered_only = yes
+	hide_window = yes
+	trigger = {
+		owner = {
+			is_ai = no
+		}
+	}
+	immediate = {
+        {% for item in zones_info %}
+        {% set type = item.type %}
+        {% if cond.contain_any_zones_of(item.zones, primary_districts_for_zone)|int %}
+        remove_planet_flag = {{ pf.flag_plan_build_primary_zone_type(type) }}
+        {% endif %}
+        {% if cond.contain_any_zones_of(item.zones, secondary_districts_for_zone)|int %}
+        remove_planet_flag = {{ pf.flag_plan_build_secondary_zone_type(type) }}
+        {% endif %}
+        {% endfor %}
+	}
+}

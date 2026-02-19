@@ -1,113 +1,109 @@
-decision_enable_pre_construction = {
-	sound = event_administrative_work
-	icon = decision_pre_construction
-
-	resources = {
-		category = decisions
-	}
-
-	potential = {
-		exists = owner
-		NOT = { has_modifier = bca_pm_planet_pre_construction }
-	}
-
-	effect = {
-		add_modifier = { modifier = "bca_pm_planet_pre_construction" days = -1 }
-	}
-}
-
-decision_disable_pre_construction = {
-	sound = event_administrative_work
-	icon = decision_pre_construction
-
-	resources = {
-		category = decisions
-	}
-
-	potential = {
-		exists = owner
-		has_modifier = bca_pm_planet_pre_construction
-	}
-
-	effect = {
-		remove_modifier = "bca_pm_planet_pre_construction"
-	}
-}
-
-decision_disable_auto_destruction = {
-	sound = event_administrative_work
-	icon = default
-
-	resources = {
-		category = decisions
-	}
-
-	potential = {
-		exists = owner
-		NOT = { has_modifier = bca_pm_disable_planet_auto_destruction }
-	}
-
-	effect = {
-		add_modifier = {
-			modifier = "bca_pm_disable_planet_auto_destruction"
-			days = -1
-		}
-	}
-}
-
-decision_enable_auto_destruction = {
-	sound = event_administrative_work
-	icon = default
-
-	resources = {
-		category = decisions
-	}
-
-	potential = {
-		exists = owner
-		has_modifier = bca_pm_disable_planet_auto_destruction
-	}
-
-	effect = {
-		remove_modifier = "bca_pm_disable_planet_auto_destruction"
-	}
-}
-
-decision_enable_build_extra_zones_for_storage = {
-	sound = event_administrative_work
-	icon = decision_resources
-
-	resources = {
-		category = decisions
-	}
-
-	potential = {
-		exists = owner
-		NOT = { has_planet_flag = bca_pf_can_build_extra_zones_for_storage }
-	}
-
-	effect = {
-		set_planet_flag = bca_pf_can_build_extra_zones_for_storage
-	}
-}
-
-decision_disable_build_extra_zones_for_storage = {
-	sound = event_administrative_work
-	icon = decision_resources
-
-	resources = {
-		category = decisions
-	}
-
-	potential = {
-		exists = owner
-		has_planet_flag = bca_pf_can_build_extra_zones_for_storage
-	}
-
-	effect = {
-		remove_planet_flag = bca_pf_can_build_extra_zones_for_storage
-	}
-}
+# decision_enable_pre_construction = {
+# 	sound = event_administrative_work
+# 	icon = decision_pre_construction
+#
+# 	resources = {
+# 		category = decisions
+# 	}
+#
+# 	potential = {
+# 		exists = owner
+# 		NOT = { has_planet_flag = bca_pf_planet_pre_construction }
+# 	}
+#
+# 	effect = {
+# 		set_planet_flag = bca_pf_planet_pre_construction
+# 	}
+# }
+#
+# decision_disable_pre_construction = {
+# 	sound = event_administrative_work
+# 	icon = decision_pre_construction
+#
+# 	resources = {
+# 		category = decisions
+# 	}
+#
+# 	potential = {
+# 		exists = owner
+# 		has_planet_flag = bca_pf_planet_pre_construction
+# 	}
+#
+# 	effect = {
+# 		remove_planet_flag = bca_pf_planet_pre_construction
+# 	}
+# }
+#
+# decision_disable_auto_destruction = {
+# 	sound = event_administrative_work
+# 	icon = default
+#
+# 	resources = {
+# 		category = decisions
+# 	}
+#
+# 	potential = {
+# 		exists = owner
+# 		NOT = { has_planet_flag = bca_pf_disable_planet_auto_destruction }
+# 	}
+#
+# 	effect = {
+# 		add_planet_flag = bca_pf_disable_planet_auto_destruction
+# 	}
+# }
+#
+# decision_enable_auto_destruction = {
+# 	sound = event_administrative_work
+# 	icon = default
+#
+# 	resources = {
+# 		category = decisions
+# 	}
+#
+# 	potential = {
+# 		has_planet_flag = bca_pf_disable_planet_auto_destruction
+# 	}
+#
+# 	effect = {
+# 		remove_planet_flag = bca_pf_disable_planet_auto_destruction
+# 	}
+# }
+#
+# decision_enable_build_extra_zones_for_storage = {
+# 	sound = event_administrative_work
+# 	icon = decision_resources
+#
+# 	resources = {
+# 		category = decisions
+# 	}
+#
+# 	potential = {
+# 		exists = owner
+# 		NOT = { has_planet_flag = bca_pf_can_build_extra_zones_for_storage }
+# 	}
+#
+# 	effect = {
+# 		set_planet_flag = bca_pf_can_build_extra_zones_for_storage
+# 	}
+# }
+#
+# decision_disable_build_extra_zones_for_storage = {
+# 	sound = event_administrative_work
+# 	icon = decision_resources
+#
+# 	resources = {
+# 		category = decisions
+# 	}
+#
+# 	potential = {
+# 		exists = owner
+# 		has_planet_flag = bca_pf_can_build_extra_zones_for_storage
+# 	}
+#
+# 	effect = {
+# 		remove_planet_flag = bca_pf_can_build_extra_zones_for_storage
+# 	}
+# }
 
 decision_enable_build_fe_clinic = {
 	sound = event_administrative_work
@@ -184,75 +180,75 @@ decision_disable_pre_build_rare_resource_buildings = {
 	}
 }
 
-decision_bca_enable_arcology_project_candidate = {
-	sound = event_administrative_work
-	icon = decision_arcology_project_candidate
+# decision_bca_enable_arcology_project_candidate = {
+# 	sound = event_administrative_work
+# 	icon = decision_arcology_project_candidate
+#
+# 	resources = {
+# 		category = decisions
+# 	}
+#
+# 	potential = {
+# 		exists = owner
+# 		NOT = { has_modifier = bca_pm_arcology_project_candidate }
+# 		is_artificial = no
+# 		exists = owner
+# 		OR = {
+# 			AND = {
+# 				NOR = {
+# 					is_planet_class = pc_city
+# 					is_planet_class = pc_relic
+# 					has_modifier = resort_colony
+# 					has_modifier = penal_colony
+# 					has_modifier = slave_colony
+# 					has_modifier = pm_wenkwort_custodian
+# 				}
+# 				owner = { has_ascension_perk = ap_arcology_project }
+# 				NOT = { has_designation = col_nanotech_world }
+# 			}
+# 			AND ={
+# 				is_planet_class = pc_relic
+# 				owner = {
+# 					OR = {
+# 						is_regular_empire = yes
+# 						has_valid_civic = civic_machine_servitor
+# 					}
+# 				}
+# 			}
+# 		}
+#
+# 	}
+#
+# 	# 禁止在一产规划上启用
+# 	allow = {
+# 		has_farming_designation = no
+# 		has_mining_designation = no
+# 		has_generator_designation = no
+# 	}
+#
+# 	effect = {
+# 		add_modifier = { modifier = "bca_pm_arcology_project_candidate" days = -1 }
+# 		remove_planet_flag = bca_pf_can_build_extra_zones_for_storage
+# 	}
+# }
 
-	resources = {
-		category = decisions
-	}
-
-	potential = {
-		exists = owner
-		NOT = { has_modifier = bca_pm_arcology_project_candidate }
-		is_artificial = no
-		exists = owner
-		OR = {
-			AND = {
-				NOR = {
-					is_planet_class = pc_city
-					is_planet_class = pc_relic
-					has_modifier = resort_colony
-					has_modifier = penal_colony
-					has_modifier = slave_colony
-					has_modifier = pm_wenkwort_custodian
-				}
-				owner = { has_ascension_perk = ap_arcology_project }
-				NOT = { has_designation = col_nanotech_world }
-			}
-			AND ={
-				is_planet_class = pc_relic
-				owner = {
-					OR = {
-						is_regular_empire = yes
-						has_valid_civic = civic_machine_servitor
-					}
-				}
-			}
-		}
-
-	}
-
-	# 禁止在一产规划上启用
-	allow = {
-		has_farming_designation = no
-		has_mining_designation = no
-		has_generator_designation = no
-	}
-
-	effect = {
-		add_modifier = { modifier = "bca_pm_arcology_project_candidate" days = -1 }
-		remove_planet_flag = bca_pf_can_build_extra_zones_for_storage
-	}
-}
-
-decision_bca_disable_arcology_project_candidate = {
-	sound = event_administrative_work
-	icon = decision_arcology_project_candidate
-
-	resources = {
-		category = decisions
-	}
-
-	potential = {
-		exists = owner
-		has_modifier = bca_pm_arcology_project_candidate
-	}
-
-	effect = {
-		remove_modifier = "bca_pm_arcology_project_candidate"
-	}
-}
+# decision_bca_disable_arcology_project_candidate = {
+# 	sound = event_administrative_work
+# 	icon = decision_arcology_project_candidate
+#
+# 	resources = {
+# 		category = decisions
+# 	}
+#
+# 	potential = {
+# 		exists = owner
+# 		has_modifier = bca_pm_arcology_project_candidate
+# 	}
+#
+# 	effect = {
+# 		remove_modifier = "bca_pm_arcology_project_candidate"
+# 	}
+# }
 
 # decision_test = {
 # 	sound = event_administrative_work

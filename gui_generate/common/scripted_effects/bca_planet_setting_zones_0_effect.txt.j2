@@ -1,0 +1,304 @@
+{% import 'component/planet_flag_ps.j2' as pf with context -%}
+{% import 'component/conditions.j2' as cond with context %}
+{% import 'component/zone_setting_option_operation.j2' as op with context -%}
+
+
+bca_primary_district_update_zone_options_interloop = {
+    optimize_memory
+    {% set selector_slot = "$SELECTOR_SLOT$" %}
+    {% set zone_slot = "$ZONE_SLOT$" %}
+
+{#    {% for item in zones_info %}#}
+{#    remove_planet_flag = {{pf.flag_zone_option_type_elected_idx(selector_slot, item.type)}}#}
+{#    {% endfor %}#}
+
+    set_variable = {
+        which = rank_zone_max
+        value = 0
+    }
+    # compare phase
+    {% for item in zones_info %}
+    if = {
+        limit = {
+            NOR = {
+                has_planet_flag = {{pf.flag_zone_option_type_elected(item.type)}}
+                has_planet_flag = {{ pf.flag_selected_zone_type(zone_slot, item.type) }}
+            }
+            check_variable = {
+                which = rank_zone_max
+                value < value:bca_planet_setting_zone_rank_{{ item.type }}
+            }
+            OR = {
+                {% for zone in item.zones %}
+                    bca_primary_district_can_build_{{ zone }} = yes
+                {% endfor %}
+            }
+        }
+
+        set_variable = {
+            which = rank_zone_max
+            value = value:bca_planet_setting_zone_rank_{{ item.type }}
+        }
+    }
+    {% endfor %}
+    # select phase
+    {% for item in zones_info %}
+    {{ "if" if loop.first else "else_if" }} = {
+        limit = {
+            NOR = {
+                has_planet_flag = {{pf.flag_zone_option_type_elected(item.type)}}
+                has_planet_flag = {{ pf.flag_selected_zone_type(zone_slot, item.type) }}
+            }
+            check_variable = {
+                which = rank_zone_max
+                value = value:bca_planet_setting_zone_rank_{{ item.type }}
+            }
+        }
+        {% for zone in item.zones %}
+        {{ "if" if loop.first else "else_if" }} = {
+            limit = {
+                bca_primary_district_can_build_{{ zone }} = yes
+            }
+            {# select for type #}
+            set_planet_flag = {{pf.flag_zone_option_type_elected(item.type)}}
+            set_planet_flag = {{pf.flag_zone_option_type_elected_idx(selector_slot, item.type)}}
+            {# select for zones #}
+            set_planet_flag = {{ pf.flag_zone_option_zone_mapping(item.type, zone) }}
+            add_variable = {
+                which = zone_selector_options_count
+                value = 1
+            }
+        }
+        {% endfor %}
+    }
+    {% endfor %}
+}
+
+bca_primary_district_update_zone_options = {
+{#    {% for item in zones_info %}#}
+{#    remove_planet_flag = {{ pf.flag_zone_option_type_elected(item.type) }}#}
+{#    {% for zone in item.zones %}#}
+{#    remove_planet_flag = {{ pf.flag_zone_option_zone_mapping(item.type, zone) }}#}
+{#    {% endfor %}#}
+{#    {% endfor %}#}
+    hidden_effect = {
+        set_variable = {
+            which = zone_selector_options_count
+            value = 0
+        }
+        {% for i in range(1,16) %}
+        {% set selector_slot = "s"~i %}
+        bca_primary_district_update_zone_options_interloop =  {
+            SELECTOR_SLOT = {{ selector_slot }}
+            ZONE_SLOT = $ZONE_SLOT$
+        }
+        {% endfor %}
+        clear_variable = rank_zone_max
+    }
+}
+
+bca_clean_flags_zone_selector = {
+    hidden_effect = {
+        clear_variable = zone_selector_options_count
+    }
+    {% for item in zones_info %}
+    remove_planet_flag = {{ pf.flag_zone_option_type_elected(item.type) }}
+    {% for zone in item.zones %}
+    remove_planet_flag = {{ pf.flag_zone_option_zone_mapping(item.type, zone) }}
+    {% endfor %}
+    {% endfor %}
+    {% for i in range(1,16) %}
+    {% set selector_slot = "s"~i %}
+    {% for item in zones_info %}
+    remove_planet_flag = {{pf.flag_zone_option_type_elected_idx(selector_slot, item.type)}}
+    {% endfor %}
+    {% endfor %}
+}
+
+bca_set_secondary_district_type_flag = {
+    {% for district in secondary_districts %}
+    remove_planet_flag = {{ pf.flag_district_potential(district) }}
+    {% endfor %}
+    if = {
+        limit = { has_modifier = bca_pm_arcology_project_candidate }
+        {% for i in range(3,6) %}
+        {% set zone_slot = "z"~(i) %}
+        set_planet_flag = {{ pf.flag_zone_district(zone_slot, 'district_arcology_urban_'~(i - 2)) }}
+        {% endfor %}
+        set_planet_flag = {{ pf.flag_zone_district('zx', 'district_arcology_urban_1') }}
+    }
+    else = {
+        {% for i in range(3,6) %}
+        {% set zone_slot = "z"~(i) %}
+        {% for district in secondary_districts %}
+        {{ "if" if loop.first else "else_if" }} = {
+            limit = {
+                bca_can_build_{{ district }} = yes
+                NOT = { has_planet_flag = {{ pf.flag_district_potential(district) }} }
+            }
+            set_planet_flag = {{ pf.flag_district_potential(district) }}
+            set_planet_flag = {{ pf.flag_zone_district(zone_slot, district) }}
+            set_planet_flag = {{ pf.flag_zone_district('zx', district) }}
+        }
+        {% endfor %}
+        {% endfor %}
+    }
+}
+
+bca_clean_flags_zone_selector_secondary_district = {
+    {% for district in secondary_districts %}
+    remove_planet_flag = {{ pf.flag_district_potential(district) }}
+    {% endfor %}
+    {% for zone_slot in ["z3", "z4", "z5", "zx"] %}
+    {% for district in secondary_districts %}
+    remove_planet_flag = {{ pf.flag_zone_district(zone_slot, district) }}
+    {% endfor %}
+    {% endfor %}
+}
+
+
+
+bca_secondary_district_update_zone_options_interloop = {
+    optimize_memory
+    {% set selector_slot = "$SELECTOR_SLOT$" %}
+    {% set zone_slot = "$ZONE_SLOT$" %}
+
+{#    {% for item in zones_info %}#}
+{#    remove_planet_flag = {{pf.flag_zone_option_type_elected_idx(selector_slot, item.type)}}#}
+{#    {% endfor %}#}
+
+    set_variable = {
+        which = rank_zone_max
+        value = 0
+    }
+    # compare phase
+    {% for item in zones_info %}
+    if = {
+        limit = {
+            NOR = {
+                has_planet_flag = {{pf.flag_zone_option_type_elected(item.type)}}
+                has_planet_flag = {{ pf.flag_selected_zone_type(zone_slot, item.type) }}
+            }
+            check_variable = {
+                which = rank_zone_max
+                value < value:bca_planet_setting_zone_rank_{{ item.type }}
+            }
+            # any zone of this typeset is available on the districts and can be built
+            OR = {
+                {% for zone in item.zones %}
+                AND = {
+                    bca_can_build_{{ zone }} = yes
+                    OR = {
+                        {% for district in secondary_districts_for_zone[zone] %}
+                        has_planet_flag = {{ pf.flag_zone_district(zone_slot, district) }}
+                        {% endfor %}
+                    }
+                }
+                {% endfor %}
+            }
+        }
+         set_variable = {
+            which = rank_zone_max
+            value = value:bca_planet_setting_zone_rank_{{ item.type }}
+        }
+    }
+    {% endfor %}
+
+    # select phase
+    {% for item in zones_info %}
+    {{ "if" if loop.first else "else_if" }} = {
+        limit = {
+            NOR = {
+                has_planet_flag = {{pf.flag_zone_option_type_elected(item.type)}}
+                has_planet_flag = {{ pf.flag_selected_zone_type(zone_slot, item.type) }}
+            }
+            check_variable = {
+                which = rank_zone_max
+                value = value:bca_planet_setting_zone_rank_{{ item.type }}
+            }
+        }
+        {% for zone in item.zones %}
+        {{ "if" if loop.first else "else_if" }} = {
+            limit = {
+                bca_can_build_{{ zone }} = yes
+                OR = {
+                    {% for district in secondary_districts_for_zone[zone] %}
+                    has_planet_flag = {{ pf.flag_zone_district(zone_slot, district) }}
+                    {% endfor %}
+                }
+            }
+            {# select for type #}
+            set_planet_flag = {{pf.flag_zone_option_type_elected(item.type)}}
+            set_planet_flag = {{pf.flag_zone_option_type_elected_idx(selector_slot, item.type)}}
+            {# select for zones #}
+            set_planet_flag = {{ pf.flag_zone_option_zone_mapping(item.type, zone) }}
+            add_variable = {
+                which = zone_selector_options_count
+                value = 1
+            }
+        }
+        {% endfor %}
+    }
+    {% endfor %}
+
+}
+
+bca_secondary_district_update_zone_options = {
+
+    bca_set_secondary_district_type_flag = yes
+    set_planet_flag = bca_pf_in_secondary_selector
+
+    hidden_effect = {
+        {% for i in range(1,16) %}
+        {% set selector_slot = "s"~i %}
+        bca_secondary_district_update_zone_options_interloop =  {
+            SELECTOR_SLOT = {{ selector_slot }}
+            ZONE_SLOT = $ZONE_SLOT$
+        }
+        {% endfor %}
+        clear_variable = rank_zone_max
+    }
+    remove_planet_flag = bca_pf_in_secondary_selector
+}
+
+
+bca_planet_setting_remove_current_selected_zone = {
+    {% set zone_slot = "$ZONE_SLOT$" %}
+    {% for item in zones_info %}
+    remove_planet_flag = {{pf.flag_selected_zone_type(zone_slot, item.type)}}
+    {% for zone in item.zones %}
+    remove_planet_flag = {{pf.flag_selected_zone(zone_slot, zone)}}
+    {% endfor %}
+    {% endfor %}
+}
+
+
+clear_open_selector = {
+    optimize_memory
+    bca_clean_flags_zone_selector = yes
+    bca_clean_flags_zone_selector_secondary_district = yes
+
+    {% for i in range(1,6) %}
+    {% set other_zone_slot = "z"~i %}
+    remove_planet_flag = {{pf.flag_zone_selector(other_zone_slot)}}
+    {% endfor %}
+    remove_planet_flag = {{pf.flag_zone_selector('zx')}}
+}
+
+
+bca_secondary_district_auto_select_default = {
+    optimize_memory
+    {% for zone_slot in ['z3','z4','z5'] %}
+    {{ op.auto_select_default_zone(zone_slot) }}
+    {% endfor %}
+    if = {
+        limit = {
+            bca_has_secondary_districts = yes
+        }
+        bca_set_zx_for_identical_secondary_zone_plan = yes
+    }
+}
+
+
+
+

@@ -1,21 +1,11 @@
 if = {
-    limit = { has_building = $building_1$ }
-    try_construct_building = {
-        building = $building_2$
-        standard_production = $standard_production$
-        INC_JOB = $b2_inc_job$
-        INC_ADD = $b2_inc_add$
-        INC_MULT = $b2_inc_mult$
-        cost = $building_2_cost$
-        priority_shift = $priority_shift$
-        index = $index$
+    limit = {
+        NOR = {
+            has_building = $building_1$
+            has_building = $building_2$
+        }
     }
-}
-else_if = {
-    limit = { has_building = $building_2$ }
-    # do nothing, as building 3 does not exist
-}
-else = {
+
     try_construct_building = {
         building = $building_1$
         standard_production = $standard_production$

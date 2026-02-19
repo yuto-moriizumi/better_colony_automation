@@ -12,10 +12,6 @@ automate_wilderness_capital = {
 		district_craglands
 	}
 
-	prio_zones = {
-		zone_urban_wilderness
-		zone_research_wilderness
-	}
 
 	buildings = {
 		1 = {
@@ -46,10 +42,6 @@ automate_wilderness_generator = {
 
 	prio_districts = {
 		district_photosynthesis_fields
-	}
-
-	prio_zones = {
-		zone_energy_wilderness
 	}
 
 	buildings = {

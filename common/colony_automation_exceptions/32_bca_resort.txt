@@ -12,8 +12,6 @@ automate_resort_planet = {
 
 	}
 
-	prio_districts = {
-	}
 
 	buildings = {
 		1 = {

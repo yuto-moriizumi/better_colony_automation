@@ -11,7 +11,10 @@ automate_mining_planet_building = {
 		1 = {
 			building = building_mining_districts_1
 			available = {
-				num_free_districts = { type = district_generator value <= 1 }
+				OR = {
+					num_free_districts = { type = district_mining value <= 1 }
+					num_free_districts = { type = district_melting value <= 1 }
+				}
 			}
 		}
 		2 = {
@@ -25,7 +28,7 @@ automate_mining_planet_building = {
 }
 
 
-automate_mining_planet_districts = {
+automate_mining_planet_housing = {
 	category = "planet_automation_housing"
 
 	emergency = yes
@@ -35,7 +38,7 @@ automate_mining_planet_districts = {
 		has_mining_designation = yes
 		num_districts = {
 			type = district_mining
-			value < bca_opti_count_district_mining
+			value < bca_opti_count_secondary_district
 		}
 	}
 

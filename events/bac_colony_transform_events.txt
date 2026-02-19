@@ -1,7 +1,20 @@
 namespace = colony_automation_event
 
+# cancel arcology project candidate
+planet_event = {
+	id = colony_automation_event.100
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = { always = yes }
+	immediate = {
+		remove_modifier = bca_pm_arcology_project_candidate
+		clear_open_selector = yes
+		bca_secondary_zone_setting_set_by_current_zones = yes
+	}
+}
+
 country_event = {
-	id = colony_automation_event.2
+	id = colony_automation_event.101
 	hide_window = yes
 	is_triggered_only = yes
 
@@ -45,7 +58,7 @@ country_event = {
 						}
 					}
 				}
-				select_decision = { name = decision_bca_disable_arcology_project_candidate }
+				planet_event = { id=colony_automation_event.100 }
 			}
 			# city_world_candidate
 			else_if = {
@@ -75,7 +88,7 @@ country_event = {
 					}
 				}
 				remove_modifier = bca_pm_arcology_project_candidate
-				planet_event = { id = colony_automation_event.3 }
+				planet_event = { id = colony_automation_event.102 }
 
 			}
 		}
@@ -84,9 +97,9 @@ country_event = {
 
 # 理想城建造询问事件
 planet_event = {
-	id = colony_automation_event.3
-	title = colony_automation_event.3.name
-	desc = colony_automation_event.3.desc
+	id = colony_automation_event.102
+	title = colony_automation_event.102.name
+	desc = colony_automation_event.102.desc
 	picture = GFX_evt_metropolis
 	show_sound = event_administrative_work
 	location = ROOT
@@ -94,7 +107,7 @@ planet_event = {
 	is_triggered_only = yes
 
 	option = {
-		name = colony_automation_event.3.a
+		name = colony_automation_event.102.a
 		if = {
 			limit = { is_planet_class = pc_relic }
 			select_decision = { name = decision_arcology_project_relic }
@@ -102,9 +115,13 @@ planet_event = {
 		else = {
 			select_decision = { name = decision_arcology_project }
 		}
+		sound = event_administrative_work
 	}
 
 	option = {
-		name = colony_automation_event.3.b
+		name = colony_automation_event.102.b
+		remove_modifier = bca_pm_arcology_project_candidate
 	}
+
+
 }

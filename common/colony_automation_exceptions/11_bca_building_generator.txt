@@ -30,7 +30,7 @@ automate_generator_planet_building = {
 }
 
 
-automate_generator_planet_districts = {
+automate_generator_planet_housing = {
 	category = "planet_automation_housing"
 
 	emergency = yes
@@ -40,7 +40,7 @@ automate_generator_planet_districts = {
 		has_generator_designation = yes
 		num_districts = {
 			type = district_generator
-			value < bca_opti_count_district_generator
+			value < bca_opti_count_secondary_district
 		}
 		NAND = {
 			exists = owner

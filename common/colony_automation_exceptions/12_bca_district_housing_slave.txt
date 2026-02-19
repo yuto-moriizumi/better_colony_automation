@@ -1,0 +1,18 @@
+automate_slave_planet_districts = {
+	category = "planet_automation_housing"
+
+	emergency = yes
+	available = {
+        free_housing < 0
+        bca_has_minerals_to_build = yes
+		has_designation = col_slave
+	}
+
+	prio_districts = {
+		district_slave
+		district_mining
+		district_farming
+		district_generator
+	}
+
+}

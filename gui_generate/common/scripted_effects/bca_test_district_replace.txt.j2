@@ -1,0 +1,140 @@
+{% import 'component/planet_flag_ps.j2' as pf with context %}
+{% import 'component/planet_variable.j2' as v with context %}
+{% import 'component/conditions.j2' as cond with context %}
+
+{% set all_district_set = [primary_districts, secondary_districts_d1, secondary_districts_d2, secondary_districts_d3] %}
+{% for district_set_idx in range(4) %}
+
+bca_add_district_d{{ district_set_idx }} = {
+    {% for district in all_district_set[district_set_idx] %}
+    {{ "if" if loop.first else "else_if" }} = {
+        limit = { has_district = {{ district }} }
+        add_district = { district_type = {{ district }} }
+    }
+    {% endfor %}
+}
+
+bca_add_potential_district_d{{ district_set_idx }} = {
+    {% for district in all_district_set[district_set_idx] %}
+    {{ "if" if loop.first else "else_if" }} = {
+        limit = { bca_can_build_{{ district }} = yes }
+        add_district = { district_type = {{ district }} }
+    }
+    {% endfor %}
+}
+
+bca_remove_district_d{{ district_set_idx }} = {
+    {% for district in all_district_set[district_set_idx] %}
+    {{ "if" if loop.first else "else_if" }} = {
+        limit = { has_district = {{ district }} }
+        remove_district = {{ district }}
+    }
+    {% endfor %}
+}
+
+{% endfor %}
+
+
+bca_test_district_to_replace = {
+    {% set district_slot_replace_from = "$district_slot_replace_from$" %}
+    {% set district_slot_replace_to = "$district_slot_replace_to$" %}
+	if = {
+		limit = {
+            check_variable_arithmetic = {
+                which = value:num_district_$district_slot_replace_from$
+                value > 1
+            }
+			bca_district_{{ district_slot_replace_to }}_reach_planet_max = no
+		}
+{#		set_planet_flag = debug_tested_{{ district_slot_replace_from }}_to_{{ district_slot_replace_to }}#}
+		set_variable = {
+			which = bca_test_district_metric_1
+			value = $metric_value$
+		}
+		bca_remove_district_{{ district_slot_replace_from }} = yes
+		bca_add_district_{{ district_slot_replace_to }} = yes
+		set_variable = {
+			which = bca_test_district_metric_2
+			value = $metric_value$
+		}
+		bca_remove_district_{{ district_slot_replace_to }} = yes
+		bca_add_district_{{ district_slot_replace_from }} = yes
+		if = {
+			limit = {
+                if = {
+                    limit = { always = $is_priority_district$ }
+                    check_variable = {
+                        which = bca_test_district_metric_2
+                        value >= bca_test_district_metric_1
+                    }
+                }
+                else = {
+                    check_variable = {
+                        which = bca_test_district_metric_2
+                        value > bca_test_district_metric_1
+                    }
+                }
+			}
+{#			set_planet_flag = debug_test_passed_{{ district_slot_replace_from }}_to_{{ district_slot_replace_to }}#}
+			set_planet_flag = {{ pf.flag_district_plan_remove(district_slot_replace_from) }}
+			set_planet_flag = {{ pf.flag_district_plan_build(district_slot_replace_to) }}
+			set_planet_flag = bca_pf_has_district_remove_plan
+		}
+
+	}
+}
+
+
+
+# Scope = Planet
+bca_test_primary_and_secondary_district_bidirectional_replace = {
+    {% set energy_zone_types = ['energy','betharian','wilderness_energy'] %}
+    {% set minerals_zone_types = ['minerals','wilderness_minerals'] %}
+    {% set food_zone_types = ['food','wilderness_food'] %}
+    {% set primary_district_slot = 'd0' %}
+    if = {
+        limit = {
+            any_deposit = {
+                is_blocker = yes
+            }
+        }
+        set_planet_flag = {{ pf.flag_district_plan_build(primary_district_slot) }}
+    }
+    {% for i in range(3) %}
+    {% set zone_type_set = [energy_zone_types, minerals_zone_types, food_zone_types][i] %}
+    {% set type_name = ['energy','minerals','food'][i] %}
+    {% set metric_value = 'value:bca_potential_standard_'~type_name~'_production' %}
+    else_if = {
+        limit = {
+            {{ ['has_generator_designation', 'has_mining_designation', 'has_farming_designation'][i] }} = yes
+        }
+        {# find first secondary zone slot with type #}
+        {% for zone_slot in ['z3','z4','z5'] %}
+        {% set district_slot = zone_slot_district_slot_mapping[zone_slot] %}
+        {{ "if" if loop.first else "else_if" }} = {
+            limit = {
+                OR = {
+                    {% for zone_type in zone_type_set %}
+                    has_planet_flag = {{ pf.flag_selected_zone_type(zone_slot, zone_type) }}
+                    {% endfor %}
+                }
+            }
+            bca_test_district_to_replace = {
+                district_slot_replace_from = {{ primary_district_slot }}
+                district_slot_replace_to = {{ district_slot }}
+                metric_value = {{ metric_value }}
+                is_priority_district = no
+            }
+            bca_test_district_to_replace = {
+                district_slot_replace_from = {{ district_slot }}
+                district_slot_replace_to = {{ primary_district_slot }}
+                metric_value = {{ metric_value }}
+                is_priority_district = yes
+            }
+        }
+        {% endfor %}
+    }
+    {% endfor %}
+
+
+}

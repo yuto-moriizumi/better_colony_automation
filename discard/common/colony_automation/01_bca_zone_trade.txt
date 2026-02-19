@@ -1,0 +1,36 @@
+
+
+better_automate_trade_planet_1 = {
+	category = "planet_automation_designation_construction"
+
+	available = {
+		requires_more_job = yes
+        bca_has_minerals_to_build = yes
+		has_trade_designation = yes
+	}
+
+	prio_zones = {
+		zone_trade
+	}
+
+}
+
+automate_bt_colony_trade = {
+	category = "planet_automation_designation_construction"
+	
+	available = {
+        requires_more_job = yes
+        bca_has_minerals_to_build = yes
+        OR = {
+            has_trade_designation = yes
+            bca_has_mixed_trade_designation = yes
+        }
+    }
+
+    prio_zones = {
+        zone_trade_arcology
+        zone_trade_ring_world
+        zone_trade_nexus
+        zone_trade_hive
+    }
+}

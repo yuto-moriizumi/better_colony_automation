@@ -11,6 +11,23 @@ automate_crime_management = {
 	category = "planet_automation_crime"
 
 	buildings = {
+		1 = {
+			building = building_fe_security_1
+			available = {
+				planet_crime > 30
+				NOT = { has_available_jobs = enforcer }
+				NOT = { has_forbidden_jobs = enforcer }
+				any_owned_pop_group = { can_work_specific_job = enforcer }
+				NOR = {
+					AND = {
+						has_building = building_fe_security_1
+						owner = { has_technology = tech_fe_security_2 }
+					}
+					has_building = building_fe_security_2
+					num_buildings = { type = building_fe_security_1 value >= 2 }
+				}
+			}
+		}
 		precinct = {
 			building = building_precinct_house
 			available = {
@@ -62,7 +79,7 @@ automate_crime_management = {
 			}
 
 			job = enforcer
-			amount = 1
+			amount = 50
 		}
 	}
 }
@@ -107,7 +124,7 @@ automate_crime_management_gestalt = {
 			}
 
 			job = patrol_drone
-			amount = 1
+			amount = 50
 		}
 	}
 }

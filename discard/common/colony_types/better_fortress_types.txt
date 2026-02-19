@@ -1,0 +1,73 @@
+@stickiness = 10
+@stickiness_low = 5
+@zone_rural = 10
+@rural_max_size = 13
+@rural_over_max_size = -20
+
+# 堡垒球_贸易
+col_fortress_trade = {
+	icon = GFX_colony_type_fortress
+
+	potential = {
+		exists = owner_or_space_owner
+		NOR = {
+			uses_district_set = city_world
+			uses_district_set = ring_world
+			uses_district_set = habitat
+			uses_district_set = cosmogenesis_world
+		}
+		is_capital = no
+		is_special_colony_type = no
+		owner_or_space_owner = { is_wilderness_empire = no }
+		NOT = { is_planet_class = pc_nanotech }
+	}
+
+	planet_modifier = {
+		planet_building_stronghold_build_speed_mult = 0.25
+		planet_orbital_bombardment_damage = -0.10
+		army_defense_damage_mult = 0.20
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner_or_space_owner
+			owner_or_space_owner = { has_tradition = tr_adaptability_finish }
+		}
+		modifier = {
+			planet_orbital_bombardment_damage = -0.1
+		}
+	}
+
+	weight_modifier = {
+		modifier = {
+			add = @stickiness
+			has_designation = col_fortress
+		}
+		modifier = {
+			num_zones = {
+				type = zone_fortress
+				value > 0
+			}
+		}
+		complex_trigger_modifier = {
+			trigger = num_buildings
+			parameters = {
+				type = building_stronghold
+			}
+			mode = add
+			mult = 2
+		}
+		complex_trigger_modifier = {
+			trigger = num_buildings
+			parameters = {
+				type = building_fortress
+			}
+			mode = add
+			mult = 4
+		}
+		inline_script = {
+			script = colony_types/shared_weights_urban
+		}
+	}
+}
+

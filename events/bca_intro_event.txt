@@ -47,3 +47,41 @@ event = {
 	}
 }
 
+event = {
+	id = bca_intro_event.3
+
+	is_triggered_only = yes
+	hide_window = yes
+
+	trigger = {
+		NOT = { has_global_flag = bca_update_v0_5_5_shown }
+	}
+
+
+	immediate = {
+		set_global_flag = bca_update_v0_5_5_shown
+		every_playable_country = {
+			limit = { is_ai = no }
+            every_owned_planet = {
+				limit = { always = yes }
+				if = {
+					limit = {
+						has_modifier = bca_pm_planet_pre_construction
+					}
+					remove_modifier = "bca_pm_planet_pre_construction"
+					set_planet_flag = bca_pf_planet_pre_construction
+				}
+				if = {
+					limit = {
+						has_modifier = bca_pm_disable_planet_auto_destruction
+					}
+					remove_modifier = "bca_pm_disable_planet_auto_destruction"
+					set_planet_flag = bca_pf_disable_planet_auto_destruction_building
+					set_planet_flag = bca_pf_disable_planet_auto_destruction_district
+					set_planet_flag = bca_pf_disable_planet_auto_destruction_zone
+				}
+
+			}
+        }
+	}
+}

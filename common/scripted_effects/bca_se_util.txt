@@ -19,16 +19,3 @@ replace_zone_in_district = {
 }
 
 
-remove_district_if = {
-	if = {
-		limit = {
-			num_districts = { type = $district$ value > 0 }
-			$cond$ = yes
-		}
-		remove_district = $district$
-		remove_planet_flag = bca_pf_plan_remove_$district$
-		remove_planet_flag = bca_pf_has_district_remove_plan
-		remove_planet_flag = bca_pf_district_balanced
-	}
-}
-

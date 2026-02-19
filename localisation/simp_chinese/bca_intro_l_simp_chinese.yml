@@ -5,10 +5,11 @@
  
  MESSAGE_BCA_UPDATE: "Better Colony Automation 更新推送"
  MESSAGE_BCA_UPDATE_desc: "$MESSAGE_BCA_UPDATE_desc_verson$\n§H注意§!：本模组近期进行了大量更新，可访问创意工坊页面了解详情。\n$MESSAGE_BCA_STARTUP_desc_log$"
- MESSAGE_BCA_UPDATE_desc_verson: "§YBetter Colony Automation§! 更新到 v0.5"
+ MESSAGE_BCA_UPDATE_desc_verson: "§YBetter Colony Automation§! 更新到 v1.0 ！"
 
-MESSAGE_BCA_STARTUP_desc_log: "$MESSAGE_BCA_STARTUP_desc_log_v055$\n$MESSAGE_BCA_STARTUP_desc_log_v054$\n$MESSAGE_BCA_STARTUP_desc_log_v053$\n$MESSAGE_BCA_STARTUP_desc_log_v052$\n$MESSAGE_BCA_STARTUP_desc_log_v051$\n$MESSAGE_BCA_STARTUP_desc_log_v05$"
+MESSAGE_BCA_STARTUP_desc_log: "$MESSAGE_BCA_STARTUP_desc_log_v100$\n$MESSAGE_BCA_STARTUP_desc_log_v055$\n$MESSAGE_BCA_STARTUP_desc_log_v054$\n$MESSAGE_BCA_STARTUP_desc_log_v053$\n$MESSAGE_BCA_STARTUP_desc_log_v052$\n$MESSAGE_BCA_STARTUP_desc_log_v051$\n$MESSAGE_BCA_STARTUP_desc_log_v05$"
 
+ MESSAGE_BCA_STARTUP_desc_log_v100: "\n§Y2026-2-19 - v1.0§!：\n\t重大更新：为行星自动化配置制作了UI，几乎重新所有自动化逻辑，详细更新内容请访问创意工坊页面。"
 MESSAGE_BCA_STARTUP_desc_log_v055: "\n§Y2026-1-25 - v0.5.5§!：\n\t调整决策文本，增加可读性，并且同一决策的启用与禁用位置不再发生变化。添加了几个定制的决策图标以提升视觉效果；\n\t稀有资源建设调整：稀有资源决策将只会在工业特化星球上显示，对于一产区划，如果可以建设稀有资源建筑则会优先建设相关建筑，没有其他限制；\n\t修复了一些建筑没有矿物预留约束的问题。"
 MESSAGE_BCA_STARTUP_desc_log_v054: "\n§Y2026-1-25 - v0.5.4§!：\n\t增加稀有资源建筑建设调整的决策；\n\t调整决策的文本和图案，使之更加易读；\n\t修复人口组装建筑在拆除的条件下依然被建造的问题，人口组装建筑现在需要在有多于一个建筑槽位且有空闲职位时才会被建造"
 MESSAGE_BCA_STARTUP_desc_log_v053: "\n§Y2026-1-25 - v0.5.3§!：\n\t修复了由意外的命名错误导致的电能产出计算错误"

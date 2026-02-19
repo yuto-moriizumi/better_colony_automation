@@ -512,6 +512,132 @@ building_nano_forge = {
 	show_in_tech = tech_fe_forge_2
 }
 
+building_fe_fortress = {
+	base_buildtime = @b2_time
+	can_build = yes
+	can_demolish = yes
+
+	category = army
+
+	building_sets = {
+		fallen_empire
+		fortress
+	}
+
+	potential = {
+		exists = owner
+		owner = {
+			OR = {
+				is_fallen_empire = yes
+				has_technology = tech_fe_fortress_1
+				has_country_flag = fe_fortress_can_build
+			}
+		}
+		NOR = {
+			has_modifier = resort_colony
+			has_modifier = slave_colony
+			has_modifier = penal_colony
+		}
+	}
+
+	allow = {
+		custom_tooltip = {
+			fail_text = ancrel.10004.failtext
+			owner = {
+				OR = {
+					check_variable = { which = fe_fortress_build_count value >= 1 }
+					is_fallen_empire = yes
+					has_technology = tech_fe_fortress_1
+				}
+			}
+		}
+	}
+
+	destroy_trigger = {
+		bca_can_remove_building_fortress = yes
+	}
+
+	inline_script = {
+		script = jobs/soldiers_add
+		AMOUNT = @fe_jobs
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			alloys = @b2_minerals
+			volatile_motes = @fe_sr_cost
+		}
+		upkeep = {
+			alloys = @b2_alloy_upkeep
+			volatile_motes = 2
+			energy = 15
+		}
+		cost = {
+			trigger = {
+				owner = { is_wilderness_empire = yes }
+			}
+			biomass = @b3_biomass
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_wilderness_empire = yes
+				has_tradition = tr_purity_finish
+			}
+		}
+		planet_building_build_speed_mult = 0.03
+		planet_decision_enact_speed_mult = 0.03
+	}
+
+	upgrades = {
+		building_fe_stronghold
+	}
+
+	on_queued = {
+		if = { # kill on the same planet
+			limit = {
+				is_variable_set = local_spent_biomass
+				any_owned_pop_group = {
+					has_trait = trait_wilderness
+					pop_group_size > local_spent_biomass
+				}
+			}
+			random_owned_pop_group = {
+				limit = {
+					has_trait = trait_wilderness
+					pop_group_size > local_spent_biomass
+				}
+				kill_pop_group = {
+					pop_group = this
+					amount = local_spent_biomass
+				}
+			}
+		}
+		else_if = {
+			limit = { is_variable_set = local_spent_biomass }
+			owner = {
+				global_biomass_spender = yes
+			}
+		}
+		owner = {
+			subtract_variable = { which = fe_fortress_build_count value = 1 }
+		}
+	}
+
+	on_unqueued = {
+		unqueue_biomass_effect = yes
+		owner = {
+			change_variable = { which = fe_fortress_build_count value = 1 }
+		}
+	}
+
+	show_in_tech = tech_fe_fortress_1
+}
+
 building_fe_market_1 = {
 	base_buildtime = @b2_time
 	can_build = yes

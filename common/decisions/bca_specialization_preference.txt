@@ -1,0 +1,194 @@
+# decision_research_zone_preference_set_balance = {
+# 	sound = event_administrative_work
+# 	icon = default
+#
+# 	resources = {
+# 		category = decisions
+# 	}
+#
+# 	potential = {
+# 		exists = owner
+# 		has_research_designation = yes
+# 		has_planet_flag = bca_research_preference_custom
+# 	}
+#
+# 	effect = {
+# 		remove_planet_flag = bca_research_preference_custom
+# 		set_variable = {
+# 			which = bca_research_zone_preference_physics_value
+# 			value = 0
+# 		}
+# 		set_variable = {
+# 			which = bca_research_zone_preference_society_value
+# 			value = 0
+# 		}
+# 		set_variable = {
+# 			which = bca_research_zone_preference_engineering_value
+# 			value = 0
+# 		}
+# 	}
+# }
+#
+# decision_research_zone_preference_change_preference = {
+# 	sound = event_administrative_work
+# 	icon = default
+#
+# 	resources = {
+# 		category = decisions
+# 	}
+#
+# 	potential = {
+# 		exists = owner
+# 		has_research_designation = yes
+# 		NOT = { has_planet_flag = bca_research_preference_custom }
+# 	}
+#
+# 	effect = {
+# 		set_planet_flag = bca_research_preference_custom
+# 	}
+# }
+#
+# inline_script = {
+# 	script = bca_decision_research_preference_option_pack
+# 	TYPE = physics
+# }
+#
+# inline_script = {
+# 	script = bca_decision_research_preference_option_pack
+# 	TYPE = society
+# }
+#
+#
+# inline_script = {
+# 	script = bca_decision_research_preference_option_pack
+# 	TYPE = engineering
+# }
+#
+# decision_secondary_district_zone_preference_options_on = {
+# 	sound = event_administrative_work
+# 	icon = default
+#
+# 	resources = {
+# 		category = decisions
+# 	}
+#
+# 	potential = {
+# 		exists = owner
+# 		bca_has_secondary_districts = yes
+# 		NOT = { has_planet_flag = bca_secondary_district_zone_preference_options_on }
+# 	}
+#
+# 	effect = {
+# 		set_planet_flag = bca_secondary_district_zone_preference_options_on
+# 	}
+# }
+#
+# decision_secondary_district_zone_preference_options_off = {
+# 	sound = event_administrative_work
+# 	icon = default
+#
+# 	resources = {
+# 		category = decisions
+# 	}
+#
+# 	potential = {
+# 		exists = owner
+# 		bca_has_secondary_districts = yes
+# 		has_planet_flag = bca_secondary_district_zone_preference_options_on
+# 	}
+#
+# 	effect = {
+# 		remove_planet_flag = bca_secondary_district_zone_preference_options_on
+# 	}
+# }
+#
+# decision_secondary_district_zone_research_set = {
+# 	sound = event_administrative_work
+# 	icon = default
+#
+# 	resources = {
+# 		category = decisions
+# 	}
+#
+# 	potential = {
+# 		exists = owner
+# 		bca_has_secondary_districts = yes
+# 		has_planet_flag = bca_secondary_district_zone_preference_options_on
+# 		NOT = {
+# 			has_planet_flag = bca_secondary_district_zone_set
+# 		}
+# 	}
+#
+# 	effect = {
+# 		set_planet_flag = bca_secondary_district_zone_set
+# 		set_planet_flag = bca_secondary_district_zone_research
+# 	}
+# }
+#
+# decision_secondary_district_zone_research_cancel = {
+# 	sound = event_administrative_work
+# 	icon = default
+#
+# 	resources = {
+# 		category = decisions
+# 	}
+#
+# 	potential = {
+# 		exists = owner
+# 		bca_has_secondary_districts = yes
+# 		has_planet_flag = bca_secondary_district_zone_preference_options_on
+# 		has_planet_flag = bca_secondary_district_zone_research
+# 	}
+#
+# 	effect = {
+# 		remove_planet_flag = bca_secondary_district_zone_research
+# 	}
+# }
+#
+#
+# decision_secondary_district_zone_trade_set = {
+# 	sound = event_administrative_work
+# 	icon = default
+#
+# 	resources = {
+# 		category = decisions
+# 	}
+#
+# 	potential = {
+# 		exists = owner
+# 		bca_has_secondary_districts = yes
+# 		has_planet_flag = bca_secondary_district_zone_preference_options_on
+# 		NOT = {
+# 			has_planet_flag = bca_secondary_district_zone_set
+# 		}
+# 	}
+#
+# 	effect = {
+# 		set_planet_flag = bca_secondary_district_zone_set
+# 		set_planet_flag = bca_secondary_district_zone_trade
+# 	}
+# }
+#
+#
+# decision_secondary_district_zone_trade_cancel = {
+# 	sound = event_administrative_work
+# 	icon = default
+#
+# 	resources = {
+# 		category = decisions
+# 	}
+#
+# 	potential = {
+# 		exists = owner
+# 		bca_has_secondary_districts = yes
+# 		has_planet_flag = bca_secondary_district_zone_preference_options_on
+# 		has_planet_flag = bca_secondary_district_zone_trade
+# 	}
+#
+# 	effect = {
+# 		remove_planet_flag = bca_secondary_district_zone_trade
+# 	}
+# }
+#
+#
+#

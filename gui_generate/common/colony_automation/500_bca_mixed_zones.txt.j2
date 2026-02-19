@@ -1,0 +1,46 @@
+{% import 'component/planet_flag_ps.j2' as pf with context -%}
+{% import 'component/planet_variable.j2' as v with context -%}
+{% import 'component/conditions.j2' as cond with context %}
+
+
+{% for item in zones_info %}
+{% set type = item.type %}
+{% if cond.contain_any_zones_of(item.zones, primary_districts_for_zone)|int %}
+bca_mix_primary_zone_build_{{ type }} = {
+	category = "planet_automation_designation_construction"
+
+	available = {
+        requires_more_job = yes
+        bca_has_minerals_to_build = yes
+        has_planet_flag = {{ pf.flag_plan_build_primary_zone_type(type) }}
+	}
+
+	prio_zones = {
+		{% for zone in item.zones %}
+		{% if zone in primary_districts_for_zone %}
+		{{ zone }}
+		{% endif %}
+		{% endfor %}
+	}
+}
+{% endif %}
+{% if cond.contain_any_zones_of(item.zones, secondary_districts_for_zone)|int %}
+bca_mix_secondary_zone_build_{{ type }} = {
+	category = "planet_automation_designation_construction"
+
+	available = {
+        requires_more_job = yes
+        bca_has_minerals_to_build = yes
+        has_planet_flag = {{ pf.flag_plan_build_secondary_zone_type(type) }}
+	}
+
+	prio_zones = {
+		{% for zone in item.zones %}
+		{% if zone in secondary_districts_for_zone %}
+		{{ zone }}
+		{% endif %}
+		{% endfor %}
+	}
+}
+{% endif %}
+{% endfor %}

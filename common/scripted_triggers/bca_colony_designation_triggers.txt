@@ -9,157 +9,117 @@ has_any_resource_designation = {
 }
 
 
-# 添加的下面修贸易区划的
-bca_has_mixed_trade_designation = {
-    OR = {
-		has_designation = col_ecu_foundry_trade
-		has_designation = col_ecu_factory_trade
-		has_designation = col_foundry_trade
-		has_designation = col_factory_trade
-
-        has_designation = col_research_physics_trade
-        has_designation = col_research_society_trade
-        has_designation = col_research_engineering_trade
-        has_designation = col_ring_research_physics_trade
-        has_designation = col_ring_research_society_trade
-        has_designation = col_ring_research_engineering_trade
-        has_designation = col_ecu_research_physics_trade
-        has_designation = col_ecu_research_society_trade
-        has_designation = col_ecu_research_engineering_trade
-
-        has_designation = col_wilderness_nest
-
-        has_designation = col_fortress_trade
-    }
-}
-
 bca_has_any_trade_designation = {
     OR = {
         has_trade_designation = yes
-        bca_has_mixed_trade_designation = yes
+        bca_has_any_planted_zone_of_type_trade = yes
+        bca_has_any_planted_zone_of_type_wilderness_trade = yes
     }
 }
 
-# 工厂类型
-has_factory_designation = {
+has_any_factory_designation = {
 	OR = {
-		has_designation = col_capital_factory
-		has_designation = col_factory
-		has_designation = col_mac_factory
-		has_designation = col_ecu_factory
-		has_designation = col_habitat_factory
-
-        has_designation = col_ecu_factory_trade
-        has_designation = col_factory_trade
+		has_factory_designation = yes
+        has_industrial_designation = yes
+        bca_has_any_planted_zone_of_type_factory = yes
 	}
 }
 
-# 铸造类型
-has_foundry_designation = {
+has_any_foundry_designation = {
 	OR = {
-		has_designation = col_capital_foundry
-		has_designation = col_foundry
-		has_designation = col_ecu_foundry
-		has_designation = col_habitat_foundry
-		has_designation = col_mac_foundry
-		has_designation = col_hiv_foundry
-        
-        has_designation = col_wilderness_forge
-
-		has_designation = col_ecu_foundry_trade
-		has_designation = col_foundry_trade
+        has_foundry_designation = yes
+        has_industrial_designation = yes
+		bca_has_any_planted_zone_of_type_foundry = yes
+        bca_has_any_planted_zone_of_type_wilderness_foundry = yes
 	}
 }
 
 has_any_industrial_designation = {
     OR = {
-        has_factory_designation = yes
-        has_foundry_designation = yes
-        has_industrial_designation = yes
+        has_any_factory_designation = yes
+        has_any_foundry_designation = yes
+        bca_has_any_planted_zone_of_type_industrial = yes
     }
 }
 
-# 物理学类型
-has_physics_designation = {
-    OR = {
-        has_designation = col_research_physics
-        has_designation = col_research_physics_trade
-        has_designation = col_habitat_research_physics
-        has_designation = col_ring_research_physics
-        has_designation = col_ring_research_physics_trade
-        has_designation = col_ecu_research_physics
-        has_designation = col_ecu_research_physics_trade
-        has_designation = col_wilderness_tech_physics
-    }
-}
-
-# 社会学类型
-has_sociology_designation = {
-    OR = {
-        has_designation = col_research_society
-        has_designation = col_research_society_trade
-        has_designation = col_habitat_research_society
-        has_designation = col_ring_research_society
-        has_designation = col_ring_research_society_trade
-        has_designation = col_ecu_research_society
-        has_designation = col_ecu_research_society_trade
-        has_designation = col_wilderness_tech_sociology
-    }
-}
-
-# 工程学类型
-has_engineering_designation = {
-    OR = {
-        has_designation = col_research_engineering
-        has_designation = col_research_engineering_trade
-        has_designation = col_habitat_research_engineering
-        has_designation = col_ring_research_engineering
-        has_designation = col_ring_research_engineering_trade
-        has_designation = col_ecu_research_engineering
-        has_designation = col_ecu_research_engineering_trade
-        has_designation = col_wilderness_tech_engineering
-    }
-}
 
 has_any_research_designation = {
 	OR = {
-        has_designation = col_research_physics
-        has_designation = col_research_physics_trade
-        has_designation = col_habitat_research_physics
-        has_designation = col_ring_research_physics
-        has_designation = col_ring_research_physics_trade
-        has_designation = col_ecu_research_physics
-        has_designation = col_ecu_research_physics_trade
-        has_designation = col_wilderness_tech_physics
-        
-        has_designation = col_research_society
-        has_designation = col_research_society_trade
-        has_designation = col_habitat_research_society
-        has_designation = col_ring_research_society
-        has_designation = col_ring_research_society_trade
-        has_designation = col_ecu_research_society
-        has_designation = col_ecu_research_society_trade
-        has_designation = col_wilderness_tech_sociology
-
-        has_designation = col_research_engineering
-        has_designation = col_research_engineering_trade
-        has_designation = col_habitat_research_engineering
-        has_designation = col_ring_research_engineering
-        has_designation = col_ring_research_engineering_trade
-        has_designation = col_ecu_research_engineering
-        has_designation = col_ecu_research_engineering_trade
-        has_designation = col_wilderness_tech_engineering
-        
 		has_research_designation = yes
+        bca_has_any_planted_zone_of_type_research = yes
+        bca_has_any_planted_zone_of_type_physics = yes
+        bca_has_any_planted_zone_of_type_society = yes
+        bca_has_any_planted_zone_of_type_engineering = yes
+        bca_has_any_planted_zone_of_type_wilderness_research = yes
 	}
 }
 
 
-# 堡垒类型
+# vanilla fix
 has_fortress_designation = {
-	or = {
+	OR = {
 		has_designation = col_fortress
 		has_designation = col_habitat_fortress
         has_designation = col_wilderness_fortress
 	}
+}
+
+has_any_fortress_designation = {
+    OR = {
+        has_fortress_designation = yes
+        bca_has_any_planted_zone_of_type_fortress = yes
+        bca_has_any_planted_zone_of_type_wilderness_fortress = yes
+    }
+}
+
+has_any_unity_designation = {
+    OR = {
+        has_unity_designation = yes
+        bca_has_any_planted_zone_of_type_bureaucrat = yes
+        bca_has_any_planted_zone_of_type_priest = yes
+        bca_has_any_planted_zone_of_type_unity = yes
+    }
+}
+
+
+
+
+bca_has_secondary_districts = {
+    OR = {
+        uses_district_set = city_world
+        uses_district_set = ring_world
+        uses_district_set = hive_world
+        uses_district_set = machine_world
+        has_modifier = bca_pm_arcology_project_candidate
+    }
+}
+
+
+bca_has_auto_district_manage = {
+    OR = {
+        has_generator_designation = yes
+        has_mining_designation = yes
+        has_farming_designation = yes
+    }
+    NOR = {
+        uses_district_set = habitat
+        AND = {
+            exists = owner
+            owner = { has_technology = tech_mine_betharian }
+            has_deposit = d_betharian_deposit
+        }
+    }
+}
+
+bca_auto_district_manage_enabled = {
+    bca_has_auto_district_manage = yes
+    NOT = { has_planet_flag = bca_pf_disable_auto_district_manage }
+}
+
+bca_has_auto_zone_manage = {
+    OR = {
+        has_generator_designation = yes
+        has_mining_designation = yes
+        has_farming_designation = yes
+    }
 }

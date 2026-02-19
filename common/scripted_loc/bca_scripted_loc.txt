@@ -1,0 +1,42 @@
+defined_text = {
+    name = BCA_PLANET_SETTING_AUTO_DISTRICT_MANAGEMENT_script
+    text = {
+        trigger = {
+            has_mining_designation = yes
+        }
+        localization_key = "bca_planet_setting_auto_district_management_mining"
+    }
+    text = {
+        trigger = {
+            has_farming_designation = yes
+        }
+        localization_key = "bca_planet_setting_auto_district_management_farming"
+    }
+    text = {
+        trigger = {
+            has_generator_designation = yes
+        }
+        localization_key = "bca_planet_setting_auto_district_management_generator"
+    }
+    default = "bca_planet_setting_auto_district_management_default"
+}
+
+defined_text = {
+    name = bca_num_primary_district
+    value = value:num_primary_district
+}
+
+defined_text = {
+    name = bca_num_primary_district_plan
+    value = value:bca_num_primary_districts_plan
+}
+
+defined_text = {
+    name = bca_num_secondary_district
+    value = value:num_secondary_district
+}
+
+define_text = {
+    name = bca_num_secondary_districts_plan
+    value = value:bca_num_secondary_districts_plan
+}

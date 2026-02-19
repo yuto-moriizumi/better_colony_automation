@@ -1,0 +1,29 @@
+
+automate_primary_districts = {
+	category = "planet_automation_designation_construction"
+
+	emergency = yes
+	available = {
+		bca_has_minerals_to_build = yes
+        has_planet_flag = bca_pf_plan_build_district_d0
+	}
+
+    prio_districts = {
+        district_mindlink
+        district_city
+        district_resort
+        district_prison
+        district_slave
+        district_hive
+        district_nexus
+        district_prison_industrial
+        district_battle_thrall
+        district_arcology_housing
+        district_arcology_leisure
+        district_hab_housing
+        district_rw_city
+        district_rw_hive
+        district_rw_nexus
+        district_craglands
+	}
+}

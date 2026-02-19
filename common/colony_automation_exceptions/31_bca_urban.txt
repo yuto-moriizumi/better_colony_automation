@@ -11,22 +11,6 @@ automate_urban_planet = {
 			has_designation = col_nexus
 		}
 	}
-	prio_districts = {
-		district_city
-		district_hive
-		district_nexus
-		district_arcology_housing
-		district_rw_city
-		district_hab_housing
-	}
-	
-	prio_zones = {
-		zone_trade
-        zone_trade_arcology
-        zone_trade_ring_world
-        zone_trade_nexus
-        zone_trade_hive
-	}
 
 	buildings = {
 		1 = {

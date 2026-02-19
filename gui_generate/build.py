@@ -1,0 +1,113 @@
+import os
+import shutil
+import yaml
+from jinja2 import Environment, FileSystemLoader
+
+# --- 配置区 ---
+SOURCE_DIR = os.path.dirname(__file__)  # gui_generate 目录
+ROOT_DIR = os.path.dirname(SOURCE_DIR)   # Mod 根目录
+CONFIG_DIR = os.path.join(SOURCE_DIR, 'config')
+TPL_COMMON_DIR = os.path.join(SOURCE_DIR, 'common')
+TPL_EVENTS_DIR = os.path.join(SOURCE_DIR, 'events')
+TPL_INTERFACE_DIR = os.path.join(SOURCE_DIR, 'interface')
+TPL_LOCALISATION_DIR = os.path.join(SOURCE_DIR, 'localisation')
+OUTPUT_GUI_DIR = os.path.join(ROOT_DIR, 'interface')
+
+# --- Jinja 环境设置 ---
+# 允许从 SOURCE_DIR 加载（包括 component/ 子目录）
+env = Environment(
+    loader=FileSystemLoader(SOURCE_DIR),
+    trim_blocks=True,      # 自动移除标签后的第一个换行符
+    lstrip_blocks=True     # 自动移除标签前的空白
+)
+
+def load_configs():
+    """合并 config 文件夹下所有的 yaml 配置"""
+    full_config = {}
+    if not os.path.exists(CONFIG_DIR):
+        return full_config
+
+    for filename in os.listdir(CONFIG_DIR):
+        if filename.endswith(('.yaml', '.yml')):
+            with open(os.path.join(CONFIG_DIR, filename), 'r', encoding='utf-8') as f:
+                data = yaml.safe_load(f)
+                if data:
+                    full_config.update(data)
+    return full_config
+
+def build():
+    print("🚀 开始构建 Stellaris GUI...")
+
+    # 1. 加载所有配置数据
+    config_data = load_configs()
+
+
+    # 3. 渲染所有 .gui.j2 文件
+    for filename in os.listdir(TPL_INTERFACE_DIR):
+        if filename.endswith('.j2'):
+            tpl_path = f'interface/{filename}' # 相对路径供 Jinja 加载
+            output_name = filename.replace('.j2', '')
+            output_path = os.path.join(OUTPUT_GUI_DIR, output_name)
+
+            print(f"渲染 GUI: {filename} -> {output_name}")
+            template = env.get_template(tpl_path)
+            content = template.render(**config_data)
+
+            with open(output_path, 'w', encoding='utf-8') as f:
+                f.write(content)
+    # 3.1. 渲染所有 .txt.j2 文件
+    for root, _, files in os.walk(TPL_COMMON_DIR):
+        for filename in files:
+            if filename.endswith('.txt.j2'):
+                full_path = os.path.join(root, filename)
+                # 生成 Jinja 模板相对路径（使用 '/'）
+                rel_path = os.path.relpath(full_path, SOURCE_DIR)
+                tpl_path = rel_path.replace(os.path.sep, '/')
+                output_name = filename.replace('.j2', '')
+                # 将输出放到 Mod 根目录下对应的相对位置（保留 common/ 子目录结构）
+                output_dir = os.path.join(ROOT_DIR, os.path.dirname(rel_path))
+                os.makedirs(output_dir, exist_ok=True)
+                output_path = os.path.join(output_dir, output_name)
+                print(f"渲染 Common: {rel_path} -> {os.path.relpath(output_path, ROOT_DIR)}")
+                template = env.get_template(tpl_path)
+                content = template.render(**config_data)
+
+                with open(output_path, 'w', encoding='utf-8') as f:
+                    f.write(content)
+    for root, _, files in os.walk(TPL_EVENTS_DIR):
+        for filename in files:
+            if filename.endswith('.txt.j2'):
+                full_path = os.path.join(root, filename)
+                rel_path = os.path.relpath(full_path, SOURCE_DIR)
+                tpl_path = rel_path.replace(os.path.sep, '/')
+                output_name = filename.replace('.j2', '')
+                output_dir = os.path.join(ROOT_DIR, os.path.dirname(rel_path))
+                os.makedirs(output_dir, exist_ok=True)
+                output_path = os.path.join(output_dir, output_name)
+                print(f"渲染 Events: {rel_path} -> {os.path.relpath(output_path, ROOT_DIR)}")
+                template = env.get_template(tpl_path)
+                content = template.render(**config_data)
+
+                with open(output_path, 'w', encoding='utf-8') as f:
+                    f.write(content)
+    for root, _, files in os.walk(TPL_LOCALISATION_DIR):
+        for filename in files:
+            if filename.endswith('.yml.j2'):
+                full_path = os.path.join(root, filename)
+                rel_path = os.path.relpath(full_path, SOURCE_DIR)
+                tpl_path = rel_path.replace(os.path.sep, '/')
+                output_name = filename.replace('.j2', '')
+                output_dir = os.path.join(ROOT_DIR, os.path.dirname(rel_path))
+                os.makedirs(output_dir, exist_ok=True)
+                output_path = os.path.join(output_dir, output_name)
+                print(f"渲染 Localisation: {rel_path} -> {os.path.relpath(output_path, ROOT_DIR)}")
+                template = env.get_template(tpl_path)
+                content = template.render(**config_data)
+
+                with open(output_path, 'w', encoding='utf-8-sig') as f:
+                    f.write(content)
+
+    print("✅ 构建完成！请进入游戏使用 `reload gui` 查看效果。")
+
+if __name__ == "__main__":
+    build()

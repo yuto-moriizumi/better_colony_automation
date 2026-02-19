@@ -11,16 +11,19 @@ country_event = {
 	}
 
 	immediate = {
-		# 遍历该国家拥有的所有星球
 		every_owned_planet = {
 			limit = {
 				has_building_construction = no
+				NOR = {
+					has_planet_flag = bca_pf_disable_auto_district_manage
+					has_planet_flag = bca_pf_disable_planet_auto_destruction_district
+				}
 			}
 			if = {
 				limit = {
 					free_district_slots = 0 #replace district
 				}
-				if = {
+				if = { #check by year
 					limit = {
 						has_planet_flag = bca_pf_district_balanced
 					}
@@ -35,14 +38,14 @@ country_event = {
 								value >= 12
 							} 
 						}
-						bca_test_district_to_replace_entry = yes #check by year
+						bca_test_primary_and_secondary_district_bidirectional_replace = yes
 						set_variable = {
 							which = bca_district_balanced_test_counter
 							value = 0
 						}
 					}
 				}
-				else = {
+				else = { #check by month
 					if = {
 						limit = {
 							NOT = { has_planet_flag = bca_pf_has_district_remove_plan }
@@ -50,7 +53,7 @@ country_event = {
 						set_planet_flag = bca_pf_previous_has_district_remove_plan_clear
 					}
 
-					bca_test_district_to_replace_entry = yes #check by month
+					bca_test_primary_and_secondary_district_bidirectional_replace = yes
 
 					if = {
 						limit = {
@@ -64,14 +67,16 @@ country_event = {
 			}
 			else = {
 				remove_planet_flag = bca_pf_district_balanced
+				clear_variable = bca_district_balanced_test_counter
 			}
+
 			if = {
 				limit = {
 					NOT = { 
 						has_planet_flag = bca_pf_fully_constructed 
 					}
 				}
-				inline_script = bca_test_construction_entry
+				bca_resource_planet_controller = yes
 			}
 		}
 	}
@@ -90,36 +95,14 @@ planet_event = {
 		}
 	}
 	immediate = {
-		remove_planet_flag = bca_pf_has_district_build_plan
-		remove_planet_flag = bca_pf_plan_build_district_city
-		remove_planet_flag = bca_pf_plan_build_district_hive
-		remove_planet_flag = bca_pf_plan_build_district_nexus
-		remove_planet_flag = bca_pf_plan_build_district_generator
-		remove_planet_flag = bca_pf_plan_build_district_geothermal
-		remove_planet_flag = bca_pf_plan_build_district_mining
-		remove_planet_flag = bca_pf_plan_build_district_melting
-		remove_planet_flag = bca_pf_plan_build_district_farming
+		remove_planet_flag = bca_pf_plan_build_district_d0
+		remove_planet_flag = bca_pf_plan_build_district_d1
+		remove_planet_flag = bca_pf_plan_build_district_d2
+		remove_planet_flag = bca_pf_plan_build_district_d3
 	}
 }
 
-# trigger by on_zone_complete
-# remove zone flag if construction completed
-planet_event = {
-	id = colony_automation_event.12
-	is_triggered_only = yes
-	hide_window = yes
-	trigger = {
-		owner = {
-			is_ai = no
-		}
-	}
-	immediate = {
-		remove_planet_flag = bca_pf_has_zone_build_plan
-		remove_planet_flag = bca_pf_plan_build_zone_urban_energy
-		remove_planet_flag = bca_pf_plan_build_zone_urban_minerals
-		remove_planet_flag = bca_pf_plan_build_zone_urban_food
-	}
-}
+
 
 # trigger by on_building_complete
 # remove building flag if construction completed
@@ -140,6 +123,8 @@ planet_event = {
 	}
 }
 
+
+# test event for debug, will be removed in final version
 planet_event = {
 	id = colony_automation_event.501
 	is_triggered_only = yes

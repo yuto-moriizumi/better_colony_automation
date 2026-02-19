@@ -1,0 +1,477 @@
+
+bca_planet_setting_zone_rank_urban = {
+    base = 1000
+    subtract = 0
+    modifier = {
+        always = yes
+        add = -1000
+    }
+}
+bca_planet_setting_zone_rank_trade = {
+    base = 1000
+    subtract = 1
+    modifier = {
+        has_trade_designation = yes
+        add = 1000
+    }
+}
+bca_planet_setting_zone_rank_industrial = {
+    base = 1000
+    subtract = 2
+    modifier = {
+        has_industrial_designation = yes
+        add = 1000
+    }
+    modifier = {
+        has_factory_designation = yes
+        add = 500
+    }
+    modifier = {
+        has_foundry_designation = yes
+        add = 500
+    }
+}
+bca_planet_setting_zone_rank_foundry = {
+    base = 1000
+    subtract = 3
+    modifier = {
+        has_foundry_designation = yes
+        add = 1000
+    }
+    modifier = {
+        has_industrial_designation = yes
+        add = 750
+    }
+    modifier = {
+        has_factory_designation = yes
+        add = 500
+    }
+}
+bca_planet_setting_zone_rank_factory = {
+    base = 1000
+    subtract = 4
+    modifier = {
+        has_factory_designation = yes
+        add = 1000
+    }
+    modifier = {
+        has_industrial_designation = yes
+        add = 750
+    }
+    modifier = {
+        has_foundry_designation = yes
+        add = 500
+    }
+}
+bca_planet_setting_zone_rank_research = {
+    base = 1000
+    subtract = 5
+    modifier = {
+        has_research_designation = yes
+        add = 1000
+    }
+}
+bca_planet_setting_zone_rank_physics = {
+    base = 1000
+    subtract = 6
+    modifier = {
+        has_research_designation = yes
+        add = 1000
+    }
+}
+bca_planet_setting_zone_rank_society = {
+    base = 1000
+    subtract = 7
+    modifier = {
+        has_research_designation = yes
+        add = 1000
+    }
+}
+bca_planet_setting_zone_rank_engineering = {
+    base = 1000
+    subtract = 8
+    modifier = {
+        has_research_designation = yes
+        add = 1000
+    }
+}
+bca_planet_setting_zone_rank_bureaucrat = {
+    base = 1000
+    subtract = 9
+    modifier = {
+        has_unity_designation = yes
+        add = 750
+    }
+    modifier = {
+        has_research_designation = yes
+        add = 750
+    }
+}
+bca_planet_setting_zone_rank_unity = {
+    base = 1000
+    subtract = 10
+    modifier = {
+        has_unity_designation = yes
+        add = 1000
+    }
+}
+bca_planet_setting_zone_rank_priest = {
+    base = 1000
+    subtract = 11
+    modifier = {
+        has_unity_designation = yes
+        add = 1000
+    }
+}
+bca_planet_setting_zone_rank_fortress = {
+    base = 1000
+    subtract = 12
+    modifier = {
+        has_fortress_designation = yes
+        add = 1000
+    }
+}
+bca_planet_setting_zone_rank_resort = {
+    base = 1000
+    subtract = 13
+    modifier = {
+        has_designation = col_resort
+        add = 1000
+    }
+    modifier = {
+        has_designation = col_pleasure
+        add = 900
+    }
+    modifier = {
+        has_designation = col_habitat_trade
+        add = 400
+    }
+}
+bca_planet_setting_zone_rank_entertainer = {
+    base = 1000
+    subtract = 14
+    modifier = {
+        has_designation = col_resort
+        add = 900
+    }
+    modifier = {
+        has_designation = col_pleasure
+        add = 800
+    }
+}
+bca_planet_setting_zone_rank_zoo = {
+    base = 1000
+    subtract = 15
+    modifier = {
+        has_designation = col_resort
+        add = 750
+    }
+    modifier = {
+        has_designation = col_trophy_machine
+        add = 600
+    }
+}
+bca_planet_setting_zone_rank_culture_worker = {
+    base = 1000
+    subtract = 16
+    modifier = {
+        has_designation = col_resort
+        add = 750
+    }
+}
+bca_planet_setting_zone_rank_trophy_hunter = {
+    base = 1000
+    subtract = 17
+    modifier = {
+        has_designation = col_trophy_machine
+        add = 900
+    }
+}
+bca_planet_setting_zone_rank_healthcare = {
+    base = 1000
+    subtract = 18
+    modifier = {
+        has_designation = col_resort
+        add = 600
+    }
+}
+bca_planet_setting_zone_rank_duelist = {
+    base = 1000
+    subtract = 19
+    modifier = {
+        has_designation = col_fortress
+        add = 400
+    }
+    modifier = {
+        has_designation = col_resort
+        add = 500
+    }
+}
+bca_planet_setting_zone_rank_energy = {
+    base = 1000
+    subtract = 20
+    modifier = {
+        has_generator_designation = yes
+        add = 1000
+    }
+    modifier = {
+        bca_in_secondary_selector = yes
+        add = 500
+    }
+}
+bca_planet_setting_zone_rank_betharian = {
+    base = 1000
+    subtract = 21
+    modifier = {
+        has_generator_designation = yes
+        add = 1500
+    }
+    modifier = {
+        bca_in_secondary_selector = yes
+        add = 500
+    }
+}
+bca_planet_setting_zone_rank_minerals = {
+    base = 1000
+    subtract = 22
+    modifier = {
+        has_mining_designation = yes
+        add = 1000
+    }
+    modifier = {
+        bca_in_secondary_selector = yes
+        add = 500
+    }
+}
+bca_planet_setting_zone_rank_food = {
+    base = 1000
+    subtract = 23
+    modifier = {
+        has_farming_designation = yes
+        add = 1000
+    }
+    modifier = {
+        bca_in_secondary_selector = yes
+        add = 500
+    }
+}
+bca_planet_setting_zone_rank_rare_crystals = {
+    base = 1000
+    subtract = 24
+    modifier = {
+        has_generator_designation = yes
+        add = 600
+    }
+    modifier = {
+        bca_in_secondary_selector = yes
+        add = 500
+    }
+}
+bca_planet_setting_zone_rank_volatile_motes = {
+    base = 1000
+    subtract = 25
+    modifier = {
+        has_mining_designation = yes
+        add = 600
+    }
+    modifier = {
+        bca_in_secondary_selector = yes
+        add = 500
+    }
+}
+bca_planet_setting_zone_rank_exotic_gases = {
+    base = 1000
+    subtract = 26
+    modifier = {
+        has_farming_designation = yes
+        add = 600
+    }
+    modifier = {
+        bca_in_secondary_selector = yes
+        add = 500
+    }
+}
+bca_planet_setting_zone_rank_angler = {
+    base = 1000
+    subtract = 27
+    modifier = {
+        has_farming_designation = yes
+        add = 1000
+    }
+    modifier = {
+        bca_in_secondary_selector = yes
+        add = 500
+    }
+}
+bca_planet_setting_zone_rank_spawning = {
+    base = 1000
+    subtract = 28
+    modifier = {
+        has_designation = col_hive
+        add = 750
+    }
+    modifier = {
+        has_designation = col_capital_hive
+        add = 900
+    }
+    modifier = {
+        has_designation = col_hiv
+        add = 800
+    }
+}
+bca_planet_setting_zone_rank_wilderness_foundry = {
+    base = 1000
+    subtract = 29
+    modifier = {
+        has_designation = col_wilderness_forge
+        add = 1000
+    }
+    modifier = {
+        has_designation = col_wilderness_refinery
+        add = 900
+    }
+    modifier = {
+        has_designation = col_wilderness_capital
+        add = 600
+    }
+    modifier = {
+        has_designation = col_capital_foundry
+        add = 500
+    }
+}
+bca_planet_setting_zone_rank_wilderness_research = {
+    base = 1000
+    subtract = 30
+    modifier = {
+        has_designation = col_wilderness_tech
+        add = 1000
+    }
+    modifier = {
+        has_designation = col_wilderness_capital
+        add = 600
+    }
+    modifier = {
+        has_designation = col_wilderness_unification
+        add = 500
+    }
+}
+bca_planet_setting_zone_rank_wilderness_unity = {
+    base = 1000
+    subtract = 31
+    modifier = {
+        has_designation = col_wilderness_capital
+        add = 1000
+    }
+    modifier = {
+        has_designation = col_bureau
+        add = 700
+    }
+    modifier = {
+        has_designation = col_wilderness_nest
+        add = 600
+    }
+}
+bca_planet_setting_zone_rank_wilderness_spawning = {
+    base = 1000
+    subtract = 32
+    modifier = {
+        has_designation = col_wilderness_nest
+        add = 1000
+    }
+    modifier = {
+        has_designation = col_hive
+        add = 750
+    }
+    modifier = {
+        has_designation = col_wilderness_capital
+        add = 600
+    }
+    modifier = {
+        has_designation = col_capital_hive
+        add = 500
+    }
+}
+bca_planet_setting_zone_rank_wilderness_trade = {
+    base = 1000
+    subtract = 33
+    modifier = {
+        has_designation = col_wilderness_capital
+        add = 900
+    }
+    modifier = {
+        has_designation = col_city
+        add = 700
+    }
+    modifier = {
+        has_designation = col_wilderness_unification
+        add = 600
+    }
+}
+bca_planet_setting_zone_rank_wilderness_fortress = {
+    base = 1000
+    subtract = 34
+    modifier = {
+        has_designation = col_wilderness_fortress
+        add = 1000
+    }
+    modifier = {
+        has_designation = col_fortress
+        add = 750
+    }
+    modifier = {
+        has_designation = col_wilderness_capital
+        add = 500
+    }
+}
+bca_planet_setting_zone_rank_wilderness_minerals = {
+    base = 1000
+    subtract = 35
+    modifier = {
+        has_designation = col_wilderness_mining
+        add = 1000
+    }
+    modifier = {
+        has_designation = col_mining
+        add = 750
+    }
+    modifier = {
+        has_designation = col_wilderness_capital
+        add = 500
+    }
+    modifier = {
+        has_designation = col_capital_extraction
+        add = 600
+    }
+}
+bca_planet_setting_zone_rank_wilderness_energy = {
+    base = 1000
+    subtract = 36
+    modifier = {
+        has_designation = col_wilderness_generator
+        add = 1000
+    }
+    modifier = {
+        has_designation = col_generator
+        add = 750
+    }
+    modifier = {
+        has_designation = col_wilderness_capital
+        add = 500
+    }
+}
+bca_planet_setting_zone_rank_wilderness_food = {
+    base = 1000
+    subtract = 37
+    modifier = {
+        has_designation = col_wilderness_farming
+        add = 1000
+    }
+    modifier = {
+        has_designation = col_farming
+        add = 750
+    }
+    modifier = {
+        has_designation = col_wilderness_capital
+        add = 500
+    }
+}

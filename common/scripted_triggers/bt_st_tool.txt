@@ -8,9 +8,12 @@ any_owned_pop_group = {
 
 requires_more_job = {
 	OR = {
-		has_modifier = bca_pm_planet_pre_construction
+		has_planet_flag = bca_pf_planet_pre_construction
 		free_jobs <= 0
 	}
+}
+really_requires_more_job = {
+	free_jobs <= 0
 }
 
 bca_has_minerals_to_build = {
@@ -37,6 +40,12 @@ bca_has_build_plan = {
 	has_planet_flag = bca_pf_plan_build_$type$
 }
 
-has_free_building_slot_leq = {
-	has_planet_flag = bca_free_$type$_slots_leq_$leq$
-}
+# bca_has_free_building_slot_leq = {
+# 	has_planet_flag = bca_free_$type$_slots_leq_$leq$
+# }
+#
+# bca_has_free_building_slot_gt = {
+# 	NOT = {
+# 		has_planet_flag = bca_free_$type$_slots_leq_$gt$
+# 	}
+# }

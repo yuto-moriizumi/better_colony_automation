@@ -1,0 +1,83 @@
+namespace = colony_automation_event
+
+country_event = {
+	id = colony_automation_event.1
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		is_ai = no
+		bca_has_minerals_to_build = yes
+	}
+
+	immediate = {
+		every_owned_planet = {
+			limit = {
+				is_colony = yes
+				is_capital = no
+				has_building_construction = no
+				NOT = { has_planet_flag = bca_pf_disable_planet_auto_destruction }
+			}
+			# 自动区划移除
+			if = {
+				limit = {
+					# owner = {has_country_flag = bac_allow_district_destruction}
+				}
+				if = {
+					limit = {
+						free_district_slots = 0
+					}
+					remove_district_if = {
+						cond = bca_can_remove_district_generator
+						district = district_generator
+					}
+					remove_district_if = {
+						cond = bca_can_remove_district_generator
+						district = district_geothermal
+					}
+					remove_district_if = {
+						cond = bca_can_remove_district_mining
+						district = district_mining
+					}
+					remove_district_if = {
+						cond = bca_can_remove_district_mining
+						district = district_melting
+					}
+					remove_district_if = {
+						cond = bca_can_remove_district_farming
+						district = district_farming
+					}
+					remove_district_if = {
+						cond = bca_can_remove_district_city
+						district = district_city
+					}
+					remove_district_if = {
+						cond = bca_can_remove_district_city
+						district = district_hive
+					}
+					remove_district_if = {
+						cond = bca_can_remove_district_city
+						district = district_nexus
+					}
+					remove_district_if = {
+						cond = bca_can_remove_district_hab_housing
+						district = district_hab_housing
+					}
+					remove_district_if = {
+						cond = bca_can_remove_district_rw_city
+						district = district_rw_city
+					}
+					remove_district_if = {
+						cond = bca_can_remove_district_rw_city
+						district = district_rw_hive
+					}
+					remove_district_if = {
+						cond = bca_can_remove_district_rw_city
+						district = district_rw_nexus
+					}
+					
+				}
+			}
+		}
+	}
+}

@@ -96,3 +96,13 @@ building_production_center.destroy_trigger = wrap{
 	}
 }
 
+[building_dread_encampment
+ building_military_academy
+ building_stronghold].destroy_trigger = override{
+	bca_can_remove_building_fortress = yes
+}
+
+building_fe_fortress.destroy_trigger = override{
+    bca_can_remove_building_fortress = yes
+}
+

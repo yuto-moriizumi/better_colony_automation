@@ -4,18 +4,24 @@ if = {
 	}
 	inline_script = {
 		script = bca_construction_test_template
-		TEST_LIST = bca_generator_construction_test_list
+		TEST_LIST = bca_construction_test_list_generator
 	}
 }
 else_if = {
 	limit = {
 		has_mining_designation = yes
 	}
-	# bca_mining_designation_construction_test = yes
+	inline_script = {
+		script = bca_construction_test_template
+		TEST_LIST = bca_construction_test_list_mining
+	}
 }
 else_if = {
 	limit = {
 		has_farming_designation = yes
 	}
-	# bca_farming_designation_construction_test = yes
+	inline_script = {
+		script = bca_construction_test_template
+		TEST_LIST = bca_construction_test_list_farming
+	}
 }

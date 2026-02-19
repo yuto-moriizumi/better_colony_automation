@@ -1,0 +1,209 @@
+{% import 'component/planet_flag_ps.j2' as pf with context -%}
+{% import 'component/planet_variable.j2' as v -%}
+{% import 'component/planet_variable.j2' as v -%}
+
+
+{% macro zone_slider_item(side,index,max_index,read_ratio,write_ratio,variable) -%}
+
+
+{%- endmacro %}
+
+{% for index in range(1,21) %}
+{% set max_index = 20 %}
+{% set setting_ratio = index/max_index %}
+{% set reverse_setting_ratio = (max_index-index)/max_index %}
+
+{% for func in ['primary_district_built','primary_district_plan','secondary_district_built','secondary_district_plan'] %}
+
+bca_planet_setting_slider_{{ func }}_{{ index }} = {
+    potential = {
+        {% if func == 'primary_district_built' %}
+            check_variable_arithmetic = {
+                which = {{ setting_ratio }}
+                value <= value:bca_built_primary_districts_to_ratio
+            }
+        {% elif func == 'primary_district_plan' %}
+            check_variable_arithmetic = {
+                which = {{ setting_ratio }}
+                value > value:bca_built_primary_districts_to_ratio
+            }
+            check_variable_arithmetic = {
+                which = {{ setting_ratio }}
+                value <= value:bca_plan_primary_districts_to_ratio
+            }
+        {% elif func == 'secondary_district_built' %}
+            {% if index != max_index %}
+            check_variable_arithmetic = {
+                which = {{ reverse_setting_ratio }}
+                value <= value:bca_built_secondary_districts_to_ratio
+            }
+            {% else %}
+            check_variable_arithmetic = {
+                which = {{ reverse_setting_ratio }}
+                value < value:bca_built_secondary_districts_to_ratio
+            }
+            {% endif %}
+        {% elif func == 'secondary_district_plan' %}
+            {% if index != max_index %}
+            check_variable_arithmetic = {
+                which = {{ reverse_setting_ratio }}
+                value > value:bca_built_secondary_districts_to_ratio
+            }
+            {% else %}
+            check_variable_arithmetic = {
+                which = {{ reverse_setting_ratio }}
+                value >= value:bca_built_secondary_districts_to_ratio
+            }
+            {% endif %}
+            check_variable_arithmetic = {
+                which = {{ reverse_setting_ratio }}
+                value < value:bca_plan_secondary_districts_to_ratio
+            }
+        {% endif %}
+    }
+    allow = {
+        bca_allow_manual_district_manage = yes
+    }
+    effect = {
+        hidden_effect = {
+            {% if func == 'primary_district_plan' or func == 'secondary_district_plan' %}
+            bca_set_district_plan_by_ratio = {
+                RATIO = {{ setting_ratio }}
+            }
+            {% elif func == 'primary_district_built' %}
+            if = {
+                limit = {
+                    check_variable_arithmetic = {
+                        which = {{ setting_ratio }}
+                        value = value:bca_built_primary_districts_to_ratio
+                    }
+                }
+                bca_set_district_plan_by_ratio = {
+                    RATIO = {{ setting_ratio }}
+                }
+            }
+            else = {
+
+            }
+            {% elif func == 'secondary_district_plan' %}
+            if = {
+                limit = {
+                    check_variable_arithmetic = {
+                        which = {{ reverse_setting_ratio }}
+                        value = value:bca_built_secondary_districts_to_ratio
+                    }
+                }
+                bca_set_district_plan_by_ratio = {
+                    RATIO = {{ setting_ratio }}
+                }
+            }
+            else = {
+
+            }
+            {% endif %}
+        }
+    }
+}
+{% endfor %}
+{% endfor %}
+
+{% for i in range(3,6) %}
+{% set zone_slot = "z"~i %}
+
+bca_planet_setting_secondary_zone_count_icon_{{ zone_slot }} = {
+    potential = {
+        has_planet_flag = bca_pf_ps_show_detailed_secondary_districts
+    }
+    allow = {
+        always = yes
+    }
+}
+
+bca_planet_setting_secondary_zone_count_inc_{{ zone_slot }} = {
+    potential = {
+        has_planet_flag = bca_pf_ps_show_detailed_secondary_districts
+    }
+    allow = {
+        hidden_trigger = {
+            check_variable_arithmetic = {
+                which = value:bca_num_free_secondary_districts_plan
+                value > 0
+            }
+        }
+        bca_allow_manual_district_manage = yes
+    }
+    effect = {
+        add_variable = {
+            which = {{v.var_district_num_plan(zone_slot)}}
+            value = 1
+        }
+    }
+
+}
+
+bca_planet_setting_secondary_zone_count_dec_{{ zone_slot }} = {
+    potential = {
+        has_planet_flag = bca_pf_ps_show_detailed_secondary_districts
+    }
+    allow = {
+        hidden_trigger = {
+            check_variable = {
+                which = {{v.var_district_num_plan(zone_slot)}}
+                value > value:num_district_{{ zone_slot_district_slot_mapping[zone_slot] }}
+            }
+        }
+        bca_allow_manual_district_manage = yes
+    }
+    effect = {
+        subtract_variable = {
+            which = {{v.var_district_num_plan(zone_slot)}}
+            value = 1
+        }
+    }
+}
+
+{% endfor %}
+
+bca_planet_setting_secondary_zone_show_up = {
+    potential = {
+        has_planet_flag = bca_pf_ps_show_detailed_secondary_districts
+    }
+    allow = { always = yes }
+}
+
+bca_planet_setting_primary_district_count_dec = {
+    potential = {
+        always = yes
+    }
+    allow = {
+        hidden_trigger = {
+            check_variable_arithmetic = {
+                which = value:bca_num_primary_districts_plan
+                value > value:num_primary_district
+            }
+        }
+        bca_allow_manual_district_manage = yes
+    }
+    effect = {
+        bca_set_district_plan_dec_1 = yes
+    }
+}
+
+bca_planet_setting_primary_district_count_inc = {
+    potential = {
+        always = yes
+    }
+    allow = {
+        hidden_trigger = {
+            check_variable_arithmetic = {
+                which = value:bca_num_free_primary_districts_plan
+                value > 0
+            }
+        }
+        bca_allow_manual_district_manage = yes
+    }
+    effect = {
+        bca_set_district_plan_inc_1 = yes
+    }
+}
+

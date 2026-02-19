@@ -1,13 +1,27 @@
 # 推荐使用每两月一次的脉冲，平衡性能和实时性
 on_monthly_pulse_country = {
 	events = {
-		colony_automation_event.10  # 资源特化区块自动规划
-		colony_automation_event.1  # 自动拆除区块与特化
+		colony_automation_event.25 # 默认特化选择
+		colony_automation_event.10 # 资源特化区块自动规划
+		colony_automation_event.1  # 区划建造
+		colony_automation_event.2  # 区划拆除
+		colony_automation_event.20 # 特化建造
+		colony_automation_event.21 # 特化拆除
 		colony_automation_event.2  # 自动理想城计划
 	}
 }
 
+on_planet_transfer = {
+	events = {
+		colony_automation_event.26  # 基于当前布局设置
+	}
+}
 
+on_colonized = {
+	events = {
+		colony_automation_event.26  # 基于当前布局设置
+	}
+}
 
 on_district_complete = {
 	events = {
@@ -17,12 +31,12 @@ on_district_complete = {
 
 on_zone_complete = {
 	events = {
-		colony_automation_event.12  # 完成区划建设后测试建造
+		colony_automation_event.12  # 完成区划建设后移除规划标记
 	}
 }
 
 on_building_complete = {
 	events = {
-		colony_automation_event.13  # 完成建筑建设后测试建造
+		colony_automation_event.13  # 完成建筑建设后移除规划标记
 	}
 }

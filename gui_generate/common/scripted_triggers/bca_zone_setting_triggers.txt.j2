@@ -1,0 +1,71 @@
+{% import 'component/planet_flag_ps.j2' as pf with context -%}
+
+bca_in_secondary_selector = {
+    has_planet_flag = bca_pf_in_secondary_selector
+}
+
+bca_has_zone_plan = {
+    OR = {
+        {% set zone_slot = "$ZONE_SLOT$" %}
+        {% for item in zones_info %}
+        {% for zone in item.zones %}
+        has_planet_flag = {{ pf.flag_selected_zone_type(zone_slot, item.type) }}
+        {% endfor %}
+        {% endfor %}
+    }
+}
+
+
+bca_designation_changed = {
+    OR = {
+{% for designation in all_designations %}
+        AND = {
+            has_designation = {{ designation }}
+            NOT = { has_planet_flag = {{ pf.flag_current_designation(designation) }} }
+        }
+{% endfor %}
+    }
+}
+
+{% for item in zones_info %}
+bca_has_any_planted_zone_of_type_{{ item.type }} = {
+    OR = {
+    {% for zone_slot in ['z1','z2','z3','z4','z5'] %}
+        has_planet_flag = {{ pf.flag_selected_zone_type(zone_slot, item.type) }}
+    {% endfor %}
+    }
+}
+{% endfor %}
+
+{% set all_district_set = [primary_districts, secondary_districts_d1, secondary_districts_d2, secondary_districts_d3] %}
+
+{% for district_set_idx in [1,2,3] %}
+bca_has_district_d{{ district_set_idx }} = {
+    OR = {
+    {% for district in all_district_set[district_set_idx] %}
+        has_district = {{ district }}
+    {% endfor %}
+    }
+}
+{% endfor %}
+
+{% for district_set_idx in range(4) %}
+bca_district_d{{ district_set_idx }}_reach_planet_max = {
+    {% for district in all_district_set[district_set_idx] %}
+    {{ "if" if loop.first else "else_if" }} = {
+        limit = { has_district = {{ district }} }
+        bca_district_reach_planet_max = {
+            type = {{ district }}
+        }
+    }
+    {% endfor %}
+}
+{% endfor %}
+
+
+bca_allow_manual_district_manage = {
+    custom_tooltip = {
+        fail_text = "BCA_MANUAL_DISTRICT_MANAGE_NOT_ALLOW"
+        bca_auto_district_manage_enabled = no
+    }
+}

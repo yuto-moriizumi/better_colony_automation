@@ -120,9 +120,7 @@
  decision_bca_disable_arcology_project_candidate: "£district£ £decision£ 移除理想城候选  "
  decision_bca_disable_arcology_project_candidate_desc: "移除该星球的理想城候选标记。"
 
- colony_automation_event.3.name: "理想城计划准备就绪"
- colony_automation_event.3.desc: "[Root.GetName] 已经具备建设理想城的条件。我们是否现在开始理想城计划？"
- colony_automation_event.3.a: "开始理想城计划"
- colony_automation_event.3.b: "也许晚些时候"
-
-
+ colony_automation_event.102.name: "理想城计划准备就绪"
+ colony_automation_event.102.desc: "[Root.GetName] 已经具备建设理想城的条件。我们是否现在开始理想城计划？"
+ colony_automation_event.102.a: "开始理想城计划"
+ colony_automation_event.102.b: "也许晚些时候"

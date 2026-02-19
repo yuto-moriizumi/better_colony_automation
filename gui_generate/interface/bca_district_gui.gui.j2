@@ -1,0 +1,185 @@
+{% import 'component/planet_components.j2' as p -%}
+{% import 'component/zone_component.j2' as z with context -%}
+
+{% set district_len = 285 %}
+{% set district_height = 178 %}
+{% set main_panel_len = 570 %}
+
+guiTypes = {
+    # 3 width
+	containerWindowType = {
+		name = "bca_planet_district_entry_gui"
+		size = { width = 861 height = 178 }
+{#		background = {#}
+{#			name = "districts_window_background"#}
+{#			spriteType = "GFX_dark_area"#}
+{#			alwaysTransparent = yes#}
+{#		}#}
+		containerWindowType = {
+			name = "function1"
+			size = { width = {{ main_panel_len }} height = 178 }
+			background = {
+				name = "districts_window_background"
+				spriteType = "GFX_interface_list_dark"
+				alwaysTransparent = yes
+			}
+            {{ p.setting_title(name = 'f1title',
+                               text = 'PRIMARY_DISTRICT_SETTINGS',
+                               width = district_len * 2 ) }}
+
+            {% set panel_x = 15 %}
+            {% set button_len = 120 %}
+            {% set button_height = 35 %}
+            {% set panel_y1 = 40 + 50/2 - button_height/2 %}
+            {% set panel_y2 = 40 + 50 + 15 + 50/2 - button_height/2 %}
+            {{
+            p.toggle_button(
+                name = "auto_demolish",
+                x = panel_x, y = panel_y1, len = button_height,
+                tex_prefix = "GFX_bca_button_demolish",
+                effect_prefix = "bca_planet_setting_auto_destruction"
+            )
+            }}
+
+            {{
+            p.toggle_button_text(
+                name = "auto_demolish_text",
+                x = panel_x + button_height, y = panel_y1,
+                sx = button_len, sy = button_height,
+                text = "BCA_PLANET_SETTING_AUTO_DESTRUCTION",
+                tooltip = "BCA_PLANET_SETTING_AUTO_DESTRUCTION_DESC",
+                tex_prefix = "GFX_bca_button_standard",
+                effect_prefix = "bca_planet_setting_auto_destruction"
+            )
+            }}
+
+            {{
+            p.toggle_button(
+                name = "auto_prebuild",
+                x = panel_x, y = panel_y2, len = button_height,
+                tex_prefix = "GFX_bca_button_preconstruction",
+                effect_prefix = "bca_planet_setting_preconstruction"
+            )
+            }}
+            {{
+            p.toggle_button_text(
+                name = "auto_prebuild_text",
+                x = panel_x + button_height, y = panel_y2,
+                sx = button_len, sy = button_height,
+                text = "BCA_PLANET_SETTING_PRECONSTRUCTION",
+                tooltip = "BCA_PLANET_SETTING_PRECONSTRUCTION_DESC",
+                tex_prefix = "GFX_bca_button_standard",
+                effect_prefix = "bca_planet_setting_preconstruction"
+            )
+            }}
+
+
+		}
+
+        effectButtonType = {
+            name = "function3"
+            quadTextureSprite = "GFX_interface_list_dark"
+			size = { width = {{ district_len }} height = 178 }
+			position = { x = -{{ district_len }} y = 0 }
+            effect = "bca_planet_setting_secondary_zone_show_up"
+            alwaysTransparent = yes
+            orientation = upper_right
+        }
+
+
+
+        effectButtonType = {
+            name = 'f3title'
+            position = { x = -{{ district_len }} y = 5 }
+            orientation = upper_right
+            size = { x = {{ district_len }} y = 25 }
+            font = "font_text_14"
+            buttonText = "SECONDARY_DISTRICT_SETTINGS"
+            quadTextureSprite = "GFX_tiled_window_transparent"
+            maxWidth = {{ district_len }}
+            maxHeight = 25
+            format = center
+            vertical_alignment = center
+            alwaysTransparent = yes
+            effect = "bca_planet_setting_secondary_zone_show_up"
+        }
+{##}
+{#		containerWindowType = {#}
+{#			name = "function3"#}
+{#			size = { width = {{ district_len }} height = 178 }#}
+{#			position = { x = -{{ district_len }} y = 0 }#}
+{#			orientation = upper_right#}
+{#			background = {#}
+{#				name = "districts_window_background"#}
+{#				spriteType = "GFX_interface_list_dark"#}
+{#				alwaysTransparent = yes#}
+{#			}#}
+{##}
+{#		}#}
+
+        {{ z.main_zone_setting(district_len=district_len, is_selector = False) }}
+        {{ z.secondary_zone_setting(district_len=district_len, is_selector = False) }}
+
+        {{ z.main_zone_setting(district_len=district_len, is_selector = True) }}
+        {{ z.secondary_zone_setting(district_len=district_len, is_selector = True) }}
+
+
+        effectButtonType = {
+            name = 'on_designation_change_mask12'
+            quadTextureSprite = "GFX_dark_area"
+			size = { width = {{ main_panel_len }} height = 178 }
+			position = { x = 0 y = 0 }
+            effect = "bca_planet_setting_show_up_on_designation_changed"
+            alwaysTransparent = no
+        }
+
+        effectButtonType = {
+            name = 'on_designation_change_mask3'
+            quadTextureSprite = "GFX_dark_area"
+			size = { width = {{ district_len }} height = 178 }
+			position = { x = -{{ district_len }} y = 0 }
+            effect = "bca_planet_setting_show_up_on_designation_changed"
+            alwaysTransparent = no
+            orientation = upper_right
+        }
+
+        {% set option_button_width = 200 %}
+        {% set option_button_height = 100 %}
+        {% set option_button_gap = 40 %}
+
+        effectButtonType = {
+            name = "maintain_settings_on_designation_changed"
+            quadTextureSprite = "GFX_tiles_frame_button"
+
+            position = { x = {{ main_panel_len/2 - option_button_width - option_button_gap }} y = {{ district_height/2 - option_button_height/2 }} }
+            size = { x = {{ option_button_width }} y = {{ option_button_height }} }
+            font = "cg_16b"
+            buttonText = "BCA_ZONE_SELECTION_MAINTAIN_SETTINGS_ON_DESIGNATION_CHANGED"
+
+            tooltipText = "BCA"
+            effect = "bca_planet_setting_maintain_settings_on_designation_changed"
+        }
+
+        effectButtonType = {
+            name = "reset_settings_on_designation_changed"
+            quadTextureSprite = "GFX_tiles_frame_button"
+
+            position = { x = {{ main_panel_len/2 + option_button_gap }} y = {{ district_height/2 - option_button_height/2 }} }
+            size = { x = {{ option_button_width }} y = {{ option_button_height }} }
+            font = "cg_16b"
+            buttonText = "BCA_ZONE_SELECTION_RESET_SETTINGS_ON_DESIGNATION_CHANGED"
+
+            tooltipText = "BCA_ZONE_SELECTION_TOOLTIP"
+            effect = "bca_planet_setting_reset_settings_on_designation_changed"
+        }
+
+	}
+
+
+{#    # 1 width#}
+{#	containerWindowType = {#}
+{#		name = "bca_planet_district_entry_gui_secondary"#}
+{#		size = { width = {{ district_len }} height = {{ district_height }} }#}
+{##}
+{#	}#}
+}

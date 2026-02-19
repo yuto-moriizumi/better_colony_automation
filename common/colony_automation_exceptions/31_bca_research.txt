@@ -6,19 +6,31 @@ automate_research_planet = {
 	emergency = yes
 	available = {
 		has_research_designation = yes
-        requires_more_job = yes
+        really_requires_more_job = yes
         bca_has_minerals_to_build = yes
-
 	}
 
-	prio_districts = {
-		district_city
-		district_hive
-		district_nexus
-		district_arcology_housing
-		district_rw_city
-		district_hab_science
-		district_hab_housing # habitats can specialize both, and should if they run out of science "rural" slots
+	buildings = {
+        10 = {
+            building = building_fe_lab_1
+			available = { free_building_slots > 6 }
+        }
+
+        11 = {
+            building = building_research_lab_1
+			available = { free_building_slots > 6 }
+        }
+	}
+
+}
+
+automate_research_planet_non_job = {
+	category = "planet_automation_designation_construction"
+
+	emergency = yes
+	available = {
+		has_research_designation = yes
+		bca_has_minerals_to_build = yes
 	}
 
 	buildings = {
@@ -58,196 +70,14 @@ automate_research_planet = {
 			building = building_biolab_1
 		}
 
-		# 老登研究所
-        10 = {
+		10 = {
             building = building_fe_lab_1
+			available = { requires_more_job = yes }
         }
 
         11 = {
             building = building_research_lab_1
-        }
-	}
-}
-
-
-# 物理特化
-automate_research_planet_physics = {
-	category = "planet_automation_designation_construction"
-
-	emergency = yes
-	available = {
-		has_physics_designation = yes
-        requires_more_job = yes
-        bca_has_minerals_to_build = yes
-
-	}
-
-	prio_districts = {
-		district_city
-		district_hive
-		district_nexus
-		district_arcology_housing
-		district_rw_city
-		district_hab_science
-		district_hab_housing # habitats can specialize both, and should if they run out of science "rural" slots
-	}
-
-	buildings = {
-
-        # 星界漏斗
-        1 = {
-            building = building_astral_siphon_1
-        }
-        
-        # 研究中心
-		2 = {
-			building = building_institute
-		}
-		3 = {
-			building = building_supercomputer
-		}
-
-        # 沃陶姆计算机
-        4 = {
-            building = building_vultaum_reality_computer
-        }
-
-        # 数据驱动理论研究所
-        5 = {
-            building = building_research_efficiency_1
-        }
-
-        # 场动力学中心
-		6 = {
-			building = building_physics_lab_1
-		}
-
-        # 老登研究所
-        7 = {
-            building = building_fe_lab_1
-        }
-
-        8 = {
-            building = building_research_lab_1
-        }
-	}
-}
-
-# 社会特化
-automate_research_planet_policy = {
-	category = "planet_automation_designation_construction"
-
-	emergency = yes
-	available = {
-		has_sociology_designation = yes
-        requires_more_job = yes
-        bca_has_minerals_to_build = yes
-
-	}
-
-	prio_districts = {
-		district_city
-		district_hive
-		district_nexus
-		district_arcology_housing
-		district_rw_city
-		district_hab_science
-		district_hab_housing # habitats can specialize both, and should if they run out of science "rural" slots
-	}
-
-	# prio_zones = {
-	# 	zone_research
-	# }
-
-	buildings = {
-
-        # 远古学院
-        1 = {
-            building = building_archaeostudies_faculty
-        }
-        
-        # 研究中心
-		2 = {
-			building = building_institute
-		}
-		3 = {
-			building = building_supercomputer
-		}
-
-        # 数据驱动理论研究所
-        4 = {
-            building = building_research_efficiency_1
-        }
-
-        # 异星生物实验室
-		5 = {
-			building = building_biolab_1
-		}
-
-        # 老登研究所
-        6 = {
-            building = building_fe_lab_1
-        }
-
-        7 = {
-            building = building_research_lab_1
-        }
-	}
-}
-
-# 工程特化
-automate_research_planet_engineering = {
-	category = "planet_automation_designation_construction"
-
-	emergency = yes
-	available = {
-		has_engineering_designation = yes
-        requires_more_job = yes
-        bca_has_minerals_to_build = yes
-
-	}
-
-	prio_districts = {
-		district_city
-		district_hive
-		district_nexus
-		district_arcology_housing
-		district_rw_city
-		district_hab_science
-		district_hab_housing # habitats can specialize both, and should if they run out of science "rural" slots
-	}
-
-	# prio_zones = {
-	# 	zone_research
-	# }
-
-	buildings = {
-
-        # 研究中心
-		2 = {
-			building = building_institute
-		}
-		3 = {
-			building = building_supercomputer
-		}
-
-        # 数据驱动理论研究所
-        5 = {
-            building = building_research_efficiency_1
-        }
-
-        # 材料学工坊
-		6 = {
-			building = building_engineering_facility_1
-		}
-
-        # 老登研究所
-        7 = {
-            building = building_fe_lab_1
-        }
-
-        8 = {
-            building = building_research_lab_1
+			available = { requires_more_job = yes }
         }
 	}
 }

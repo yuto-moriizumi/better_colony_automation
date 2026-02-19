@@ -1,0 +1,112 @@
+{% import 'component/planet_flag_ps.j2' as pf with context %}
+{% import 'component/planet_variable.j2' as v with context %}
+{% import 'component/conditions.j2' as cond with context %}
+
+
+namespace = colony_automation_event
+
+country_event = {
+	id = colony_automation_event.1
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		is_ai = no
+		bca_has_minerals_to_build = yes
+	}
+
+	immediate = {
+		every_owned_planet = {
+			limit = {
+			    is_colony = yes
+				has_building_construction = no
+				bca_auto_district_manage_enabled = no
+			}
+
+            if = {
+                limit = {
+                    check_variable_arithmetic = {
+                        which = value:bca_num_primary_districts_plan
+                        value > value:num_primary_district
+                    }
+                }
+                set_planet_flag = {{ pf.flag_district_plan_build('d0') }}
+            }
+            {% for i in range(3) %}
+            {% set district_slot = ['d1','d2','d3'][i] %}
+            {% set zone_slot = ['z3','z4','z5'][i] %}
+            else_if = {
+                limit = {
+                    check_variable = {
+                        which = {{v.var_district_num_plan(zone_slot)}}
+                        value > num_district_{{ district_slot }}
+                    }
+                }
+                set_planet_flag = {{ pf.flag_district_plan_build(district_slot) }}
+            }
+            {% endfor %}
+        }
+    }
+}
+
+country_event = {
+	id = colony_automation_event.2
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		is_ai = no
+		bca_has_minerals_to_build = yes
+	}
+
+	immediate = {
+		every_owned_planet = {
+			limit = {
+			    is_colony = yes
+				free_district_slots = 0
+				has_building_construction = no
+				NOT = { has_planet_flag = bca_pf_disable_planet_auto_destruction_district }
+			}
+
+            {# remove districts #}
+            #primary district would not be removed if it is the only one left, to avoid accidentally remove all districts and cause bugs in zone plan building
+            if = {
+                limit = {
+                    has_planet_flag = {{ pf.flag_district_plan_remove('d0') }}
+                }
+                {% for district in primary_districts %}
+                {{ "if" if loop.first else "else_if" }} = {
+                    limit = {
+                        num_districts = { type = {{ district }} value > 1 }
+                    }
+                    remove_district = {{ district }}
+                    remove_planet_flag = bca_pf_has_district_remove_plan
+                    remove_planet_flag = bca_pf_district_balanced
+                }
+                {% endfor %}
+            }
+            {% for district_slot in ['d1', 'd2', 'd3'] %}
+            {% set district_set = secondary_districts_d1 if district_slot == 'd1' else (secondary_districts_d2 if district_slot == 'd2' else secondary_districts_d3) %}
+            else_if = {
+                limit = {
+                    has_planet_flag = {{ pf.flag_district_plan_remove(district_slot) }}
+                }
+                {% for district in district_set %}
+                {{ "if" if loop.first else "else_if" }} = {
+                    limit = {
+                        has_district = {{ district }}
+                    }
+                    remove_district = {{ district }}
+                    remove_planet_flag = bca_pf_has_district_remove_plan
+                    remove_planet_flag = bca_pf_district_balanced
+                }
+                {% endfor %}
+            }
+            {% endfor %}
+
+            {% for district_slot in ['d0','d1','d2','d3'] %}
+            remove_planet_flag = {{ pf.flag_district_plan_remove(district_slot) }}
+			{% endfor %}
+        }
+    }
+}

@@ -1,26 +1,8 @@
-# farming
-automate_farming_planet = {
-	category = "planet_automation_designation_construction"
-
-	available = {
-		has_farming_designation = yes
-		bca_has_minerals_to_build = yes
-		NOT = {
-			uses_district_set = habitat
-		}
-	}
-
-	prio_zones = {
-		zone_food
-		zone_food_ring_world
-	}
-}
 
 automate_farming_planet_urban_food = {
 	category = "planet_automation_designation_construction"
 
 	available = {
-		has_farming_designation = yes
 		bca_has_minerals_to_build = yes
 		bca_has_build_plan = { type = zone_urban_food }
 		NOT = {
@@ -33,58 +15,16 @@ automate_farming_planet_urban_food = {
 	}
 }
 
-# generator
-
-automate_generator_planet = {
-	category = "planet_automation_designation_construction"
-
-	available = {
-		bca_has_minerals_to_build = yes
-		has_generator_designation = yes
-		NAND = {
-			exists = owner
-			owner = { has_technology = tech_mine_betharian }
-			has_deposit = d_betharian_deposit
-		}
-	}
-
-	prio_zones = {
-		zone_energy
-		zone_energy_ring_world
-	}
-
-}
-
 automate_generator_planet_urban_energy = {
 	category = "planet_automation_designation_construction"
 
 	available = {
 		bca_has_minerals_to_build = yes
-		has_generator_designation = yes
 		bca_has_build_plan = { type = zone_urban_energy }
-		NAND = {
-			exists = owner
-			owner = { has_technology = tech_mine_betharian }
-			has_deposit = d_betharian_deposit
-		}
 	}
 
 	prio_zones = {
 		zone_urban_energy
-	}
-
-}
-
-automate_mining_planet = {
-	category = "planet_automation_designation_construction"
-
-	available = {
-		bca_has_minerals_to_build = yes
-		has_mining_designation = yes
-	}
-
-	prio_zones = {
-		zone_minerals
 	}
 
 }
@@ -94,7 +34,6 @@ automate_mining_planet_urban_minerals = {
 
 	available = {
 		bca_has_minerals_to_build = yes
-		has_mining_designation = yes
 		bca_has_build_plan = { type = zone_urban_minerals }
 	}
 

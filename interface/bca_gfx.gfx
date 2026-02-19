@@ -1,0 +1,101 @@
+spriteTypes = {
+
+    spriteType = {
+        name = "GFX_bca_checkbox_disabled_20_20_01"
+        texturefile = "gfx/interface/bca_interface/bca_checkbox_disabled_20_20_01.dds"
+        noOfFrames = 3
+    }
+
+
+    spriteType = {
+        name = "GFX_bca_checkbox_enabled_20_20_01"
+        texturefile = "gfx/interface/bca_interface/bca_checkbox_enabled_20_20_01.dds"
+        noOfFrames = 3
+    }
+
+    spriteType = {
+        name = "GFX_bca_button_demolish_disabled"
+        texturefile = "gfx/interface/bca_interface/button_demolish_disabled.dds"
+        noOfFrames = 3
+    }
+
+    spriteType = {
+        name = "GFX_bca_button_demolish_enabled"
+        texturefile = "gfx/interface/bca_interface/button_demolish_enabled.dds"
+        noOfFrames = 3
+    }
+
+    spriteType = {
+        name = "GFX_bca_button_preconstruction_disabled"
+        texturefile = "gfx/interface/bca_interface/button_preconstruction_disabled.dds"
+        noOfFrames = 3
+    }
+
+    spriteType = {
+        name = "GFX_bca_button_preconstruction_enabled"
+        texturefile = "gfx/interface/bca_interface/button_preconstruction_enabled.dds"
+        noOfFrames = 3
+    }
+
+    corneredTileSpriteType = {
+		name = "GFX_bca_button_standard_disabled"
+		textureFile = "gfx/interface/bca_interface/bca_tiling_button_standard_disabled.dds"
+		borderSize = { x=14 y=14 }
+		effectFile = "gfx/FX/buttonstate_onlydisable.shader"
+        noOfFrames = 3
+	}
+
+    corneredTileSpriteType = {
+		name = "GFX_bca_button_standard_enabled"
+		textureFile = "gfx/interface/bca_interface/bca_tiling_button_standard_enabled.dds"
+		borderSize = { x=14 y=14 }
+		effectFile = "gfx/FX/buttonstate_onlydisable.shader"
+        noOfFrames = 3
+	}
+
+    spriteType = {
+        name = "GFX_bca_arcology_icon"
+        texturefile = "gfx/interface/icons/decisions/decision_arcology_project_candidate.dds"
+    }
+
+    spriteType = {
+        name = "GFX_bca_storage_icon"
+        texturefile = "gfx/interface/icons/decisions/decision_resources.dds"
+    }
+
+    spriteType = {
+        name = "GFX_bca_more_zone_setting_disabled"
+        texturefile = "gfx/interface/bca_interface/bca_more_zone_setting_disabled.dds"
+        noOfFrames = 3
+    }
+        spriteType = {
+        name = "GFX_bca_more_zone_setting_enabled"
+        texturefile = "gfx/interface/bca_interface/bca_more_zone_setting_enabled.dds"
+        noOfFrames = 3
+    }
+
+    corneredTileSpriteType = {
+		name = "GFX_primary_district_bar_built"
+		texturefile = "gfx/interface/bca_interface/primary_district_bar_built.dds"
+		borderSize = { x = 4 y = 4 }
+		effectFile = "gfx/FX/buttonstate_onlydisable.shader"
+	}
+    corneredTileSpriteType = {
+		name = "GFX_primary_district_bar_plan"
+		texturefile = "gfx/interface/bca_interface/primary_district_bar_plan.dds"
+		borderSize = { x = 4 y = 4 }
+		effectFile = "gfx/FX/buttonstate_onlydisable.shader"
+	}
+    corneredTileSpriteType = {
+		name = "GFX_secondary_district_bar_built"
+		texturefile = "gfx/interface/bca_interface/secondary_district_bar_built.dds"
+		borderSize = { x = 4 y = 4 }
+		effectFile = "gfx/FX/buttonstate_onlydisable.shader"
+	}
+    corneredTileSpriteType = {
+		name = "GFX_secondary_district_bar_plan"
+		texturefile = "gfx/interface/bca_interface/secondary_district_bar_plan.dds"
+		borderSize = { x = 4 y = 4 }
+		effectFile = "gfx/FX/buttonstate_onlydisable.shader"
+	}
+}

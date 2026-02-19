@@ -11,21 +11,6 @@ automate_unity_planet = {
 		}
 	}
 
-	prio_districts = {
-		district_city
-		district_hive
-		district_nexus
-		district_arcology_housing
-		district_rw_city
-		district_hab_housing
-		district_resort
-	}
-
-	prio_zones = {
-		zone_unity
-		zone_unity_spiritualist
-		zone_unity_bio_trophy
-	}
 
 	buildings = {
 		1 = {
