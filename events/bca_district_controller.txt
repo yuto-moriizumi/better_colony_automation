@@ -18,6 +18,7 @@ country_event = {
 			    is_colony = yes
 				has_building_construction = no
 				bca_auto_district_manage_enabled = no
+				requires_more_job = yes
 			}
 
             if = {

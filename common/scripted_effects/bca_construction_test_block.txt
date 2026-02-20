@@ -20,7 +20,7 @@ try_construct_district = {
 			}
 			]
 		}
-		bca_add_potential_district_$district_slot$ = yes
+		bca_add_district_$district_slot$ = yes
 		bca_test_update_construction_metric_max_with_cost = {
 			production = $production$
 			cost = $cost$

@@ -1,44 +1,44 @@
 
-automate_farming_planet_urban_food = {
-	category = "planet_automation_designation_construction"
-
-	available = {
-		bca_has_minerals_to_build = yes
-		bca_has_build_plan = { type = zone_urban_food }
-		NOT = {
-			uses_district_set = habitat
-		}
-	}
-
-	prio_zones = {
-		zone_urban_food
-	}
-}
-
-automate_generator_planet_urban_energy = {
-	category = "planet_automation_designation_construction"
-
-	available = {
-		bca_has_minerals_to_build = yes
-		bca_has_build_plan = { type = zone_urban_energy }
-	}
-
-	prio_zones = {
-		zone_urban_energy
-	}
-
-}
-
-automate_mining_planet_urban_minerals = {
-	category = "planet_automation_designation_construction"
-
-	available = {
-		bca_has_minerals_to_build = yes
-		bca_has_build_plan = { type = zone_urban_minerals }
-	}
-
-	prio_zones = {
-		zone_urban_minerals
-	}
-
-}
+# automate_farming_planet_urban_food = {
+# 	category = "planet_automation_designation_construction"
+#
+# 	available = {
+# 		bca_has_minerals_to_build = yes
+# 		bca_has_build_plan = { type = zone_urban_food }
+# 		NOT = {
+# 			uses_district_set = habitat
+# 		}
+# 	}
+#
+# 	prio_zones = {
+# 		zone_urban_food
+# 	}
+# }
+#
+# automate_generator_planet_urban_energy = {
+# 	category = "planet_automation_designation_construction"
+#
+# 	available = {
+# 		bca_has_minerals_to_build = yes
+# 		bca_has_build_plan = { type = zone_urban_energy }
+# 	}
+#
+# 	prio_zones = {
+# 		zone_urban_energy
+# 	}
+#
+# }
+#
+# automate_mining_planet_urban_minerals = {
+# 	category = "planet_automation_designation_construction"
+#
+# 	available = {
+# 		bca_has_minerals_to_build = yes
+# 		bca_has_build_plan = { type = zone_urban_minerals }
+# 	}
+#
+# 	prio_zones = {
+# 		zone_urban_minerals
+# 	}
+#
+# }

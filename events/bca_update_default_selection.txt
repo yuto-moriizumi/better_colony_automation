@@ -43,6 +43,7 @@ planet_event = {
                     is_ai = no
                 }
             }
+            remove_planet_flag = bca_pf_district_balanced
             bca_clear_designation_flag = yes
             bca_designation_sync_with_system = yes
             bca_primary_zone_setting_set_by_current_zones = yes
@@ -4676,6 +4677,7 @@ planet_event = {
             set_planet_flag = bca_pf_ps_initialized
         }
         else = {
+            remove_planet_flag = bca_pf_district_balanced
             bca_clear_designation_flag = yes
             clear_open_selector = yes
                 bca_planet_setting_remove_current_selected_zone = {
@@ -4727,6 +4729,7 @@ planet_event = {
     }
 
     immediate = {
+        remove_planet_flag = bca_pf_district_balanced
         bca_clear_designation_flag = yes
         bca_designation_sync_with_system = yes
         # init for slot that's not selected by current zones

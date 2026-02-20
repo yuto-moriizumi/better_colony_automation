@@ -8,13 +8,6 @@ automate_slave_planet = {
 		has_designation = col_slave
 	}
 
-	prio_districts = {
-		district_slave
-		district_mining
-		district_farming
-		district_generator
-	}
-
 	buildings = {
 		1 = {
 			building = building_mineral_purification_plant

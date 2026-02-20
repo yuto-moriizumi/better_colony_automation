@@ -15,6 +15,7 @@ country_event = {
 			limit = {
 				has_building_construction = no
 			}
+			 remove_planet_flag = bca_pf_advance_controller_order
 			if = {
 				limit = {
 					free_district_slots = 0 #replace district
@@ -70,7 +71,6 @@ country_event = {
 				clear_variable = bca_district_balanced_test_counter
 			}
 
-            remove_planet_flag = bca_pf_advance_controller_order
 			if = {
 				limit = {
 					NOT = { 

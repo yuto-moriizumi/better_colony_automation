@@ -12,14 +12,6 @@ automate_generator_betharian_planet = {
 
 	}
 
-	prio_districts = {
-		district_mining
-		district_hab_mining
-		district_generator
-		district_hab_energy
-		district_rw_urban_1 # Betharian should never be on ringworlds, but just in case
-	}
-
 	buildings = {
 		1 = {
 			building = building_betharian_power_plant

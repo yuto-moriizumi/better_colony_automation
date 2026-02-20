@@ -65,10 +65,7 @@ bca_add_district_d0 = {
         limit = { has_district = district_craglands }
         add_district = { district_type = district_craglands }
     }
-}
-
-bca_add_potential_district_d0 = {
-    if = {
+    else_if = {
         limit = { bca_can_build_district_mindlink = yes }
         add_district = { district_type = district_mindlink }
     }
@@ -239,10 +236,7 @@ bca_add_district_d1 = {
         limit = { has_district = district_photosynthesis_fields }
         add_district = { district_type = district_photosynthesis_fields }
     }
-}
-
-bca_add_potential_district_d1 = {
-    if = {
+    else_if = {
         limit = { bca_can_build_district_resort_1 = yes }
         add_district = { district_type = district_resort_1 }
     }
@@ -357,10 +351,7 @@ bca_add_district_d2 = {
         limit = { has_district = district_hollow_mountains }
         add_district = { district_type = district_hollow_mountains }
     }
-}
-
-bca_add_potential_district_d2 = {
-    if = {
+    else_if = {
         limit = { bca_can_build_district_resort_2 = yes }
         add_district = { district_type = district_resort_2 }
     }
@@ -475,10 +466,7 @@ bca_add_district_d3 = {
         limit = { has_district = district_orchard_forests }
         add_district = { district_type = district_orchard_forests }
     }
-}
-
-bca_add_potential_district_d3 = {
-    if = {
+    else_if = {
         limit = { bca_can_build_district_resort_3 = yes }
         add_district = { district_type = district_resort_3 }
     }
@@ -597,6 +585,7 @@ bca_test_district_to_replace = {
 			set_planet_flag = bca_pf_plan_remove_district_$district_slot_replace_from$
 			set_planet_flag = bca_pf_plan_build_district_$district_slot_replace_to$
 			set_planet_flag = bca_pf_has_district_remove_plan
+			set_planet_flag = bca_pf_advance_controller_order
 		}
 
 	}
@@ -812,6 +801,8 @@ bca_test_primary_and_secondary_district_bidirectional_replace = {
             }
         }
     }
+    clear_variable = bca_test_district_metric_1
+    clear_variable = bca_test_district_metric_2
 
 
 }

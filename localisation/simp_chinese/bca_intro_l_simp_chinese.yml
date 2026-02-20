@@ -7,9 +7,10 @@
  MESSAGE_BCA_UPDATE_desc: "$MESSAGE_BCA_UPDATE_desc_verson$\n$MESSAGE_BCA_UPDATE_desc_important$\n$MESSAGE_BCA_STARTUP_desc_log$"
  MESSAGE_BCA_UPDATE_desc_verson: "§YBetter Colony Automation§! 更新到 v1.0 ！"
  MESSAGE_BCA_UPDATE_desc_important: "£community_in_breach£  此MOD订阅会作为§K4.2版本的保留MOD§!，后继更新请在工坊订阅新的链接（本MOD的工坊中有链接转跳）\n§H注意§!：本模组近期进行了大量更新，可访问创意工坊页面了解详情。\n§R注意§!: 此MOD现在需要§1UI Overhaul Dynamic§!作为前置MOD。"
- MESSAGE_BCA_STARTUP_desc_log: "$MESSAGE_BCA_STARTUP_desc_log_v100$\n\n['concept_bca_prev_update_log']"
+ MESSAGE_BCA_STARTUP_desc_log: "$MESSAGE_BCA_STARTUP_desc_log_v101$\n$MESSAGE_BCA_STARTUP_desc_log_v100$\n\n['concept_bca_prev_update_log']"
 
- MESSAGE_BCA_STARTUP_desc_log_v100: "\n§Y2026-2-20 - v1.0§!：\n\t§Y重大更新§!:\n- 制作了GUI界面来设置混合规划和区划建造，移除了之前的混合规划星球类型。\n- 混合规划星球可自动建造/替换区划以及建造对应建筑。\n- 优化增益建筑的建造逻辑，其在存在岗位空余时也会被建造。\n- 重写一产专精星球的建筑建设逻辑。现在一产专精会根据建造收益自动选择最优建造选项。并且几乎支持了所有类型星球。"
+ MESSAGE_BCA_STARTUP_desc_log_v101: "\n§Y2026-2-20 - v1.0.1§!：\n\t- 修复区划建设忽略岗位需求的问题。\n\t- 修复了某些区划不按设定上限建造的问题。\n\t- 修复在区划建满时城市区划无法替换为一产区划的问题。\n\t- 增加一产建筑的混合规划建造支持。"
+ MESSAGE_BCA_STARTUP_desc_log_v100: "\n§Y2026-2-20 - v1.0§!：\n\t§Y重大更新§!:\n\t- 制作了GUI界面来设置混合规划和区划建造，移除了之前的混合规划星球类型。\n\t- 混合规划星球可自动建造/替换区划以及建造对应建筑。\n\t- 优化增益建筑的建造逻辑，其在存在岗位空余时也会被建造。\n\t- 重写一产专精星球的建筑建设逻辑。现在一产专精会根据建造收益自动选择最优建造选项。并且几乎支持了所有类型星球。"
 
 
  concept_bca_prev_update_log: "之前的更新日志"

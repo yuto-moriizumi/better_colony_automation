@@ -10,55 +10,70 @@
             NOT = { has_planet_flag = bca_pf_disable_auto_district_manage }
         }
         {% for zone_slot in ['z3','z4','z5'] %}
-        set_variable = {
-            which = {{v.var_district_num_plan(zone_slot)}}
-            value = 0
-        }
-        {% endfor %}
-    }
-    {% for zone_slot in ['z3','z4','z5'] %}
-    {% set district_slot = zone_slot_district_slot_mapping[zone_slot] %}
-    {{ "if" if loop.first else "else_if" }} = {
-        limit = {
-            OR = {
-                {% for zone_type in zone_type_set %}
-                has_planet_flag = {{ pf.flag_selected_zone_type(zone_slot, zone_type) }}
-                {% endfor %}
-            }
-        }
-        {% for zone_type in zone_type_set %}
-        remove_planet_flag = {{ pf.flag_plan_build_secondary_zone_type(zone_type) }}
         if = {
             limit = {
-                has_planet_flag = {{ pf.flag_selected_zone_type(zone_slot, zone_type) }}
-                check_variable_arithmetic = {
-                    which = value:num_secondary_zones_of_type_{{ zone_type }}
-                    value < value:num_secondary_zone_plan_of_type_{{ zone_type }}
-                }
-            }
-            set_planet_flag = {{ pf.flag_plan_build_secondary_zone_type(zone_type) }}
-        }
-        {% endfor %}
-        if = {
-            limit = {
-                NOT = { has_planet_flag = bca_pf_disable_auto_district_manage }
+                bca_has_secondary_districts = yes
             }
             set_variable = {
                 which = {{v.var_district_num_plan(zone_slot)}}
-                value = bca_opti_count_secondary_district
+                value = 1
             }
         }
-        try_construct_district = {
-            district_slot = {{ district_slot }}
-            district_max = bca_opti_count_secondary_district
-            production = value:bca_potential_standard_{{ resource }}_production
-            cost = 240
-            priority_shift = 0
-            index = 1
+        else = {
+            set_variable = {
+                which = {{v.var_district_num_plan(zone_slot)}}
+                value = 0
+            }
         }
+        {% endfor %}
     }
-    {% endfor %}
-
+    if = {
+        limit = {
+            requires_more_job = yes
+        }
+        {% for zone_slot in ['z3','z4','z5'] %}
+        {% set district_slot = zone_slot_district_slot_mapping[zone_slot] %}
+        {{ "if" if loop.first else "else_if" }} = {
+            limit = {
+                OR = {
+                    {% for zone_type in zone_type_set %}
+                    has_planet_flag = {{ pf.flag_selected_zone_type(zone_slot, zone_type) }}
+                    {% endfor %}
+                }
+            }
+            {% for zone_type in zone_type_set %}
+            remove_planet_flag = {{ pf.flag_plan_build_secondary_zone_type(zone_type) }}
+            if = {
+                limit = {
+                    has_planet_flag = {{ pf.flag_selected_zone_type(zone_slot, zone_type) }}
+                    check_variable_arithmetic = {
+                        which = value:num_secondary_zones_of_type_{{ zone_type }}
+                        value < value:num_secondary_zone_plan_of_type_{{ zone_type }}
+                    }
+                }
+                set_planet_flag = {{ pf.flag_plan_build_secondary_zone_type(zone_type) }}
+            }
+            {% endfor %}
+            if = {
+                limit = {
+                    NOT = { has_planet_flag = bca_pf_disable_auto_district_manage }
+                }
+                set_variable = {
+                    which = {{v.var_district_num_plan(zone_slot)}}
+                    value = bca_opti_count_secondary_district
+                }
+            }
+            try_construct_district = {
+                district_slot = {{ district_slot }}
+                district_max = bca_opti_count_secondary_district
+                production = value:bca_potential_standard_{{ resource }}_production
+                cost = 240
+                priority_shift = 0
+                index = 1
+            }
+        }
+        {% endfor %}
+    }
 
     try_construct_district = {
         district_slot = d0

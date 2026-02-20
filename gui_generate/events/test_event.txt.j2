@@ -6,8 +6,10 @@ namespace = test_event
 'bca_district_d1_reach_planet_max',
 'bca_district_d2_reach_planet_max',
 'bca_district_d3_reach_planet_max',
+'bca_district_nearly_reach_planet_max = {type = district_generator}'
 ] %}
 {% set test_flags = [
+'bca_pf_advance_controller_order',
 'bca_pf_plan_build_district_d0',
 'bca_pf_plan_build_district_d1',
 'bca_pf_plan_build_district_d2',
@@ -43,6 +45,9 @@ planet_event = {
 	title = "Test Event for Scripted Triggers"
 	desc = test_event.1.desc
 
+    option = {
+        name = 'exit'
+    }
 
 	option = {
 		name = "add pop"
@@ -72,15 +77,48 @@ planet_event = {
         remove_planet_flag = bca_pf_plan_remove_district_d1
         remove_planet_flag = bca_pf_plan_remove_district_d2
         remove_planet_flag = bca_pf_plan_remove_district_d3
+        planet_event = {
+			id = test_event.2
+		}
 	}
+
+    option = {
+	    name = "test_d0_to_d1"
+        bca_test_district_to_replace = {
+            district_slot_replace_from = d0
+            district_slot_replace_to = d1
+            metric_value = value:bca_potential_standard_energy_production
+            is_priority_district = no
+        }
+        planet_event = {
+			id = test_event.2
+		}
+	}
+
+	option = {
+        name = "test_d1_to_d0"
+        bca_test_district_to_replace = {
+            district_slot_replace_from = d1
+            district_slot_replace_to = d0
+            metric_value = value:bca_potential_standard_energy_production
+            is_priority_district = yes
+        }
+        planet_event = {
+			id = test_event.2
+		}
+    }
 
 	option = {
 	    name = "test_d0_to_d2"
         bca_test_district_to_replace = {
             district_slot_replace_from = d0
             district_slot_replace_to = d2
-            metric_value = 0
+            metric_value = value:bca_potential_standard_minerals_production
+            is_priority_district = no
         }
+        planet_event = {
+			id = test_event.2
+		}
 	}
 
 	option = {
@@ -88,9 +126,12 @@ planet_event = {
         bca_test_district_to_replace = {
             district_slot_replace_from = d2
             district_slot_replace_to = d0
-            metric_value = 0
+            metric_value = value:bca_potential_standard_minerals_production
             is_priority_district = yes
         }
+        planet_event = {
+			id = test_event.2
+		}
     }
 
 	{% for flag in test_flags %}
@@ -99,6 +140,9 @@ planet_event = {
         allow = {
             has_planet_flag = {{ flag }}
         }
+        planet_event = {
+			id = test_event.2
+		}
     }
     {% endfor %}
 
@@ -108,6 +152,9 @@ planet_event = {
         allow = {
             {{ trigger }} = yes
         }
+        planet_event = {
+			id = test_event.2
+		}
     }
     {% endfor %}
 	option = {
@@ -123,19 +170,25 @@ planet_event = {
             clear_variable = {{ val }}
             {% endfor %}
         }
+        planet_event = {
+			id = test_event.2
+		}
 	}
 
-    option = {
-        name = "try_construct_district"
-        try_construct_district = {
-            district_slot = d2
-            district_max = bca_opti_count_secondary_district
-            production = value:bca_potential_standard_minerals_production
-            cost = 240
-            priority_shift = 0
-            index = 1
-        }
-    }
+{#    option = {#}
+{#        name = "try_construct_district"#}
+{#        try_construct_district = {#}
+{#            district_slot = d2#}
+{#            district_max = bca_opti_count_secondary_district#}
+{#            production = value:bca_potential_standard_minerals_production#}
+{#            cost = 240#}
+{#            priority_shift = 0#}
+{#            index = 1#}
+{#        }#}
+{#        planet_event = {#}
+{#			id = test_event.2#}
+{#		}#}
+{#    }#}
 
 
 }

@@ -51,9 +51,19 @@ bca_has_district_d{{ district_set_idx }} = {
 
 {% for district_set_idx in range(4) %}
 bca_district_d{{ district_set_idx }}_reach_planet_max = {
+    {# save performance using has_district api #}
     {% for district in all_district_set[district_set_idx] %}
     {{ "if" if loop.first else "else_if" }} = {
         limit = { has_district = {{ district }} }
+        bca_district_reach_planet_max = {
+            type = {{ district }}
+        }
+    }
+    {% endfor %}
+    {# second round for district that's not built #}
+    {% for district in all_district_set[district_set_idx] %}
+    else_if = {
+        limit = { bca_can_build_{{ district }} = yes }
         bca_district_reach_planet_max = {
             type = {{ district }}
         }

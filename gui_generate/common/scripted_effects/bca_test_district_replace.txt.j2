@@ -6,17 +6,16 @@
 {% for district_set_idx in range(4) %}
 
 bca_add_district_d{{ district_set_idx }} = {
+    {# save performance using has_district api #}
     {% for district in all_district_set[district_set_idx] %}
     {{ "if" if loop.first else "else_if" }} = {
         limit = { has_district = {{ district }} }
         add_district = { district_type = {{ district }} }
     }
     {% endfor %}
-}
-
-bca_add_potential_district_d{{ district_set_idx }} = {
+    {# second round for district that's not built #}
     {% for district in all_district_set[district_set_idx] %}
-    {{ "if" if loop.first else "else_if" }} = {
+    else_if = {
         limit = { bca_can_build_{{ district }} = yes }
         add_district = { district_type = {{ district }} }
     }
@@ -79,6 +78,7 @@ bca_test_district_to_replace = {
 			set_planet_flag = {{ pf.flag_district_plan_remove(district_slot_replace_from) }}
 			set_planet_flag = {{ pf.flag_district_plan_build(district_slot_replace_to) }}
 			set_planet_flag = bca_pf_has_district_remove_plan
+			set_planet_flag = bca_pf_advance_controller_order
 		}
 
 	}
@@ -135,6 +135,8 @@ bca_test_primary_and_secondary_district_bidirectional_replace = {
         {% endfor %}
     }
     {% endfor %}
+    clear_variable = bca_test_district_metric_1
+    clear_variable = bca_test_district_metric_2
 
 
 }

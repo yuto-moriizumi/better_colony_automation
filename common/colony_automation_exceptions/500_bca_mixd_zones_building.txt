@@ -6,7 +6,8 @@ automate_mixed_zone_trade_building_non_job = {
 	emergency = yes
 	available = {
 		bca_has_minerals_to_build = yes
-		OR = {
+		NOT = { has_planet_flag = bca_pf_advance_controller_order }
+        OR = {
 	        has_planet_flag = bca_pf_ps_selected_zone_type_z1_trade
 	        has_planet_flag = bca_pf_ps_selected_zone_type_z2_trade
 	        has_planet_flag = bca_pf_ps_selected_zone_type_z3_trade
@@ -41,13 +42,15 @@ automate_mixed_zone_trade_building_non_job = {
 
 	}
 }
+
 automate_mixed_zone_industrial_building_non_job = {
 	category = "planet_automation_designation_construction"
 
 	emergency = yes
 	available = {
 		bca_has_minerals_to_build = yes
-		OR = {
+		NOT = { has_planet_flag = bca_pf_advance_controller_order }
+        OR = {
 	        has_planet_flag = bca_pf_ps_selected_zone_type_z1_industrial
 	        has_planet_flag = bca_pf_ps_selected_zone_type_z2_industrial
 	        has_planet_flag = bca_pf_ps_selected_zone_type_z3_industrial
@@ -77,6 +80,7 @@ automate_mixed_zone_industrial_building_non_job = {
 
 	}
 }
+
 automate_mixed_zone_foundry_building_job = {
 	category = "planet_automation_designation_construction"
 
@@ -84,7 +88,8 @@ automate_mixed_zone_foundry_building_job = {
 	available = {
 	    really_requires_more_job = yes
 		bca_has_minerals_to_build = yes
-		OR = {
+		NOT = { has_planet_flag = bca_pf_advance_controller_order }
+        OR = {
 	        has_planet_flag = bca_pf_ps_selected_zone_type_z1_foundry
 	        has_planet_flag = bca_pf_ps_selected_zone_type_z2_foundry
 	        has_planet_flag = bca_pf_ps_selected_zone_type_z3_foundry
@@ -110,7 +115,8 @@ automate_mixed_zone_foundry_building_non_job = {
 	emergency = yes
 	available = {
 		bca_has_minerals_to_build = yes
-		OR = {
+		NOT = { has_planet_flag = bca_pf_advance_controller_order }
+        OR = {
 	        has_planet_flag = bca_pf_ps_selected_zone_type_z1_foundry
 	        has_planet_flag = bca_pf_ps_selected_zone_type_z2_foundry
 	        has_planet_flag = bca_pf_ps_selected_zone_type_z3_foundry
@@ -146,6 +152,7 @@ automate_mixed_zone_foundry_building_non_job = {
 
 	}
 }
+
 automate_mixed_zone_factory_building_job = {
 	category = "planet_automation_designation_construction"
 
@@ -153,7 +160,8 @@ automate_mixed_zone_factory_building_job = {
 	available = {
 	    really_requires_more_job = yes
 		bca_has_minerals_to_build = yes
-		OR = {
+		NOT = { has_planet_flag = bca_pf_advance_controller_order }
+        OR = {
 	        has_planet_flag = bca_pf_ps_selected_zone_type_z1_factory
 	        has_planet_flag = bca_pf_ps_selected_zone_type_z2_factory
 	        has_planet_flag = bca_pf_ps_selected_zone_type_z3_factory
@@ -179,7 +187,8 @@ automate_mixed_zone_factory_building_non_job = {
 	emergency = yes
 	available = {
 		bca_has_minerals_to_build = yes
-		OR = {
+		NOT = { has_planet_flag = bca_pf_advance_controller_order }
+        OR = {
 	        has_planet_flag = bca_pf_ps_selected_zone_type_z1_factory
 	        has_planet_flag = bca_pf_ps_selected_zone_type_z2_factory
 	        has_planet_flag = bca_pf_ps_selected_zone_type_z3_factory
@@ -215,6 +224,7 @@ automate_mixed_zone_factory_building_non_job = {
 
 	}
 }
+
 automate_mixed_zone_research_building_job = {
 	category = "planet_automation_designation_construction"
 
@@ -222,7 +232,8 @@ automate_mixed_zone_research_building_job = {
 	available = {
 	    really_requires_more_job = yes
 		bca_has_minerals_to_build = yes
-		OR = {
+		NOT = { has_planet_flag = bca_pf_advance_controller_order }
+        OR = {
 	        has_planet_flag = bca_pf_ps_selected_zone_type_z1_research
 	        has_planet_flag = bca_pf_ps_selected_zone_type_z2_research
 	        has_planet_flag = bca_pf_ps_selected_zone_type_z3_research
@@ -263,7 +274,8 @@ automate_mixed_zone_research_building_non_job = {
 	emergency = yes
 	available = {
 		bca_has_minerals_to_build = yes
-		OR = {
+		NOT = { has_planet_flag = bca_pf_advance_controller_order }
+        OR = {
 	        has_planet_flag = bca_pf_ps_selected_zone_type_z1_research
 	        has_planet_flag = bca_pf_ps_selected_zone_type_z2_research
 	        has_planet_flag = bca_pf_ps_selected_zone_type_z3_research
@@ -334,6 +346,7 @@ automate_mixed_zone_research_building_non_job = {
 
 	}
 }
+
 automate_mixed_zone_unity_building_job = {
 	category = "planet_automation_designation_construction"
 
@@ -341,7 +354,8 @@ automate_mixed_zone_unity_building_job = {
 	available = {
         requires_more_job = yes
 		bca_has_minerals_to_build = yes
-		OR = {
+		NOT = { has_planet_flag = bca_pf_advance_controller_order }
+        OR = {
 	        has_planet_flag = bca_pf_ps_selected_zone_type_z1_unity
 	        has_planet_flag = bca_pf_ps_selected_zone_type_z2_unity
 	        has_planet_flag = bca_pf_ps_selected_zone_type_z3_unity
@@ -430,7 +444,8 @@ automate_mixed_zone_fortress_building_job = {
 	available = {
         requires_more_job = yes
 		bca_has_minerals_to_build = yes
-		OR = {
+		NOT = { has_planet_flag = bca_pf_advance_controller_order }
+        OR = {
 	        has_planet_flag = bca_pf_ps_selected_zone_type_z1_fortress
 	        has_planet_flag = bca_pf_ps_selected_zone_type_z2_fortress
 	        has_planet_flag = bca_pf_ps_selected_zone_type_z3_fortress
@@ -469,7 +484,8 @@ automate_mixed_zone_wilderness_foundry_building_job = {
 	available = {
         requires_more_job = yes
 		bca_has_minerals_to_build = yes
-		OR = {
+		NOT = { has_planet_flag = bca_pf_advance_controller_order }
+        OR = {
 	        has_planet_flag = bca_pf_ps_selected_zone_type_z1_wilderness_foundry
 	        has_planet_flag = bca_pf_ps_selected_zone_type_z2_wilderness_foundry
 	        has_planet_flag = bca_pf_ps_selected_zone_type_z3_wilderness_foundry
@@ -501,7 +517,8 @@ automate_mixed_zone_wilderness_research_building_job = {
 	available = {
         requires_more_job = yes
 		bca_has_minerals_to_build = yes
-		OR = {
+		NOT = { has_planet_flag = bca_pf_advance_controller_order }
+        OR = {
 	        has_planet_flag = bca_pf_ps_selected_zone_type_z1_wilderness_research
 	        has_planet_flag = bca_pf_ps_selected_zone_type_z2_wilderness_research
 	        has_planet_flag = bca_pf_ps_selected_zone_type_z3_wilderness_research
@@ -533,7 +550,8 @@ automate_mixed_zone_wilderness_unity_building_job = {
 	available = {
         requires_more_job = yes
 		bca_has_minerals_to_build = yes
-		OR = {
+		NOT = { has_planet_flag = bca_pf_advance_controller_order }
+        OR = {
 	        has_planet_flag = bca_pf_ps_selected_zone_type_z1_wilderness_unity
 	        has_planet_flag = bca_pf_ps_selected_zone_type_z2_wilderness_unity
 	        has_planet_flag = bca_pf_ps_selected_zone_type_z3_wilderness_unity
@@ -565,7 +583,8 @@ automate_mixed_zone_wilderness_trade_building_job = {
 	available = {
         requires_more_job = yes
 		bca_has_minerals_to_build = yes
-		OR = {
+		NOT = { has_planet_flag = bca_pf_advance_controller_order }
+        OR = {
 	        has_planet_flag = bca_pf_ps_selected_zone_type_z1_wilderness_trade
 	        has_planet_flag = bca_pf_ps_selected_zone_type_z2_wilderness_trade
 	        has_planet_flag = bca_pf_ps_selected_zone_type_z3_wilderness_trade
@@ -601,7 +620,8 @@ automate_mixed_zone_wilderness_fortress_building_job = {
 	available = {
         requires_more_job = yes
 		bca_has_minerals_to_build = yes
-		OR = {
+		NOT = { has_planet_flag = bca_pf_advance_controller_order }
+        OR = {
 	        has_planet_flag = bca_pf_ps_selected_zone_type_z1_wilderness_fortress
 	        has_planet_flag = bca_pf_ps_selected_zone_type_z2_wilderness_fortress
 	        has_planet_flag = bca_pf_ps_selected_zone_type_z3_wilderness_fortress
@@ -633,7 +653,8 @@ automate_mixed_zone_wilderness_minerals_building_job = {
 	available = {
         requires_more_job = yes
 		bca_has_minerals_to_build = yes
-		OR = {
+		NOT = { has_planet_flag = bca_pf_advance_controller_order }
+        OR = {
 	        has_planet_flag = bca_pf_ps_selected_zone_type_z1_wilderness_minerals
 	        has_planet_flag = bca_pf_ps_selected_zone_type_z2_wilderness_minerals
 	        has_planet_flag = bca_pf_ps_selected_zone_type_z3_wilderness_minerals
@@ -665,7 +686,8 @@ automate_mixed_zone_wilderness_energy_building_job = {
 	available = {
         requires_more_job = yes
 		bca_has_minerals_to_build = yes
-		OR = {
+		NOT = { has_planet_flag = bca_pf_advance_controller_order }
+        OR = {
 	        has_planet_flag = bca_pf_ps_selected_zone_type_z1_wilderness_energy
 	        has_planet_flag = bca_pf_ps_selected_zone_type_z2_wilderness_energy
 	        has_planet_flag = bca_pf_ps_selected_zone_type_z3_wilderness_energy
@@ -697,7 +719,8 @@ automate_mixed_zone_wilderness_food_building_job = {
 	available = {
         requires_more_job = yes
 		bca_has_minerals_to_build = yes
-		OR = {
+		NOT = { has_planet_flag = bca_pf_advance_controller_order }
+        OR = {
 	        has_planet_flag = bca_pf_ps_selected_zone_type_z1_wilderness_food
 	        has_planet_flag = bca_pf_ps_selected_zone_type_z2_wilderness_food
 	        has_planet_flag = bca_pf_ps_selected_zone_type_z3_wilderness_food
@@ -722,3 +745,432 @@ automate_mixed_zone_wilderness_food_building_job = {
 	    }
 	}
 }
+automate_mixed_zone_energy_building_job = {
+	category = "planet_automation_designation_construction"
+
+	emergency = yes
+	available = {
+	    really_requires_more_job = yes
+		bca_has_minerals_to_build = yes
+		NOT = { has_planet_flag = bca_pf_advance_controller_order }
+		OR = {
+            AND = {
+                has_planet_flag = bca_pf_ps_selected_zone_type_z1_energy
+                check_variable = {
+                    which = bca_ps_plan_district_count_z1
+                    value > 0
+                }
+            }
+            AND = {
+                has_planet_flag = bca_pf_ps_selected_zone_type_z2_energy
+                check_variable = {
+                    which = bca_ps_plan_district_count_z2
+                    value > 0
+                }
+            }
+            AND = {
+                has_planet_flag = bca_pf_ps_selected_zone_type_z3_energy
+                check_variable = {
+                    which = bca_ps_plan_district_count_z3
+                    value > 0
+                }
+            }
+            AND = {
+                has_planet_flag = bca_pf_ps_selected_zone_type_z4_energy
+                check_variable = {
+                    which = bca_ps_plan_district_count_z4
+                    value > 0
+                }
+            }
+            AND = {
+                has_planet_flag = bca_pf_ps_selected_zone_type_z5_energy
+                check_variable = {
+                    which = bca_ps_plan_district_count_z5
+                    value > 0
+                }
+            }
+		}
+	}
+
+	buildings = {
+	    0 = {
+            building = building_class_3_singularity
+
+	    }
+	    1 = {
+            building = building_generator_generic
+
+	    }
+	}
+}
+automate_mixed_zone_energy_building_non_job = {
+	category = "planet_automation_designation_construction"
+
+	emergency = yes
+	available = {
+		bca_has_minerals_to_build = yes
+		NOT = { has_planet_flag = bca_pf_advance_controller_order }
+        OR = {
+	        has_planet_flag = bca_pf_ps_selected_zone_type_z1_energy
+	        has_planet_flag = bca_pf_ps_selected_zone_type_z2_energy
+	        has_planet_flag = bca_pf_ps_selected_zone_type_z3_energy
+	        has_planet_flag = bca_pf_ps_selected_zone_type_z4_energy
+	        has_planet_flag = bca_pf_ps_selected_zone_type_z5_energy
+		}
+	}
+
+	buildings = {
+	    0 = {
+            building = building_energy_grid
+
+	    }
+
+
+	}
+}
+automate_mixed_zone_energy_building_job_low_priority = {
+	category = "planet_automation_designation_construction"
+
+	emergency = yes
+	available = {
+		bca_has_minerals_to_build = yes
+		NOT = { has_planet_flag = bca_pf_advance_controller_order }
+        OR = {
+            AND = {
+                has_planet_flag = bca_pf_ps_selected_zone_type_z1_energy
+                check_variable = {
+                    which = bca_ps_plan_district_count_z1
+                    value > 0
+                }
+            }
+            AND = {
+                has_planet_flag = bca_pf_ps_selected_zone_type_z2_energy
+                check_variable = {
+                    which = bca_ps_plan_district_count_z2
+                    value > 0
+                }
+            }
+            AND = {
+                has_planet_flag = bca_pf_ps_selected_zone_type_z3_energy
+                check_variable = {
+                    which = bca_ps_plan_district_count_z3
+                    value > 0
+                }
+            }
+            AND = {
+                has_planet_flag = bca_pf_ps_selected_zone_type_z4_energy
+                check_variable = {
+                    which = bca_ps_plan_district_count_z4
+                    value > 0
+                }
+            }
+            AND = {
+                has_planet_flag = bca_pf_ps_selected_zone_type_z5_energy
+                check_variable = {
+                    which = bca_ps_plan_district_count_z5
+                    value > 0
+                }
+            }
+		}
+	}
+
+	buildings = {
+        0 = {
+            building = building_class_3_singularity
+
+            available = { requires_more_job = yes }
+        }
+        1 = {
+            building = building_generator_generic
+
+            available = { requires_more_job = yes }
+        }
+	}
+}
+
+automate_mixed_zone_minerals_building_job = {
+	category = "planet_automation_designation_construction"
+
+	emergency = yes
+	available = {
+	    really_requires_more_job = yes
+		bca_has_minerals_to_build = yes
+		NOT = { has_planet_flag = bca_pf_advance_controller_order }
+		OR = {
+            AND = {
+                has_planet_flag = bca_pf_ps_selected_zone_type_z1_minerals
+                check_variable = {
+                    which = bca_ps_plan_district_count_z1
+                    value > 0
+                }
+            }
+            AND = {
+                has_planet_flag = bca_pf_ps_selected_zone_type_z2_minerals
+                check_variable = {
+                    which = bca_ps_plan_district_count_z2
+                    value > 0
+                }
+            }
+            AND = {
+                has_planet_flag = bca_pf_ps_selected_zone_type_z3_minerals
+                check_variable = {
+                    which = bca_ps_plan_district_count_z3
+                    value > 0
+                }
+            }
+            AND = {
+                has_planet_flag = bca_pf_ps_selected_zone_type_z4_minerals
+                check_variable = {
+                    which = bca_ps_plan_district_count_z4
+                    value > 0
+                }
+            }
+            AND = {
+                has_planet_flag = bca_pf_ps_selected_zone_type_z5_minerals
+                check_variable = {
+                    which = bca_ps_plan_district_count_z5
+                    value > 0
+                }
+            }
+		}
+	}
+
+	buildings = {
+	    0 = {
+            building = building_fe_mine_1
+
+	    }
+	    1 = {
+            building = building_mine_generic
+
+	    }
+	}
+}
+automate_mixed_zone_minerals_building_non_job = {
+	category = "planet_automation_designation_construction"
+
+	emergency = yes
+	available = {
+		bca_has_minerals_to_build = yes
+		NOT = { has_planet_flag = bca_pf_advance_controller_order }
+        OR = {
+	        has_planet_flag = bca_pf_ps_selected_zone_type_z1_minerals
+	        has_planet_flag = bca_pf_ps_selected_zone_type_z2_minerals
+	        has_planet_flag = bca_pf_ps_selected_zone_type_z3_minerals
+	        has_planet_flag = bca_pf_ps_selected_zone_type_z4_minerals
+	        has_planet_flag = bca_pf_ps_selected_zone_type_z5_minerals
+		}
+	}
+
+	buildings = {
+	    0 = {
+            building = building_mineral_purification_plant
+
+	    }
+
+
+	}
+}
+automate_mixed_zone_minerals_building_job_low_priority = {
+	category = "planet_automation_designation_construction"
+
+	emergency = yes
+	available = {
+		bca_has_minerals_to_build = yes
+		NOT = { has_planet_flag = bca_pf_advance_controller_order }
+        OR = {
+            AND = {
+                has_planet_flag = bca_pf_ps_selected_zone_type_z1_minerals
+                check_variable = {
+                    which = bca_ps_plan_district_count_z1
+                    value > 0
+                }
+            }
+            AND = {
+                has_planet_flag = bca_pf_ps_selected_zone_type_z2_minerals
+                check_variable = {
+                    which = bca_ps_plan_district_count_z2
+                    value > 0
+                }
+            }
+            AND = {
+                has_planet_flag = bca_pf_ps_selected_zone_type_z3_minerals
+                check_variable = {
+                    which = bca_ps_plan_district_count_z3
+                    value > 0
+                }
+            }
+            AND = {
+                has_planet_flag = bca_pf_ps_selected_zone_type_z4_minerals
+                check_variable = {
+                    which = bca_ps_plan_district_count_z4
+                    value > 0
+                }
+            }
+            AND = {
+                has_planet_flag = bca_pf_ps_selected_zone_type_z5_minerals
+                check_variable = {
+                    which = bca_ps_plan_district_count_z5
+                    value > 0
+                }
+            }
+		}
+	}
+
+	buildings = {
+        0 = {
+            building = building_fe_mine_1
+
+            available = { requires_more_job = yes }
+        }
+        1 = {
+            building = building_mine_generic
+
+            available = { requires_more_job = yes }
+        }
+	}
+}
+
+automate_mixed_zone_food_building_job = {
+	category = "planet_automation_designation_construction"
+
+	emergency = yes
+	available = {
+	    really_requires_more_job = yes
+		bca_has_minerals_to_build = yes
+		NOT = { has_planet_flag = bca_pf_advance_controller_order }
+		OR = {
+            AND = {
+                has_planet_flag = bca_pf_ps_selected_zone_type_z1_food
+                check_variable = {
+                    which = bca_ps_plan_district_count_z1
+                    value > 0
+                }
+            }
+            AND = {
+                has_planet_flag = bca_pf_ps_selected_zone_type_z2_food
+                check_variable = {
+                    which = bca_ps_plan_district_count_z2
+                    value > 0
+                }
+            }
+            AND = {
+                has_planet_flag = bca_pf_ps_selected_zone_type_z3_food
+                check_variable = {
+                    which = bca_ps_plan_district_count_z3
+                    value > 0
+                }
+            }
+            AND = {
+                has_planet_flag = bca_pf_ps_selected_zone_type_z4_food
+                check_variable = {
+                    which = bca_ps_plan_district_count_z4
+                    value > 0
+                }
+            }
+            AND = {
+                has_planet_flag = bca_pf_ps_selected_zone_type_z5_food
+                check_variable = {
+                    which = bca_ps_plan_district_count_z5
+                    value > 0
+                }
+            }
+		}
+	}
+
+	buildings = {
+	    0 = {
+            building = building_nourishment_complex
+
+	    }
+	    1 = {
+            building = building_hydroponics_farm
+
+	    }
+	}
+}
+automate_mixed_zone_food_building_non_job = {
+	category = "planet_automation_designation_construction"
+
+	emergency = yes
+	available = {
+		bca_has_minerals_to_build = yes
+		NOT = { has_planet_flag = bca_pf_advance_controller_order }
+        OR = {
+	        has_planet_flag = bca_pf_ps_selected_zone_type_z1_food
+	        has_planet_flag = bca_pf_ps_selected_zone_type_z2_food
+	        has_planet_flag = bca_pf_ps_selected_zone_type_z3_food
+	        has_planet_flag = bca_pf_ps_selected_zone_type_z4_food
+	        has_planet_flag = bca_pf_ps_selected_zone_type_z5_food
+		}
+	}
+
+	buildings = {
+	    0 = {
+            building = building_food_processing_facility
+
+	    }
+
+
+	}
+}
+automate_mixed_zone_food_building_job_low_priority = {
+	category = "planet_automation_designation_construction"
+
+	emergency = yes
+	available = {
+		bca_has_minerals_to_build = yes
+		NOT = { has_planet_flag = bca_pf_advance_controller_order }
+        OR = {
+            AND = {
+                has_planet_flag = bca_pf_ps_selected_zone_type_z1_food
+                check_variable = {
+                    which = bca_ps_plan_district_count_z1
+                    value > 0
+                }
+            }
+            AND = {
+                has_planet_flag = bca_pf_ps_selected_zone_type_z2_food
+                check_variable = {
+                    which = bca_ps_plan_district_count_z2
+                    value > 0
+                }
+            }
+            AND = {
+                has_planet_flag = bca_pf_ps_selected_zone_type_z3_food
+                check_variable = {
+                    which = bca_ps_plan_district_count_z3
+                    value > 0
+                }
+            }
+            AND = {
+                has_planet_flag = bca_pf_ps_selected_zone_type_z4_food
+                check_variable = {
+                    which = bca_ps_plan_district_count_z4
+                    value > 0
+                }
+            }
+            AND = {
+                has_planet_flag = bca_pf_ps_selected_zone_type_z5_food
+                check_variable = {
+                    which = bca_ps_plan_district_count_z5
+                    value > 0
+                }
+            }
+		}
+	}
+
+	buildings = {
+        0 = {
+            building = building_nourishment_complex
+
+            available = { requires_more_job = yes }
+        }
+        1 = {
+            building = building_hydroponics_farm
+
+            available = { requires_more_job = yes }
+        }
+	}
+}
+

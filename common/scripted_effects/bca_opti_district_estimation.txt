@@ -70,7 +70,7 @@ bca_opti_district_estimation_energy = {
         }
 
         set_variable = {
-            which = bca_opti_count_energy
+            which = bca_opti_count_secondary_district
             value = sim_resource_district_count
         }
         set_variable = {
@@ -207,7 +207,7 @@ bca_opti_district_estimation_minerals = {
         }
 
         set_variable = {
-            which = bca_opti_count_minerals
+            which = bca_opti_count_secondary_district
             value = sim_resource_district_count
         }
         set_variable = {
@@ -344,7 +344,7 @@ bca_opti_district_estimation_food = {
         }
 
         set_variable = {
-            which = bca_opti_count_food
+            which = bca_opti_count_secondary_district
             value = sim_resource_district_count
         }
         set_variable = {

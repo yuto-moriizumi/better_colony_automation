@@ -18,3 +18,21 @@ bca_district_reach_planet_max = {
     }
 
 }
+
+
+
+
+bca_district_nearly_reach_planet_max = {
+    if = {
+        limit = {
+            bca_is_uncapped_$type$ = yes
+        }
+        always = no
+    }
+    else = {
+        check_modifier_value = {
+            modifier = $type$_max_add
+            value <= value:bca_num_districts_value_add_one|TYPE|$type$|
+        }
+    }
+}

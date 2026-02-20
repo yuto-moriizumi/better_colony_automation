@@ -1,12 +1,4 @@
 
 guiTypes = {
-    containerWindowType = {  }
-    effectButtonType = {
-        name = "z1_zone_select_frame_6"
-        quadTextureSprite = "GFX_tiles_frame_button"
-        position = { x = 235.25 y = 40 }
-        size = { x = 281.25 y = 50 }
-        effect = "bca_planet_setting_selector_frame_z1_6"
-        alwaysTransparent = yes
-    }
+
 }

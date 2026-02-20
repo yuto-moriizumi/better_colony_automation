@@ -187,9 +187,7 @@ automate_wilderness_refinery = {
 		has_designation = col_wilderness_refinery
 	}
 
-	prio_districts = {
-		district_craglands
-	}
+
 
 	buildings = {
 		1 = {
@@ -224,9 +222,7 @@ automate_wilderness_forge = {
 		has_designation = col_wilderness_forge
 	}
 
-	prio_districts = {
-		district_craglands
-	}
+
 
 	buildings = {
 		1 = {
@@ -252,9 +248,7 @@ automate_wilderness_unification = {
 		has_designation = col_wilderness_unification
 	}
 
-	prio_districts = {
-		district_craglands
-	}
+
 
 	buildings = {
 		1 = {

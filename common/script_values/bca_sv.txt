@@ -46,6 +46,17 @@ bca_num_districts_value = {
 	}
 }
 
+bca_num_districts_value_add_one = {
+	complex_trigger_modifier = {
+		trigger = num_districts
+		parameters = {
+			type = $TYPE$
+		}
+		mode = set
+	}
+	add = 1
+}
+
 bca_num_zone_value = {
 	complex_trigger_modifier = {
 		trigger = num_zones

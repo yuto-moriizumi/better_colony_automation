@@ -83,6 +83,7 @@ mixed_zone_buildings:
         - building_planetary_shield_generator
         - building_stronghold
      always:
+
 #   - types:
 #
 #        resort:
@@ -162,3 +163,28 @@ mixed_zone_buildings:
            planet_limit: 1
         - building_massive_growth_1
         - building_cradle_of_rebirth
+
+   - types:
+        - energy
+     job_building_available_for_at_least_one_zone: true
+     job_need_priority:
+        - building_class_3_singularity
+        - building_generator_generic
+     always:
+        - building_energy_grid
+   - types:
+        - minerals
+     job_building_available_for_at_least_one_zone: true
+     job_need_priority:
+        - building_fe_mine_1
+        - building_mine_generic
+     always:
+        - building_mineral_purification_plant
+   - types:
+        - food
+     job_building_available_for_at_least_one_zone: true
+     job_need_priority:
+        - building_nourishment_complex
+        - building_hydroponics_farm
+     always:
+        - building_food_processing_facility

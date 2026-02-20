@@ -1,4 +1,4 @@
-automate_generator_planet_building = {
+automate_generator_planet_building_district = {
 	category = "planet_automation_designation_construction"
 
 	emergency = yes
@@ -10,25 +10,39 @@ automate_generator_planet_building = {
 			owner = { has_technology = tech_mine_betharian }
 			has_deposit = d_betharian_deposit
 		}
+		bca_district_reach_planet_max = {
+			type = district_generator
+		}
 	}
 
 	buildings = {
 		1 = {
 			building = building_generator_districts_1
-			available = {
-				num_free_districts = { type = district_generator value <= 1 }
-			}
-		}
-		2 = {
-			building = building_energy_grid
-			available = {
-				bca_has_build_plan = { type = building_energy_grid }
-			}
 		}
 	}
 
 }
 
+
+automate_generator_planet_building_order = {
+	category = "planet_automation_designation_construction"
+
+	emergency = yes
+	available = {
+		bca_has_minerals_to_build = yes
+		OR = {
+			NOT = { has_planet_flag = bca_pf_advance_controller_order }
+			bca_has_build_plan = { type = building_energy_grid }
+		}
+	}
+
+	buildings = {
+		2 = {
+			building = building_energy_grid
+		}
+	}
+
+}
 
 automate_generator_planet_housing = {
 	category = "planet_automation_housing"

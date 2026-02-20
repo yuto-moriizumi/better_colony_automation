@@ -6,8 +6,9 @@
  MESSAGE_BCA_UPDATE_desc: "$MESSAGE_BCA_UPDATE_desc_verson$\n$MESSAGE_BCA_UPDATE_desc_important$\n$MESSAGE_BCA_STARTUP_desc_log$"
  MESSAGE_BCA_UPDATE_desc_verson: "§YBetter Colony Automation§!がv1.0にアップデートされました"
  MESSAGE_BCA_UPDATE_desc_important: "£community_in_breach£ このMODのワークショップ購読は§K4.2§!バージョン用として保持されます。今後の更新は新しいワークショップのリンクを購読してください（このMODのワークショップページにリダイレクトリンクがあります）\n§H注意§!: このMODは最近多くのアップデートを受けています。詳細はワークショップページをご覧ください。\n§R注意§!: このMODは現在 §1UI Overhaul Dynamic§! を前提MODとして必要とします。"
- MESSAGE_BCA_STARTUP_desc_log: "$MESSAGE_BCA_STARTUP_desc_log_v100$\n\n['concept_bca_prev_update_log']"
+ MESSAGE_BCA_STARTUP_desc_log: "$MESSAGE_BCA_STARTUP_desc_log_v101$\n$MESSAGE_BCA_STARTUP_desc_log_v100$\n\n['concept_bca_prev_update_log']"
 
+ MESSAGE_BCA_STARTUP_desc_log_v101: "\n§Y2026-2-20 - v1.0.1§!: \n\t- 区画の建設が職位の要件を無視する問題を修正しました。\n\t- 一部の区画が設定上限通りに建設されない問題を修正しました。\n\t- 区画が満杯のときに都市区画が資源特化区画に置換できない問題を修正しました。\n\t- 資源建物のハイブリッド計画建設をサポートしました。"
  MESSAGE_BCA_STARTUP_desc_log_v100: "\n§Y2026-2-20 - v1.0§!: \n\t§Y主な更新§!:\n\t- ハイブリッド計画と区画建設を設定するGUIを作成し、以前のハイブリッド計画惑星タイプを削除しました。\n\t- ハイブリッド計画の惑星は区画の自動建設/置換および対応する建造物の建設を行います。\n\t- ブースト建造物の建設ロジックを最適化し、空き職がある場合でも建設されるようになりました。\n\t- 主要特化惑星の建造ロジックを再実装しました。主要特化は建設収益に基づいて最適な建設オプションを自動的に選択するようになり、ほとんどすべてのタイプの惑星をサポートします。"
 
  MESSAGE_BCA_STARTUP_desc_log_v055: "\n§Y2026-1-25 - v0.5.5§!: \n\t読みやすさのために決定テキストを調整し、同じ決定の有効/無効の位置が変わらないようにしました。視覚効果を高めるためにいくつかのカスタム決定アイコンを追加しました; \n\tレア資源建設の調整: レア資源決定は工業指定惑星にのみ表示されるようになり、農村区域では、レア資源建造物が建設可能な場合、他の制限なしで関連建造物が優先されます。\n\t一部の建造物に鉱物確保制約がない問題を修正しました。"

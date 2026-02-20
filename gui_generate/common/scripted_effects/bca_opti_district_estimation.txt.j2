@@ -90,11 +90,11 @@ bca_opti_district_estimation_{{ resource }} = {
         }
 
         set_variable = {
-            which = bca_opti_count_{{ resource }}
+            which = {{ res_secondary_district_count }}
             value = sim_resource_district_count
         }
         set_variable = {
-            which = bca_opti_count_primary_district
+            which = {{ res_primary_district_count }}
             value = sim_district_city_count
         }
 
