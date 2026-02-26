@@ -1,4 +1,4 @@
-version="1.1.0"
+version="1.1.1"
 tags={
 	"Buildings"
 	"Fixes"
@@ -9,4 +9,4 @@ tags={
 picture="thumbnail.png"
 name="[4.3] Better Colony Automation : Fix and Improve Colony Automation"
 supported_version="v4.3.*"
-remote_file_id="3601183337"
+remote_file_id="3673829479"

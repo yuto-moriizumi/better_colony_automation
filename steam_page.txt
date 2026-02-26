@@ -2,7 +2,9 @@
 
 https://github.com/StellarWarp/better_colony_automation/blob/master/README_EN.md
 
-[h1]Better Colony Automation (BCA) - 殖民地自动化改良 [/h1]
+[h1]Better Colony Automation (BCA) - 殖民地自动化改良 (4.3)[/h1]
+
+[url=https://steamcommunity.com/sharedfiles/filedetails/?id=3601183337]4.2旧版本[/url]
 
 由于罪恶的P社在4.0更新后一直没修复自动托管的bug，导致每到中后期的游戏体验极差，最后还得是自己来解决P社的bug
 
@@ -17,7 +19,7 @@ https://github.com/StellarWarp/better_colony_automation/blob/master/README_EN.md
 3. [b]混合规划与区划建造设置[/b] 现在已提供行星 UI 界面来设置混合规划和区划建造。
 4. [b]杂项设置[/b] 目前仍有部分设置需要通过行星决策来调整，例如焕活的建设限制。
 
-[h2]总览(v1.0 已发布!)[/h2]
+[h2]总览(v1.1 已发布!)[/h2]
 
 [h3]建造功能[/h3]
 
@@ -43,7 +45,7 @@ https://github.com/StellarWarp/better_colony_automation/blob/master/README_EN.md
 优先建造辅助性建筑，如诊所、克隆舱、文化丰碑、生产部等、以提升星球整体效能，主产出建筑在辅助建筑建造完成后再进行建设。
 本模组对原版的自动建造逻辑进行了大量改良，包括适配各种特殊星球类型，稀有资源建筑的建造逻辑也得到了修复。
 
-[b]·[/b] [b]仓库建设[/b]：默认只建造一个仓库。可以通过设置决策来建造更多仓库，其还会自动建造一产区块以容纳仓库建筑。
+[b]·[/b] [b]仓库建设[/b]：默认只建造一个仓库。可以通过GUI设置来建造更多仓库，其还会自动建造一产区块以容纳仓库建筑。
 [b]·[/b] [b]分子焕活所[/b]：默认只建造一个焕活所。可以通过行星决策来解除限制。
 
 [b]区划建设[/b]
@@ -87,7 +89,7 @@ https://github.com/StellarWarp/better_colony_automation/blob/master/README_EN.md
 
 [h3]兼容性 MOD[/h3]
 
-[url=https://steamcommunity.com/sharedfiles/filedetails/?id=3669715825]b]·[/b] [Stellar AI 兼容性模组[/url]
+[url=https://steamcommunity.com/sharedfiles/filedetails/?id=3669715825]Stellar AI 兼容性模组[/url]
 
 
 [hr][/hr]

@@ -75,7 +75,15 @@ country_event = {
                     has_modifier = bca_pm_arcology_project_candidate
                 }
                 {% for district_slot in ['d1', 'd2', 'd3'] %}
-                set_planet_flag = {{ pf.flag_district_plan_remove(district_slot) }}
+                if = {
+                    limit = {
+                        check_variable_arithmetic = {
+                            which = value:num_district_{{ district_slot }}
+                            value > 0
+                        }
+                    }
+                    set_planet_flag = {{ pf.flag_district_plan_remove(district_slot) }}
+                }
                 {% endfor %}
             }
             {# remove districts #}

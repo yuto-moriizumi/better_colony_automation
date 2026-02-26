@@ -2,7 +2,9 @@
 
 https://github.com/StellarWarp/better_colony_automation/blob/master/README_EN.md
 
-# Better Colony Automation (BCA) - 殖民地自动化改良 
+# Better Colony Automation (BCA) - 殖民地自动化改良 (4.3)
+
+[4.2旧版本](https://steamcommunity.com/sharedfiles/filedetails/?id=3601183337)
 
 由于罪恶的P社在4.0更新后一直没修复自动托管的bug，导致每到中后期的游戏体验极差，最后还得是自己来解决P社的bug
 
@@ -17,7 +19,7 @@ https://github.com/StellarWarp/better_colony_automation/blob/master/README_EN.md
 3. **混合规划与区划建造设置** 现在已提供行星 UI 界面来设置混合规划和区划建造。
 4. **杂项设置** 目前仍有部分设置需要通过行星决策来调整，例如焕活的建设限制。
 
-## 总览(v1.0 已发布!)
+## 总览(v1.1 已发布!)
 
 ### 建造功能
 
@@ -87,7 +89,7 @@ https://github.com/StellarWarp/better_colony_automation/blob/master/README_EN.md
 
 ### 兼容性 MOD
 
-- [Stellar AI 兼容性模组](https://steamcommunity.com/sharedfiles/filedetails/?id=3669715825)
+[Stellar AI 兼容性模组](https://steamcommunity.com/sharedfiles/filedetails/?id=3669715825)
 
 
 ---
