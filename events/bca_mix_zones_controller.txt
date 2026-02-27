@@ -30,8 +30,18 @@ country_event = {
                             value < value:num_primary_zone_plan_of_type_urban
                         }
                     }
-                    set_planet_flag = bca_pf_plan_build_primary_zone_type_urban
-                    set_planet_flag = bca_plan_build_new_zone
+                    bca_get_num_free_city_zones = yes
+                    if = {
+                        limit = {
+                            check_variable = {
+                                which = bca_num_free_city_zones
+                                value > 0
+                            }
+                        }
+                        set_planet_flag = bca_pf_plan_build_primary_zone_type_urban
+                        set_planet_flag = bca_plan_build_new_zone
+                    }
+                    clear_variable = bca_num_free_city_zones
                 }
                 else_if = {
                     limit = {
@@ -40,8 +50,18 @@ country_event = {
                             value < value:num_primary_zone_plan_of_type_trade
                         }
                     }
-                    set_planet_flag = bca_pf_plan_build_primary_zone_type_trade
-                    set_planet_flag = bca_plan_build_new_zone
+                    bca_get_num_free_city_zones = yes
+                    if = {
+                        limit = {
+                            check_variable = {
+                                which = bca_num_free_city_zones
+                                value > 0
+                            }
+                        }
+                        set_planet_flag = bca_pf_plan_build_primary_zone_type_trade
+                        set_planet_flag = bca_plan_build_new_zone
+                    }
+                    clear_variable = bca_num_free_city_zones
                 }
                 else_if = {
                     limit = {
@@ -50,8 +70,18 @@ country_event = {
                             value < value:num_primary_zone_plan_of_type_industrial
                         }
                     }
-                    set_planet_flag = bca_pf_plan_build_primary_zone_type_industrial
-                    set_planet_flag = bca_plan_build_new_zone
+                    bca_get_num_free_city_zones = yes
+                    if = {
+                        limit = {
+                            check_variable = {
+                                which = bca_num_free_city_zones
+                                value > 0
+                            }
+                        }
+                        set_planet_flag = bca_pf_plan_build_primary_zone_type_industrial
+                        set_planet_flag = bca_plan_build_new_zone
+                    }
+                    clear_variable = bca_num_free_city_zones
                 }
                 else_if = {
                     limit = {
@@ -60,8 +90,18 @@ country_event = {
                             value < value:num_primary_zone_plan_of_type_foundry
                         }
                     }
-                    set_planet_flag = bca_pf_plan_build_primary_zone_type_foundry
-                    set_planet_flag = bca_plan_build_new_zone
+                    bca_get_num_free_city_zones = yes
+                    if = {
+                        limit = {
+                            check_variable = {
+                                which = bca_num_free_city_zones
+                                value > 0
+                            }
+                        }
+                        set_planet_flag = bca_pf_plan_build_primary_zone_type_foundry
+                        set_planet_flag = bca_plan_build_new_zone
+                    }
+                    clear_variable = bca_num_free_city_zones
                 }
                 else_if = {
                     limit = {
@@ -70,8 +110,18 @@ country_event = {
                             value < value:num_primary_zone_plan_of_type_factory
                         }
                     }
-                    set_planet_flag = bca_pf_plan_build_primary_zone_type_factory
-                    set_planet_flag = bca_plan_build_new_zone
+                    bca_get_num_free_city_zones = yes
+                    if = {
+                        limit = {
+                            check_variable = {
+                                which = bca_num_free_city_zones
+                                value > 0
+                            }
+                        }
+                        set_planet_flag = bca_pf_plan_build_primary_zone_type_factory
+                        set_planet_flag = bca_plan_build_new_zone
+                    }
+                    clear_variable = bca_num_free_city_zones
                 }
                 else_if = {
                     limit = {
@@ -80,8 +130,18 @@ country_event = {
                             value < value:num_primary_zone_plan_of_type_research
                         }
                     }
-                    set_planet_flag = bca_pf_plan_build_primary_zone_type_research
-                    set_planet_flag = bca_plan_build_new_zone
+                    bca_get_num_free_city_zones = yes
+                    if = {
+                        limit = {
+                            check_variable = {
+                                which = bca_num_free_city_zones
+                                value > 0
+                            }
+                        }
+                        set_planet_flag = bca_pf_plan_build_primary_zone_type_research
+                        set_planet_flag = bca_plan_build_new_zone
+                    }
+                    clear_variable = bca_num_free_city_zones
                 }
                 else_if = {
                     limit = {
@@ -90,8 +150,18 @@ country_event = {
                             value < value:num_primary_zone_plan_of_type_physics
                         }
                     }
-                    set_planet_flag = bca_pf_plan_build_primary_zone_type_physics
-                    set_planet_flag = bca_plan_build_new_zone
+                    bca_get_num_free_city_zones = yes
+                    if = {
+                        limit = {
+                            check_variable = {
+                                which = bca_num_free_city_zones
+                                value > 0
+                            }
+                        }
+                        set_planet_flag = bca_pf_plan_build_primary_zone_type_physics
+                        set_planet_flag = bca_plan_build_new_zone
+                    }
+                    clear_variable = bca_num_free_city_zones
                 }
                 else_if = {
                     limit = {
@@ -100,8 +170,18 @@ country_event = {
                             value < value:num_primary_zone_plan_of_type_society
                         }
                     }
-                    set_planet_flag = bca_pf_plan_build_primary_zone_type_society
-                    set_planet_flag = bca_plan_build_new_zone
+                    bca_get_num_free_city_zones = yes
+                    if = {
+                        limit = {
+                            check_variable = {
+                                which = bca_num_free_city_zones
+                                value > 0
+                            }
+                        }
+                        set_planet_flag = bca_pf_plan_build_primary_zone_type_society
+                        set_planet_flag = bca_plan_build_new_zone
+                    }
+                    clear_variable = bca_num_free_city_zones
                 }
                 else_if = {
                     limit = {
@@ -110,8 +190,18 @@ country_event = {
                             value < value:num_primary_zone_plan_of_type_engineering
                         }
                     }
-                    set_planet_flag = bca_pf_plan_build_primary_zone_type_engineering
-                    set_planet_flag = bca_plan_build_new_zone
+                    bca_get_num_free_city_zones = yes
+                    if = {
+                        limit = {
+                            check_variable = {
+                                which = bca_num_free_city_zones
+                                value > 0
+                            }
+                        }
+                        set_planet_flag = bca_pf_plan_build_primary_zone_type_engineering
+                        set_planet_flag = bca_plan_build_new_zone
+                    }
+                    clear_variable = bca_num_free_city_zones
                 }
                 else_if = {
                     limit = {
@@ -120,8 +210,18 @@ country_event = {
                             value < value:num_primary_zone_plan_of_type_bureaucrat
                         }
                     }
-                    set_planet_flag = bca_pf_plan_build_primary_zone_type_bureaucrat
-                    set_planet_flag = bca_plan_build_new_zone
+                    bca_get_num_free_city_zones = yes
+                    if = {
+                        limit = {
+                            check_variable = {
+                                which = bca_num_free_city_zones
+                                value > 0
+                            }
+                        }
+                        set_planet_flag = bca_pf_plan_build_primary_zone_type_bureaucrat
+                        set_planet_flag = bca_plan_build_new_zone
+                    }
+                    clear_variable = bca_num_free_city_zones
                 }
                 else_if = {
                     limit = {
@@ -130,8 +230,18 @@ country_event = {
                             value < value:num_primary_zone_plan_of_type_unity
                         }
                     }
-                    set_planet_flag = bca_pf_plan_build_primary_zone_type_unity
-                    set_planet_flag = bca_plan_build_new_zone
+                    bca_get_num_free_city_zones = yes
+                    if = {
+                        limit = {
+                            check_variable = {
+                                which = bca_num_free_city_zones
+                                value > 0
+                            }
+                        }
+                        set_planet_flag = bca_pf_plan_build_primary_zone_type_unity
+                        set_planet_flag = bca_plan_build_new_zone
+                    }
+                    clear_variable = bca_num_free_city_zones
                 }
                 else_if = {
                     limit = {
@@ -140,8 +250,18 @@ country_event = {
                             value < value:num_primary_zone_plan_of_type_priest
                         }
                     }
-                    set_planet_flag = bca_pf_plan_build_primary_zone_type_priest
-                    set_planet_flag = bca_plan_build_new_zone
+                    bca_get_num_free_city_zones = yes
+                    if = {
+                        limit = {
+                            check_variable = {
+                                which = bca_num_free_city_zones
+                                value > 0
+                            }
+                        }
+                        set_planet_flag = bca_pf_plan_build_primary_zone_type_priest
+                        set_planet_flag = bca_plan_build_new_zone
+                    }
+                    clear_variable = bca_num_free_city_zones
                 }
                 else_if = {
                     limit = {
@@ -150,8 +270,18 @@ country_event = {
                             value < value:num_primary_zone_plan_of_type_fortress
                         }
                     }
-                    set_planet_flag = bca_pf_plan_build_primary_zone_type_fortress
-                    set_planet_flag = bca_plan_build_new_zone
+                    bca_get_num_free_city_zones = yes
+                    if = {
+                        limit = {
+                            check_variable = {
+                                which = bca_num_free_city_zones
+                                value > 0
+                            }
+                        }
+                        set_planet_flag = bca_pf_plan_build_primary_zone_type_fortress
+                        set_planet_flag = bca_plan_build_new_zone
+                    }
+                    clear_variable = bca_num_free_city_zones
                 }
                 else_if = {
                     limit = {
@@ -160,8 +290,18 @@ country_event = {
                             value < value:num_primary_zone_plan_of_type_resort
                         }
                     }
-                    set_planet_flag = bca_pf_plan_build_primary_zone_type_resort
-                    set_planet_flag = bca_plan_build_new_zone
+                    bca_get_num_free_city_zones = yes
+                    if = {
+                        limit = {
+                            check_variable = {
+                                which = bca_num_free_city_zones
+                                value > 0
+                            }
+                        }
+                        set_planet_flag = bca_pf_plan_build_primary_zone_type_resort
+                        set_planet_flag = bca_plan_build_new_zone
+                    }
+                    clear_variable = bca_num_free_city_zones
                 }
                 else_if = {
                     limit = {
@@ -170,8 +310,18 @@ country_event = {
                             value < value:num_primary_zone_plan_of_type_entertainer
                         }
                     }
-                    set_planet_flag = bca_pf_plan_build_primary_zone_type_entertainer
-                    set_planet_flag = bca_plan_build_new_zone
+                    bca_get_num_free_city_zones = yes
+                    if = {
+                        limit = {
+                            check_variable = {
+                                which = bca_num_free_city_zones
+                                value > 0
+                            }
+                        }
+                        set_planet_flag = bca_pf_plan_build_primary_zone_type_entertainer
+                        set_planet_flag = bca_plan_build_new_zone
+                    }
+                    clear_variable = bca_num_free_city_zones
                 }
                 else_if = {
                     limit = {
@@ -180,8 +330,18 @@ country_event = {
                             value < value:num_primary_zone_plan_of_type_knight_commander
                         }
                     }
-                    set_planet_flag = bca_pf_plan_build_primary_zone_type_knight_commander
-                    set_planet_flag = bca_plan_build_new_zone
+                    bca_get_num_free_city_zones = yes
+                    if = {
+                        limit = {
+                            check_variable = {
+                                which = bca_num_free_city_zones
+                                value > 0
+                            }
+                        }
+                        set_planet_flag = bca_pf_plan_build_primary_zone_type_knight_commander
+                        set_planet_flag = bca_plan_build_new_zone
+                    }
+                    clear_variable = bca_num_free_city_zones
                 }
                 else_if = {
                     limit = {
@@ -190,8 +350,18 @@ country_event = {
                             value < value:num_primary_zone_plan_of_type_spawning
                         }
                     }
-                    set_planet_flag = bca_pf_plan_build_primary_zone_type_spawning
-                    set_planet_flag = bca_plan_build_new_zone
+                    bca_get_num_free_city_zones = yes
+                    if = {
+                        limit = {
+                            check_variable = {
+                                which = bca_num_free_city_zones
+                                value > 0
+                            }
+                        }
+                        set_planet_flag = bca_pf_plan_build_primary_zone_type_spawning
+                        set_planet_flag = bca_plan_build_new_zone
+                    }
+                    clear_variable = bca_num_free_city_zones
                 }
                 else_if = {
                     limit = {
@@ -200,8 +370,18 @@ country_event = {
                             value < value:num_primary_zone_plan_of_type_machine_replication
                         }
                     }
-                    set_planet_flag = bca_pf_plan_build_primary_zone_type_machine_replication
-                    set_planet_flag = bca_plan_build_new_zone
+                    bca_get_num_free_city_zones = yes
+                    if = {
+                        limit = {
+                            check_variable = {
+                                which = bca_num_free_city_zones
+                                value > 0
+                            }
+                        }
+                        set_planet_flag = bca_pf_plan_build_primary_zone_type_machine_replication
+                        set_planet_flag = bca_plan_build_new_zone
+                    }
+                    clear_variable = bca_num_free_city_zones
                 }
                 else_if = {
                     limit = {
@@ -210,8 +390,18 @@ country_event = {
                             value < value:num_primary_zone_plan_of_type_wilderness_urban
                         }
                     }
-                    set_planet_flag = bca_pf_plan_build_primary_zone_type_wilderness_urban
-                    set_planet_flag = bca_plan_build_new_zone
+                    bca_get_num_free_city_zones = yes
+                    if = {
+                        limit = {
+                            check_variable = {
+                                which = bca_num_free_city_zones
+                                value > 0
+                            }
+                        }
+                        set_planet_flag = bca_pf_plan_build_primary_zone_type_wilderness_urban
+                        set_planet_flag = bca_plan_build_new_zone
+                    }
+                    clear_variable = bca_num_free_city_zones
                 }
                 else_if = {
                     limit = {
@@ -220,8 +410,18 @@ country_event = {
                             value < value:num_primary_zone_plan_of_type_wilderness_foundry
                         }
                     }
-                    set_planet_flag = bca_pf_plan_build_primary_zone_type_wilderness_foundry
-                    set_planet_flag = bca_plan_build_new_zone
+                    bca_get_num_free_city_zones = yes
+                    if = {
+                        limit = {
+                            check_variable = {
+                                which = bca_num_free_city_zones
+                                value > 0
+                            }
+                        }
+                        set_planet_flag = bca_pf_plan_build_primary_zone_type_wilderness_foundry
+                        set_planet_flag = bca_plan_build_new_zone
+                    }
+                    clear_variable = bca_num_free_city_zones
                 }
                 else_if = {
                     limit = {
@@ -230,8 +430,18 @@ country_event = {
                             value < value:num_primary_zone_plan_of_type_wilderness_research
                         }
                     }
-                    set_planet_flag = bca_pf_plan_build_primary_zone_type_wilderness_research
-                    set_planet_flag = bca_plan_build_new_zone
+                    bca_get_num_free_city_zones = yes
+                    if = {
+                        limit = {
+                            check_variable = {
+                                which = bca_num_free_city_zones
+                                value > 0
+                            }
+                        }
+                        set_planet_flag = bca_pf_plan_build_primary_zone_type_wilderness_research
+                        set_planet_flag = bca_plan_build_new_zone
+                    }
+                    clear_variable = bca_num_free_city_zones
                 }
                 else_if = {
                     limit = {
@@ -240,8 +450,18 @@ country_event = {
                             value < value:num_primary_zone_plan_of_type_wilderness_unity
                         }
                     }
-                    set_planet_flag = bca_pf_plan_build_primary_zone_type_wilderness_unity
-                    set_planet_flag = bca_plan_build_new_zone
+                    bca_get_num_free_city_zones = yes
+                    if = {
+                        limit = {
+                            check_variable = {
+                                which = bca_num_free_city_zones
+                                value > 0
+                            }
+                        }
+                        set_planet_flag = bca_pf_plan_build_primary_zone_type_wilderness_unity
+                        set_planet_flag = bca_plan_build_new_zone
+                    }
+                    clear_variable = bca_num_free_city_zones
                 }
                 else_if = {
                     limit = {
@@ -250,8 +470,18 @@ country_event = {
                             value < value:num_primary_zone_plan_of_type_wilderness_spawning
                         }
                     }
-                    set_planet_flag = bca_pf_plan_build_primary_zone_type_wilderness_spawning
-                    set_planet_flag = bca_plan_build_new_zone
+                    bca_get_num_free_city_zones = yes
+                    if = {
+                        limit = {
+                            check_variable = {
+                                which = bca_num_free_city_zones
+                                value > 0
+                            }
+                        }
+                        set_planet_flag = bca_pf_plan_build_primary_zone_type_wilderness_spawning
+                        set_planet_flag = bca_plan_build_new_zone
+                    }
+                    clear_variable = bca_num_free_city_zones
                 }
                 else_if = {
                     limit = {
@@ -260,8 +490,18 @@ country_event = {
                             value < value:num_primary_zone_plan_of_type_wilderness_trade
                         }
                     }
-                    set_planet_flag = bca_pf_plan_build_primary_zone_type_wilderness_trade
-                    set_planet_flag = bca_plan_build_new_zone
+                    bca_get_num_free_city_zones = yes
+                    if = {
+                        limit = {
+                            check_variable = {
+                                which = bca_num_free_city_zones
+                                value > 0
+                            }
+                        }
+                        set_planet_flag = bca_pf_plan_build_primary_zone_type_wilderness_trade
+                        set_planet_flag = bca_plan_build_new_zone
+                    }
+                    clear_variable = bca_num_free_city_zones
                 }
                 else_if = {
                     limit = {
@@ -270,11 +510,23 @@ country_event = {
                             value < value:num_primary_zone_plan_of_type_wilderness_fortress
                         }
                     }
-                    set_planet_flag = bca_pf_plan_build_primary_zone_type_wilderness_fortress
-                    set_planet_flag = bca_plan_build_new_zone
+                    bca_get_num_free_city_zones = yes
+                    if = {
+                        limit = {
+                            check_variable = {
+                                which = bca_num_free_city_zones
+                                value > 0
+                            }
+                        }
+                        set_planet_flag = bca_pf_plan_build_primary_zone_type_wilderness_fortress
+                        set_planet_flag = bca_plan_build_new_zone
+                    }
+                    clear_variable = bca_num_free_city_zones
                 }
-                else_if = {
-                    limit = {
+            if = {
+                limit = {
+                    NOT = { has_planet_flag = bca_plan_build_new_zone }                 }
+                if = {                     limit = {
                         check_variable_arithmetic = {
                             which = value:num_secondary_zones_of_type_urban
                             value < value:num_secondary_zone_plan_of_type_urban
@@ -283,8 +535,7 @@ country_event = {
                     set_planet_flag = bca_pf_plan_build_secondary_zone_type_urban
                     set_planet_flag = bca_plan_build_new_zone
                 }
-                else_if = {
-                    limit = {
+                if = {                     limit = {
                         check_variable_arithmetic = {
                             which = value:num_secondary_zones_of_type_trade
                             value < value:num_secondary_zone_plan_of_type_trade
@@ -293,8 +544,7 @@ country_event = {
                     set_planet_flag = bca_pf_plan_build_secondary_zone_type_trade
                     set_planet_flag = bca_plan_build_new_zone
                 }
-                else_if = {
-                    limit = {
+                if = {                     limit = {
                         check_variable_arithmetic = {
                             which = value:num_secondary_zones_of_type_industrial
                             value < value:num_secondary_zone_plan_of_type_industrial
@@ -303,8 +553,7 @@ country_event = {
                     set_planet_flag = bca_pf_plan_build_secondary_zone_type_industrial
                     set_planet_flag = bca_plan_build_new_zone
                 }
-                else_if = {
-                    limit = {
+                if = {                     limit = {
                         check_variable_arithmetic = {
                             which = value:num_secondary_zones_of_type_foundry
                             value < value:num_secondary_zone_plan_of_type_foundry
@@ -313,8 +562,7 @@ country_event = {
                     set_planet_flag = bca_pf_plan_build_secondary_zone_type_foundry
                     set_planet_flag = bca_plan_build_new_zone
                 }
-                else_if = {
-                    limit = {
+                if = {                     limit = {
                         check_variable_arithmetic = {
                             which = value:num_secondary_zones_of_type_factory
                             value < value:num_secondary_zone_plan_of_type_factory
@@ -323,8 +571,7 @@ country_event = {
                     set_planet_flag = bca_pf_plan_build_secondary_zone_type_factory
                     set_planet_flag = bca_plan_build_new_zone
                 }
-                else_if = {
-                    limit = {
+                if = {                     limit = {
                         check_variable_arithmetic = {
                             which = value:num_secondary_zones_of_type_research
                             value < value:num_secondary_zone_plan_of_type_research
@@ -333,8 +580,7 @@ country_event = {
                     set_planet_flag = bca_pf_plan_build_secondary_zone_type_research
                     set_planet_flag = bca_plan_build_new_zone
                 }
-                else_if = {
-                    limit = {
+                if = {                     limit = {
                         check_variable_arithmetic = {
                             which = value:num_secondary_zones_of_type_physics
                             value < value:num_secondary_zone_plan_of_type_physics
@@ -343,8 +589,7 @@ country_event = {
                     set_planet_flag = bca_pf_plan_build_secondary_zone_type_physics
                     set_planet_flag = bca_plan_build_new_zone
                 }
-                else_if = {
-                    limit = {
+                if = {                     limit = {
                         check_variable_arithmetic = {
                             which = value:num_secondary_zones_of_type_society
                             value < value:num_secondary_zone_plan_of_type_society
@@ -353,8 +598,7 @@ country_event = {
                     set_planet_flag = bca_pf_plan_build_secondary_zone_type_society
                     set_planet_flag = bca_plan_build_new_zone
                 }
-                else_if = {
-                    limit = {
+                if = {                     limit = {
                         check_variable_arithmetic = {
                             which = value:num_secondary_zones_of_type_engineering
                             value < value:num_secondary_zone_plan_of_type_engineering
@@ -363,8 +607,7 @@ country_event = {
                     set_planet_flag = bca_pf_plan_build_secondary_zone_type_engineering
                     set_planet_flag = bca_plan_build_new_zone
                 }
-                else_if = {
-                    limit = {
+                if = {                     limit = {
                         check_variable_arithmetic = {
                             which = value:num_secondary_zones_of_type_bureaucrat
                             value < value:num_secondary_zone_plan_of_type_bureaucrat
@@ -373,8 +616,7 @@ country_event = {
                     set_planet_flag = bca_pf_plan_build_secondary_zone_type_bureaucrat
                     set_planet_flag = bca_plan_build_new_zone
                 }
-                else_if = {
-                    limit = {
+                if = {                     limit = {
                         check_variable_arithmetic = {
                             which = value:num_secondary_zones_of_type_unity
                             value < value:num_secondary_zone_plan_of_type_unity
@@ -383,8 +625,7 @@ country_event = {
                     set_planet_flag = bca_pf_plan_build_secondary_zone_type_unity
                     set_planet_flag = bca_plan_build_new_zone
                 }
-                else_if = {
-                    limit = {
+                if = {                     limit = {
                         check_variable_arithmetic = {
                             which = value:num_secondary_zones_of_type_priest
                             value < value:num_secondary_zone_plan_of_type_priest
@@ -393,8 +634,7 @@ country_event = {
                     set_planet_flag = bca_pf_plan_build_secondary_zone_type_priest
                     set_planet_flag = bca_plan_build_new_zone
                 }
-                else_if = {
-                    limit = {
+                if = {                     limit = {
                         check_variable_arithmetic = {
                             which = value:num_secondary_zones_of_type_fortress
                             value < value:num_secondary_zone_plan_of_type_fortress
@@ -403,8 +643,7 @@ country_event = {
                     set_planet_flag = bca_pf_plan_build_secondary_zone_type_fortress
                     set_planet_flag = bca_plan_build_new_zone
                 }
-                else_if = {
-                    limit = {
+                if = {                     limit = {
                         check_variable_arithmetic = {
                             which = value:num_secondary_zones_of_type_zoo
                             value < value:num_secondary_zone_plan_of_type_zoo
@@ -413,8 +652,7 @@ country_event = {
                     set_planet_flag = bca_pf_plan_build_secondary_zone_type_zoo
                     set_planet_flag = bca_plan_build_new_zone
                 }
-                else_if = {
-                    limit = {
+                if = {                     limit = {
                         check_variable_arithmetic = {
                             which = value:num_secondary_zones_of_type_culture_worker
                             value < value:num_secondary_zone_plan_of_type_culture_worker
@@ -423,8 +661,7 @@ country_event = {
                     set_planet_flag = bca_pf_plan_build_secondary_zone_type_culture_worker
                     set_planet_flag = bca_plan_build_new_zone
                 }
-                else_if = {
-                    limit = {
+                if = {                     limit = {
                         check_variable_arithmetic = {
                             which = value:num_secondary_zones_of_type_trophy_hunter
                             value < value:num_secondary_zone_plan_of_type_trophy_hunter
@@ -433,8 +670,7 @@ country_event = {
                     set_planet_flag = bca_pf_plan_build_secondary_zone_type_trophy_hunter
                     set_planet_flag = bca_plan_build_new_zone
                 }
-                else_if = {
-                    limit = {
+                if = {                     limit = {
                         check_variable_arithmetic = {
                             which = value:num_secondary_zones_of_type_healthcare
                             value < value:num_secondary_zone_plan_of_type_healthcare
@@ -443,8 +679,7 @@ country_event = {
                     set_planet_flag = bca_pf_plan_build_secondary_zone_type_healthcare
                     set_planet_flag = bca_plan_build_new_zone
                 }
-                else_if = {
-                    limit = {
+                if = {                     limit = {
                         check_variable_arithmetic = {
                             which = value:num_secondary_zones_of_type_duelist
                             value < value:num_secondary_zone_plan_of_type_duelist
@@ -453,8 +688,7 @@ country_event = {
                     set_planet_flag = bca_pf_plan_build_secondary_zone_type_duelist
                     set_planet_flag = bca_plan_build_new_zone
                 }
-                else_if = {
-                    limit = {
+                if = {                     limit = {
                         check_variable_arithmetic = {
                             which = value:num_secondary_zones_of_type_energy
                             value < value:num_secondary_zone_plan_of_type_energy
@@ -463,8 +697,7 @@ country_event = {
                     set_planet_flag = bca_pf_plan_build_secondary_zone_type_energy
                     set_planet_flag = bca_plan_build_new_zone
                 }
-                else_if = {
-                    limit = {
+                if = {                     limit = {
                         check_variable_arithmetic = {
                             which = value:num_secondary_zones_of_type_betharian
                             value < value:num_secondary_zone_plan_of_type_betharian
@@ -473,8 +706,7 @@ country_event = {
                     set_planet_flag = bca_pf_plan_build_secondary_zone_type_betharian
                     set_planet_flag = bca_plan_build_new_zone
                 }
-                else_if = {
-                    limit = {
+                if = {                     limit = {
                         check_variable_arithmetic = {
                             which = value:num_secondary_zones_of_type_minerals
                             value < value:num_secondary_zone_plan_of_type_minerals
@@ -483,8 +715,7 @@ country_event = {
                     set_planet_flag = bca_pf_plan_build_secondary_zone_type_minerals
                     set_planet_flag = bca_plan_build_new_zone
                 }
-                else_if = {
-                    limit = {
+                if = {                     limit = {
                         check_variable_arithmetic = {
                             which = value:num_secondary_zones_of_type_food
                             value < value:num_secondary_zone_plan_of_type_food
@@ -493,8 +724,7 @@ country_event = {
                     set_planet_flag = bca_pf_plan_build_secondary_zone_type_food
                     set_planet_flag = bca_plan_build_new_zone
                 }
-                else_if = {
-                    limit = {
+                if = {                     limit = {
                         check_variable_arithmetic = {
                             which = value:num_secondary_zones_of_type_rare_crystals
                             value < value:num_secondary_zone_plan_of_type_rare_crystals
@@ -503,8 +733,7 @@ country_event = {
                     set_planet_flag = bca_pf_plan_build_secondary_zone_type_rare_crystals
                     set_planet_flag = bca_plan_build_new_zone
                 }
-                else_if = {
-                    limit = {
+                if = {                     limit = {
                         check_variable_arithmetic = {
                             which = value:num_secondary_zones_of_type_volatile_motes
                             value < value:num_secondary_zone_plan_of_type_volatile_motes
@@ -513,8 +742,7 @@ country_event = {
                     set_planet_flag = bca_pf_plan_build_secondary_zone_type_volatile_motes
                     set_planet_flag = bca_plan_build_new_zone
                 }
-                else_if = {
-                    limit = {
+                if = {                     limit = {
                         check_variable_arithmetic = {
                             which = value:num_secondary_zones_of_type_exotic_gases
                             value < value:num_secondary_zone_plan_of_type_exotic_gases
@@ -523,8 +751,7 @@ country_event = {
                     set_planet_flag = bca_pf_plan_build_secondary_zone_type_exotic_gases
                     set_planet_flag = bca_plan_build_new_zone
                 }
-                else_if = {
-                    limit = {
+                if = {                     limit = {
                         check_variable_arithmetic = {
                             which = value:num_secondary_zones_of_type_angler
                             value < value:num_secondary_zone_plan_of_type_angler
@@ -533,8 +760,7 @@ country_event = {
                     set_planet_flag = bca_pf_plan_build_secondary_zone_type_angler
                     set_planet_flag = bca_plan_build_new_zone
                 }
-                else_if = {
-                    limit = {
+                if = {                     limit = {
                         check_variable_arithmetic = {
                             which = value:num_secondary_zones_of_type_agrarian
                             value < value:num_secondary_zone_plan_of_type_agrarian
@@ -543,8 +769,7 @@ country_event = {
                     set_planet_flag = bca_pf_plan_build_secondary_zone_type_agrarian
                     set_planet_flag = bca_plan_build_new_zone
                 }
-                else_if = {
-                    limit = {
+                if = {                     limit = {
                         check_variable_arithmetic = {
                             which = value:num_secondary_zones_of_type_hydroponics
                             value < value:num_secondary_zone_plan_of_type_hydroponics
@@ -553,8 +778,7 @@ country_event = {
                     set_planet_flag = bca_pf_plan_build_secondary_zone_type_hydroponics
                     set_planet_flag = bca_plan_build_new_zone
                 }
-                else_if = {
-                    limit = {
+                if = {                     limit = {
                         check_variable_arithmetic = {
                             which = value:num_secondary_zones_of_type_spawning
                             value < value:num_secondary_zone_plan_of_type_spawning
@@ -563,8 +787,7 @@ country_event = {
                     set_planet_flag = bca_pf_plan_build_secondary_zone_type_spawning
                     set_planet_flag = bca_plan_build_new_zone
                 }
-                else_if = {
-                    limit = {
+                if = {                     limit = {
                         check_variable_arithmetic = {
                             which = value:num_secondary_zones_of_type_wilderness_minerals
                             value < value:num_secondary_zone_plan_of_type_wilderness_minerals
@@ -573,8 +796,7 @@ country_event = {
                     set_planet_flag = bca_pf_plan_build_secondary_zone_type_wilderness_minerals
                     set_planet_flag = bca_plan_build_new_zone
                 }
-                else_if = {
-                    limit = {
+                if = {                     limit = {
                         check_variable_arithmetic = {
                             which = value:num_secondary_zones_of_type_wilderness_energy
                             value < value:num_secondary_zone_plan_of_type_wilderness_energy
@@ -583,8 +805,7 @@ country_event = {
                     set_planet_flag = bca_pf_plan_build_secondary_zone_type_wilderness_energy
                     set_planet_flag = bca_plan_build_new_zone
                 }
-                else_if = {
-                    limit = {
+                if = {                     limit = {
                         check_variable_arithmetic = {
                             which = value:num_secondary_zones_of_type_wilderness_food
                             value < value:num_secondary_zone_plan_of_type_wilderness_food
@@ -593,7 +814,7 @@ country_event = {
                     set_planet_flag = bca_pf_plan_build_secondary_zone_type_wilderness_food
                     set_planet_flag = bca_plan_build_new_zone
                 }
-
+            }
         }
     }
 }

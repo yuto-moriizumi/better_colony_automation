@@ -43,6 +43,7 @@ planet_event = {
                     is_ai = no
                 }
             }
+            remove_planet_flag = bca_pf_can_build_extra_zones_for_storage
             remove_planet_flag = bca_pf_district_balanced
             bca_clear_designation_flag = yes
             bca_designation_sync_with_system = yes
@@ -4879,6 +4880,7 @@ planet_event = {
     }
 
     immediate = {
+        remove_planet_flag = bca_pf_can_build_extra_zones_for_storage
         remove_planet_flag = bca_pf_district_balanced
         bca_clear_designation_flag = yes
         bca_designation_sync_with_system = yes

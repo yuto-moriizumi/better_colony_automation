@@ -8,7 +8,7 @@ Since Paradox never fixed planetary automation bugs after the 4.0 update, late-g
 
 Feedback / Contact: QQ 153870310
 
-Quick link: [Stellar AI Compatibility Mod](https://steamcommunity.com/sharedfiles/filedetails/?id=3669715825)
+Quick link: [Stellar AI Compatibility Mod](https://steamcommunity.com/sharedfiles/filedetails/?id=3674208064)
 
 ## Quick Start
 
@@ -80,7 +80,7 @@ Quick link: [Stellar AI Compatibility Mod](https://steamcommunity.com/sharedfile
 
 ## Compatible Mods
 
-- [Stellar AI Compatibility Mod](https://steamcommunity.com/sharedfiles/filedetails/?id=3669715825)
+- [Stellar AI Compatibility Mod](https://steamcommunity.com/sharedfiles/filedetails/?id=3674208064)
 
 ## Changelog
 

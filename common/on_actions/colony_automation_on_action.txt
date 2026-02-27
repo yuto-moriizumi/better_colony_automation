@@ -16,6 +16,12 @@ on_planet_transfer = {
 	}
 }
 
+on_planet_class_changed = {
+	events = {
+		colony_automation_event.30
+	}
+}
+
 on_colonized = {
 	events = {
 		colony_automation_event.26  # 基于当前布局设置

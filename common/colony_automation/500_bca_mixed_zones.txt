@@ -12,19 +12,6 @@ bca_mix_primary_zone_build_urban = {
 		zone_urban
 	}
 }
-bca_mix_secondary_zone_build_urban = {
-	category = "planet_automation_designation_construction"
-
-	available = {
-        bca_has_minerals_to_build = yes
-        has_planet_flag = bca_pf_plan_build_secondary_zone_type_urban
-	}
-
-	prio_zones = {
-		zone_subterranean_urban
-		zone_agrarian_anglers
-	}
-}
 bca_mix_primary_zone_build_trade = {
 	category = "planet_automation_designation_construction"
 
@@ -35,21 +22,6 @@ bca_mix_primary_zone_build_trade = {
 
 	prio_zones = {
 		zone_trade
-	}
-}
-bca_mix_secondary_zone_build_trade = {
-	category = "planet_automation_designation_construction"
-
-	available = {
-        bca_has_minerals_to_build = yes
-        has_planet_flag = bca_pf_plan_build_secondary_zone_type_trade
-	}
-
-	prio_zones = {
-		zone_trade_arcology
-		zone_trade_ring_world
-		zone_trade_nexus
-		zone_trade_hive
 	}
 }
 bca_mix_primary_zone_build_industrial = {
@@ -64,21 +36,6 @@ bca_mix_primary_zone_build_industrial = {
 		zone_industrial
 	}
 }
-bca_mix_secondary_zone_build_industrial = {
-	category = "planet_automation_designation_construction"
-
-	available = {
-        bca_has_minerals_to_build = yes
-        has_planet_flag = bca_pf_plan_build_secondary_zone_type_industrial
-	}
-
-	prio_zones = {
-		zone_industrial_arcology
-		zone_industrial_ring_world
-		zone_industrial_nexus
-		zone_industrial_hive
-	}
-}
 bca_mix_primary_zone_build_foundry = {
 	category = "planet_automation_designation_construction"
 
@@ -91,21 +48,6 @@ bca_mix_primary_zone_build_foundry = {
 		zone_foundry
 	}
 }
-bca_mix_secondary_zone_build_foundry = {
-	category = "planet_automation_designation_construction"
-
-	available = {
-        bca_has_minerals_to_build = yes
-        has_planet_flag = bca_pf_plan_build_secondary_zone_type_foundry
-	}
-
-	prio_zones = {
-		zone_foundry_arcology
-		zone_foundry_ring_world
-		zone_foundry_nexus
-		zone_foundry_hive
-	}
-}
 bca_mix_primary_zone_build_factory = {
 	category = "planet_automation_designation_construction"
 
@@ -116,21 +58,6 @@ bca_mix_primary_zone_build_factory = {
 
 	prio_zones = {
 		zone_factory
-	}
-}
-bca_mix_secondary_zone_build_factory = {
-	category = "planet_automation_designation_construction"
-
-	available = {
-        bca_has_minerals_to_build = yes
-        has_planet_flag = bca_pf_plan_build_secondary_zone_type_factory
-	}
-
-	prio_zones = {
-		zone_factory_arcology
-		zone_factory_ring_world
-		zone_factory_nexus
-		zone_factory_hive
 	}
 }
 bca_mix_primary_zone_build_research = {
@@ -146,23 +73,6 @@ bca_mix_primary_zone_build_research = {
 		zone_central_spire
 	}
 }
-bca_mix_secondary_zone_build_research = {
-	category = "planet_automation_designation_construction"
-
-	available = {
-        bca_has_minerals_to_build = yes
-        has_planet_flag = bca_pf_plan_build_secondary_zone_type_research
-	}
-
-	prio_zones = {
-		zone_research
-		zone_habitat_research
-		zone_research_arcology
-		zone_research_ring_world
-		zone_research_nexus
-		zone_research_hive
-	}
-}
 bca_mix_primary_zone_build_physics = {
 	category = "planet_automation_designation_construction"
 
@@ -173,23 +83,6 @@ bca_mix_primary_zone_build_physics = {
 
 	prio_zones = {
 		zone_research_physics
-	}
-}
-bca_mix_secondary_zone_build_physics = {
-	category = "planet_automation_designation_construction"
-
-	available = {
-        bca_has_minerals_to_build = yes
-        has_planet_flag = bca_pf_plan_build_secondary_zone_type_physics
-	}
-
-	prio_zones = {
-		zone_research_physics
-		zone_minerals_physics
-		zone_research_physics_arcology
-		zone_research_physics_ring_world
-		zone_research_physics_nexus
-		zone_research_physics_hive
 	}
 }
 bca_mix_primary_zone_build_society = {
@@ -204,22 +97,6 @@ bca_mix_primary_zone_build_society = {
 		zone_research_society
 	}
 }
-bca_mix_secondary_zone_build_society = {
-	category = "planet_automation_designation_construction"
-
-	available = {
-        bca_has_minerals_to_build = yes
-        has_planet_flag = bca_pf_plan_build_secondary_zone_type_society
-	}
-
-	prio_zones = {
-		zone_research_society
-		zone_research_society_arcology
-		zone_research_society_ring_world
-		zone_research_society_nexus
-		zone_research_society_hive
-	}
-}
 bca_mix_primary_zone_build_engineering = {
 	category = "planet_automation_designation_construction"
 
@@ -232,41 +109,12 @@ bca_mix_primary_zone_build_engineering = {
 		zone_research_engineering
 	}
 }
-bca_mix_secondary_zone_build_engineering = {
-	category = "planet_automation_designation_construction"
-
-	available = {
-        bca_has_minerals_to_build = yes
-        has_planet_flag = bca_pf_plan_build_secondary_zone_type_engineering
-	}
-
-	prio_zones = {
-		zone_research_engineering
-		zone_research_engineering_arcology
-		zone_research_engineering_ring_world
-		zone_research_engineering_nexus
-		zone_research_engineering_hive
-	}
-}
 bca_mix_primary_zone_build_bureaucrat = {
 	category = "planet_automation_designation_construction"
 
 	available = {
         bca_has_minerals_to_build = yes
         has_planet_flag = bca_pf_plan_build_primary_zone_type_bureaucrat
-	}
-
-	prio_zones = {
-		zone_research_unity
-		zone_habitat_research_unity
-	}
-}
-bca_mix_secondary_zone_build_bureaucrat = {
-	category = "planet_automation_designation_construction"
-
-	available = {
-        bca_has_minerals_to_build = yes
-        has_planet_flag = bca_pf_plan_build_secondary_zone_type_bureaucrat
 	}
 
 	prio_zones = {
@@ -287,26 +135,6 @@ bca_mix_primary_zone_build_unity = {
 		zone_unity_bio_trophy
 	}
 }
-bca_mix_secondary_zone_build_unity = {
-	category = "planet_automation_designation_construction"
-
-	available = {
-        bca_has_minerals_to_build = yes
-        has_planet_flag = bca_pf_plan_build_secondary_zone_type_unity
-	}
-
-	prio_zones = {
-		zone_unity
-		zone_unity_bio_trophy
-		zone_unity_arcology
-		zone_unity_bio_trophy_arcology
-		zone_unity_ring_world
-		zone_unity_bio_trophy_ring_world
-		zone_unity_nexus
-		zone_unity_bio_trophy_nexus
-		zone_unity_hive
-	}
-}
 bca_mix_primary_zone_build_priest = {
 	category = "planet_automation_designation_construction"
 
@@ -319,22 +147,6 @@ bca_mix_primary_zone_build_priest = {
 		zone_unity_spiritualist
 	}
 }
-bca_mix_secondary_zone_build_priest = {
-	category = "planet_automation_designation_construction"
-
-	available = {
-        bca_has_minerals_to_build = yes
-        has_planet_flag = bca_pf_plan_build_secondary_zone_type_priest
-	}
-
-	prio_zones = {
-		zone_unity_spiritualist
-		zone_resort_spiritual_retreat
-		zone_unity_spiritualist_arcology
-		zone_unity_spiritualist_ring_world
-		zone_unity_spiritualist_nexus
-	}
-}
 bca_mix_primary_zone_build_fortress = {
 	category = "planet_automation_designation_construction"
 
@@ -345,21 +157,6 @@ bca_mix_primary_zone_build_fortress = {
 
 	prio_zones = {
 		zone_fortress
-	}
-}
-bca_mix_secondary_zone_build_fortress = {
-	category = "planet_automation_designation_construction"
-
-	available = {
-        bca_has_minerals_to_build = yes
-        has_planet_flag = bca_pf_plan_build_secondary_zone_type_fortress
-	}
-
-	prio_zones = {
-		zone_fortress_arcology
-		zone_fortress_ring_world
-		zone_fortress_nexus
-		zone_fortress_hive
 	}
 }
 bca_mix_primary_zone_build_resort = {
@@ -384,6 +181,331 @@ bca_mix_primary_zone_build_entertainer = {
 
 	prio_zones = {
 		zone_resort_entertainment
+	}
+}
+bca_mix_primary_zone_build_knight_commander = {
+	category = "planet_automation_designation_construction"
+
+	available = {
+        bca_has_minerals_to_build = yes
+        has_planet_flag = bca_pf_plan_build_primary_zone_type_knight_commander
+	}
+
+	prio_zones = {
+		zone_habitat_knights
+	}
+}
+bca_mix_primary_zone_build_spawning = {
+	category = "planet_automation_designation_construction"
+
+	available = {
+        bca_has_minerals_to_build = yes
+        has_planet_flag = bca_pf_plan_build_primary_zone_type_spawning
+	}
+
+	prio_zones = {
+		zone_spawning
+	}
+}
+bca_mix_primary_zone_build_machine_replication = {
+	category = "planet_automation_designation_construction"
+
+	available = {
+        bca_has_minerals_to_build = yes
+        has_planet_flag = bca_pf_plan_build_primary_zone_type_machine_replication
+	}
+
+	prio_zones = {
+		zone_machine_replication
+	}
+}
+bca_mix_primary_zone_build_wilderness_urban = {
+	category = "planet_automation_designation_construction"
+
+	available = {
+        bca_has_minerals_to_build = yes
+        has_planet_flag = bca_pf_plan_build_primary_zone_type_wilderness_urban
+	}
+
+	prio_zones = {
+		zone_urban_wilderness
+	}
+}
+bca_mix_primary_zone_build_wilderness_foundry = {
+	category = "planet_automation_designation_construction"
+
+	available = {
+        bca_has_minerals_to_build = yes
+        has_planet_flag = bca_pf_plan_build_primary_zone_type_wilderness_foundry
+	}
+
+	prio_zones = {
+		zone_foundry_wilderness
+	}
+}
+bca_mix_primary_zone_build_wilderness_research = {
+	category = "planet_automation_designation_construction"
+
+	available = {
+        bca_has_minerals_to_build = yes
+        has_planet_flag = bca_pf_plan_build_primary_zone_type_wilderness_research
+	}
+
+	prio_zones = {
+		zone_research_wilderness
+	}
+}
+bca_mix_primary_zone_build_wilderness_unity = {
+	category = "planet_automation_designation_construction"
+
+	available = {
+        bca_has_minerals_to_build = yes
+        has_planet_flag = bca_pf_plan_build_primary_zone_type_wilderness_unity
+	}
+
+	prio_zones = {
+		zone_unity_wilderness
+	}
+}
+bca_mix_primary_zone_build_wilderness_spawning = {
+	category = "planet_automation_designation_construction"
+
+	available = {
+        bca_has_minerals_to_build = yes
+        has_planet_flag = bca_pf_plan_build_primary_zone_type_wilderness_spawning
+	}
+
+	prio_zones = {
+		zone_research_unity_wilderness
+	}
+}
+bca_mix_primary_zone_build_wilderness_trade = {
+	category = "planet_automation_designation_construction"
+
+	available = {
+        bca_has_minerals_to_build = yes
+        has_planet_flag = bca_pf_plan_build_primary_zone_type_wilderness_trade
+	}
+
+	prio_zones = {
+		zone_trade_wilderness
+	}
+}
+bca_mix_primary_zone_build_wilderness_fortress = {
+	category = "planet_automation_designation_construction"
+
+	available = {
+        bca_has_minerals_to_build = yes
+        has_planet_flag = bca_pf_plan_build_primary_zone_type_wilderness_fortress
+	}
+
+	prio_zones = {
+		zone_fortress_wilderness
+	}
+}
+
+
+bca_mix_secondary_zone_build_urban = {
+	category = "planet_automation_designation_construction"
+
+	available = {
+        bca_has_minerals_to_build = yes
+        has_planet_flag = bca_pf_plan_build_secondary_zone_type_urban
+	}
+
+	prio_zones = {
+		zone_subterranean_urban
+		zone_agrarian_anglers
+	}
+}
+bca_mix_secondary_zone_build_trade = {
+	category = "planet_automation_designation_construction"
+
+	available = {
+        bca_has_minerals_to_build = yes
+        has_planet_flag = bca_pf_plan_build_secondary_zone_type_trade
+	}
+
+	prio_zones = {
+		zone_trade_arcology
+		zone_trade_ring_world
+		zone_trade_nexus
+		zone_trade_hive
+	}
+}
+bca_mix_secondary_zone_build_industrial = {
+	category = "planet_automation_designation_construction"
+
+	available = {
+        bca_has_minerals_to_build = yes
+        has_planet_flag = bca_pf_plan_build_secondary_zone_type_industrial
+	}
+
+	prio_zones = {
+		zone_industrial_arcology
+		zone_industrial_ring_world
+		zone_industrial_nexus
+		zone_industrial_hive
+	}
+}
+bca_mix_secondary_zone_build_foundry = {
+	category = "planet_automation_designation_construction"
+
+	available = {
+        bca_has_minerals_to_build = yes
+        has_planet_flag = bca_pf_plan_build_secondary_zone_type_foundry
+	}
+
+	prio_zones = {
+		zone_foundry_arcology
+		zone_foundry_ring_world
+		zone_foundry_nexus
+		zone_foundry_hive
+	}
+}
+bca_mix_secondary_zone_build_factory = {
+	category = "planet_automation_designation_construction"
+
+	available = {
+        bca_has_minerals_to_build = yes
+        has_planet_flag = bca_pf_plan_build_secondary_zone_type_factory
+	}
+
+	prio_zones = {
+		zone_factory_arcology
+		zone_factory_ring_world
+		zone_factory_nexus
+		zone_factory_hive
+	}
+}
+bca_mix_secondary_zone_build_research = {
+	category = "planet_automation_designation_construction"
+
+	available = {
+        bca_has_minerals_to_build = yes
+        has_planet_flag = bca_pf_plan_build_secondary_zone_type_research
+	}
+
+	prio_zones = {
+		zone_research
+		zone_habitat_research
+		zone_research_arcology
+		zone_research_ring_world
+		zone_research_nexus
+		zone_research_hive
+	}
+}
+bca_mix_secondary_zone_build_physics = {
+	category = "planet_automation_designation_construction"
+
+	available = {
+        bca_has_minerals_to_build = yes
+        has_planet_flag = bca_pf_plan_build_secondary_zone_type_physics
+	}
+
+	prio_zones = {
+		zone_research_physics
+		zone_minerals_physics
+		zone_research_physics_arcology
+		zone_research_physics_ring_world
+		zone_research_physics_nexus
+		zone_research_physics_hive
+	}
+}
+bca_mix_secondary_zone_build_society = {
+	category = "planet_automation_designation_construction"
+
+	available = {
+        bca_has_minerals_to_build = yes
+        has_planet_flag = bca_pf_plan_build_secondary_zone_type_society
+	}
+
+	prio_zones = {
+		zone_research_society
+		zone_research_society_arcology
+		zone_research_society_ring_world
+		zone_research_society_nexus
+		zone_research_society_hive
+	}
+}
+bca_mix_secondary_zone_build_engineering = {
+	category = "planet_automation_designation_construction"
+
+	available = {
+        bca_has_minerals_to_build = yes
+        has_planet_flag = bca_pf_plan_build_secondary_zone_type_engineering
+	}
+
+	prio_zones = {
+		zone_research_engineering
+		zone_research_engineering_arcology
+		zone_research_engineering_ring_world
+		zone_research_engineering_nexus
+		zone_research_engineering_hive
+	}
+}
+bca_mix_secondary_zone_build_bureaucrat = {
+	category = "planet_automation_designation_construction"
+
+	available = {
+        bca_has_minerals_to_build = yes
+        has_planet_flag = bca_pf_plan_build_secondary_zone_type_bureaucrat
+	}
+
+	prio_zones = {
+		zone_research_unity
+		zone_habitat_research_unity
+	}
+}
+bca_mix_secondary_zone_build_unity = {
+	category = "planet_automation_designation_construction"
+
+	available = {
+        bca_has_minerals_to_build = yes
+        has_planet_flag = bca_pf_plan_build_secondary_zone_type_unity
+	}
+
+	prio_zones = {
+		zone_unity
+		zone_unity_bio_trophy
+		zone_unity_arcology
+		zone_unity_bio_trophy_arcology
+		zone_unity_ring_world
+		zone_unity_bio_trophy_ring_world
+		zone_unity_nexus
+		zone_unity_bio_trophy_nexus
+		zone_unity_hive
+	}
+}
+bca_mix_secondary_zone_build_priest = {
+	category = "planet_automation_designation_construction"
+
+	available = {
+        bca_has_minerals_to_build = yes
+        has_planet_flag = bca_pf_plan_build_secondary_zone_type_priest
+	}
+
+	prio_zones = {
+		zone_unity_spiritualist
+		zone_resort_spiritual_retreat
+		zone_unity_spiritualist_arcology
+		zone_unity_spiritualist_ring_world
+		zone_unity_spiritualist_nexus
+	}
+}
+bca_mix_secondary_zone_build_fortress = {
+	category = "planet_automation_designation_construction"
+
+	available = {
+        bca_has_minerals_to_build = yes
+        has_planet_flag = bca_pf_plan_build_secondary_zone_type_fortress
+	}
+
+	prio_zones = {
+		zone_fortress_arcology
+		zone_fortress_ring_world
+		zone_fortress_nexus
+		zone_fortress_hive
 	}
 }
 bca_mix_secondary_zone_build_zoo = {
@@ -444,18 +566,6 @@ bca_mix_secondary_zone_build_duelist = {
 
 	prio_zones = {
 		zone_resort_proving_grounds
-	}
-}
-bca_mix_primary_zone_build_knight_commander = {
-	category = "planet_automation_designation_construction"
-
-	available = {
-        bca_has_minerals_to_build = yes
-        has_planet_flag = bca_pf_plan_build_primary_zone_type_knight_commander
-	}
-
-	prio_zones = {
-		zone_habitat_knights
 	}
 }
 bca_mix_secondary_zone_build_energy = {
@@ -593,18 +703,6 @@ bca_mix_secondary_zone_build_hydroponics = {
 		zone_habitat_hydroponics
 	}
 }
-bca_mix_primary_zone_build_spawning = {
-	category = "planet_automation_designation_construction"
-
-	available = {
-        bca_has_minerals_to_build = yes
-        has_planet_flag = bca_pf_plan_build_primary_zone_type_spawning
-	}
-
-	prio_zones = {
-		zone_spawning
-	}
-}
 bca_mix_secondary_zone_build_spawning = {
 	category = "planet_automation_designation_construction"
 
@@ -615,102 +713,6 @@ bca_mix_secondary_zone_build_spawning = {
 
 	prio_zones = {
 		zone_spawning_hive
-	}
-}
-bca_mix_primary_zone_build_machine_replication = {
-	category = "planet_automation_designation_construction"
-
-	available = {
-        bca_has_minerals_to_build = yes
-        has_planet_flag = bca_pf_plan_build_primary_zone_type_machine_replication
-	}
-
-	prio_zones = {
-		zone_machine_replication
-	}
-}
-bca_mix_primary_zone_build_wilderness_urban = {
-	category = "planet_automation_designation_construction"
-
-	available = {
-        bca_has_minerals_to_build = yes
-        has_planet_flag = bca_pf_plan_build_primary_zone_type_wilderness_urban
-	}
-
-	prio_zones = {
-		zone_urban_wilderness
-	}
-}
-bca_mix_primary_zone_build_wilderness_foundry = {
-	category = "planet_automation_designation_construction"
-
-	available = {
-        bca_has_minerals_to_build = yes
-        has_planet_flag = bca_pf_plan_build_primary_zone_type_wilderness_foundry
-	}
-
-	prio_zones = {
-		zone_foundry_wilderness
-	}
-}
-bca_mix_primary_zone_build_wilderness_research = {
-	category = "planet_automation_designation_construction"
-
-	available = {
-        bca_has_minerals_to_build = yes
-        has_planet_flag = bca_pf_plan_build_primary_zone_type_wilderness_research
-	}
-
-	prio_zones = {
-		zone_research_wilderness
-	}
-}
-bca_mix_primary_zone_build_wilderness_unity = {
-	category = "planet_automation_designation_construction"
-
-	available = {
-        bca_has_minerals_to_build = yes
-        has_planet_flag = bca_pf_plan_build_primary_zone_type_wilderness_unity
-	}
-
-	prio_zones = {
-		zone_unity_wilderness
-	}
-}
-bca_mix_primary_zone_build_wilderness_spawning = {
-	category = "planet_automation_designation_construction"
-
-	available = {
-        bca_has_minerals_to_build = yes
-        has_planet_flag = bca_pf_plan_build_primary_zone_type_wilderness_spawning
-	}
-
-	prio_zones = {
-		zone_research_unity_wilderness
-	}
-}
-bca_mix_primary_zone_build_wilderness_trade = {
-	category = "planet_automation_designation_construction"
-
-	available = {
-        bca_has_minerals_to_build = yes
-        has_planet_flag = bca_pf_plan_build_primary_zone_type_wilderness_trade
-	}
-
-	prio_zones = {
-		zone_trade_wilderness
-	}
-}
-bca_mix_primary_zone_build_wilderness_fortress = {
-	category = "planet_automation_designation_construction"
-
-	available = {
-        bca_has_minerals_to_build = yes
-        has_planet_flag = bca_pf_plan_build_primary_zone_type_wilderness_fortress
-	}
-
-	prio_zones = {
-		zone_fortress_wilderness
 	}
 }
 bca_mix_secondary_zone_build_wilderness_minerals = {

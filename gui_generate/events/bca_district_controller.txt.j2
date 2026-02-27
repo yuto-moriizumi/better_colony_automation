@@ -40,7 +40,7 @@ country_event = {
                 limit = {
                     check_variable = {
                         which = {{v.var_district_num_plan(zone_slot)}}
-                        value > num_district_{{ district_slot }}
+                        value > value:num_district_{{ district_slot }}
                     }
                 }
                 set_planet_flag = {{ pf.flag_district_plan_build(district_slot) }}

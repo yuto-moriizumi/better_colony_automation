@@ -37,8 +37,19 @@ country_event = {
                             value < value:num_primary_zone_plan_of_type_{{ type }}
                         }
                     }
-                    set_planet_flag = {{ pf.flag_plan_build_primary_zone_type(type) }}
-                    set_planet_flag = bca_plan_build_new_zone
+                    {# avoid primary zones build on secondary districts #}
+                    bca_get_num_free_city_zones = yes
+                    if = {
+                        limit = {
+                            check_variable = {
+                                which = bca_num_free_city_zones
+                                value > 0
+                            }
+                        }
+                        set_planet_flag = {{ pf.flag_plan_build_primary_zone_type(type) }}
+                        set_planet_flag = bca_plan_build_new_zone
+                    }
+                    clear_variable = bca_num_free_city_zones
                 }
                 {% endif %}
             {% endfor %}
@@ -46,10 +57,15 @@ country_event = {
                however if the primary district zone slots are full (primary district zone build first),
                it would be not possible to build in primary district for zones that should be build in secondary districts
                thus no bug #}
+            if = {
+                limit = {
+                    NOT = { has_planet_flag = bca_plan_build_new_zone } {# for reducing computation #}
+                }
             {% for item in zones_info %}
                 {% set type = item.type %}
                 {% if cond.contain_any_zones_of(item.zones, secondary_districts_for_zone)|int %}
-                else_if = {
+                {# the order of primary_zone execute fist, event if has secondary zone order, it will not execute first #}
+                if = { {# avoid blocking #}
                     limit = {
                         check_variable_arithmetic = {
                             which = value:num_secondary_zones_of_type_{{ type }}
@@ -61,7 +77,7 @@ country_event = {
                 }
                 {% endif %}
             {% endfor %}
-
+            }
         }
     }
 }

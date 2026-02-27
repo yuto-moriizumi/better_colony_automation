@@ -10,7 +10,7 @@ https://github.com/StellarWarp/better_colony_automation/blob/master/README_EN.md
 
 反馈与交流：QQ 153870310
 
-快速链接 [Stellar AI 兼容性模组](https://steamcommunity.com/sharedfiles/filedetails/?id=3669715825)
+快速链接 [Stellar AI 兼容性模组](https://steamcommunity.com/sharedfiles/filedetails/?id=3674208064)
 
 ## 快速开始
 
@@ -89,7 +89,7 @@ https://github.com/StellarWarp/better_colony_automation/blob/master/README_EN.md
 
 ### 兼容性 MOD
 
-[Stellar AI 兼容性模组](https://steamcommunity.com/sharedfiles/filedetails/?id=3669715825)
+[Stellar AI 兼容性模组](https://steamcommunity.com/sharedfiles/filedetails/?id=3674208064)
 
 
 ---

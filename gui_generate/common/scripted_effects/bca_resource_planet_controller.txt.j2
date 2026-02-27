@@ -371,6 +371,10 @@ if = {
                 }
                 if = {
                     limit = {
+                        check_variable = {
+                            which = {{ v.var_district_num_plan(zone_slot) }}
+                            value > value:num_district_{{ district_slot }}
+                        }
                         check_variable_arithmetic = {
                             which = value:num_free_district_{{ district_slot }}
                             value > 0
@@ -380,7 +384,29 @@ if = {
                     set_planet_flag = bca_pf_advance_controller_order
                 }
                 else = {
-                    set_planet_flag = {{ pf.flag_district_plan_build('d0') }}
+                    if = {
+                        limit = {
+                            check_variable_arithmetic = {
+                                which = value:bca_num_primary_districts_plan
+                                value > value:num_primary_district
+                            }
+                        }
+                        set_planet_flag = {{ pf.flag_district_plan_build('d0') }}
+                    }
+                    {% for other_zone_slot in ['z3','z4','z5'] %}
+                    {% set other_district_slot = zone_slot_district_slot_mapping[other_zone_slot] %}
+                    {% if other_zone_slot != zone_slot %}
+                    {% endif %}
+                    else_if = {
+                        limit = {
+                            check_variable = {
+                                which = {{v.var_district_num_plan(other_zone_slot)}}
+                                value > value:num_district_{{ other_district_slot }}
+                            }
+                        }
+                        set_planet_flag = {{ pf.flag_district_plan_build(other_district_slot) }}
+                    }
+                    {% endfor %}
                 }
             }
         }

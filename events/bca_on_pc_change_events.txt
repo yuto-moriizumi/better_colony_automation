@@ -1,0 +1,23 @@
+namespace = colony_automation_event
+
+
+planet_event = {
+    id = colony_automation_event.30
+    hide_window = yes
+    is_triggered_only = yes
+
+    trigger = {
+        always = yes
+    }
+
+    immediate = {
+        if = {
+            limit = {
+                bca_has_advance_secondary_districts = yes
+            }
+            remove_planet_flag = bca_pf_can_build_extra_zones_for_storage
+        }
+        remove_planet_flag = bca_pf_district_balanced
+    }
+
+}

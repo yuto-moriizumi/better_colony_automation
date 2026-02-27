@@ -2,7 +2,6 @@ on_game_start = {
 	events = {
 		bca_intro_event.1
 		bca_intro_event.2
-		bca_update_event.1
 		bca_update_event.2
 	}
 }
@@ -11,7 +10,6 @@ on_single_player_save_game_load = {
 	events = {
 		bca_intro_event.1
 		bca_intro_event.2
-		bca_update_event.1
 		bca_update_event.2
 	}
 }

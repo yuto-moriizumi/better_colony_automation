@@ -34,7 +34,7 @@ country_event = {
                 limit = {
                     check_variable = {
                         which = bca_ps_plan_district_count_z3
-                        value > num_district_d1
+                        value > value:num_district_d1
                     }
                 }
                 set_planet_flag = bca_pf_plan_build_district_d1
@@ -43,7 +43,7 @@ country_event = {
                 limit = {
                     check_variable = {
                         which = bca_ps_plan_district_count_z4
-                        value > num_district_d2
+                        value > value:num_district_d2
                     }
                 }
                 set_planet_flag = bca_pf_plan_build_district_d2
@@ -52,7 +52,7 @@ country_event = {
                 limit = {
                     check_variable = {
                         which = bca_ps_plan_district_count_z5
-                        value > num_district_d3
+                        value > value:num_district_d3
                     }
                 }
                 set_planet_flag = bca_pf_plan_build_district_d3

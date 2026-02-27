@@ -23,6 +23,11 @@ bca_mix_primary_zone_build_{{ type }} = {
 	}
 }
 {% endif %}
+{% endfor %}
+
+
+{% for item in zones_info %}
+{% set type = item.type %}
 {% if cond.contain_any_zones_of(item.zones, secondary_districts_for_zone)|int %}
 bca_mix_secondary_zone_build_{{ type }} = {
 	category = "planet_automation_designation_construction"
