@@ -26,13 +26,32 @@ automate_mixed_zone_trade_building = {
 	buildings = {
 	    0 = {
             building = building_fe_market_1
+			available = {
+				OR = {
+					really_requires_more_job = no
+					free_district_slots = 0
+				}
+			}
 	    }
 	    1 = {
             building = building_galactic_stock_exchange
+			available = {
+				OR = {
+					really_requires_more_job = no
+					free_district_slots = 0
+				}
+			}
 	    }
 	    2 = {
             building = building_commercial_megaplex
+			available = {
+				OR = {
+					really_requires_more_job = no
+					free_district_slots = 0
+				}
+			}
 	    }
+
 
         3 = {
             building = building_commercial_zone
@@ -44,6 +63,7 @@ automate_mixed_zone_trade_building = {
 
 	}
 }
+
 
 
 
@@ -66,34 +86,52 @@ automate_mixed_zone_industrial_building = {
 	buildings = {
 	    0 = {
             building = building_ministry_production
+			available = {
+				OR = {
+					really_requires_more_job = no
+					free_district_slots = 0
+				}
+			}
 	    }
 	    1 = {
             building = building_production_center
+			available = {
+				OR = {
+					really_requires_more_job = no
+					free_district_slots = 0
+				}
+			}
 	    }
 	    2 = {
             building = building_foundry_efficiency_1
+			available = {
+				OR = {
+					really_requires_more_job = no
+					free_district_slots = 0
+				}
+			}
 	    }
 	    3 = {
             building = building_factory_efficiency_1
+			available = {
+				OR = {
+					really_requires_more_job = no
+					free_district_slots = 0
+				}
+			}
 	    }
 
-        4 = {
+	    4 = {
             building = building_micro_forge
-            available = {
-                requires_more_job = yes
-                free_district_slots = 0
-            }
-        }
-        5 = {
+	    }
+	    5 = {
             building = building_affluence_emporium
-            available = {
-                requires_more_job = yes
-                free_district_slots = 0
-            }
-        }
+	    }
+
 
 	}
 }
+
 
 
 
@@ -116,21 +154,36 @@ automate_mixed_zone_foundry_building = {
 	buildings = {
 	    0 = {
             building = building_ministry_production
+			available = {
+				OR = {
+					really_requires_more_job = no
+					free_district_slots = 0
+				}
+			}
 	    }
 	    1 = {
             building = building_production_center
+			available = {
+				OR = {
+					really_requires_more_job = no
+					free_district_slots = 0
+				}
+			}
 	    }
 	    2 = {
             building = building_foundry_efficiency_1
+			available = {
+				OR = {
+					really_requires_more_job = no
+					free_district_slots = 0
+				}
+			}
 	    }
 
-        3 = {
+	    3 = {
             building = building_micro_forge
-            available = {
-                requires_more_job = yes
-                free_district_slots = 0
-            }
-        }
+	    }
+
         4 = {
             building = building_foundry_1
             available = {
@@ -141,6 +194,7 @@ automate_mixed_zone_foundry_building = {
 
 	}
 }
+
 
 
 
@@ -163,21 +217,36 @@ automate_mixed_zone_factory_building = {
 	buildings = {
 	    0 = {
             building = building_ministry_production
+			available = {
+				OR = {
+					really_requires_more_job = no
+					free_district_slots = 0
+				}
+			}
 	    }
 	    1 = {
             building = building_production_center
+			available = {
+				OR = {
+					really_requires_more_job = no
+					free_district_slots = 0
+				}
+			}
 	    }
 	    2 = {
             building = building_factory_efficiency_1
+			available = {
+				OR = {
+					really_requires_more_job = no
+					free_district_slots = 0
+				}
+			}
 	    }
 
-        3 = {
+	    3 = {
             building = building_affluence_emporium
-            available = {
-                requires_more_job = yes
-                free_district_slots = 0
-            }
-        }
+	    }
+
         4 = {
             building = building_factory_1
             available = {
@@ -188,6 +257,7 @@ automate_mixed_zone_factory_building = {
 
 	}
 }
+
 
 
 
@@ -225,36 +295,63 @@ automate_mixed_zone_research_building = {
 	buildings = {
 	    0 = {
             building = building_vultaum_reality_computer
+			available = {
+				OR = {
+					really_requires_more_job = no
+					free_district_slots = 0
+				}
+			}
 	    }
 	    1 = {
             building = building_institute
+			available = {
+				OR = {
+					really_requires_more_job = no
+					free_district_slots = 0
+				}
+			}
 	    }
 	    2 = {
             building = building_supercomputer
+			available = {
+				OR = {
+					really_requires_more_job = no
+					free_district_slots = 0
+				}
+			}
 	    }
 	    3 = {
             building = building_archaeostudies_faculty
+			available = {
+				OR = {
+					really_requires_more_job = no
+					free_district_slots = 0
+				}
+			}
 	    }
 	    4 = {
             building = building_research_efficiency_1
+			available = {
+				OR = {
+					really_requires_more_job = no
+					free_district_slots = 0
+				}
+			}
 	    }
+
 	    5 = {
-            building = building_engineering_facility_1
+            building = building_fe_lab_1
 	    }
 	    6 = {
-            building = building_physics_lab_1
+            building = building_engineering_facility_1
 	    }
 	    7 = {
+            building = building_physics_lab_1
+	    }
+	    8 = {
             building = building_biolab_1
 	    }
 
-        8 = {
-            building = building_fe_lab_1
-            available = {
-                requires_more_job = yes
-                free_district_slots = 0
-            }
-        }
         9 = {
             building = building_research_lab_1
             available = {
@@ -265,6 +362,7 @@ automate_mixed_zone_research_building = {
 
 	}
 }
+
 
 
 
@@ -297,31 +395,86 @@ automate_mixed_zone_unity_building = {
 	buildings = {
 	    0 = {
             building = building_autochthon_monument
+			available = {
+				OR = {
+					really_requires_more_job = no
+					free_district_slots = 0
+				}
+			}
 	    }
 	    1 = {
             building = building_corporate_monument
+			available = {
+				OR = {
+					really_requires_more_job = no
+					free_district_slots = 0
+				}
+			}
 	    }
 	    2 = {
             building = building_simulation_1
+			available = {
+				OR = {
+					really_requires_more_job = no
+					free_district_slots = 0
+				}
+			}
 	    }
 	    3 = {
             building = building_sensorium_1
+			available = {
+				OR = {
+					really_requires_more_job = no
+					free_district_slots = 0
+				}
+			}
 	    }
 	    4 = {
             building = building_galactic_memorial_1
+			available = {
+				OR = {
+					really_requires_more_job = no
+					free_district_slots = 0
+				}
+			}
 	    }
 	    5 = {
             building = building_autocurating_vault
+			available = {
+				OR = {
+					really_requires_more_job = no
+					free_district_slots = 0
+				}
+			}
 	    }
 	    6 = {
             building = building_citadel_of_faith
+			available = {
+				OR = {
+					really_requires_more_job = no
+					free_district_slots = 0
+				}
+			}
 	    }
 	    7 = {
             building = building_corporate_vault
+			available = {
+				OR = {
+					really_requires_more_job = no
+					free_district_slots = 0
+				}
+			}
 	    }
 	    8 = {
             building = building_alpha_hub
+			available = {
+				OR = {
+					really_requires_more_job = no
+					free_district_slots = 0
+				}
+			}
 	    }
+
 
         9 = {
             building = building_bureaucratic_1
@@ -371,6 +524,7 @@ automate_mixed_zone_unity_building = {
 
 
 
+
 automate_mixed_zone_fortress_building = {
 	category = "planet_automation_designation_construction"
 
@@ -390,13 +544,32 @@ automate_mixed_zone_fortress_building = {
 	buildings = {
 	    0 = {
             building = building_dread_encampment
+			available = {
+				OR = {
+					really_requires_more_job = no
+					free_district_slots = 0
+				}
+			}
 	    }
 	    1 = {
             building = building_military_academy
+			available = {
+				OR = {
+					really_requires_more_job = no
+					free_district_slots = 0
+				}
+			}
 	    }
 	    2 = {
             building = building_planetary_shield_generator
+			available = {
+				OR = {
+					really_requires_more_job = no
+					free_district_slots = 0
+				}
+			}
 	    }
+
 
         3 = {
             building = building_fe_fortress
@@ -415,6 +588,7 @@ automate_mixed_zone_fortress_building = {
 
 	}
 }
+
 
 
 
@@ -458,11 +632,19 @@ automate_mixed_zone_energy_building = {
 	buildings = {
 	    0 = {
             building = building_energy_grid
+			available = {
+				OR = {
+					really_requires_more_job = no
+					free_district_slots = 0
+				}
+			}
 	    }
+
 
 
 	}
 }
+
 automate_mixed_zone_energy_building_job_low_priority = {
 	category = "planet_automation_designation_construction"
 
@@ -577,11 +759,19 @@ automate_mixed_zone_minerals_building = {
 	buildings = {
 	    0 = {
             building = building_mineral_purification_plant
+			available = {
+				OR = {
+					really_requires_more_job = no
+					free_district_slots = 0
+				}
+			}
 	    }
+
 
 
 	}
 }
+
 automate_mixed_zone_minerals_building_job_low_priority = {
 	category = "planet_automation_designation_construction"
 
@@ -666,11 +856,19 @@ automate_mixed_zone_food_building = {
 	buildings = {
 	    0 = {
             building = building_food_processing_facility
+			available = {
+				OR = {
+					really_requires_more_job = no
+					free_district_slots = 0
+				}
+			}
 	    }
+
 
 
 	}
 }
+
 automate_mixed_zone_food_building_job_low_priority = {
 	category = "planet_automation_designation_construction"
 

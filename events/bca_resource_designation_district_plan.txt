@@ -1,92 +1,83 @@
 namespace = colony_automation_event
 
-country_event = {
+planet_event = {
 	id = colony_automation_event.10
 	hide_window = yes
 	is_triggered_only = yes
 
-	trigger = {
-		is_ai = no
-		bca_has_minerals_to_build = yes
-	}
-
 	immediate = {
-		every_owned_planet = {
+		remove_planet_flag = bca_pf_advance_controller_order
+
+		bca_resource_planet_controller_district_only = yes
+
+		if = {
 			limit = {
-				has_building_construction = no
+				free_district_slots = 0 #replace district
+				NOR = {
+					has_planet_flag = bca_pf_disable_planet_auto_destruction_district
+				}
+				bca_auto_district_manage_enabled = yes
 			}
-			remove_planet_flag = bca_pf_advance_controller_order
-
-			bca_resource_planet_controller_district_only = yes
-
-			if = {
+			if = { #check by year
 				limit = {
-					free_district_slots = 0 #replace district
-					NOR = {
-						has_planet_flag = bca_pf_disable_planet_auto_destruction_district
-					}
-					bca_auto_district_manage_enabled = yes
+					has_planet_flag = bca_pf_district_balanced
 				}
-				if = { #check by year
+				add_variable = {
+					which = bca_district_balanced_test_counter
+					value = 1
+				}
+				if = {
 					limit = {
-						has_planet_flag = bca_pf_district_balanced
-					}
-					add_variable = {
-						which = bca_district_balanced_test_counter
-						value = 1
-					}
-					if = {
-						limit = {
-							check_variable = {
-								which = bca_district_balanced_test_counter
-								value >= 12
-							}
-						}
-						# bca_test_primary_and_secondary_district_bidirectional_replace = yes
-						bca_resource_district_replace_controller = yes
-						set_variable = {
+						check_variable = {
 							which = bca_district_balanced_test_counter
-							value = 0
+							value >= 12
 						}
 					}
-				}
-				else = { #check by month
-					if = {
-						limit = {
-							NOT = { has_planet_flag = bca_pf_has_district_remove_plan }
-						}
-						set_planet_flag = bca_pf_previous_has_district_remove_plan_clear
-					}
-
 					# bca_test_primary_and_secondary_district_bidirectional_replace = yes
 					bca_resource_district_replace_controller = yes
-
-					if = {
-						limit = {
-							has_planet_flag = bca_pf_previous_has_district_remove_plan_clear
-							NOT = { has_planet_flag = bca_pf_has_district_remove_plan }
-						}
-						set_planet_flag = bca_pf_district_balanced
+					set_variable = {
+						which = bca_district_balanced_test_counter
+						value = 0
 					}
-					remove_planet_flag = bca_pf_previous_has_district_remove_plan_clear
 				}
 			}
-			else = {
-				remove_planet_flag = bca_pf_district_balanced
-				clear_variable = bca_district_balanced_test_counter
+			else = { #check by month
+				if = {
+					limit = {
+						NOT = { has_planet_flag = bca_pf_has_district_remove_plan }
+					}
+					set_planet_flag = bca_pf_previous_has_district_remove_plan_clear
+				}
 
+				# bca_test_primary_and_secondary_district_bidirectional_replace = yes
+				bca_resource_district_replace_controller = yes
+
+				if = {
+					limit = {
+						has_planet_flag = bca_pf_previous_has_district_remove_plan_clear
+						NOT = { has_planet_flag = bca_pf_has_district_remove_plan }
+					}
+					set_planet_flag = bca_pf_district_balanced
+				}
+				remove_planet_flag = bca_pf_previous_has_district_remove_plan_clear
 			}
-
-
-			# if = {
-			# 	limit = {
-			# 		NOT = {
-			# 			has_planet_flag = bca_pf_fully_constructed
-			# 		}
-			# 	}
-			# 	bca_resource_planet_controller = yes
-			# }
 		}
+		else = {
+			remove_planet_flag = bca_pf_district_balanced
+			clear_variable = bca_district_balanced_test_counter
+
+		}
+
+
+		# if = {
+		# 	limit = {
+		# 		NOT = {
+		# 			has_planet_flag = bca_pf_fully_constructed
+		# 		}
+		# 	}
+		# 	bca_resource_planet_controller = yes
+		# }
+
 	}
 }
 

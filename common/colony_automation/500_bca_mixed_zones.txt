@@ -60,93 +60,6 @@ bca_mix_primary_zone_build_factory = {
 		zone_factory
 	}
 }
-bca_mix_primary_zone_build_research = {
-	category = "planet_automation_designation_construction"
-
-	available = {
-        bca_has_minerals_to_build = yes
-        has_planet_flag = bca_pf_plan_build_primary_zone_type_research
-	}
-
-	prio_zones = {
-		zone_research
-		zone_central_spire
-	}
-}
-bca_mix_primary_zone_build_physics = {
-	category = "planet_automation_designation_construction"
-
-	available = {
-        bca_has_minerals_to_build = yes
-        has_planet_flag = bca_pf_plan_build_primary_zone_type_physics
-	}
-
-	prio_zones = {
-		zone_research_physics
-	}
-}
-bca_mix_primary_zone_build_society = {
-	category = "planet_automation_designation_construction"
-
-	available = {
-        bca_has_minerals_to_build = yes
-        has_planet_flag = bca_pf_plan_build_primary_zone_type_society
-	}
-
-	prio_zones = {
-		zone_research_society
-	}
-}
-bca_mix_primary_zone_build_engineering = {
-	category = "planet_automation_designation_construction"
-
-	available = {
-        bca_has_minerals_to_build = yes
-        has_planet_flag = bca_pf_plan_build_primary_zone_type_engineering
-	}
-
-	prio_zones = {
-		zone_research_engineering
-	}
-}
-bca_mix_primary_zone_build_bureaucrat = {
-	category = "planet_automation_designation_construction"
-
-	available = {
-        bca_has_minerals_to_build = yes
-        has_planet_flag = bca_pf_plan_build_primary_zone_type_bureaucrat
-	}
-
-	prio_zones = {
-		zone_research_unity
-		zone_habitat_research_unity
-	}
-}
-bca_mix_primary_zone_build_unity = {
-	category = "planet_automation_designation_construction"
-
-	available = {
-        bca_has_minerals_to_build = yes
-        has_planet_flag = bca_pf_plan_build_primary_zone_type_unity
-	}
-
-	prio_zones = {
-		zone_unity
-		zone_unity_bio_trophy
-	}
-}
-bca_mix_primary_zone_build_priest = {
-	category = "planet_automation_designation_construction"
-
-	available = {
-        bca_has_minerals_to_build = yes
-        has_planet_flag = bca_pf_plan_build_primary_zone_type_priest
-	}
-
-	prio_zones = {
-		zone_unity_spiritualist
-	}
-}
 bca_mix_primary_zone_build_fortress = {
 	category = "planet_automation_designation_construction"
 
@@ -301,6 +214,94 @@ bca_mix_primary_zone_build_wilderness_fortress = {
 
 	prio_zones = {
 		zone_fortress_wilderness
+	}
+}
+
+bca_mix_primary_zone_build_research = {
+	category = "planet_automation_designation_construction"
+
+	available = {
+        bca_has_minerals_to_build = yes
+        has_planet_flag = bca_pf_plan_build_primary_zone_type_research
+	}
+
+	prio_zones = {
+		zone_research
+		zone_central_spire
+	}
+}
+bca_mix_primary_zone_build_physics = {
+	category = "planet_automation_designation_construction"
+
+	available = {
+        bca_has_minerals_to_build = yes
+        has_planet_flag = bca_pf_plan_build_primary_zone_type_physics
+	}
+
+	prio_zones = {
+		zone_research_physics
+	}
+}
+bca_mix_primary_zone_build_society = {
+	category = "planet_automation_designation_construction"
+
+	available = {
+        bca_has_minerals_to_build = yes
+        has_planet_flag = bca_pf_plan_build_primary_zone_type_society
+	}
+
+	prio_zones = {
+		zone_research_society
+	}
+}
+bca_mix_primary_zone_build_engineering = {
+	category = "planet_automation_designation_construction"
+
+	available = {
+        bca_has_minerals_to_build = yes
+        has_planet_flag = bca_pf_plan_build_primary_zone_type_engineering
+	}
+
+	prio_zones = {
+		zone_research_engineering
+	}
+}
+bca_mix_primary_zone_build_bureaucrat = {
+	category = "planet_automation_designation_construction"
+
+	available = {
+        bca_has_minerals_to_build = yes
+        has_planet_flag = bca_pf_plan_build_primary_zone_type_bureaucrat
+	}
+
+	prio_zones = {
+		zone_research_unity
+		zone_habitat_research_unity
+	}
+}
+bca_mix_primary_zone_build_unity = {
+	category = "planet_automation_designation_construction"
+
+	available = {
+        bca_has_minerals_to_build = yes
+        has_planet_flag = bca_pf_plan_build_primary_zone_type_unity
+	}
+
+	prio_zones = {
+		zone_unity
+		zone_unity_bio_trophy
+	}
+}
+bca_mix_primary_zone_build_priest = {
+	category = "planet_automation_designation_construction"
+
+	available = {
+        bca_has_minerals_to_build = yes
+        has_planet_flag = bca_pf_plan_build_primary_zone_type_priest
+	}
+
+	prio_zones = {
+		zone_unity_spiritualist
 	}
 }
 

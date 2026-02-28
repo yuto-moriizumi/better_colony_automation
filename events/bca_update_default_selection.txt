@@ -1,24 +1,25 @@
 namespace = colony_automation_event
 
 # check to initialize colony automation for all planets
-country_event = {
+event = {
 	id = colony_automation_event.25
 	hide_window = yes
 	is_triggered_only = yes
 
-	trigger = {
-		is_ai = no
-	}
-
 	immediate = {
-		every_owned_planet = {
-			limit = {
-			    is_colony = yes
-				NOT = {
-				    has_planet_flag = bca_pf_ps_initialized
-               }
-			}
-			planet_event = { id = colony_automation_event.26 }
+        every_country = {
+            limit = {
+                is_ai = no
+            }
+            every_owned_planet = {
+                limit = {
+                    is_colony = yes
+                    NOT = {
+                        has_planet_flag = bca_pf_ps_initialized
+                   }
+                }
+                planet_event = { id = colony_automation_event.26 }
+            }
         }
     }
 }

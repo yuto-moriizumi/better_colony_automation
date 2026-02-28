@@ -13,86 +13,80 @@ planet_event = {
 	}
 }
 
-country_event = {
+planet_event = {
 	id = colony_automation_event.101
 	hide_window = yes
 	is_triggered_only = yes
 
 	trigger = {
-		is_ai = no
+		has_modifier = bca_pm_arcology_project_candidate
 	}
 
 	immediate = {
-		# 遍历该国家拥有的所有星球
-		every_owned_planet = {
+		# check if it no longer meets the criteria for being an arcology project candidate
+		if = {
 			limit = {
-				has_modifier = bca_pm_arcology_project_candidate
-				has_building_construction = no
-			}
-			# check if it no longer meets the criteria for being an arcology project candidate
-			if = {
-				limit = {
-					NOR = {
-						AND = {
-							NOR = {
-								is_planet_class = pc_city
-								is_planet_class = pc_relic
-								has_modifier = resort_colony
-								has_modifier = penal_colony
-								has_modifier = slave_colony
-								has_modifier = pm_wenkwort_custodian
-								has_designation = col_nanotech_world
-							}
-							exists = owner
-							owner = { has_ascension_perk = ap_arcology_project }
-						}
-						AND = {
+				NOR = {
+					AND = {
+						NOR = {
+							is_planet_class = pc_city
 							is_planet_class = pc_relic
-							exists = owner
-							owner = {
-								OR = {
-									is_regular_empire = yes
-									has_valid_civic = civic_machine_servitor
-								}
+							has_modifier = resort_colony
+							has_modifier = penal_colony
+							has_modifier = slave_colony
+							has_modifier = pm_wenkwort_custodian
+							has_designation = col_nanotech_world
+						}
+						exists = owner
+						owner = { has_ascension_perk = ap_arcology_project }
+					}
+					AND = {
+						is_planet_class = pc_relic
+						exists = owner
+						owner = {
+							OR = {
+								is_regular_empire = yes
+								has_valid_civic = civic_machine_servitor
 							}
 						}
 					}
 				}
-				planet_event = { id=colony_automation_event.100 }
 			}
-			# city_world_candidate
-			else_if = {
-				limit = {
-					bca_has_resource_for_arcology_project = yes
-					OR = {
-						AND = {
-							free_district_slots < 1
-							num_uncleared_blockers < 1
-							num_districts = { type = district_farming value < 1 }
-							num_districts = { type = district_mining value < 1 }
-							num_districts = { type = district_generator value < 1 }
-							# Volcanic Worlds
-							num_districts = { type = district_geothermal value < 1 }
-							num_districts = { type = district_melting value < 1 }
-							num_districts = { type = district_polytechnic value < 1 }
+			planet_event = { id=colony_automation_event.100 }
+		}
+		# city_world_candidate
+		else_if = {
+			limit = {
+				bca_has_resource_for_arcology_project = yes
+				OR = {
+					AND = {
+						free_district_slots < 1
+						num_uncleared_blockers < 1
+						num_districts = { type = district_farming value < 1 }
+						num_districts = { type = district_mining value < 1 }
+						num_districts = { type = district_generator value < 1 }
+						# Volcanic Worlds
+						num_districts = { type = district_geothermal value < 1 }
+						num_districts = { type = district_melting value < 1 }
+						num_districts = { type = district_polytechnic value < 1 }
 
-							NOT = { has_planet_flag = legendary_leader_planet }
-						}
-						AND = {
-							is_planet_class = pc_relic
-							is_artificial = no
-							exists = owner
-							num_uncleared_blockers < 1
-							owner = { has_technology = tech_housing_2 }
-						}
+						NOT = { has_planet_flag = legendary_leader_planet }
+					}
+					AND = {
+						is_planet_class = pc_relic
+						is_artificial = no
+						exists = owner
+						num_uncleared_blockers < 1
+						owner = { has_technology = tech_housing_2 }
 					}
 				}
-				remove_modifier = bca_pm_arcology_project_candidate
-				planet_event = { id = colony_automation_event.102 }
-
 			}
+			remove_modifier = bca_pm_arcology_project_candidate
+			planet_event = { id = colony_automation_event.102 }
+
 		}
 	}
+
 }
 
 # 理想城建造询问事件

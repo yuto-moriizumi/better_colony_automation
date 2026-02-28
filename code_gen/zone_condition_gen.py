@@ -348,6 +348,12 @@ zone_district_mapping_multi = {zone: districts for zone, districts in zone_distr
 with open("./primary_districts_for_zone.yaml", "w", encoding="utf-8") as f:
     yaml.dump({"primary_districts_for_zone": zone_district_mapping_multi}, f, allow_unicode=True)
 
+# overlapping_zone of zone_district_mapping_single and zone_district_mapping_multi
+overlapping_zone = set(zone_district_mapping_single.keys()) & set(zone_district_mapping_multi.keys())
+with open("./overlapping_zones.yaml", "w", encoding="utf-8") as f:
+    yaml.dump({"overlapping_zones": list(overlapping_zone)}, f, allow_unicode=True)
+
+
 zone_icon_list = []
 for name, zone in ast['common/zones'].items():
     icon = None

@@ -4,69 +4,65 @@ mixed_zone_buildings:
    - types:
         - trade
         - urban
-     job_need_priority:
-        - building_commercial_zone
-     always:
+     efficiency:
         - building_fe_market_1
         - building_galactic_stock_exchange
         - building_commercial_megaplex
+     job_only:
+        - building_commercial_zone
    - types:
         - industrial
-     job_need_priority:
-       - building_micro_forge
-       - building_affluence_emporium
-     always:
+     efficiency:
         - building_ministry_production
         - building_production_center
         - building_foundry_efficiency_1
         - building_factory_efficiency_1
-   - types:
-         - foundry
-     job_need_priority:
-        - building_micro_forge
-        - building_foundry_1
      always:
+        - building_micro_forge
+        - building_affluence_emporium
+   - types:
+        - foundry
+     efficiency:
         - building_ministry_production
         - building_production_center
         - building_foundry_efficiency_1
+     always:
+        - building_micro_forge
+     job_only:
+        - building_foundry_1
    - types:
         - factory
-     job_need_priority:
-        - building_affluence_emporium
-        - building_factory_1
-     always:
+     efficiency:
         - building_ministry_production
         - building_production_center
         - building_factory_efficiency_1
+     always:
+        - building_affluence_emporium
+     job_only:
+        - building_factory_1
    - types:
         - research
         - physics
         - society
         - engineering
-     job_need_priority:
-        - building_fe_lab_1
-        - building_research_lab_1
-     always:
+     efficiency:
         - building_vultaum_reality_computer
         - building_institute
         - building_supercomputer
         - building_archaeostudies_faculty
         - building_research_efficiency_1
+     always:
+        - building_fe_lab_1
         - building_engineering_facility_1
         - building_physics_lab_1
         - building_biolab_1
+     job_only:
+        - building_research_lab_1
    - types:
         - unity
         - bureaucrat
         - priest
-     job_need_priority:
-        - building_bureaucratic_1
-        - building_temple
-        - building_sacrificial_temple_1
-        - building_uplink_node
-        - building_hive_node
-        - building_organic_sanctuary
-     always:
+     efficiency:
         - building_autochthon_monument
         - building_corporate_monument
         - building_simulation_1
@@ -76,15 +72,22 @@ mixed_zone_buildings:
         - building_citadel_of_faith
         - building_corporate_vault
         - building_alpha_hub
+     job_only:
+        - building_bureaucratic_1
+        - building_temple
+        - building_sacrificial_temple_1
+        - building_uplink_node
+        - building_hive_node
+        - building_organic_sanctuary
    - types:
         - fortress
-     job_need_priority:
-        - building_fe_fortress
-        - building_stronghold
-     always:
+     efficiency:
         - building_dread_encampment
         - building_military_academy
         - building_planetary_shield_generator
+     job_only:
+        - building_fe_fortress
+        - building_stronghold
 
 #   - types:
 #
@@ -108,21 +111,21 @@ mixed_zone_buildings:
 #   sawning:
    - types:
        -  wilderness_foundry
-     job_need_priority:
+     job_only:
         - building_cradle_of_rebirth:
            planet_limit: 1
         - building_natural_furnace_1
         - building_cradle_of_rebirth
    - types:
        -  wilderness_research
-     job_need_priority:
+     job_only:
         - building_cradle_of_rebirth:
            planet_limit: 1
         - building_brain_node_1
         - building_cradle_of_rebirth
    - types:
        - wilderness_unity
-     job_need_priority:
+     job_only:
         - building_cradle_of_rebirth:
            planet_limit: 1
         - building_commensal_clearing_1
@@ -131,7 +134,7 @@ mixed_zone_buildings:
 #        - wilderness_spawning:
    - types:
         - wilderness_trade
-     job_need_priority:
+     job_only:
         - building_cradle_of_rebirth:
              planet_limit: 1
         - building_tendril_cradle_1
@@ -139,28 +142,28 @@ mixed_zone_buildings:
         - building_cradle_of_rebirth
    - types:
         - wilderness_fortress
-     job_need_priority:
+     job_only:
         - building_cradle_of_rebirth:
            planet_limit: 1
         - building_planetary_carapace
         - building_cradle_of_rebirth
    - types:
         - wilderness_minerals
-     job_need_priority:
+     job_only:
         - building_cradle_of_rebirth:
            planet_limit: 1
         - building_churning_tunnels_1
         - building_cradle_of_rebirth
    - types:
         - wilderness_energy
-     job_need_priority:
+     job_only:
         - building_cradle_of_rebirth:
            planet_limit: 1
         - building_bioelectric_stimulator_1
         - building_cradle_of_rebirth
    - types:
         - wilderness_food
-     job_need_priority:
+     job_only:
         - building_cradle_of_rebirth:
            planet_limit: 1
         - building_massive_growth_1
@@ -170,25 +173,25 @@ mixed_zone_buildings:
         - energy
         - hydroponics
      job_building_available_for_at_least_one_zone: true
-     job_need_priority:
+     job_only:
         - building_class_3_singularity
         - building_generator_generic
-     always:
+     efficiency:
         - building_energy_grid
    - types:
         - minerals
      job_building_available_for_at_least_one_zone: true
-     job_need_priority:
+     job_only:
         - building_fe_mine_1
         - building_mine_generic
-     always:
+     efficiency:
         - building_mineral_purification_plant
    - types:
         - food
         - agrarian
      job_building_available_for_at_least_one_zone: true
-     job_need_priority:
+     job_only:
         - building_nourishment_complex
         - building_hydroponics_farm
-     always:
+     efficiency:
         - building_food_processing_facility

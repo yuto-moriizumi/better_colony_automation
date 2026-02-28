@@ -6,57 +6,35 @@ bca_can_remove_building = {
 
 
 bca_can_remove_building_reasearch = {
-	bca_can_remove_building = yes
-	free_building_slots = 0
 	has_any_research_designation = no
 }
 
 bca_can_remove_building_factory = {
-	AND = {
-		bca_can_remove_building = yes
-		free_building_slots = 0
-		has_any_factory_designation = no
-	}
+	has_any_factory_designation = no
 }
 
 bca_can_remove_building_foundry = {
-	AND = {
-		bca_can_remove_building = yes
-		free_building_slots = 0
-		has_any_foundry_designation = no
-	}
+	has_any_foundry_designation = no
 }
 
 bca_can_remove_building_industry = {
-	AND = {
-		bca_can_remove_building = yes
-		free_building_slots = 0
-		has_any_industrial_designation = no
-	}
+	has_any_industrial_designation = no
 }
 
 bca_can_remove_building_trade = {
-	AND = {
-		bca_can_remove_building = yes
-		free_building_slots = 0
-		bca_has_any_trade_designation = no
-	}
+	bca_has_any_trade_designation = no
 }
 
 bca_can_remove_building_fortress = {
-	AND = {
-		bca_can_remove_building = yes
-		free_building_slots = 0
-		has_any_fortress_designation = no
-	}
+	has_any_fortress_designation = no
 }
 
 bca_can_remove_building_unity = {
-	AND = {
-		bca_can_remove_building = yes
-		free_building_slots = 0
-		has_any_unity_designation = no
-	}
+	has_any_unity_designation = no
+}
+
+bca_can_remove_building_resource = {
+	has_any_resource_designation = no
 }
 
 bca_can_remove_pop_assemble = {
@@ -73,4 +51,120 @@ bca_can_remove_pop_assemble = {
 bca_can_build_pop_assemble = {
 	free_jobs > 0
 	free_building_slots > 1
+}
+
+bca_unique_building_potential = {
+	bca_can_build_$building1$ = yes
+	NOR = {
+		has_building = $building1$
+		[[building2] has_building = $building2$ ]
+		[[building3] has_building = $building3$ ]
+		[[building4] has_building = $building4$ ]
+	}
+}
+
+bca_advanced_research_building_replace = {
+	OR = {
+		AND = {
+			has_any_research_designation = yes
+			bca_unique_building_potential = {
+				building1 = building_fe_lab_1
+				building2 = building_fe_lab_2
+			}
+		}
+		AND = {
+			has_research_designation = yes
+			OR = {
+				bca_unique_building_potential = { building1 =  building_institute }
+				bca_unique_building_potential = { building1 =  building_supercomputer }
+				bca_unique_building_potential = { building1 =  building_vultaum_reality_computer }
+				bca_unique_building_potential = { building1 =  building_research_upkeep_1 }
+				bca_unique_building_potential = { building1 =  building_research_efficiency_1 }
+				bca_unique_building_potential = {
+					building1 = building_physics_lab_1
+					building2 = building_physics_lab_2
+					building3 = building_physics_lab_3
+				}
+				bca_unique_building_potential = {
+					building1 = building_biolab_1
+					building2 = building_biolab_2
+					building3 = building_biolab_3
+				}
+				bca_unique_building_potential = {
+					building1 = building_engineering_facility_1
+					building2 = building_engineering_facility_2
+					building3 = building_engineering_facility_3
+				}
+			}
+		}
+	}
+}
+
+bca_advanced_factory_building_replace = {
+	OR = {
+		AND = {
+			has_any_factory_designation = yes
+			bca_unique_building_potential = {
+				building1 = building_affluence_emporium
+				building2 = building_affluence_center
+			}
+		}
+		AND = {
+			OR = {
+				has_factory_designation = yes
+				has_industrial_designation = yes
+			}
+			OR = {
+				bca_unique_building_potential = { building1 =  building_ministry_production }
+				bca_unique_building_potential = { building1 =  building_production_center }
+				bca_unique_building_potential = { building1 =  building_factory_upkeep_1 }
+				bca_unique_building_potential = { building1 =  building_factory_efficiency_1 }
+			}
+		}
+	}
+}
+
+bca_advanced_foundry_building_replace = {
+	OR = {
+		AND = {
+			has_any_foundry_designation = yes
+			bca_unique_building_potential = {
+				building1 = building_micro_forge
+				building2 = building_nano_forge
+			}
+		}
+		AND = {
+			OR = {
+				has_foundry_designation = yes
+				has_industrial_designation = yes
+			}
+			OR = {
+				bca_unique_building_potential = { building1 =  building_ministry_production }
+				bca_unique_building_potential = { building1 =  building_production_center }
+				bca_unique_building_potential = { building1 =  building_foundry_upkeep_1 }
+				bca_unique_building_potential = { building1 =  building_foundry_efficiency_1 }
+			}
+		}
+	}
+}
+
+bca_advanced_trade_building_replace = {
+	OR = {
+		AND = {
+			bca_has_any_trade_designation = yes
+			bca_unique_building_potential = {
+				building1 = building_fe_market_1
+				building2 = building_fe_market_2
+			}
+		}
+		AND = {
+			OR = {
+				has_trade_designation = yes
+			}
+			OR = {
+				bca_unique_building_potential = { building1 =  building_galactic_stock_exchange }
+				bca_unique_building_potential = { building1 =  building_commercial_megaplex }
+			}
+		}
+	}
 }

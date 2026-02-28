@@ -4,6 +4,7 @@ automate_silo_building_autobuild = {
     emergency = yes
 	available = {
 		bca_has_minerals_to_build = yes
+		really_requires_more_job = no
 		NOT = { has_planet_flag = bca_pf_advance_controller_order }
 	}
 	

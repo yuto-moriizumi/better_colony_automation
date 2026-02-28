@@ -11,7 +11,10 @@ automate_slave_planet = {
 		1 = {
 			building = building_mineral_purification_plant
 			available = {
-				always = yes
+				OR = {
+					really_requires_more_job = no
+					free_district_slots = 0
+				}
 			}
 		}
 

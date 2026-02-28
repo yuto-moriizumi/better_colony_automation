@@ -1,14 +1,15 @@
 ﻿l_simp_chinese:
  MESSAGE_BCA_STARTUP: "Better Colony Automation 通知"
- MESSAGE_BCA_STARTUP_desc: "§YBetter Colony Automation§! by 哇噗 & 红尘渡者\n\n本模组对自动托管功能进行了修复与改良。你可以通过['concept_colony']上的['concept_planet_automation']设置以及行星['concept_decision']与国家['concept_policies']来配置模组的具体行为。\n\n§H主要功能：§!\n- §Y智能规划：§! 根据星球特化方向自动规划和建造区块。最大化目标产出\n- §Y自动拆除：§! 必要时自动拆除不需要的 £building£ ['concept_buildings']、£district£ ['concept_district'] 与 £zone£ ['concept_district_specialization']\n- §Y更多§!：访问创意工坊以查看详情。\n\n§H注意§! ：§Y自动拆除§!是独立于['concept_planet_automation']的功能，默认开启，可通UI选择是否开启\n\n当前模组作者对普政以外的国家游玩较少，欢迎反馈问题与意见！"
+ MESSAGE_BCA_STARTUP_desc: "§YBetter Colony Automation§! by 哇噗\n\n本模组对自动托管功能进行了修复与改良。你可以通过['concept_colony']上的['concept_planet_automation']设置以及行星['concept_decision']与国家['concept_policies']来配置模组的具体行为。\n\n§H主要功能：§!\n- §Y智能规划：§! 根据星球特化方向自动规划和建造区块。最大化目标产出\n- §Y自动拆除：§! 必要时自动拆除不需要的 £building£ ['concept_buildings']、£district£ ['concept_district'] 与 £zone£ ['concept_district_specialization']\n- §Y更多§!：访问创意工坊以查看详情。\n\n§H注意§! ：§Y自动拆除§!是独立于['concept_planet_automation']的功能，默认开启，可通UI选择是否开启\n\n当前模组作者对普政以外的国家游玩较少，欢迎反馈问题与意见！"
 
  
  MESSAGE_BCA_UPDATE: "Better Colony Automation 更新推送"
  MESSAGE_BCA_UPDATE_desc: "$MESSAGE_BCA_UPDATE_desc_verson$\n$MESSAGE_BCA_UPDATE_desc_important$\n$MESSAGE_BCA_STARTUP_desc_log$"
- MESSAGE_BCA_UPDATE_desc_verson: "§YBetter Colony Automation§! 更新到 v1.2 ！"
+ MESSAGE_BCA_UPDATE_desc_verson: "§YBetter Colony Automation§! 更新到 v1.3 ！"
  MESSAGE_BCA_UPDATE_desc_important: "§H注意§!：本模组近期进行了大量更新，可访问创意工坊页面了解详情。\n§R注意§!: 此MOD现在需要 §1UI Overhaul Dynamic§! 作为前置MOD。\n反馈与交流：§YQQ 153870310§!"
- MESSAGE_BCA_STARTUP_desc_log: "$MESSAGE_BCA_STARTUP_desc_log_v120$\n$MESSAGE_BCA_STARTUP_desc_log_v110$\n$MESSAGE_BCA_STARTUP_desc_log_v102$\n$MESSAGE_BCA_STARTUP_desc_log_v101$\n$MESSAGE_BCA_STARTUP_desc_log_v100$\n\n['concept_bca_prev_update_log']"
+ MESSAGE_BCA_STARTUP_desc_log: "$MESSAGE_BCA_STARTUP_desc_log_v130$\n$MESSAGE_BCA_STARTUP_desc_log_v120$\n$MESSAGE_BCA_STARTUP_desc_log_v110$\n$MESSAGE_BCA_STARTUP_desc_log_v102$\n$MESSAGE_BCA_STARTUP_desc_log_v101$\n$MESSAGE_BCA_STARTUP_desc_log_v100$\n\n['concept_bca_prev_update_log']"
 
+ MESSAGE_BCA_STARTUP_desc_log_v130: "\n§Y2026-2-28 - v1.3§! \n\t- §G对性能进行了优化§!\n\t- 重写了自动建筑拆除，现在不再依赖于修改原版建筑来进行拆除，§G不再和修改原版建筑的MOD冲突§!\n\t- 支持了为高级建筑的建设拆除只提供岗位的建筑（如研究实验室）以腾出空间\n\t- 修复了某些情况下特化建设停止的问题"
  MESSAGE_BCA_STARTUP_desc_log_v120: "\n§Y2026-2-27 - v1.2§!：\n\t- 优化了专门提供岗位的建造的建造优先级，现在这类建筑会在没有区划空余时才进行建设\n\t- 修复了纪念碑类建筑的建造列表，只建设行星限制为1的建筑 \n\t- 支持了通过UI设置进行区划的拆除\n\t- 细化自动拆除选项，增加了对于建筑、区划和增益特化的独立选项\n\t- 修复错误建设特化的问题\n\t- 当有多个区划计划建造时现在会进行随机选择而不是总是优先建造同一个区划\n\t- 修复了在殖民中界面显示控制面板的问题"
  MESSAGE_BCA_STARTUP_desc_log_v110: "\n§Y2026-2-26 - v1.1§!：\n\t- 对 4.3 版本进行了支持\n\t- 由于 4.3 版本的一产城市区划被移除，相关逻辑大量简化\n\t- 修复了设计区划建设与拆除的若干问题"
  MESSAGE_BCA_STARTUP_desc_log_v102: "\n§Y2026-2-22 - v1.0.2§!：\n\t- 现在对于一产专精(£energy£ £minerals£ £food£)在§C自动区划管理§!开启的情况下(§H默认§!)§R会替换其他一产区划§!\n\t- 调整了在无岗位需求时，一产城市区增益与城市区划的建设优先级\n\t- 修复了一个导致火山或荒野星球下一产区划建造过度的错误。\n\t- 移除了部分过时的本地化"

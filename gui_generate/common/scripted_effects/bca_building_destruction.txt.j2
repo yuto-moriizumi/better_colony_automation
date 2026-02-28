@@ -1,0 +1,45 @@
+
+bca_auto_building_destruction_entry = {
+    if = {
+        limit = {
+            bca_can_remove_building = yes
+            free_building_slots = 0
+        }
+        {% for building_group in destruction_build_list %}
+        if = {
+            limit = {
+                {% for trigger in building_group.trigger %}
+                {{ trigger }} = yes
+                {% endfor %}
+                {% if building_group.category_filter %}
+                {% for category in building_group.category_filter %}
+                {% if building_group.category_filter|length > 1 %}
+                OR = {
+                    num_buildings = {
+                        type = any
+                        category = {{ category }}
+                        value > 0
+                    }
+                }
+                {% else %}
+                num_buildings = {
+                    type = any
+                    category = {{ category }}
+                    value > 0
+                }
+                {% endif %}
+                {% endfor %}
+                {% endif %}
+            }
+            {% for building in building_group.building %}
+            if = {
+                limit = {
+                    has_building = {{ building }}
+                }
+                remove_building = {{ building }}
+            }
+            {% endfor %}
+        }
+        {% endfor %}
+    }
+}

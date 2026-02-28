@@ -10,26 +10,62 @@ automate_industrial_planet = {
 	buildings = {
 		1 = {
 			building = building_ministry_production
+			available = {
+				OR = {
+					really_requires_more_job = no
+					free_district_slots = 0
+				}
+			}
 		}
 
 		2 = {
 			building = building_production_center
+			available = {
+				OR = {
+					really_requires_more_job = no
+					free_district_slots = 0
+				}
+			}
 		}
 		
 		3 = {
 			building = building_foundry_efficiency_1
+			available = {
+				OR = {
+					really_requires_more_job = no
+					free_district_slots = 0
+				}
+			}
 		}
 		
 		4 = {
 			building = building_factory_efficiency_1
+			available = {
+				OR = {
+					really_requires_more_job = no
+					free_district_slots = 0
+				}
+			}
 		}
 		
 		5 = {
 			building = building_foundry_upkeep_1
+			available = {
+				OR = {
+					really_requires_more_job = no
+					free_district_slots = 0
+				}
+			}
 		}
 		
 		6 = {
 			building = building_factory_upkeep_1
+			available = {
+				OR = {
+					really_requires_more_job = no
+					free_district_slots = 0
+				}
+			}
 		}
 
 		7_foundry = {

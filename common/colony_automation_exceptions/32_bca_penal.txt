@@ -11,7 +11,10 @@ automate_penal_planet = {
 		1 = {
 			building = building_ministry_production
 			available = {
-				always = yes
+				OR = {
+					really_requires_more_job = no
+					free_district_slots = 0
+				}
 			}
 		}
 
@@ -46,10 +49,22 @@ automate_penal_planet = {
 
 		5 = {
 			building = building_foundry_efficiency_1
+			available = {
+				OR = {
+					really_requires_more_job = no
+					free_district_slots = 0
+				}
+			}
 		}
 
 		6 = {
 			building = building_factory_efficiency_1
+			available = {
+				OR = {
+					really_requires_more_job = no
+					free_district_slots = 0
+				}
+			}
 		}
 	}
 }

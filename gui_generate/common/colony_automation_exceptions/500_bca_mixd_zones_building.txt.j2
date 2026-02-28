@@ -17,7 +17,7 @@
 
 {% for item in mixed_zone_buildings %}
 
-{#{% if item.job_need_priority%}#}
+{#{% if item.job_only%}#}
 {#automate_mixed_zone_{{ item.types[0] }}_building_job = {#}
 {#	category = "planet_automation_designation_construction"#}
 {##}
@@ -56,7 +56,7 @@
 {#	}#}
 {##}
 {#	buildings = {#}
-{#        {% for building in item.job_need_priority %}#}
+{#        {% for building in item.job_only %}#}
 {#	    {{ loop.index0 }} = {#}
 {#{{building_config(building)}}#}
 {#	    }#}
@@ -65,7 +65,7 @@
 {#}#}
 {#{% endif %}#}
 
-{% if item.always %}
+{% if item.efficiency or item.always %}
 automate_mixed_zone_{{ item.types[0] }}_building = {
 	category = "planet_automation_designation_construction"
 
@@ -83,15 +83,27 @@ automate_mixed_zone_{{ item.types[0] }}_building = {
 	}
 
 	buildings = {
-        {% for building in item.always %}
+        {% for building in item.efficiency %}
 	    {{ loop.index0 }} = {
+            {#  #}{{building_config(building)}}{#  #}
+			available = {
+				OR = {
+					really_requires_more_job = no
+					free_district_slots = 0
+				}
+			}
+	    }
+        {% endfor %}
+
+        {% for building in item.always %}
+	    {{ loop.index0 + item.efficiency|length }} = {
             {#  #}{{building_config(building)}}{#  #}
 	    }
         {% endfor %}
 
-        {% if item.job_need_priority and not item.job_building_available_for_at_least_one_zone%}
-        {% for building in item.job_need_priority %}
-        {{ loop.index0 + item.always|length }} = {
+        {% if item.job_only and not item.job_building_available_for_at_least_one_zone%}
+        {% for building in item.job_only %}
+        {{ loop.index0 + item.efficiency|length + item.always|length }} = {
             {#  #}{{building_config(building)}}{#  #}
             available = {
                 requires_more_job = yes
@@ -103,7 +115,8 @@ automate_mixed_zone_{{ item.types[0] }}_building = {
 
 	}
 }
-{% if item.job_building_available_for_at_least_one_zone and item.job_need_priority %}
+
+{% if item.job_building_available_for_at_least_one_zone and item.job_only %}
 automate_mixed_zone_{{ item.types[0] }}_building_job_low_priority = {
 	category = "planet_automation_designation_construction"
 
@@ -129,7 +142,7 @@ automate_mixed_zone_{{ item.types[0] }}_building_job_low_priority = {
 	}
 
 	buildings = {
-        {% for building in item.job_need_priority %}
+        {% for building in item.job_only %}
         {{ loop.index0 }} = {
             {#  #}{{building_config(building)}}{#  #}
         }

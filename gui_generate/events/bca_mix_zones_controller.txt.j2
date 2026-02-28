@@ -6,165 +6,140 @@
 namespace = colony_automation_event
 
 # flag clear
-country_event = {
+planet_event = {
 	id = colony_automation_event.112
 	hide_window = yes
 	is_triggered_only = yes
 
-	trigger = {
-		is_ai = no
-	}
 	immediate = {
-	    every_owned_planet = {
-			limit = {
-			    has_building_construction = no
-			}
-            {% for district_slot in ['d0','d1','d2','d3'] %}
-            remove_planet_flag = {{ pf.flag_district_plan_remove(district_slot) }}
-			{% endfor %}
-            remove_all_zone_plan_flag = yes
-        }
+        {% for district_slot in ['d0','d1','d2','d3'] %}
+        remove_planet_flag = {{ pf.flag_district_plan_remove(district_slot) }}
+        {% endfor %}
+        remove_all_zone_plan_flag = yes
 	}
 }
 
-country_event = {
+planet_event = {
 	id = colony_automation_event.20
 	hide_window = yes
 	is_triggered_only = yes
 
 	trigger = {
-		is_ai = no
-		bca_has_minerals_to_build = yes
+        requires_more_job = yes
+        NOT = { has_planet_flag = bca_pf_advance_controller_order }
 	}
 
 	immediate = {
-		every_owned_planet = {
-			limit = {
-			    is_colony = yes
-				has_building_construction = no
-				requires_more_job = yes
-				NOT = { has_planet_flag = bca_pf_advance_controller_order }
-			}
-
-            {% for item in zones_info %}
-                {% set type = item.type %}
-                {% if cond.contain_any_zones_of(item.zones, primary_districts_for_zone)|int %}
-                {{ "if" if loop.first else "else_if" }} = {
-                    limit = {
-                        check_variable_arithmetic = {
-                            which = value:num_primary_zones_of_type_{{ type }}
-                            value > value:num_primary_zone_plan_of_type_{{ type }}
-                        }
+        {% for item in zones_info %}
+            {% set type = item.type %}
+            {% if cond.contain_any_zones_of(item.zones, primary_districts_for_zone)|int %}
+            {{ "if" if loop.first else "else_if" }} = {
+                limit = {
+                    check_variable_arithmetic = {
+                        which = value:num_primary_zones_of_type_{{ type }}
+                        value > value:num_primary_zone_plan_of_type_{{ type }}
                     }
-                    set_planet_flag = bca_has_zone_to_replace
                 }
-                {% endif %}
-            {% endfor %}
+                set_planet_flag = bca_has_zone_to_replace
+            }
+            {% endif %}
+        {% endfor %}
 
-           {# set build command to builder #}
-            {% for item in zones_info %}
-                {% set type = item.type %}
-                {% if cond.contain_any_zones_of(item.zones, primary_districts_for_zone)|int %}
-                {{ "if" if loop.first else "else_if" }} = {
-                    limit = {
-                        check_variable_arithmetic = {
-                            which = value:num_primary_zones_of_type_{{ type }}
-                            value < value:num_primary_zone_plan_of_type_{{ type }}
-                        }
+       {# set build command to builder #}
+        {% for item in zones_info %}
+            {% set type = item.type %}
+            {% if cond.contain_any_zones_of(item.zones, primary_districts_for_zone)|int %}
+            {{ "if" if loop.first else "else_if" }} = {
+                limit = {
+                    check_variable_arithmetic = {
+                        which = value:num_primary_zones_of_type_{{ type }}
+                        value < value:num_primary_zone_plan_of_type_{{ type }}
                     }
-                    {# ensure has slot to build avoid primary zones build on secondary districts #}
+                }
+                {# ensure has slot to build avoid primary zones build on secondary districts #}
+                if = {
+                    limit = {
+                        has_planet_flag = bca_has_zone_to_replace
+                    }
+                    set_planet_flag = {{ pf.flag_plan_build_primary_zone_type(type) }}
+                    set_planet_flag = bca_plan_build_new_zone
+                }
+                else = {
+                    bca_get_num_free_city_zones = yes
                     if = {
                         limit = {
-                            has_planet_flag = bca_has_zone_to_replace
+                            check_variable = {
+                                which = bca_num_free_city_zones
+                                value > 0
+                            }
                         }
                         set_planet_flag = {{ pf.flag_plan_build_primary_zone_type(type) }}
                         set_planet_flag = bca_plan_build_new_zone
                     }
-                    else = {
-                        bca_get_num_free_city_zones = yes
-                        if = {
-                            limit = {
-                                check_variable = {
-                                    which = bca_num_free_city_zones
-                                    value > 0
-                                }
-                            }
-                            set_planet_flag = {{ pf.flag_plan_build_primary_zone_type(type) }}
-                            set_planet_flag = bca_plan_build_new_zone
-                        }
-                        clear_variable = bca_num_free_city_zones
-                    }
+                    clear_variable = bca_num_free_city_zones
                 }
-                {% endif %}
-            {% endfor %}
-            {# some zones are shared between primary district and secondary district
-               however if the primary district zone slots are full (primary district zone build first),
-               it would be not possible to build in primary district for zones that should be build in secondary districts
-               thus no bug #}
+            }
+            {% endif %}
+        {% endfor %}
+        {# some zones are shared between primary district and secondary district
+           however if the primary district zone slots are full (primary district zone build first),
+           it would be not possible to build in primary district for zones that should be build in secondary districts
+           thus no bug #}
+{#        if = {#}
+{#            limit = {#}
+{#                NOT = { has_planet_flag = bca_plan_build_new_zone } {# for reducing computation #}
+{#            }#}
+        {% for item in zones_info %}
+            {% set type = item.type %}
+            {% if cond.contain_any_zones_of(item.zones, secondary_districts_for_zone)|int %}
+            {# the order of primary_zone execute fist, event if has secondary zone order, it will not execute first #}
+            {# avoid blocking #}
             if = {
                 limit = {
-                    NOT = { has_planet_flag = bca_plan_build_new_zone } {# for reducing computation #}
-                }
-            {% for item in zones_info %}
-                {% set type = item.type %}
-                {% if cond.contain_any_zones_of(item.zones, secondary_districts_for_zone)|int %}
-                {# the order of primary_zone execute fist, event if has secondary zone order, it will not execute first #}
-                if = { {# avoid blocking #}
-                    limit = {
-                        check_variable_arithmetic = {
-                            which = value:num_secondary_zones_of_type_{{ type }}
-                            value < value:num_secondary_zone_plan_of_type_{{ type }}
-                        }
+                    check_variable_arithmetic = {
+                        which = value:num_secondary_zones_of_type_{{ type }}
+                        value < value:num_secondary_zone_plan_of_type_{{ type }}
                     }
-                    set_planet_flag = {{ pf.flag_plan_build_secondary_zone_type(type) }}
-                    set_planet_flag = bca_plan_build_new_zone
                 }
-                {% endif %}
-            {% endfor %}
+                set_planet_flag = {{ pf.flag_plan_build_secondary_zone_type(type) }}
+                set_planet_flag = bca_plan_build_new_zone
             }
-        }
+            {% endif %}
+        {% endfor %}
+{#        }#}
         remove_planet_flag = bca_has_zone_to_replace
     }
+
 }
 
-country_event = {
+planet_event = {
 	id = colony_automation_event.21
 	hide_window = yes
 	is_triggered_only = yes
 
 	trigger = {
-		is_ai = no
-		bca_has_minerals_to_build = yes
+        has_planet_flag = bca_plan_build_new_zone
+        NOT = { has_planet_flag = bca_pf_disable_planet_auto_destruction_zone }
 	}
 
 	immediate = {
-		every_owned_planet = {
-			limit = {
-			    is_colony = yes
-				has_building_construction = no
-				has_planet_flag = bca_plan_build_new_zone
-				NOT = { has_planet_flag = bca_pf_disable_planet_auto_destruction_zone }
-			}
+        {# remove zones #}
 
-            {# remove zones #}
-
-            {% for item in zones_info %}
-                {% set first = loop.first %}
-                {% set type = item.type %}
-                {% for zone in item.zones %}
-                    {{ "if" if loop.first and first else "else_if" }} = {
-                        limit = {
-                            check_variable_arithmetic = {
-                                which = value:num_zones_of_{{ zone }}
-                                value > value:num_zone_plan_of_{{ zone }}
-                            }
+        {% for item in zones_info %}
+            {% set first = loop.first %}
+            {% set type = item.type %}
+            {% for zone in item.zones %}
+                {{ "if" if loop.first and first else "else_if" }} = {
+                    limit = {
+                        check_variable_arithmetic = {
+                            which = value:num_zones_of_{{ zone }}
+                            value > value:num_zone_plan_of_{{ zone }}
                         }
-                        remove_zone = { zone = {{ zone }} }
                     }
-                {% endfor %}
+                    remove_zone = { zone = {{ zone }} }
+                }
             {% endfor %}
-
-        }
+        {% endfor %}
     }
 }
 

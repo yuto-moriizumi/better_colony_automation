@@ -1,13 +1,6 @@
 on_monthly_pulse_country = {
 	events = {
-		colony_automation_event.25 # 初始化检查
-		colony_automation_event.112 # 在建设前清除标识
-		colony_automation_event.10 # 资源特化区块自动规划
-		colony_automation_event.1  # 区划建造
-		colony_automation_event.2  # 区划拆除
-		colony_automation_event.20 # 特化建造
-		colony_automation_event.21 # 特化拆除
-		colony_automation_event.101  # 自动理想城计划
+		colony_automation_event.1000
 	}
 }
 

@@ -14,38 +14,92 @@ automate_unity_planet = {
 	buildings = {
 		1 = {
 			building = building_autochthon_monument
+			available = {
+				OR = {
+					really_requires_more_job = no
+					free_district_slots = 0
+				}
+			}
 		}
 
 		1_corp = {
 			building = building_corporate_monument
+			available = {
+				OR = {
+					really_requires_more_job = no
+					free_district_slots = 0
+				}
+			}
 		}
 
 		1_mach = {
 			building = building_simulation_1
+			available = {
+				OR = {
+					really_requires_more_job = no
+					free_district_slots = 0
+				}
+			}
 		}
 
 		1_hive = {
 			building = building_sensorium_1
+			available = {
+				OR = {
+					really_requires_more_job = no
+					free_district_slots = 0
+				}
+			}
 		}
 
 		1_memo = {
 			building = building_galactic_memorial_1
+			available = {
+				OR = {
+					really_requires_more_job = no
+					free_district_slots = 0
+				}
+			}
 		}
 
 		2 = {
 			building = building_autocurating_vault
+			available = {
+				OR = {
+					really_requires_more_job = no
+					free_district_slots = 0
+				}
+			}
 		}
 
 		2_spir = {
 			building = building_citadel_of_faith
+			available = {
+				OR = {
+					really_requires_more_job = no
+					free_district_slots = 0
+				}
+			}
 		}
 
 		2_corp = {
 			building = building_corporate_vault
+			available = {
+				OR = {
+					really_requires_more_job = no
+					free_district_slots = 0
+				}
+			}
 		}
 
 		2_mach = {
 			building = building_alpha_hub
+			available = {
+				OR = {
+					really_requires_more_job = no
+					free_district_slots = 0
+				}
+			}
 		}
 
 		3 = {
