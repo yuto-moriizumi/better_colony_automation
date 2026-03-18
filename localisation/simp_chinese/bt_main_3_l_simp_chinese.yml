@@ -6,11 +6,11 @@
  planet_automation_engineered: "$building_genomic_facility$"
  planet_automation_engineered_desc: "自动建造$building_genomic_facility$"
  planet_automation_fe_clinic: "$building_fe_clinic_1$"
- planet_automation_fe_clinic_desc: "默认建造一个。通过相关决策能解除建造限制"
+ planet_automation_fe_clinic_desc: "自动建造$building_fe_clinic_1$"
  planet_automation_monument: "纪念碑"
  planet_automation_monument_desc: "自动修纪念碑" 
  planet_automation_silo: "仓库建造"
- planet_automation_silo_desc: "自动修仓库，默认建造一个。通过相关决策能解除建造限制"
+ planet_automation_silo_desc: "自动修仓库，默认建造一个。通过相关设置能解除建造限制"
 
 
  policy_cba_reserve_minerals: "自动建造矿物阈值"
