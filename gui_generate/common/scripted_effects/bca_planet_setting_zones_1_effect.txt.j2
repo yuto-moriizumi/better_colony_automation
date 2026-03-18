@@ -68,6 +68,7 @@ bca_secondary_zone_setting_set_by_current_zones_helper = {
 
 {# potential bug: overlapping zone e.g. zone_research would be buggy#}
 bca_secondary_zone_setting_set_by_current_zones = {
+optimize_memory
 hidden_effect = {
     {% for zone_slot in ['z3','z4','z5'] %}
     {{ op.clear_zone_selection(zone_slot) }}

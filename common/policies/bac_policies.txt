@@ -12,9 +12,6 @@ cba_reserve_minerals = {
         on_enabled = {
             set_variable = { which = bca_reserve_minerals_amount value = 5000 }
         }
-        ai_weight = {
-            factor = 100
-        }
     }
     option = {
         name = "RESERVE_MINERALS_10k"
@@ -26,6 +23,36 @@ cba_reserve_minerals = {
         name = "RESERVE_MINERALS_20k"
         on_enabled = {
             set_variable = { which = bca_reserve_minerals_amount value = 20000 }
+        }
+    }
+}
+
+# alloys
+bca_reserve_alloys = {
+    allow = { always = yes }
+    potential = { always = yes }
+    option = {
+        name = "RESERVE_ALLOYS_0"
+        on_enabled = {
+            set_variable = { which = bca_reserve_alloys_amount value = 0 }
+        }
+    }
+    option = {
+        name = "RESERVE_ALLOYS_5k"
+        on_enabled = {
+            set_variable = { which = bca_reserve_alloys_amount value = 5000 }
+        }
+    }
+    option = {
+        name = "RESERVE_ALLOYS_10k"
+        on_enabled = {
+            set_variable = { which = bca_reserve_alloys_amount value = 10000 }
+        }
+    }
+    option = {
+        name = "RESERVE_ALLOYS_20k"
+        on_enabled = {
+            set_variable = { which = bca_reserve_alloys_amount value = 20000 }
         }
     }
 }

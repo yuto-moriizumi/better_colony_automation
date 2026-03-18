@@ -74,18 +74,7 @@ planet_event = {
 	}
 
 	immediate = {
-        {# arcology_project #}
-        if = {
-            limit = {
-                has_modifier = bca_pm_arcology_project_candidate
-            }
-            {% for district_slot in ['d1', 'd2', 'd3'] %}
-            set_variable = {
-                which = {{v.var_district_num_plan(district_slot)}}
-                value = 0
-            }
-            {% endfor %}
-        }
+
         {# destroy order #}
         if = {
             limit = {
@@ -114,7 +103,23 @@ planet_event = {
             }
             {% endfor %}
         }
-
+        {# arcology_project #}
+        if = {
+            limit = {
+                has_modifier = bca_pm_arcology_project_candidate
+            }
+            {% for district_slot in ['d1','d2','d3'] %}
+            if = {
+                limit = {
+                    check_variable_arithmetic = {
+                        which = value:num_district_{{ district_slot }}
+                        value > 0
+                    }
+                }
+                set_planet_flag = {{ pf.flag_district_plan_remove(district_slot) }}
+            }
+            {% endfor %}
+        }
         {# remove districts #}
         #primary district would not be removed if it is the only one left, to avoid accidentally remove all districts and cause bugs in zone plan building
         if = {

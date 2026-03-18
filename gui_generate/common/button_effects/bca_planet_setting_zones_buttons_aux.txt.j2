@@ -109,6 +109,15 @@ bca_planet_setting_secondary_zone_count_icon_{{ zone_slot }} = {
     allow = {
         always = yes
     }
+    # set to current
+    effect = {
+        hidden_effect = {
+            set_variable = {
+                which = {{v.var_district_num_plan(zone_slot)}}
+                value = value:num_district_{{ zone_slot_district_slot_mapping[zone_slot] }}
+            }
+        }
+    }
 }
 
 bca_planet_setting_secondary_zone_count_inc_{{ zone_slot }} = {
@@ -118,8 +127,8 @@ bca_planet_setting_secondary_zone_count_inc_{{ zone_slot }} = {
     allow = {
         hidden_trigger = {
             check_variable_arithmetic = {
-                which = value:bca_num_free_secondary_districts_plan
-                value > 0
+                which = value:bca_num_primary_districts_plan
+                value > 1
             }
         }
         bca_allow_manual_district_manage = yes

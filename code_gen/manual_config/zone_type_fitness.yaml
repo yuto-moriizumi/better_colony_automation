@@ -2,6 +2,7 @@ zone_type_fitness:
 - type: urban
   fitness_trigger:
     always: -200
+    bca_is_farming_habitat: 300
 - type: trade
   fitness_trigger:
     has_trade_designation: 200

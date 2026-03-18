@@ -13,7 +13,7 @@ planet_event = {
 
 	immediate = {
         {% for district_slot in ['d0','d1','d2','d3'] %}
-        remove_planet_flag = {{ pf.flag_district_plan_remove(district_slot) }}
+        remove_planet_flag = {{ pf.flag_district_plan_build(district_slot) }}
         {% endfor %}
         remove_all_zone_plan_flag = yes
 	}

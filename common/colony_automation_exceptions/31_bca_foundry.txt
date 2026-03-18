@@ -53,10 +53,8 @@ better_automate_foundry_planet_building = {
 		5 = {
 			building = building_micro_forge
 			available = {
-				OR = {
-					really_requires_more_job = no
-					free_district_slots = 0
-				}
+				requires_more_job = yes
+				free_district_slots = 0
 			}
 		}
 

@@ -808,6 +808,7 @@ bca_secondary_zone_setting_set_by_current_zones_helper = {
 }
 
 bca_secondary_zone_setting_set_by_current_zones = {
+optimize_memory
 hidden_effect = {
     bca_planet_setting_remove_current_selected_zone = {
         ZONE_SLOT = z3

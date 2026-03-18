@@ -7,6 +7,7 @@ zones_info:
   type: urban
   fitness_trigger:
     always: -200
+    bca_is_farming_habitat: 300
 - icon: GFX_district_specialization_trade
   zones:
   - zone_trade

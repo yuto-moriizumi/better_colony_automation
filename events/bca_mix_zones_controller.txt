@@ -9,10 +9,10 @@ planet_event = {
 	is_triggered_only = yes
 
 	immediate = {
-        remove_planet_flag = bca_pf_plan_remove_district_d0
-        remove_planet_flag = bca_pf_plan_remove_district_d1
-        remove_planet_flag = bca_pf_plan_remove_district_d2
-        remove_planet_flag = bca_pf_plan_remove_district_d3
+        remove_planet_flag = bca_pf_plan_build_district_d0
+        remove_planet_flag = bca_pf_plan_build_district_d1
+        remove_planet_flag = bca_pf_plan_build_district_d2
+        remove_planet_flag = bca_pf_plan_build_district_d3
         remove_all_zone_plan_flag = yes
 	}
 }

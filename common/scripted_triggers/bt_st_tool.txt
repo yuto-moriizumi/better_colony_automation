@@ -31,8 +31,8 @@ bca_has_minerals_to_build = {
 bca_has_resource_for_arcology_project = {
 	owner = {
 		resource_stockpile_compare = {
-			resource = minerals 
-			value >= value:bca_value_add|VALUE|bca_reserve_minerals_amount|ADD|20000|
+			resource = alloys
+			value >= value:bca_value_add|VALUE|bca_reserve_alloys_amount|ADD|10000|
 		}
 		resource_stockpile_compare = {
 			resource = influence 

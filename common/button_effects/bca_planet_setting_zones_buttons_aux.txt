@@ -1908,6 +1908,15 @@ bca_planet_setting_secondary_zone_count_icon_z3 = {
     allow = {
         always = yes
     }
+    # set to current
+    effect = {
+        hidden_effect = {
+            set_variable = {
+                which = bca_ps_plan_district_count_z3
+                value = value:num_district_d1
+            }
+        }
+    }
 }
 
 bca_planet_setting_secondary_zone_count_inc_z3 = {
@@ -1917,8 +1926,8 @@ bca_planet_setting_secondary_zone_count_inc_z3 = {
     allow = {
         hidden_trigger = {
             check_variable_arithmetic = {
-                which = value:bca_num_free_secondary_districts_plan
-                value > 0
+                which = value:bca_num_primary_districts_plan
+                value > 1
             }
         }
         bca_allow_manual_district_manage = yes
@@ -1979,6 +1988,15 @@ bca_planet_setting_secondary_zone_count_icon_z4 = {
     allow = {
         always = yes
     }
+    # set to current
+    effect = {
+        hidden_effect = {
+            set_variable = {
+                which = bca_ps_plan_district_count_z4
+                value = value:num_district_d2
+            }
+        }
+    }
 }
 
 bca_planet_setting_secondary_zone_count_inc_z4 = {
@@ -1988,8 +2006,8 @@ bca_planet_setting_secondary_zone_count_inc_z4 = {
     allow = {
         hidden_trigger = {
             check_variable_arithmetic = {
-                which = value:bca_num_free_secondary_districts_plan
-                value > 0
+                which = value:bca_num_primary_districts_plan
+                value > 1
             }
         }
         bca_allow_manual_district_manage = yes
@@ -2050,6 +2068,15 @@ bca_planet_setting_secondary_zone_count_icon_z5 = {
     allow = {
         always = yes
     }
+    # set to current
+    effect = {
+        hidden_effect = {
+            set_variable = {
+                which = bca_ps_plan_district_count_z5
+                value = value:num_district_d3
+            }
+        }
+    }
 }
 
 bca_planet_setting_secondary_zone_count_inc_z5 = {
@@ -2059,8 +2086,8 @@ bca_planet_setting_secondary_zone_count_inc_z5 = {
     allow = {
         hidden_trigger = {
             check_variable_arithmetic = {
-                which = value:bca_num_free_secondary_districts_plan
-                value > 0
+                which = value:bca_num_primary_districts_plan
+                value > 1
             }
         }
         bca_allow_manual_district_manage = yes

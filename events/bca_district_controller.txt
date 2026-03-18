@@ -183,23 +183,7 @@ planet_event = {
 	}
 
 	immediate = {
-        if = {
-            limit = {
-                has_modifier = bca_pm_arcology_project_candidate
-            }
-            set_variable = {
-                which = bca_ps_plan_district_count_d1
-                value = 0
-            }
-            set_variable = {
-                which = bca_ps_plan_district_count_d2
-                value = 0
-            }
-            set_variable = {
-                which = bca_ps_plan_district_count_d3
-                value = 0
-            }
-        }
+
         if = {
             limit = {
                 bca_auto_district_manage_enabled = no
@@ -241,7 +225,38 @@ planet_event = {
                 set_planet_flag = bca_pf_plan_remove_district_d3
             }
         }
-
+        if = {
+            limit = {
+                has_modifier = bca_pm_arcology_project_candidate
+            }
+            if = {
+                limit = {
+                    check_variable_arithmetic = {
+                        which = value:num_district_d1
+                        value > 0
+                    }
+                }
+                set_planet_flag = bca_pf_plan_remove_district_d1
+            }
+            if = {
+                limit = {
+                    check_variable_arithmetic = {
+                        which = value:num_district_d2
+                        value > 0
+                    }
+                }
+                set_planet_flag = bca_pf_plan_remove_district_d2
+            }
+            if = {
+                limit = {
+                    check_variable_arithmetic = {
+                        which = value:num_district_d3
+                        value > 0
+                    }
+                }
+                set_planet_flag = bca_pf_plan_remove_district_d3
+            }
+        }
         #primary district would not be removed if it is the only one left, to avoid accidentally remove all districts and cause bugs in zone plan building
         if = {
             limit = {

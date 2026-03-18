@@ -321,7 +321,7 @@ effectButtonType = {
         position = { x = 375.25 y = 40 }
         size = { x = 50 y = 50 }
         scale = 1.1111111111111112
-        alwaysTransparent = false
+        alwaysTransparent = no
         effect = "bca_planet_setting_storage_world_icon"
     }
     effectButtonType = {

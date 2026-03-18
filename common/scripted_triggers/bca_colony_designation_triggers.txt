@@ -123,3 +123,8 @@ bca_has_auto_zone_manage = {
         has_farming_designation = yes
     }
 }
+
+bca_is_farming_habitat = {
+    uses_district_set = habitat
+    has_farming_designation = yes
+}

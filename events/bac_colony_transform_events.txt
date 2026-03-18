@@ -81,7 +81,6 @@ planet_event = {
 					}
 				}
 			}
-			remove_modifier = bca_pm_arcology_project_candidate
 			planet_event = { id = colony_automation_event.102 }
 
 		}
@@ -109,12 +108,17 @@ planet_event = {
 		else = {
 			select_decision = { name = decision_arcology_project }
 		}
+		hidden_effect = {
+			remove_modifier = bca_pm_arcology_project_candidate
+		}
 		sound = event_administrative_work
 	}
 
 	option = {
 		name = colony_automation_event.102.b
-		remove_modifier = bca_pm_arcology_project_candidate
+		hidden_effect = {
+			planet_event = { id=colony_automation_event.100 }
+		}
 	}
 
 

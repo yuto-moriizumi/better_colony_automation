@@ -76,11 +76,11 @@ automate_research_planet = {
 		8 = {
 			building = building_engineering_facility_1
 		}
-		
+
 		9 = {
 			building = building_physics_lab_1
 		}
-		
+
 		10 = {
 			building = building_biolab_1
 		}

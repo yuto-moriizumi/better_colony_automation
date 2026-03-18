@@ -6,6 +6,10 @@ bca_planet_setting_zone_rank_urban = {
         always = yes
         add = -1000
     }
+    modifier = {
+        bca_is_farming_habitat = yes
+        add = 1500
+    }
 }
 bca_planet_setting_zone_rank_trade = {
     base = 1000

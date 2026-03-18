@@ -1,7 +1,7 @@
 #Lists the categories of planetary automation that you can select in the planet interface
 #Available trigger governs whether it is shown in the list.
 
-# planet_automation_deficit_restriction = {}
+planet_automation_deficit_restriction = {}
 
 planet_automation_designation_construction = {}
 
@@ -19,10 +19,6 @@ planet_automation_robot_assembly = {
 		owner = {
 			is_regular_empire = yes
 			is_machine_empire = no
-			OR = {
-				is_materialist = yes
-				NOT = { has_ascension_perk = ap_engineered_evolution }
-			}
 			NOT = { has_policy_flag = robots_outlawed }
 		}
 	}
